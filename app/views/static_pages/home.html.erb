@@ -1,2 +1,33 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title, '') %>
+<header>
+  <%#= render 'layouts/topmenu' %>
+</header>
+<main>
+  <div class="top_image">
+    <h1>Trapla</h1>
+    <p><%= link_to 'ログイン', '#', class: "btn btn-lg btn-primary"  %></p>
+    <p><%= link_to '新規登録', '#', class: "btn btn-lg btn-primary"  %></p>
+  </div>
+  <div class="service_explain">
+    <div class="service_image">
+      <p>スケジュール作成</p>
+      <%= image_tag 'make.svg' %>
+      <p>持ち物やかかる費用を漏らさずに旅行を計画できます。</p>
+    </div>
+    <div class="service_image">
+      <p>一般公開</p>
+      <%= image_tag 'networking.svg' %>
+      <p>他の人とスケジュールを共有することができます。</p>
+    </div>
+    <div class="service_image">
+      <p>複製利用</p>
+      <%= image_tag 'duplicate.svg' %>
+      <p>すべてのスケジュールは複製利用できます。</p>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <p class="text-muted">&copy; Copyright Trapla</p>
+  </div>
+</footer>
