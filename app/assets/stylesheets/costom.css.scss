@@ -1,0 +1,88 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+//全体
+body {
+  padding-top: 50px;
+}
+header, main, footer {
+  border-bottom: 1px solid gray;
+}
+
+//ヘッダー
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+// メインフレーム
+.top_image {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(topimage.jpg);
+  background-size: cover;
+  overflow: hidden;
+  h1 {
+    font-family: 'Syncopate',sans-serif;
+    margin: 20vh auto;
+    font-size: 20vh;
+    text-align: center;
+    color: white;
+  }
+  .btn-group {
+    margin: 1vh auto;
+    display: block;
+    width: 200px;
+  }
+  a {
+    width: 20vw;
+  }
+}
+
+// サービス説明部分
+.service_explain {
+  margin: 0 auto;
+  padding: 0 auto;
+  text-align: center;
+}
+.service_image {
+  width: 25vw;
+  height: 50vh;
+  margin: 5vh 4vw;
+  display: inline-block;
+  vertical-align:top;
+  span, img, p {
+    margin: 1vh auto;
+    padding: 0;
+  }
+  img {
+    height: 15vw;
+  }
+  p {
+    font-size: 24px;
+  }
+}
+
+// フッター
+footer {
+  text-align: center;
+  ul {
+    float: right;
+    list-style: none;
+  }
+  ul li {
+    float: left;
+    margin-left: 15px;
+  }
+}

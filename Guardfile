@@ -40,3 +40,21 @@ guard :minitest, spring: "bin/rails test", all_on_start: false do
   # watch(%r{^app/helpers/(.*)\.rb$})     { |m| "test/helpers/#{m[1]}_test.rb" }
   # watch(%r{^app/models/(.*)\.rb$})      { |m| "test/unit/#{m[1]}_test.rb" }
 end
+
+# 与えられたリソースに対応する統合テストを返す
+def integration_tests(resource = :all)
+  if resource == :all
+    Dir["test/integration/*"]  else
+    Dir["test/integration/#{resource}_*.rb"]
+  end
+end
+
+# 与えられたリソースに対応するコントローラのテストを返す
+def controller_test(resource)
+  "test/controllers/#{resource}_controller_test.rb"
+end
+
+# 与えられたリソースに対応するすべてのテストを返す
+def resource_tests(resource)
+  integration_tests(resource) << controller_test(resource)
+end
