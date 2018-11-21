@@ -1,14 +1,14 @@
-<% provide(:title, "Signup") %>
+<% provide(:title, "Edit "+@user.name+" infomation") %>
 <div class="user_gawa">
   <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading">Sign up</div>
+      <div class="panel-heading">Edit user infomation</div>
         <div class="panel-body">
             <%= form_for(@user) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
               <%= f.label :name, class:"info" %>
               <%= f.text_field :name, class: 'form-control' %>
-
+              
               <%= f.label :email, class:"info" %>
               <%= f.email_field :email, class: 'form-control' %>
 
@@ -17,7 +17,9 @@
 
               <%= f.label :password_confirmation, class:"info" %>
               <%= f.password_field :password_confirmation, class: 'form-control' %>
-              <%= f.submit "Create account", class: "btn btn-primary" %>
+
+              <%= f.submit "Edit account", class: "btn btn-primary" %>
+              <%= link_to "Cancel", @user, class: "btn btn-primary" %>
             <% end %>
         </div>
       </div>

@@ -1,3 +1,33 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 全体
+.user_gawa {
+  width: 50vw;
+  margin: 10vh auto;
+  overflow: hidden;
+  .container{
+    width: auto;
+    height: auto;
+    overflow: hidden;
+  }
+}
+
+.panel-body .btn{
+  margin-top: 5px;
+}
+
+
+// show
+.user_img {
+  width: 15vw;
+  height: 15vh;
+  margin: 10px;
+  float: left;
+  border-radius: 10px;
+  background-color: lightblue;
+}
+
+.user_infomation {
+  margin: 10px;
+}
+
+// edit

@@ -9,6 +9,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'mini_racer'
+gem 'bcrypt',       '3.1.12' #パスワード(password_digest)をハッシュ化する
 
 #bootstrap
 gem 'rails',          '5.1.6'
@@ -17,6 +18,9 @@ gem 'bootstrap-sass', '3.3.7'
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'pry-rails'
+  gem 'better_errors'     # 開発中のエラー画面をリッチにする
+  gem 'binding_of_caller' # 開発中のエラー画面にさらに変数の値を表示する
 end
 
 group :development do
