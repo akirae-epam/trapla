@@ -13,7 +13,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "name or email should not be blank" do
-    #
     user = User.new(name:'', email:'')
     assert_not user.valid?
     assert_not user.errors.messages[:name].empty?
