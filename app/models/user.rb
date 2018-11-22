@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-#———————————————Validation————————————————
+#———————————————————————————————事前処理———————————————————————————————
+  #emailは.save前に矯正的に小文字に変換する
+  before_save { self.email = email.downcase }
+
+#———————————————————————————————Validation———————————————————————————————
   #name
   validates :name, presence: true,
                    length: {maximum: 25},
@@ -16,4 +20,12 @@ class User < ApplicationRecord
   validates :password, presence: true,
                        length: {minimum: 6}
   has_secure_password
+
+#———————————————————————————————クラスメソッド———————————————————————————————
+  # 渡された文字列のハッシュ値を返す
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end
