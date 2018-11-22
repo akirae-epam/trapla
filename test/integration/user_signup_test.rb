@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserSignupTest < ActionDispatch::IntegrationTest
 
-  test "signup user" do
+  test "signup with valid user infomation" do
     get signup_path
     assert_template 'users/new'
     assert_difference 'User.count', 1 do
@@ -14,9 +14,10 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_not flash.empty?
     assert_template 'users/show'
+    assert is_logged_in?
   end
 
-  test "invalid signup user infomation" do
+  test "signup with invalid  user infomation" do
     get signup_path
     assert_template 'users/new'
     assert_no_difference 'User.count' do
