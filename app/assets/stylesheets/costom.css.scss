@@ -30,7 +30,7 @@ header, main, footer {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  background-image: url(topimage.jpg);
+  background-image: image-url('topimage.jpg');
   background-size: cover;
   overflow: hidden;
   h1 {
