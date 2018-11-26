@@ -2,10 +2,13 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(name:'validename',
+    @user = User.new(name:'valid name',
                      email:'valid@email.com',
                      password: 'foobar',
                      password_confirmation: 'foobar')
+    @valid_name = 'valid name'
+    @valid_email = 'valid@email.com'
+    @valid_password = 'foobaer'
   end
 
   test "valid user infomation" do
@@ -13,7 +16,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "name or email should not be blank" do
-    user = User.new(name:'', email:'')
+    user = User.new(name:'',
+                    email:'',
+                    password: @valid_password,
+                    password_confirmation: @valid_password)
     assert_not user.valid?
     assert_not user.errors.messages[:name].empty?
     assert_not user.errors.messages[:email].empty?
@@ -21,20 +27,29 @@ class UserTest < ActiveSupport::TestCase
 
   test "name.length should be less than 26 charactors)" do
     name = 'a' * 26
-    user = User.new(name: name, email:@user.email)
+    user = User.new(name: name,
+                    email:@valid_email,
+                    password: @valid_password,
+                    password_confirmation: @valid_password)
     assert_not user.valid?
     assert_not user.errors.messages[:name].empty?
   end
 
   test "email.length should be less than 255 charactors)" do
     mail = ('a' * 246) + '@email.com'
-    user = User.new(name: @user.name, email:mail)
+    user = User.new(name: @valid_name,
+                    email:mail,
+                    password: @valid_password,
+                    password_confirmation: @valid_password)
     assert_not user.valid?
     assert_not user.errors.messages[:email].empty?
   end
 
   test "email should be valid format" do
-    user = User.new(name: @user.name, email:'invalid')
+    user = User.new(name: @valid_name,
+                    email:'invalid',
+                    password: @valid_password,
+                    password_confirmation: @valid_password)
     assert_not user.valid?
     assert_not user.errors.messages[:email].empty?
   end
@@ -43,17 +58,19 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
     @user.save
 
-    user = User.new(name: @user.name,
+    #ユーザ名がかぶったらエラー
+    user = User.new(name: @valid_name,
                     email:'valid2@email.com',
-                    password: @user.password,
-                    password_confirmation: @user.password_confirmation)
+                    password: @valid_password,
+                    password_confirmation: @valid_password)
     assert_not user.valid?
     assert_not user.errors.messages[:name].empty?
 
-    user = User.new(name:'validename2',
-                    email: @user.email,
-                    password: @user.password,
-                    password_confirmation: @user.password_confirmation)
+    #メールアドレスがかぶったらエラー
+    user = User.new(name:'valid name2',
+                    email: @valid_email,
+                    password: @valid_password,
+                    password_confirmation: @valid_password)
     assert_not user.valid?
     assert_not user.errors.messages[:email].empty?
   end

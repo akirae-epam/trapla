@@ -21,7 +21,8 @@ class User < ApplicationRecord
 
   #password
   validates :password, presence: true,
-                       length: {minimum: 6}
+                       length: {minimum: 6},
+                       allow_nil: true
   has_secure_password
 
 #———————————————————————————————クラスメソッド———————————————————————————————

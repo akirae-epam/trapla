@@ -19,11 +19,14 @@
               <%= f.password_field :password_confirmation, class: 'form-control' %>
 
               <%= f.submit "Edit account", class: "btn btn-primary" %>
+
               <%= link_to "Cancel", @user, class: "btn btn-primary" %>
-              <%= link_to 'Delete this account', user_path,
-                                                 method: :delete,
-                                                 class: 'delete_user',
-                                                 confirm: '本当に削除しますか？'%>
+              <% if current_user == @user %>
+                <%= link_to "Delete Account", user_path,
+                                                   method: :delete,
+                                                   class: 'delete_user',
+                                                   data: { confirm: "本当に削除しますか？"} %>
+              <% end %>
             <% end %>
         </div>
       </div>
