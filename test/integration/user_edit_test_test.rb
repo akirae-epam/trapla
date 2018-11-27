@@ -4,6 +4,7 @@ class UserEditTestTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
     @other_user = users(:archer)
+    @test_user = users(:lana)
     @valid_name = 'valid name'
     @valid_email = 'valid@email.com'
     @valid_password = 'foobar'
@@ -79,4 +80,52 @@ class UserEditTestTest < ActionDispatch::IntegrationTest
     assert_equal name,  @user.name
     assert_equal email, @user.email
   end
+
+
+  #管理者でないと管理者権限を付与できない
+  test "should not allow the admin attribute to be edited via the web" do
+    log_in_as(@other_user)
+    assert_not @other_user.admin?
+    patch user_path(@other_user), params: {
+                                    user: { password: @valid_password,
+                                            password_confirmation: @valid_password,
+                                            admin: true } }
+    assert_not @other_user.reload.admin?
+  end
+
+  #削除権限は自分自身か管理者が持つ
+  test "user cannot be deleted with not logged in" do
+    assert_no_difference 'User.count' do
+      delete user_path(@other_user)
+    end
+    assert_redirected_to login_url
+    assert_not flash.empty?
+  end
+
+  test "user can delete only own self" do
+    log_in_as(@other_user)
+    assert_difference 'User.count', -1 do
+      delete user_path(@other_user)
+    end
+    assert_redirected_to root_url
+    assert_not flash.empty?
+  end
+
+  test "user cannot delete another" do
+    log_in_as(@other_user)
+    assert_no_difference 'User.count' do
+      delete user_path(@test_user)
+    end
+    assert_redirected_to root_url
+  end
+
+  test "only admin user allowed to delete another" do
+    log_in_as(@user)
+    assert_difference 'User.count', -1 do
+      delete user_path(@other_user)
+    end
+    assert_redirected_to users_url
+    assert_not flash.empty?
+  end
+
 end

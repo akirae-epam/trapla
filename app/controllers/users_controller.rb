@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 # ———————————————————————————————before_action———————————————————————————————
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: [:destroy, :index, :edit, :update]
+  before_action :correct_user,   only: [:destroy, :edit, :update]
 
   # ログイン済みユーザーかどうか確認
   def logged_in_user
@@ -12,14 +12,17 @@ class UsersController < ApplicationController
     end
   end
 
-  # 正しいユーザーかどうか確認
+  # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
   def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+    if !current_user.admin?
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
   end
 
 # ———————————————————————————————actions———————————————————————————————
   def index
+    @users = User.all.paginate(page: params[:page])
   end
 
   def show
@@ -56,6 +59,19 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id])
+    if current_user.admin?
+      user.destroy
+      flash[:success] = "User deleted"
+      redirect_to users_url
+    else
+      user.destroy
+      session.delete(:user_id)
+      cookies.delete(:user_id)
+      cookies.delete(:remember_token)
+      flash[:success] = "User deleted"
+      redirect_to root_url
+    end
   end
 
   private

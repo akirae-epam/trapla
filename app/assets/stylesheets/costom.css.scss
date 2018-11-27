@@ -24,7 +24,6 @@ header, main, footer {
   text-decoration: none;
 }
 
-
 // メインフレーム
 .top_image {
   text-align: center;
@@ -56,21 +55,44 @@ header, main, footer {
   padding: 0 auto;
   text-align: center;
 }
-.service_image {
-  width: 25vw;
-  height: 50vh;
-  margin: 5vh 4vw;
-  display: inline-block;
-  vertical-align:top;
-  span, img, p {
-    margin: 1vh auto;
-    padding: 0;
+
+@media screen and (max-width: 640px) {
+  .service_image {
+    width: 90vw;
+    height: auto;
+    margin: 5vh 4vw;
+    display: inline-block;
+    vertical-align:top;
+    span, img, p {
+      margin: 1vh auto;
+      padding: 0;
+    }
+    img {
+      height: 50vw;
+    }
+    p {
+      display: block;
+      font-size: 2em;
+    }
   }
-  img {
-    height: 15vw;
-  }
-  p {
-    font-size: 24px;
+}
+@media screen and (min-width: 640px) {
+  .service_image {
+    width: 25vw;
+    height: 50vh;
+    margin: 5vh 4vw;
+    display: inline-block;
+    vertical-align:top;
+    span, img, p {
+      margin: 1vh auto;
+      padding: 0;
+    }
+    img {
+      height: 15vw;
+    }
+    p {
+      font-size: 24px;
+    }
   }
 }
 

@@ -14,12 +14,15 @@
 
   <body>
   <%= render 'layouts/topmenu' %>
-  <div class="container">
-    <% flash.each do |message_type, message| %>
-    <%= content_tag(:div, message, class:"alert alert-#{message_type}") %>
-    <% end %>
-  </div>
-  <%= yield %>
+  <main>
+    <div class="container">
+      <div class="alert alert-success">testmessage</div>
+      <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class:"alert alert-#{message_type}") %>
+      <% end %>
+    </div>
+    <%= yield %>
+  </main>
   <%= render 'layouts/footer' %>
   <%= debug(params) if Rails.env.development? %>
   </body>

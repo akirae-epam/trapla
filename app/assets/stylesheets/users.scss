@@ -15,11 +15,22 @@
   margin-top: 5px;
 }
 
+//index
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid gray-lighter;
+  }
+}
 
 // show
 .user_img {
-  width: 15vw;
-  height: 15vh;
+  width: 5vw;
+  height: 5vw;
   margin: 10px;
   float: left;
   border-radius: 10px;
