@@ -1,4 +1,6 @@
 class PlansController < ApplicationController
+  before_action :logged_in_user
+
   def index
   end
 
@@ -19,4 +21,5 @@ class PlansController < ApplicationController
 
   def destroy
   end
+
 end
