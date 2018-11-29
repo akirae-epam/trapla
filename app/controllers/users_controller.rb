@@ -3,15 +3,6 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:destroy, :index, :edit, :update]
   before_action :correct_user,   only: [:destroy, :edit, :update]
 
-  # ログイン済みユーザーかどうか確認
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
-
   # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
   def correct_user
     if !current_user.admin?
