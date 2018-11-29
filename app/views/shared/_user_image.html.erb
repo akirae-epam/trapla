@@ -1,0 +1,5 @@
+<% if user_img.attached? %>
+    <%= image_tag user_img %>
+  <% else %>
+    <%= image_tag 'default_user_img.png' %>
+<% end %>

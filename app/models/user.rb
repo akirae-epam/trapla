@@ -1,10 +1,16 @@
 class User < ApplicationRecord
 #———————————————————————————————事前処理———————————————————————————————
   has_many :plans, dependent: :destroy
+
   attr_accessor :remember_token, :activation_token, :reset_token
 
-  before_save :downcase_email
+  before_save :downcase_email, :save_user_image
   before_create :create_activation_digest
+
+
+  #プロフィール画像
+  has_one_attached :user_image
+  attribute :new_user_image
 #———————————————————————————————Validation———————————————————————————————
   validates :name, presence: true,
                    length: {maximum: 25},
@@ -93,6 +99,12 @@ class User < ApplicationRecord
     def create_activation_digest
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+
+    def save_user_image
+      if new_user_image
+        self.user_image = new_user_image
+      end
     end
 
 end

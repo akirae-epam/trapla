@@ -4,7 +4,7 @@
       <div class="panel-heading">Profile</div>
         <div class="panel-body">
             <div class="user_img">
-              プロフィール画像
+              <%= render 'shared/user_image', user_img: @user.user_image%>
             </div>
             <div class="user_infomation">
               <div class="user_name">Account name : <%= @user.name %></div>

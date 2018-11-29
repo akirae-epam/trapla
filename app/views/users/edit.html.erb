@@ -6,6 +6,12 @@
         <div class="panel-body">
             <%= form_for(@user) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
+              <div class="edit_user_img">
+                <%= render 'shared/user_image', user_img: @user.user_image%>
+              </div>
+              <%= f.label :new_user_image, class:"info" %>
+              <%= f.file_field :new_user_image, class: 'form-control' %>
+
               <%= f.label :name, class:"info" %>
               <%= f.text_field :name, class: 'form-control' %>
 

@@ -1,7 +1,7 @@
 <li id="plan-<%= plan.id %>" class = "plan_list well">
   <div class="plan_user">
     <div class="user_img">
-      プロフィール画像
+      <%= render 'shared/user_image', user_img: plan.user.user_image%>
     </div>
     <p class="user"><%= link_to plan.user.name, plan.user %></p>
   </div>

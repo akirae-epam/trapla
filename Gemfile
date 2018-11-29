@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '5.1.6'
+gem 'rails',        '5.2.0'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.2.0'
@@ -13,6 +13,8 @@ gem 'bcrypt',       '3.1.12' #パスワード(password_digest)をハッシュ化
 gem 'faker',          '1.7.3' #サンプルデータを作成する
 gem 'will_paginate',           '3.1.6' #ページネーション
 gem 'bootstrap-will_paginate', '1.0.0' #ページネーションでbootstrap
+gem 'mini_magick' #active strageを使う
+gem 'activestorage'
 
 #bootstrap
 gem 'bootstrap-sass', '3.3.7'

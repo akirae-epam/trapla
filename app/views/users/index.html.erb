@@ -1,19 +1,22 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
-
-<%= will_paginate %>
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <div class="user_img">
-        プロフィール画像
-      </div>
-      <%= link_to user.name, user %>
-      <% if current_user.admin? && !current_user?(user) %>
-        | <%= link_to "delete", user, method: :delete,
-                                      data: { confirm: "You sure?" } %>
+<div class="plan_gawa">
+  <div class="panel panel-default">
+    <h1>All users</h1>
+    <%= will_paginate %>
+    <ul class="users">
+      <% @users.each do |user| %>
+        <li class="well">
+          <div class="user_img">
+            <%= render 'shared/user_image', user_img: user.user_image%>
+          </div>
+          <%= link_to user.name, user %>
+          <% if current_user.admin? && !current_user?(user) %>
+            | <%= link_to "delete", user, method: :delete,
+                                          data: { confirm: "You sure?" } %>
+          <% end %>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ul>
-<%= will_paginate %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+</div>
