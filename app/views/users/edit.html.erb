@@ -18,9 +18,9 @@
               <%= f.label :password_confirmation, class:"info" %>
               <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-              <%= f.submit "Edit account", class: "btn btn-primary" %>
+              <%= f.submit "Edit account", class: "btn btn-default" %>
 
-              <%= link_to "Cancel", @user, class: "btn btn-primary" %>
+              <%= link_to "Cancel", @user, class: "btn btn-default" %>
               <% if current_user == @user %>
                 <%= link_to "Delete Account", user_path,
                                                    method: :delete,
