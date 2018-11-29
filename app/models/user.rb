@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 #———————————————————————————————事前処理———————————————————————————————
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
 
   before_save :downcase_email
   before_create :create_activation_digest
@@ -33,15 +33,40 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
+
+  # アカウント有効化のメールを送信する
+  def send_account_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
   #アカウントを有効化する
   def activate
     self.update_attributes(activated: true, activated_at: Time.zone.now)
   end
 
+
+  # パスワード再設定の属性を設定する
+  def create_reset_digest
+    self.reset_token = User.new_token
+    self.update_columns(reset_digest: User.digest(reset_token),
+                        reset_sent_at: Time.zone.now)
+  end
+
+  # パスワード再設定のメールを送信する
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  # パスワード再設定の期限が切れている場合はtrueを返す
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+
+
   # 永続セッションのためにユーザーをデータベースremember_digestカラムに記憶する
   def cookie_remember
     self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
+    self.update_columns(remember_digest: User.digest(remember_token))
   end
 
   # 渡されたトークンがダイジェストと一致したらtrueを返す

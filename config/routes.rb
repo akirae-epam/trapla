@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   #StaticPagesController
   root 'static_pages#home'
 
@@ -14,4 +15,7 @@ Rails.application.routes.draw do
 
   #AccountActivatesController
   resources :account_activations, only: [:edit]
+
+  #PasswordResetsController
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end
