@@ -12,14 +12,24 @@
               <div class="user_name">Account name : <%= @user.name %></div>
               <div class="user_email">Email Address : <%= @user.email %></div>
               <% if current_user == @user %>
-                <%= link_to 'ユーザ情報を編集する', edit_user_path(@user) %>
+                <%= link_to 'Edit account', edit_user_path(@user) %>
               <% end %>
             </div>
-
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<p align="center">記事一覧を表示</p>
+<hr>
+<div class="plan_gawa">
+  <div class="panel panel-default">
+    <% if @user.plans.any? %>
+      <h3>Plans (<%= @user.plans.count %>)</h3>
+      <%= will_paginate @plans %>
+      <ol class="plans">
+        <%= render @plans %>
+      </ol>
+      <%= will_paginate @plans %>
+    <% end %>
+  </div>
+</div>

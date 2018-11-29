@@ -18,4 +18,7 @@ Rails.application.routes.draw do
 
   #PasswordResetsController
   resources :password_resets, only: [:new, :create, :edit, :update]
+
+  #PlansController
+  resources :plans
 end

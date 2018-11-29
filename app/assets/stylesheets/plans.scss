@@ -1,0 +1,28 @@
+.plan_gawa {
+  .panel {
+    margin: 20px 10vw;
+    padding: 20px;
+  }
+}
+
+.plan_list {
+  overflow: hidden;
+  margin-bottom: 1vh;
+  list-style: none;
+}
+
+.plan-overview {
+  vertical-align: top;
+}
+
+
+.plan_user {
+  text-align: center;
+  vertical-align: top;
+  float: left;
+  margin-right: 2vw;
+  .user_img {
+    width: 15vw;
+    height: 15vw;
+  }
+}

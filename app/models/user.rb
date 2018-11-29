@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 #———————————————————————————————事前処理———————————————————————————————
+  has_many :plans, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
 
   before_save :downcase_email

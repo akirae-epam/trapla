@@ -1,17 +1,30 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Kodchasan|M+PLUS+1p");
 //全体
+header {
+  background-color: white;
+}
 body {
+  font-family: 'M PLUS 1p','Kodchasan', sans-serif;
   padding-top: 50px;
 }
+
 header, main, footer {
   border-bottom: 1px solid gray;
+}
+
+.alert_message {
+  margin: 0px auto;
+  .alert {
+    margin-bottom: 0;
+  }
 }
 
 //ヘッダー
 #logo {
   float: left;
-  color: #ccc;
+  color: #333;
   margin-right: 10px;
   font-size: 1.7em;
   letter-spacing: -1px;
@@ -20,7 +33,7 @@ header, main, footer {
 }
 
 #logo:hover {
-  color: #fff;
+  color: #666;
   text-decoration: none;
 }
 
@@ -37,7 +50,7 @@ header, main, footer {
     margin: 20vh auto;
     font-size: 20vh;
     text-align: center;
-    color: white;
+    color: #fff;
   }
   .btn-group {
     margin: 1vh auto;
