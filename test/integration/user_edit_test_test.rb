@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class UserEditTestTest < ActionDispatch::IntegrationTest
+
   def setup
     @user = users(:michael)
     @other_user = users(:archer)
@@ -126,6 +127,43 @@ class UserEditTestTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to users_url
     assert_not flash.empty?
+  end
+
+  #プロフィール画像のアップロード失敗（ファイルサイズオーバー）
+  test "upload should fail with over 5MB image" do
+    log_in_as(@user)
+    bigfile = fixture_file_upload('test/fixtures/image_invalid_filesize.png', 'image/png')
+    assert_not @user.user_image.attached?
+    patch user_path(@user), params: {user: {name: @user.name,
+                                            email: @user.email,
+                                            new_user_image: bigfile}}
+    assert_not @user.user_image.attached?
+    assert_select '.alert-danger'
+  end
+
+  #プロフィール画像のアップロード失敗（不正な拡張子）
+  #  ---------   いまんとこバリデーション不可能   ----------
+  # test "upload should fail with invalid file name" do
+  #   log_in_as(@user)
+  #   bigfile = fixture_file_upload('test/fixtures/image_invalid_filename.invalid', 'image/png')
+  #   assert_not @user.user_image.attached?
+  #   patch user_path(@user), params: {user: {name: @user.name,
+  #                                           email: @user.email,
+  #                                           new_user_image: bigfile}}
+  #   assert_not @user.user_image.attached?
+  #   assert_select '.alert-danger'
+  # end
+
+  #プロフィール画像のアップロード成功
+  test "upload should success" do
+    log_in_as(@user)
+    validfile = fixture_file_upload('test/fixtures/image_valid.png', 'image/png')
+    assert_not @user.user_image.attached?
+    patch user_path(@user), params: {user: {name: @user.name,
+                                            email: @user.email,
+                                            new_user_image: validfile}}
+    assert @user.reload.user_image.attached?
+    assert_select '.alert-danger', count: 0
   end
 
 end

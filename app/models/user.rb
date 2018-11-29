@@ -27,6 +27,8 @@ class User < ApplicationRecord
                        allow_nil: true
   has_secure_password
 
+  validate  :picture_validation
+
 #———————————————————————————————クラスメソッド———————————————————————————————
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
@@ -101,10 +103,17 @@ class User < ApplicationRecord
       self.activation_digest = User.digest(activation_token)
     end
 
+    # プロフィール画像がアップロードされたら変更する
     def save_user_image
       if new_user_image
         self.user_image = new_user_image
       end
     end
 
+    # アップロードされた画像のサイズをバリデーションする
+    def picture_validation
+      if new_user_image && new_user_image.size > 5.megabytes
+        errors.add(:new_user_image, "should be less than 5MB")
+      end
+    end
 end

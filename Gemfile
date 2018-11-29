@@ -13,8 +13,8 @@ gem 'bcrypt',       '3.1.12' #パスワード(password_digest)をハッシュ化
 gem 'faker',          '1.7.3' #サンプルデータを作成する
 gem 'will_paginate',           '3.1.6' #ページネーション
 gem 'bootstrap-will_paginate', '1.0.0' #ページネーションでbootstrap
-gem 'mini_magick' #active strageを使う
-gem 'activestorage'
+gem 'mini_magick' #画像をアップロードする
+gem 'activestorage' #active strageを使う
 
 #bootstrap
 gem 'bootstrap-sass', '3.3.7'
