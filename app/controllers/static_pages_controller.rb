@@ -1,12 +1,11 @@
 class StaticPagesController < ApplicationController
+include SessionsHelper
 
   def home
-  end
-
-  def help
-  end
-
-  def about
+    if logged_in?
+      @user = current_user
+      @plans = Plan.all.paginate(page: params[:page])
+    end
   end
 
 end

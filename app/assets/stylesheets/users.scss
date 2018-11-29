@@ -2,8 +2,9 @@
 // 全体
 .user_gawa {
   width: 50vw;
-  margin: 10vh auto;
+  margin: 10vh auto 1vh;
   overflow: hidden;
+  border-bottom: solid 1px gray;
   .container{
     width: auto;
     height: auto;

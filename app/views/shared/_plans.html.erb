@@ -1,0 +1,31 @@
+<div class="user_gawa">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">Profile</div>
+        <div class="panel-body">
+            <div class="user_img">
+              プロフィール画像
+            </div>
+            <div class="user_infomation">
+              <div class="user_name">Account name : <%= @user.name %></div>
+              <div class="user_email">Email Address : <%= @user.email %></div>
+              <% if current_user == @user %>
+                <%= link_to 'Edit account', edit_user_path(@user) %>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="plan_gawa">
+  <div class="panel panel-default">
+    <% if @user.plans.any? %>
+      <%= will_paginate @plans %>
+      <ol class="plans">
+        <%= render @plans %>
+      </ol>
+      <%= will_paginate @plans %>
+    <% end %>
+  </div>
+</div>
