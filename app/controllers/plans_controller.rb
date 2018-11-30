@@ -8,11 +8,8 @@ class PlansController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @plan = @user.plans.new
+    @plan = current_user.plans.new
     @plan_detail = @plan.plan_details.new
-    @belonging = @plan_detail.belongings.new
-    @payment = @plan_detail.payments.new
   end
 
   def create
