@@ -1,12 +1,10 @@
 .new_plan_gawa {
   width: 50vw;
   margin: 10vh auto 1vh;
-  overflow: hidden;
   border-bottom: solid 1px gray;
   .container{
     width: auto;
     height: auto;
-    overflow: hidden;
   }
 }
 
@@ -37,13 +35,25 @@
 
 
 .new_plan_detail_gawa {
-  width: 70vw;
-  margin: 1vh auto 1vh;
-  overflow: hidden;
-  border-bottom: solid 1px gray;
+  width: 60vw;
+  margin: 0 auto;
+  .panel {
+    margin: 0.5vh;
+  }
   .container{
     width: auto;
     height: auto;
-    overflow: hidden;
+  }
+  .well {
+    background-color: white;
+    border-color: lightgray;
+    padding: 1vw;
+    p {
+      font-size: 1.3em;
+    }
+  }
+  h4 {
+    display: block;
+    text-align: center;
   }
 }

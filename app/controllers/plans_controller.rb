@@ -11,6 +11,22 @@ class PlansController < ApplicationController
     @user = current_user
     @plan = @user.plans.new
     @plan_detail = @plan.plan_details.new
+    @action_type_move = {walk: '徒歩',
+                         car: '車',
+                         train: '電車',
+                         bus: 'バス',
+                         taxi: 'タクシー',
+                         air: '飛行機',
+                         ship: '船',
+                         etc: 'その他'}
+    @action_type_visit = {tourism: '観光',
+                         meal: '食事',
+                         work: '仕事',
+                         checkin: 'チェックイン',
+                         sleepin: '就寝',
+                         wakeup: '起床',
+                         checkout: 'チェックアウト',
+                         etc: 'その他'}
   end
 
   def create
