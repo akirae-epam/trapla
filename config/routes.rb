@@ -21,4 +21,7 @@ Rails.application.routes.draw do
 
   #PlansController
   resources :plans
+
+  #PlanDetailsController
+  resources :plan_details, only: [:create, :update, :destroy]
 end
