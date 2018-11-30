@@ -11,6 +11,9 @@ class PlansController < ApplicationController
     @user = current_user
     @plan = @user.plans.new
     @plan_detail = @plan.plan_details.new
+    @belongings = @plan_detail.belongings.new
+    @payments = @plan_detail.payments.new
+
     @action_type_move = {walk: '徒歩',
                          car: '車',
                          train: '電車',
@@ -30,10 +33,6 @@ class PlansController < ApplicationController
   end
 
   def create
-  end
-
-  def create_plan_detail
-    @plan_detail = @plan.plan_details.new
   end
 
   def edit
