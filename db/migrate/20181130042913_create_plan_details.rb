@@ -10,6 +10,6 @@ class CreatePlanDetails < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-       add_index :plan_details, [:plan_id, :created_at]
+    add_index :plan_details, [:plan_id, :created_at]
   end
 end

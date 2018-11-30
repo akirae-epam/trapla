@@ -21,4 +21,5 @@ Rails.application.routes.draw do
 
   #PlansController
   resources :plans
+  post 'plan_details', to: 'plans#create_plan_detail'
 end

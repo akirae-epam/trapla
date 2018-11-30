@@ -4,16 +4,16 @@
     <div class="panel panel-default">
       <div class="panel-heading">プラン概要</div>
         <div class="panel-body">
-          <%= form_for(@plan) do |f| %>
-            <%= render 'shared/error_messages', object: f.object %>
+          <%= form_for(@plan) do |plan_f| %>
+            <%= render 'shared/error_messages', object: plan_f.object %>
 
-            <%= f.label :プランタイトル, class:"info" %>
-            <%= f.text_field :title, class: 'form-control' %>
+            <%= plan_f.label :プランタイトル, class:"info" %>
+            <%= plan_f.text_field :title, class: 'form-control' %>
 
-            <%= f.label :プラン概要, class:"info" %>
-            <%= f.text_area :content, class: 'form-control' %>
+            <%= plan_f.label :プラン概要, class:"info" %>
+            <%= plan_f.text_area :content, class: 'form-control' %>
 
-            <%= f.submit "プランを作成する", class: 'btn btn-default' %>
+            <%= plan_f.submit "プランを作成する", class: 'btn btn-default' %>
           <% end %>
         </div>
       </div>
@@ -24,16 +24,20 @@
 <div class="new_plan_detail_gawa">
   <div class="panel panel-default">
     <div class="panel-body">
-      <%= form_for(@plan) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+      <%= form_for(@plan_detail) do |plan_detail_f| %>
+        <%= render 'shared/error_messages', object: plan_detail_f.object %>
+        <%= plan_detail_f.label :日付, class:"info" %>
+        <div class='input-group date datetimepicker'>
+          <%= plan_detail_f.text_field :date, class: 'form-control' %>
+           <span class="input-group-addon">
+               <span class="fa fa-calendar"></span>
+           </span>
+        </div>
 
-        <%= f.label :プランタイトル, class:"info" %>
-        <%= f.text_field :title, class: 'form-control' %>
+        <%= plan_detail_f.label :場所, class:"info" %>
+        <%= plan_detail_f.text_area :place, class: 'form-control' %>
 
-        <%= f.label :プラン概要, class:"info" %>
-        <%= f.text_area :content, class: 'form-control' %>
-
-        <%= f.submit "プランを作成する", class: 'btn btn-default' %>
+        <%= plan_detail_f.submit "アクティビティの追加", class: 'btn btn-default' %>
       <% end %>
     </div>
   </div>
