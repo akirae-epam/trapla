@@ -35,3 +35,16 @@
   float: left;
   margin-right: 2vw;
 }
+
+
+.new_plan_detail_gawa {
+  width: 70vw;
+  margin: 1vh auto 1vh;
+  overflow: hidden;
+  border-bottom: solid 1px gray;
+  .container{
+    width: auto;
+    height: auto;
+    overflow: hidden;
+  }
+}

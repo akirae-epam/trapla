@@ -4,9 +4,37 @@
     <div class="panel panel-default">
       <div class="panel-heading">プラン概要</div>
         <div class="panel-body">
+          <%= form_for(@plan) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
 
+            <%= f.label :プランタイトル, class:"info" %>
+            <%= f.text_field :title, class: 'form-control' %>
+
+            <%= f.label :プラン概要, class:"info" %>
+            <%= f.text_area :content, class: 'form-control' %>
+
+            <%= f.submit "プランを作成する", class: 'btn btn-default' %>
+          <% end %>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="new_plan_detail_gawa">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= form_for(@plan) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :プランタイトル, class:"info" %>
+        <%= f.text_field :title, class: 'form-control' %>
+
+        <%= f.label :プラン概要, class:"info" %>
+        <%= f.text_area :content, class: 'form-control' %>
+
+        <%= f.submit "プランを作成する", class: 'btn btn-default' %>
+      <% end %>
     </div>
   </div>
 </div>
