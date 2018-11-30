@@ -1,5 +1,5 @@
-Hi <%= @user.name %>,
+<%= @user.name %>さん
 
-Welcome to the Trapla! Click on the link below to activate your account:
+Traplaへようこそ! 下記URLにアクセスしたらアカウント登録を完了します。
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

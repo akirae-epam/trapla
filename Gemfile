@@ -15,6 +15,7 @@ gem 'will_paginate',           '3.1.6' #ページネーション
 gem 'bootstrap-will_paginate', '1.0.0' #ページネーションでbootstrap
 gem 'mini_magick' #画像をアップロードする
 gem 'activestorage' #active strageを使う
+gem 'mail-iso-2022-jp' #メイラーで送る文章の日本語化
 
 #bootstrap
 gem 'bootstrap-sass', '3.3.7'

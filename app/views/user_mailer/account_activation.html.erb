@@ -1,9 +1,9 @@
-<h1>Trapla account activation</h1>
+<h1>Traplaアカウント登録メール</h1>
 
-<p>Hi <%= @user.name %>,</p>
+<p><%= @user.name %>さん</p>
 
 <p>
-Welcome to the Trapla! Click on the link below to activate your account:
+Traplaへようこそ! "登録完了"をクリックしたらアカウント登録を完了します。
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= link_to "登録完了", edit_account_activation_url(@user.activation_token, email: @user.email) %>

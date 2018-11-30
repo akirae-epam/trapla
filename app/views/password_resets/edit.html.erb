@@ -1,21 +1,21 @@
-<% provide(:title, 'Reset password') %>
+<% provide(:title, '新しいパスワードを設定') %>
 <div class="user_gawa">
   <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading">Password reset</div>
+      <div class="panel-heading">新しいパスワードを設定</div>
         <div class="panel-body">
           <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
 
             <%= hidden_field_tag :email, @user.email %>
 
-            <%= f.label :password %>
+            <%= f.label :パスワード %>
             <%= f.password_field :password, class: 'form-control' %>
 
-            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.label :パスワード（確認用）, "Confirmation" %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-            <%= f.submit "Update password", class: "btn btn-default" %>
+            <%= f.submit "パスワード再設定", class: "btn btn-default" %>
           <% end %>
         </div>
       </div>

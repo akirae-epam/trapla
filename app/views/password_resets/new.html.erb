@@ -1,13 +1,13 @@
-<% provide(:title, "Forgot password") %>
+<% provide(:title, "パスワードリカバリ") %>
 <div class="user_gawa">
   <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading">Forgot password</div>
+      <div class="panel-heading">パスワードリカバリ</div>
         <div class="panel-body">
           <%= form_for(:password_reset, url: password_resets_path) do |f| %>
-            <%= f.label :email %>
+            <%= f.label :メールアドレスを入力 %>
             <%= f.email_field :email, class: 'form-control' %>
-            <%= f.submit "Submit", class: "btn btn-default" %>
+            <%= f.submit "パスワード再設定メールの送信", class: "btn btn-default" %>
           <% end %>
         </div>
       </div>

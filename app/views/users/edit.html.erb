@@ -2,33 +2,33 @@
 <div class="user_gawa">
   <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading">Edit user infomation</div>
+      <div class="panel-heading">プロフィールの編集</div>
         <div class="panel-body">
             <%= form_for(@user) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
               <div class="edit_user_img">
                 <%= render 'shared/user_image', user: @user %>
               </div>
-              <%= f.label :new_user_image, class:"info" %>
+              <%= f.label :新しいプロフィール画像, class:"info" %>
               <%= f.file_field :new_user_image, class: 'form-control', accept: 'image/jpeg,image/gif,image/png'%>
 
-              <%= f.label :name, class:"info" %>
+              <%= f.label :アカウント名, class:"info" %>
               <%= f.text_field :name, class: 'form-control' %>
 
-              <%= f.label :email, class:"info" %>
+              <%= f.label :メールアドレス, class:"info" %>
               <%= f.email_field :email, class: 'form-control' %>
 
-              <%= f.label :password, class:"info" %>
+              <%= f.label :パスワード, class:"info" %>
               <%= f.password_field :password, class: 'form-control' %>
 
-              <%= f.label :password_confirmation, class:"info" %>
+              <%= f.label :パスワード（確認用）, class:"info" %>
               <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-              <%= f.submit "Edit account", class: "btn btn-default" %>
+              <%= f.submit "プロフィールを変更する", class: "btn btn-default" %>
 
-              <%= link_to "Cancel", @user, class: "btn btn-default" %>
+              <%= link_to "キャンセル", @user, class: "btn btn-default" %>
               <% if current_user == @user %>
-                <%= link_to "Delete Account", user_path,
+                <%= link_to "アカウントを削除する", user_path,
                                                    method: :delete,
                                                    class: 'delete_user',
                                                    data: { confirm: "本当に削除しますか？"} %>

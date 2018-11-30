@@ -1,23 +1,23 @@
-<% provide(:title, "Signup") %>
+<% provide(:title, "アカウント新規登録") %>
 <div class="user_gawa">
   <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading">Sign up</div>
+      <div class="panel-heading">アカウント新規登録</div>
         <div class="panel-body">
             <%= form_for(@user) do |f| %>
               <%= render 'shared/error_messages', object: f.object %>
-              <%= f.label :name, class:"info" %>
+              <%= f.label :アカウント名, class:"info" %>
               <%= f.text_field :name, class: 'form-control' %>
 
-              <%= f.label :email, class:"info" %>
+              <%= f.label :メールアドレス, class:"info" %>
               <%= f.email_field :email, class: 'form-control' %>
 
-              <%= f.label :password, class:"info" %>
+              <%= f.label :パスワード, class:"info" %>
               <%= f.password_field :password, class: 'form-control' %>
 
-              <%= f.label :password_confirmation, class:"info" %>
+              <%= f.label :パスワード（確認用）, class:"info" %>
               <%= f.password_field :password_confirmation, class: 'form-control' %>
-              <%= f.submit "Create account", class: "btn btn-default" %>
+              <%= f.submit "アカウントを作成する", class: "btn btn-default" %>
             <% end %>
         </div>
       </div>
