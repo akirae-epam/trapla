@@ -1,3 +1,16 @@
+
+.new_plan_gawa {
+  width: 50vw;
+  margin: 10vh auto 1vh;
+  overflow: hidden;
+  border-bottom: solid 1px gray;
+  .container{
+    width: auto;
+    height: auto;
+    overflow: hidden;
+  }
+}
+
 .plan_gawa {
   .panel {
     margin: 20px 10vw;
