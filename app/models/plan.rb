@@ -1,4 +1,5 @@
 class Plan < ApplicationRecord
+  has_many :plan_details, dependent: :destroy
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
 

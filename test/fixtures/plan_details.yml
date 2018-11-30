@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-11-30 13:29:13
+  place: MyString
+  action_type: MyString
+  action: MyString
+  action_memo: MyText
+  plan: one
+
+two:
+  date: 2018-11-30 13:29:13
+  place: MyString
+  action_type: MyString
+  action: MyString
+  action_memo: MyText
+  plan: two
