@@ -7,6 +7,12 @@
     width: auto;
     height: auto;
   }
+  .panel-body {
+    a {
+      display: block;
+      text-align: right;
+    }
+  }
 }
 
 .plan_gawa {

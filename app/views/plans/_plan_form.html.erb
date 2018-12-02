@@ -13,6 +13,12 @@
             <%= plan_f.text_area :content, class: 'form-control' %>
 
             <%= plan_f.submit yield(:plan_form_button), class: 'btn btn-default' %>
+            <% if current_user == @plan.user %>
+              <%= link_to "プランを削除する", plan_path,
+                                              method: :delete,
+                                              class: 'delete_plan',
+                                              data: { confirm: "削除したプランは元に戻せません。本当に削除しますか？"} %>
+            <% end %>
           <% end %>
         </div>
       </div>

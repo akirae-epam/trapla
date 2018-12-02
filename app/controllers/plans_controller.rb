@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :logged_in_user, :set_action_type
+  before_action :logged_in_user
 
   def index
   end
@@ -22,44 +22,31 @@ class PlansController < ApplicationController
   end
 
   def edit
-    @plan = current_user.plans.find(params[:id])
+    if @plan = current_user.plans.find_by(id: params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def update
     @plan = current_user.plans.find(params[:id])
     if @plan.update_attributes(plan_params)
       flash[:success] = 'プランを更新しました。'
-      redirect_to user_path(current_user)
+      redirect_to current_user
     else
       render 'edit'
     end
   end
 
   def destroy
+    Plan.find(params[:id]).destroy
+    flash[:success] = "プランを削除しました。"
+    redirect_to current_user
   end
 
   private
     def plan_params
       params.require(:plan).permit(:title, :content)
-    end
-
-    def set_action_type
-      @action_type_move = {walk: '徒歩',
-                           car: '車',
-                           train: '電車',
-                           bus: 'バス',
-                           taxi: 'タクシー',
-                           air: '飛行機',
-                           ship: '船',
-                           etc: 'その他'}
-      @action_type_visit = {tourism: '観光',
-                           meal: '食事',
-                           work: '仕事',
-                           checkin: 'チェックイン',
-                           sleepin: '就寝',
-                           wakeup: '起床',
-                           checkout: 'チェックアウト',
-                           etc: 'その他'}
     end
 
 end
