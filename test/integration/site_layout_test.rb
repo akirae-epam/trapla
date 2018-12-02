@@ -12,4 +12,16 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
    assert_select 'a[href=?]', login_path, count:2
  end
 
+ test "admin user can delete all user and plan" do
+
+ end
+
+ test "plan delete link should hidden without currect user" do
+
+ end
+
+ test "user delete link should hidden without currect user" do
+
+ end
+ 
 end
