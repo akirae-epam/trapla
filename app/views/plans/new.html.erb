@@ -1,26 +1,4 @@
 <% provide(:title, "プラン新規作成") %>
-
-<div class="new_plan_gawa">
-  <div class="container">
-    <div class="panel panel-default">
-      <div class="panel-heading">プラン概要</div>
-        <div class="panel-body">
-          <%= form_for(@plan, remote: true) do |plan_f|%>
-            <%= render 'shared/error_messages', object: plan_f.object %>
-
-            <%= plan_f.label :プランタイトル, class:"info" %>
-            <%= plan_f.text_field :title, class: 'form-control' %>
-
-            <%= plan_f.label :プラン概要, class:"info" %>
-            <%= plan_f.text_area :content, class: 'form-control' %>
-
-            <%= plan_f.submit "プランを作成する", class: 'btn btn-default' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="plan_detail">
-  <%= render 'plan_details/plan_detail' %>
-</div>
+<% provide(:plan_form_button, 'プランを作成する') %>
+<%= render 'plans/plan_form' %>
+<%#= render 'plan_details/plan_detail' %>

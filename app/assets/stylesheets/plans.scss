@@ -1,5 +1,5 @@
 
-.new_plan_gawa {
+.plan_form_gawa {
   width: 50vw;
   margin: 10vh auto 1vh;
   border-bottom: solid 1px gray;
@@ -18,12 +18,14 @@
 
 .plan_list {
   overflow: hidden;
-  margin-bottom: 1vh;
   list-style: none;
 }
 
 .plan-overview {
   vertical-align: top;
+  a {
+    display: block;
+  }
 }
 
 

@@ -12,17 +12,27 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = current_user.plans.new(plan_params)
-    respond_to do |format|
-      format.html { redirect_to new_plan }
-      format.js
+    @plan = current_user.plans.build(plan_params)
+    if @plan.save
+      flash[:success] = 'プランを作成しました'
+      redirect_to user_path(current_user)
+    else
+      render 'new'
     end
   end
 
   def edit
+    @plan = current_user.plans.find(params[:id])
   end
 
   def update
+    @plan = current_user.plans.find(params[:id])
+    if @plan.update_attributes(plan_params)
+      flash[:success] = 'プランを更新しました。'
+      redirect_to user_path(current_user)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

@@ -17,14 +17,3 @@
     </div>
   </div>
 </div>
-<% if @plans.any? %>
-<div class="plan_gawa">
-  <div class="panel panel-default">
-      <%= will_paginate @plans %>
-      <ol class="plans">
-        <%= render @plans %>
-      </ol>
-      <%= will_paginate @plans %>
-  </div>
-</div>
-<% end %>

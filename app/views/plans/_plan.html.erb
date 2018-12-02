@@ -11,5 +11,8 @@
     <small class="timestamp">
       Created <%= time_ago_in_words(plan.created_at) %> ago.
     </small>
+    <% if current_user == plan.user %>
+      <%= link_to 'プランを編集する', edit_plan_path(plan) %>
+    <% end %>
   </div>
 </li>

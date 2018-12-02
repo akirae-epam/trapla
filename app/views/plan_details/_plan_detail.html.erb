@@ -1,4 +1,14 @@
 <% if @plan_details %>
+  <% @plan_details.each do |plan_detail| %>
+    <div class="plan_detail-<%= plan_detail.id %>">
+      <p><%= plan_detail.date %></p>
+      <p><%= plan_detail.place %></p>
+      <p><%= plan_detail.action_type %></p>
+      <p><%= plan_detail.action_memo %></p>
+      <p><%= plan_detail.date %></p>
+    </div>
+  <% end %>
   <div class="well add_plan_detail" >
+    <%= render 'plan_details/add_plan_detail' %>
   </div>
 <% end %>

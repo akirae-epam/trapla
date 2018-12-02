@@ -4,7 +4,7 @@ gem 'rails',        '5.2.0'
 gem 'puma',         '3.9.1'
 gem 'uglifier',     '3.2.0'
 gem 'coffee-rails', '4.2.2'
-gem 'jquery-rails', '4.3.1'
+gem 'jquery-rails', '4.3.1' #jqueryを使用する
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'mini_racer'

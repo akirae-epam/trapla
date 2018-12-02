@@ -1,2 +1,11 @@
 <% provide(:title, @user.name) %>
-  <%= render 'shared/plans' %>
+  <%= render 'users/user_info' %>
+  <div class="plan_gawa">
+    <div class="panel panel-default">
+      <%= will_paginate @plans %>
+        <ol class="plans">
+          <%= render @plans %>
+        </ol>
+      <%= will_paginate @plans %>
+    </div>
+  </div>
