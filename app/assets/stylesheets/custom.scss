@@ -7,6 +7,7 @@
 header {
   background-color: white;
 }
+
 body {
   font-family: 'M PLUS 1p','Kodchasan', sans-serif;
   padding-top: 50px;
@@ -57,10 +58,9 @@ header, main, footer {
   .btn-group {
     margin: 1vh auto;
     display: block;
-    width: 200px;
   }
   a {
-    width: 20vw;
+    width: 300px;
   }
 }
 
@@ -69,45 +69,34 @@ header, main, footer {
   margin: 0 auto;
   padding: 0 auto;
   text-align: center;
+  display: block;
 }
 
 @media screen and (max-width: 640px) {
   .service_image {
-    width: 90vw;
-    height: auto;
-    margin: 5vh 4vw;
-    display: inline-block;
-    vertical-align:top;
-    span, img, p {
-      margin: 1vh auto;
-      padding: 0;
-    }
-    img {
-      height: 50vw;
-    }
-    p {
-      display: block;
-      font-size: 2em;
-    }
+    display: block;
   }
 }
 @media screen and (min-width: 640px) {
   .service_image {
-    width: 25vw;
-    height: 50vh;
-    margin: 5vh 4vw;
     display: inline-block;
-    vertical-align:top;
-    span, img, p {
-      margin: 1vh auto;
-      padding: 0;
-    }
-    img {
-      height: 15vw;
-    }
-    p {
-      font-size: 24px;
-    }
+  }
+}
+
+.service_image {
+  width: 300px;
+  margin: 50px;
+  vertical-align:top;
+  span, img, p {
+    margin: 1vh auto;
+    padding: 0;
+  }
+  img {
+    width: 80%;
+    height: auto;
+  }
+  p {
+    font-size: 24px;
   }
 }
 
