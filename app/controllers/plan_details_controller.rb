@@ -1,15 +1,10 @@
 class PlanDetailsController < ApplicationController
   before_action :logged_in_user, :set_action_type
-  
+
   def show
   end
 
   def create
-    @plan_detail = @plan.plan_details.build(plan_detail_params)
-    respond_to do |format|
-      format.html { redirect_to @plan_detail }
-      format.js
-    end
   end
 
   def update

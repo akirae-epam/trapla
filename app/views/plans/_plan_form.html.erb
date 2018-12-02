@@ -13,7 +13,7 @@
             <%= plan_f.text_area :content, class: 'form-control' %>
 
             <%= plan_f.submit yield(:plan_form_button), class: 'btn btn-default' %>
-            <% if current_user == @plan.user %>
+            <% if @plan.id? && current_user == @plan.user %>
               <%= link_to "プランを削除する", plan_path,
                                               method: :delete,
                                               class: 'delete_plan',
