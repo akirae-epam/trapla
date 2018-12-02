@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
@@ -15,7 +17,7 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard :minitest, spring: "bin/rails test", all_on_start: false do
+guard :minitest, spring: 'bin/rails test', all_on_start: false do
   # with Minitest::Unit
   watch(%r{^test/(.*)\/?test_(.*)\.rb$})
   watch(%r{^lib/(.*/)?([^/]+)\.rb$})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
@@ -44,8 +46,8 @@ end
 # 与えられたリソースに対応する統合テストを返す
 def integration_tests(resource = :all)
   if resource == :all
-    Dir["test/integration/*"]  else
-    Dir["test/integration/#{resource}_*.rb"]
+    Dir['test/integration/*'] else
+                                Dir["test/integration/#{resource}_*.rb"]
   end
 end
 

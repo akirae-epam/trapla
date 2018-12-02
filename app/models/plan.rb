@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Plan < ApplicationRecord
   has_many :plan_details, dependent: :destroy
   belongs_to :user

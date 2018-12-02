@@ -1,27 +1,28 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  #StaticPagesController
+Rails.application.routes.draw do
+  # StaticPagesController
   root 'static_pages#home'
 
-  #UsersController
+  # UsersController
   resources :users
-  get 'signup', to:'users#new'
-  post 'signup', to:'users#create'
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
 
-  #SessionsController
-  get 'login', to:'sessions#new'
+  # SessionsController
+  get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  #AccountActivatesController
+  # AccountActivatesController
   resources :account_activations, only: [:edit]
 
-  #PasswordResetsController
-  resources :password_resets, only: [:new, :create, :edit, :update]
+  # PasswordResetsController
+  resources :password_resets, only: %i[new create edit update]
 
-  #PlansController
+  # PlansController
   resources :plans
 
-  #PlanDetailsController
-  resources :plan_details, only: [:create, :update, :destroy]
+  # PlanDetailsController
+  resources :plan_details, only: %i[create update destroy]
 end

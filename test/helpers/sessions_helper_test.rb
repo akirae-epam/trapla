@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class SessionsHelperTest < ActionView::TestCase
-
   # ユーザを読み込み永続Cookieに保存する
   def setup
     @user = users(:michael)
@@ -9,13 +10,13 @@ class SessionsHelperTest < ActionView::TestCase
   end
 
   # 今のセッションのユーザがCookieに記憶したユーザであること
-  test "current_user returns right user when session is nil" do
+  test 'current_user returns right user when session is nil' do
     assert_equal @user, current_user
     assert is_logged_in?
   end
 
   # remember_digestがnilのときはcurrent_userがnilになること
-  test "current_user returns nil when remember digest is wrong" do
+  test 'current_user returns nil when remember digest is wrong' do
     @user.update_attribute(:remember_digest, User.digest(User.new_token))
     assert_nil current_user
   end

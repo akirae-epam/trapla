@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
@@ -5,12 +7,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  test "user should not login with invalid infomation" do
+  test 'user should not login with invalid infomation' do
     get login_path
     assert_template 'sessions/new'
-    post login_path, params: { session: {email: '',
-                                         password: ''}
-                             }
+    post login_path, params: { session: { email: '',
+                                          password: '' } }
     assert_template 'sessions/new'
     assert_select 'div.alert-danger'
     assert_not flash.empty?
@@ -18,19 +19,18 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "user should login with valid infomation" do
+  test 'user should login with valid infomation' do
     get login_path
     assert_template 'sessions/new'
-    post login_path, params: { session: {email: @user.email,
-                                         password: 'password'}
-                             }
+    post login_path, params: { session: { email: @user.email,
+                                          password: 'password' } }
     assert is_logged_in?
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'
     assert_select 'a[href=?]', user_path(@user)
     assert_select 'a[href=?]', logout_path
-    assert_select 'a[href=?]', login_path, count:0
+    assert_select 'a[href=?]', login_path, count: 0
     delete logout_path
     assert_not is_logged_in?
     assert_redirected_to root_url
@@ -43,12 +43,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', logout_path, count: 0
   end
 
-  test "login with remembering" do
+  test 'login with remembering' do
     log_in_as(@user, remember_me: '1')
     assert_not_empty cookies['remember_token']
   end
 
-  test "login without remembering" do
+  test 'login without remembering' do
     # クッキーを保存してログイン
     log_in_as(@user, remember_me: '1')
     assert_not_empty cookies['remember_token']

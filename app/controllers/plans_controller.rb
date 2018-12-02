@@ -1,12 +1,12 @@
+# frozen_string_literal: true
+
 class PlansController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user,   only: [:destroy, :edit, :update]
+  before_action :correct_user, only: %i[destroy edit update]
 
-  def index
-  end
+  def index; end
 
-  def show
-  end
+  def show; end
 
   def new
     @plan = current_user.plans.new
@@ -38,25 +38,25 @@ class PlansController < ApplicationController
 
   def destroy
     Plan.find(params[:id]).destroy
-    flash[:success] = "プランを削除しました。"
+    flash[:success] = 'プランを削除しました。'
     redirect_to current_user
   end
 
   private
-    # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
-    def correct_user
-      unless current_user.nil? && current_user.admin?
-        plan = current_user.plans.find_by(id: params[:id])
-        if !!plan
-          redirect_to(root_url) unless plan.user == current_user
-        else
-          redirect_to(root_url)
-        end
+
+  # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
+  def correct_user
+    unless current_user.nil? && current_user.admin?
+      plan = current_user.plans.find_by(id: params[:id])
+      if !!plan
+        redirect_to(root_url) unless plan.user == current_user
+      else
+        redirect_to(root_url)
       end
     end
+  end
 
-    def plan_params
-      params.require(:plan).permit(:title, :content)
-    end
-
+  def plan_params
+    params.require(:plan).permit(:title, :content)
+  end
 end

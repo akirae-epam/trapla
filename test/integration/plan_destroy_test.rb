@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PlanDestroyTest < ActionDispatch::IntegrationTest
@@ -7,7 +9,7 @@ class PlanDestroyTest < ActionDispatch::IntegrationTest
     @plan = plans(:one)
   end
 
-  test "destroy should failed without login" do
+  test 'destroy should failed without login' do
     assert_no_difference 'Plan.count' do
       delete plan_path(@plan)
     end
@@ -17,7 +19,7 @@ class PlanDestroyTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
   end
 
-  test "destroy should failed with invalid user" do
+  test 'destroy should failed with invalid user' do
     log_in_as(@other_user)
     assert_no_difference 'Plan.count' do
       delete plan_path(@plan)
@@ -28,7 +30,7 @@ class PlanDestroyTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "destroy should success with valid user" do
+  test 'destroy should success with valid user' do
     log_in_as(@user)
     assert_difference 'Plan.count', -1 do
       delete plan_path(@plan)

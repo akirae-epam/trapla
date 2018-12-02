@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePlans < ActiveRecord::Migration[5.1]
   def change
     create_table :plans do |t|
@@ -6,6 +8,6 @@ class CreatePlans < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true
       t.timestamps
     end
-    add_index :plans, [:user_id, :created_at]
+    add_index :plans, %i[user_id created_at]
   end
 end

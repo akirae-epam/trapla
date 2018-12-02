@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
-require "minitest/reporters"
+require 'minitest/reporters'
 Minitest::Reporters.use!
 
-
-#———————————————————————————————単体テスト用ヘルパーメソッド———————————————————————————————
+# ———————————————————————————————単体テスト用ヘルパーメソッド———————————————————————————————
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  #テスト環境でもヘルパーモジュールのApplicationHelperを使えるようにする
+  # テスト環境でもヘルパーモジュールのApplicationHelperを使えるようにする
   include ApplicationHelper
 
   # テストユーザーがログイン中の場合にtrueを返す
@@ -24,7 +25,7 @@ class ActiveSupport::TestCase
   end
 end
 
-#———————————————————————————————統合テスト用ヘルパーメソッド———————————————————————————————
+# ———————————————————————————————統合テスト用ヘルパーメソッド———————————————————————————————
 class ActionDispatch::IntegrationTest
   # テストユーザーとしてログインする
   def log_in_as(user, password: 'password', remember_me: '1')

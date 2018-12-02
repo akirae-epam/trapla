@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserSignupTest < ActionDispatch::IntegrationTest
@@ -6,15 +8,15 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     ActionMailer::Base.deliveries.clear
   end
 
-  test "signup with valid user infomation" do
-    #サインアップページにアクセスして登録情報を送信
+  test 'signup with valid user infomation' do
+    # サインアップページにアクセスして登録情報を送信
     get signup_path
     assert_template 'users/new'
     assert_difference 'User.count', 1 do
-      post signup_path, params: { user: {name: 'Test User',
-                                         email: 'user@test.com',
-                                         password: 'foobar',
-                                         password_confirmation: 'foobar' }}
+      post signup_path, params: { user: { name: 'Test User',
+                                          email: 'user@test.com',
+                                          password: 'foobar',
+                                          password_confirmation: 'foobar' } }
     end
     user = assigns(:user)
     assert_not user.activated?
@@ -27,13 +29,13 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     log_in_as(user)
     assert_not is_logged_in?
     # 有効化トークンが不正な場合
-    get edit_account_activation_path("invalid token", email: user.email)
+    get edit_account_activation_path('invalid token', email: user.email)
     assert_not is_logged_in?
     # トークンは正しいがメールアドレスが無効な場合
     get edit_account_activation_path(user.activation_token, email: 'wrong mail address')
     assert_not is_logged_in?
 
-    #正しい有効化トークンとメールアドレスで有効化
+    # 正しい有効化トークンとメールアドレスで有効化
     get edit_account_activation_url(user.activation_token, email: user.email)
     assert user.reload.activated?
     assert_redirected_to user
@@ -43,15 +45,14 @@ class UserSignupTest < ActionDispatch::IntegrationTest
   end
 
   # 不正な情報ではサインアップできない
-  test "signup with invalid  user infomation" do
+  test 'signup with invalid  user infomation' do
     get signup_path
     assert_template 'users/new'
     assert_no_difference 'User.count' do
-      post signup_path, params: { user: {name: '', email: '',password: '',password_confirmation: '' }}
+      post signup_path, params: { user: { name: '', email: '', password: '', password_confirmation: '' } }
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'
     assert_select 'div.alert-danger'
   end
-
 end

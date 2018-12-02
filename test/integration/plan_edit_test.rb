@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PlanEditTest < ActionDispatch::IntegrationTest
@@ -7,7 +9,7 @@ class PlanEditTest < ActionDispatch::IntegrationTest
     @plan = plans(:one)
   end
 
-  test "edit should failed without login" do
+  test 'edit should failed without login' do
     get edit_plan_path(@plan)
     assert_redirected_to login_path
     follow_redirect!
@@ -15,7 +17,7 @@ class PlanEditTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
   end
 
-  test "edit should failed with invalid user" do
+  test 'edit should failed with invalid user' do
     log_in_as(@other_user)
     get edit_plan_path(@plan)
     assert_redirected_to root_path
@@ -24,24 +26,24 @@ class PlanEditTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "edit should success with valid infomation" do
+  test 'edit should success with valid infomation' do
     log_in_as(@user)
     get edit_plan_path(@plan)
     assert_template 'plans/edit'
-    patch plan_path(@plan), params: { plan: {title: 'Test title edit',
-                                      content: 'Test content edit'}}
+    patch plan_path(@plan), params: { plan: { title: 'Test title edit',
+                                              content: 'Test content edit' } }
     assert_redirected_to user_path(@user)
     follow_redirect!
     assert_template 'users/show'
     assert_not flash.empty?
   end
 
-  test "edit should fail with invalid infomation" do
+  test 'edit should fail with invalid infomation' do
     log_in_as(@user)
     get edit_plan_path(@plan)
     assert_template 'plans/edit'
-    patch plan_path(@plan), params: { plan: {title: '   ',
-                                      content: '   '}}
+    patch plan_path(@plan), params: { plan: { title: '   ',
+                                              content: '   ' } }
     assert_template 'plans/edit'
     assert_select 'div#error_explanation'
     assert_select 'div.alert-danger'

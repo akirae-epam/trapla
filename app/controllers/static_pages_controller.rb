@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class StaticPagesController < ApplicationController
-include SessionsHelper
+  include SessionsHelper
 
   def home
     if logged_in?
@@ -7,5 +9,4 @@ include SessionsHelper
       @plans = Plan.all.paginate(page: params[:page])
     end
   end
-
 end
