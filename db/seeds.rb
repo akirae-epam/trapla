@@ -33,3 +33,14 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(10)
   users.each { |user| user.plans.create!(title: title, content: content) }
 end
+
+plans = Plan.order(:created_at).take(5)
+plans.each do |plan|
+  pid = plan.id
+  plan.plan_details.create!(
+    date: pid.hours.ago,
+    place: Faker::Lorem.sentence(1),
+    action_type: 'car',
+    action_memo: Faker::Lorem.sentence(10)
+  )
+end

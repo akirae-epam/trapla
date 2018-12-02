@@ -18,5 +18,9 @@ module Trapra
     config.assets.initialize_on_precompile = false
 
     Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+
+    # 認証トークンをremoteフォームに埋め込む
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+    
   end
 end

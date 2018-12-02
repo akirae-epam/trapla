@@ -9,11 +9,14 @@ class PlansController < ApplicationController
 
   def new
     @plan = current_user.plans.new
-    @plan_detail = @plan.plan_details.new
-
   end
 
   def create
+    @plan = current_user.plans.new(plan_params)
+    respond_to do |format|
+      format.html { redirect_to new_plan }
+      format.js
+    end
   end
 
   def edit
@@ -26,6 +29,10 @@ class PlansController < ApplicationController
   end
 
   private
+    def plan_params
+      params.require(:plan).permit(:title, :content)
+    end
+
     def set_action_type
       @action_type_move = {walk: '徒歩',
                            car: '車',

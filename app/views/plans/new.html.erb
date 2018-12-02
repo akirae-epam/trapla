@@ -5,7 +5,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">プラン概要</div>
         <div class="panel-body">
-          <%= form_for(@plan) do |plan_f| %>
+          <%= form_for(@plan, remote: true) do |plan_f|%>
             <%= render 'shared/error_messages', object: plan_f.object %>
 
             <%= plan_f.label :プランタイトル, class:"info" %>
@@ -21,9 +21,6 @@
     </div>
   </div>
 </div>
-
-<div class="well add_plan_detail" >
-  <%= render 'plan_details/add_plan_detail' %>
+<div class="plan_detail">
+  <%= render 'plan_details/plan_detail' %>
 </div>
-
-<%# 追加済みのアクティビティをリピートで描写 %>
