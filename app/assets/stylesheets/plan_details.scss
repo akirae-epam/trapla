@@ -1,3 +1,44 @@
-// Place all the styles related to the plan_details controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.new_plan_detail_gawa {
+  width: 60vw;
+  margin: 0 auto;
+  .panel {
+    margin: 0.5vh;
+  }
+  .container{
+    width: auto;
+    height: auto;
+  }
+  h5 {
+    clear: both;
+    display: block;
+    margin: 10px;
+    font-size: 1.2em;
+  }
+  .well {
+    background-color: white;
+    border-color: lightgray;
+    padding: 1vw;
+  }
+  h4 {
+    display: block;
+    text-align: center;
+  }
+  .payments_forms {
+    margin: 5px;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    overflow: hidden;
+    .payments_form {
+      float: left;
+      display: inline;
+      margin: 10px;
+      label,input {
+        display: block;
+      }
+    }
+  }
+  .payments_content {
+    clear: both;
+    margin: 5px;
+  }
+}
