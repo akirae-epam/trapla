@@ -58,35 +58,34 @@
 .plan_detail_content { background-color: thistle;}
 .plan_detail_right { background-color: blanchedalmond;}
 ////////////////////////////////for_test/////////////////////////////////
-
+@import url('https://fonts.googleapis.com/css?family=K2D');
 .plan_detail_gawa {
-  width: 90vw;
-  margin: 10vh auto 1vh;
+  width: auto;
+  margin: auto 100px;
   padding: 30px;
   overflow: hidden;
   border: solid 1px gray;
   border-radius: 10px;
   border-bottom: solid 1px gray;
   .plan_detail_left {
-    width: 65%;
+    width: 900px;
     padding: 10px;
-    margin: 10px;
     float: left;
     .plan_detail {
       clear: both;
-      margin: 10px;
       overflow: hidden;
     }
     .plan_detail_date {
+      font-family: 'K2D', sans-serif;
       padding: 5px;
       float: left;
-      width: 20%;
+      width: 150px;
       h2 {
-        font-size: 0.8em;
+        font-size: 1em;
         margin: 5px;
       }
       h3 {
-        font-size: 2em;
+        font-size: 3em;
         margin: 5px;
       }
     }
@@ -94,20 +93,39 @@
       padding: 5px;
       float: left;
       vertical-align: top;
-      width: 80%;
-      .plan_detail_time {
-        float: left;
-        vertical-align:middle;
-        padding: 5px;
-        border-radius: 5px;
+      width: 700px;
+      $plan_detail_time_method_width: 100px;
+      $plan_detail_content_margin_left: 10px;
+      .plan_detail_content_top {
+        width: 100%;
+        .plan_detail_time {
+          float: left;
+          text-align: center;
+          vertical-align: middle;
+          border-radius: 5px;
+          font-family: 'K2D', sans-serif;
+          width: $plan_detail_time_method_width;
+          height: 20px;
+        }
+        .plan_detail_place {
+          float: left;
+          margin-left: $plan_detail_content_margin_left;
+        }
       }
-      .plan_detail_place {
-        float: left;
-        margin-left: 20px;
-      }
-      .plan_detail_action_type {
+      .plan_detail_content_bottom {
         clear: both;
-        float: left;
+        .plan_detail_action_type {
+          clear: both;
+          float: left;
+          width: $plan_detail_time_method_width;
+        }
+        .plan_detail_action_memo {
+          margin-left: $plan_detail_content_margin_left;
+          p {
+            display: block;
+            margin-left: 5px;
+          }
+        }
       }
     }
   }

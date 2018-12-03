@@ -8,9 +8,9 @@
   <div class="plan_detail_left">
     <% @plan.plan_details.each do |plan_detail| %>
     <div class="plan_detail plan_detail_<%=plan_detail.id %>">
-      <div class="plan_detail_date ">
-        <h2><%= plan_detail.date.strftime('%Y年') %></h2>
-        <h3><%= plan_detail.date.strftime('%m月%d日') %></h3>
+      <div class="plan_detail_date">
+        <h2><%= plan_detail.date.strftime('%Y') %></h2>
+        <h3><%= plan_detail.date.strftime('%m/%d') %></h3>
       </div>
       <div class="plan_detail_content">
         <div class="plan_detail_content_top">
