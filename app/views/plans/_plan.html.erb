@@ -7,7 +7,7 @@
       <p class="user"><%= link_to plan.user.name, plan.user %></p>
     </div>
     <div class="plan_overview">
-      <h2 class="plan_title"><%= plan.title %></h2>
+      <h2 class="plan_title"><%=link_to plan.title, plan_path(plan) %></h2>
       <p class="plan_content"><%= plan.content %></p>
       <small class="timestamp">
         Created <%= time_ago_in_words(plan.created_at) %> ago.

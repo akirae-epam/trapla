@@ -6,7 +6,9 @@ class PlansController < ApplicationController
 
   def index; end
 
-  def show; end
+  def show
+    @plan = Plan.find(params[:id])
+  end
 
   def new
     @plan = current_user.plans.new

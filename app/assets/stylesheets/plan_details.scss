@@ -42,3 +42,24 @@
     margin: 5px;
   }
 }
+
+////////////////////////////////for_test/////////////////////////////////
+.plan_detail_date { background-color: gray;}
+.plan_detail_place { background-color: lightgray;}
+.plan_detail_action_type { background-color: lightblue;}
+.plan_detail_action { background-color: lightyellow;}
+.plan_detail_action_memo { background-color: pink;}
+.plan_detail_date { background-color: lightgreen;}
+.plan_detail_belongings { background-color: gainsboro;}
+.plan_detail_payments { background-color: lightskyblue;}
+////////////////////////////////for_test/////////////////////////////////
+
+.plan_detail_gawa {
+  width: 90vw;
+  margin: 10vh auto 1vh;
+  padding: 30px;
+  overflow: hidden;
+  border: solid 1px gray;
+  border-radius: 10px;
+  border-bottom: solid 1px gray;
+}
