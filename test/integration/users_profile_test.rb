@@ -7,6 +7,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
+    @other_user = users(:archer)
   end
 
   test 'profile display' do
@@ -19,5 +20,19 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     @user.plans.paginate(page: 1).each do |plan|
       assert_match plan.content, response.body
     end
+  end
+
+  test 'profile display plan edit links' do
+    log_in_as(@user)
+    get user_path(@user)
+    assert_template 'users/show'
+    assert_select 'a', text: 'このプランを編集する'
+  end
+
+  test 'profile should not display another plan edit links' do
+    log_in_as(@user)
+    get user_path(@other_user)
+    assert_template 'users/show'
+    assert_select 'a', text: 'このプランを編集する', count:0
   end
 end

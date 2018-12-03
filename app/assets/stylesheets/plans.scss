@@ -25,19 +25,16 @@
 .plan_list {
   overflow: hidden;
   list-style: none;
-}
-
-.plan-overview {
-  vertical-align: top;
-  a {
-    display: block;
+  .plan_user {
+    text-align: center;
+    vertical-align: top;
+    float: left;
+    margin-right: 2vw;
   }
-}
-
-
-.plan_user {
-  text-align: center;
-  vertical-align: top;
-  float: left;
-  margin-right: 2vw;
+  .plan-overview {
+    vertical-align: top;
+  }
+  .edit_plan_link {
+    text-align: right;
+  }
 }

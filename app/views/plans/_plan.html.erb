@@ -1,18 +1,21 @@
-<li id="plan-<%= plan.id %>" class = "plan_list well">
-  <div class="plan_user">
-    <div class="user_img">
-      <%= render 'shared/user_image', user: plan.user %>
+
+  <li id="plan-<%= plan.id %>" class = "plan_list well">
+    <div class="plan_user">
+      <div class="user_img">
+        <%= render 'shared/user_image', user: plan.user %>
+      </div>
+      <p class="user"><%= link_to plan.user.name, plan.user %></p>
     </div>
-    <p class="user"><%= link_to plan.user.name, plan.user %></p>
-  </div>
-  <div class="plan_overview">
-    <h2 class="plan_title"><%= plan.title %></h2>
-    <p class="plan_content"><%= plan.content %></p>
-    <small class="timestamp">
-      Created <%= time_ago_in_words(plan.created_at) %> ago.
-    </small>
+    <div class="plan_overview">
+      <h2 class="plan_title"><%= plan.title %></h2>
+      <p class="plan_content"><%= plan.content %></p>
+      <small class="timestamp">
+        Created <%= time_ago_in_words(plan.created_at) %> ago.
+      </small>
+    </div>
+    <div class="edit_plan_link">
     <% if current_user == plan.user %>
-      <%= link_to 'プランを編集する', edit_plan_path(plan) %>
+      <%= link_to 'このプランを編集する', edit_plan_path(plan), class:"btn btn-default" %>
     <% end %>
-  </div>
-</li>
+    </div>
+  </li>

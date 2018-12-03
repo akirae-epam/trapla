@@ -1,0 +1,635 @@
+Started with run options --seed 48511
+
+
+Progress: |[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sterling Archer | Trapla</title>
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-4dc791a522a4d9e587dbd12762801a6b0eb2edbe0150d724075314abd1d7e316.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-99360de711d05a91ada0af89eee5a2ff2a137f076fed9681d14b19939aefcc97.js" data-turbolinks-track="reload"></script>
+
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+
+  <body>
+  <header class="navbar navbar-fixed-top">
+  <div class="container">
+    <a id="logo" href="/">Trapla</a>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="/plans/new">New Plan</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Example user <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/users/762146111">プロフィール</a></li>
+              <li><a href="/users/762146111/edit">設定</a></li>
+              <li class="divider"></li>
+              <li>
+                <a rel="nofollow" data-method="delete" href="/logout">ログアウト</a>
+              </li>
+            </ul>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <div class="alert_message">
+    </div>
+      <div class="user_gawa">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">プロフィール</div>
+        <div class="panel-body">
+            <div class="user_img">
+                <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+            </div>
+            <div class="user_infomation">
+              <div class="user_name">アカウント名 : Sterling Archer</div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="plan_gawa">
+    <div class="panel panel-default">
+      
+        <ol class="plans">
+          <li id="plan-1068741923" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Non necessitatibus in et.</h2>
+    <p class="plan_content">Vel explicabo qui sequi in est magni officia.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-1064491048" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Sint quam corrupti hic.</h2>
+    <p class="plan_content">Asperiores voluptas aspernatur sed inventore magni.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-1027354337" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Mollitia sed culpa sit.</h2>
+    <p class="plan_content">Neque suscipit non sint id ea delectus.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-978447050" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Consequatur molestiae modi similique ut.</h2>
+    <p class="plan_content">Dolores possimus magni et consequatur excepturi.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-954102074" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Blanditiis et aut dolore.</h2>
+    <p class="plan_content">Perspiciatis officia officiis quidem consequatur natus.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-941562929" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Et eos.</h2>
+    <p class="plan_content">Perferendis blanditiis dolorem at qui est ratione quam qui.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-870819567" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Earum fugit ut facilis est nihil.</h2>
+    <p class="plan_content">Autem consequuntur voluptatem ea minus est vitae qui est dolores.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-828914965" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Omnis excepturi numquam sit aut.</h2>
+    <p class="plan_content">Modi qui sit laudantium aut odio voluptas.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-802014651" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Corrupti ut ullam ratione id.</h2>
+    <p class="plan_content">Vel iste ipsa repudiandae ipsum soluta incidunt occaecati.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-649782427" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Sunt corrupti est.</h2>
+    <p class="plan_content">Velit et facere voluptatem voluptatum deleniti culpa illum blanditiis.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-645630356" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Doloribus quia.</h2>
+    <p class="plan_content">Eius ut illum aut accusantium non nisi sint perferendis.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-607485797" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Qui porro in suscipit cupiditate.</h2>
+    <p class="plan_content">Dolor aut ut commodi quia totam iste fugiat.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-593017726" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Id et nostrum nemo.</h2>
+    <p class="plan_content">Rerum quidem qui nemo pariatur aut.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-567746690" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Est voluptate ut mollitia similique sint.</h2>
+    <p class="plan_content">Perspiciatis libero quas et quia itaque dicta quam.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-555109773" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Doloremque ea.</h2>
+    <p class="plan_content">Ex animi voluptas maxime voluptas.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-415954226" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Doloribus.</h2>
+    <p class="plan_content">Et itaque sequi qui cum nisi esse molestiae.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-382734357" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Molestias sequi officiis voluptas perspiciatis.</h2>
+    <p class="plan_content">Quos sed est rerum consequuntur ipsa veniam magnam eos.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-370244896" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Quod.</h2>
+    <p class="plan_content">Eaque aut aut quae repudiandae ut neque sunt.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-341806059" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Optio placeat atque nesciunt dolore.</h2>
+    <p class="plan_content">Voluptatem corporis rerum quia magni et.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-322064370" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Hic ducimus.</h2>
+    <p class="plan_content">Veniam ea voluptate reprehenderit dolorem neque voluptatem repudiandae.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-297653262" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Aut ut adipisci est sunt et.</h2>
+    <p class="plan_content">Rerum minima est doloribus ex exercitationem deleniti magnam.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-293386503" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Saepe dolores et hic.</h2>
+    <p class="plan_content">Autem aut totam omnis voluptatibus.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-265896369" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Sunt cupiditate repellendus dolor ducimus consequatur.</h2>
+    <p class="plan_content">In omnis rem repellendus molestiae id qui nisi.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-253242536" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Optio enim nihil autem.</h2>
+    <p class="plan_content">Unde veniam vel tempora sint vitae voluptatem accusamus placeat.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-223795795" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Magnam voluptatum.</h2>
+    <p class="plan_content">Occaecati dolorem blanditiis alias nobis praesentium qui quis recusandae.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-171646538" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Delectus deleniti facere sed.</h2>
+    <p class="plan_content">Voluptas fugiat unde officia quod quia dicta soluta.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-146048442" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Dolor non totam aut.</h2>
+    <p class="plan_content">Iusto laborum quam dolores aspernatur non corrupti quo.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-141945023" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Fugit magni impedit ipsam.</h2>
+    <p class="plan_content">Magni aut eum at sed ea.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-107941256" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Laudantium ab voluptatem repudiandae expedita.</h2>
+    <p class="plan_content">Sapiente illo repellat animi voluptatum consequuntur.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+<li id="plan-81827452" class = "plan_list well">
+  <div class="plan_user">
+    <div class="user_img">
+        <img alt="Sterling Archer" src="https://secure.gravatar.com/avatar/d08d4b6a8f375370ad3b1423dca85da8" />
+
+    </div>
+    <p class="user"><a href="/users/950961012">Sterling Archer</a></p>
+  </div>
+  <div class="plan_overview">
+    <h2 class="plan_title">Vel dignissimos odit aut.</h2>
+    <p class="plan_content">Excepturi molestiae quia sequi odio.</p>
+    <small class="timestamp">
+      Created about 1 month ago.
+    </small>
+  </div>
+  <div class="edit_plan_link">
+  </div>
+</li>
+
+        </ol>
+      
+    </div>
+  </div>
+
+  </main>
+  <footer class="footer">
+    <small class="text-muted">&copy; Copyright Trapla</small>
+</footer>
+
+  
+  </body>
+
+</html>
+[0m[1000D[K[31m FAIL[0m["test_profile_should_not_display_another_plan_edit_links", UsersProfileTest, 2.7944669700000304]
+ test_profile_should_not_display_another_plan_edit_links#UsersProfileTest (2.79s)
+        Expected at least 1 element matching "div.pagination", found 0..
+        Expected 0 to be >= 1.
+        test/integration/users_profile_test.rb:41:in `block in <class:UsersProfileTest>'
+
+[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m[32m=[0m|
+
+Finished in 5.16241s
+66 tests, 402 assertions, [31m1 failures, 0 errors, [0m[33m0 skips[0m
+]2;[Minitest results] 66 tests

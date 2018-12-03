@@ -12,8 +12,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @plans = @user.plans.paginate(page: params[:page])
     redirect_to(root_url) && return unless @user.activated?
+    @plans = @user.plans.paginate(page: params[:page])
   end
 
   def new
