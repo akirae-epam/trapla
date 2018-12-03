@@ -44,7 +44,10 @@
 }
 
 ////////////////////////////////for_test/////////////////////////////////
+.plan_detail { background-color: darkgray;}
+.plan_detail_left { background-color: violet;}
 .plan_detail_date { background-color: gray;}
+.plan_detail_time { background-color: darkseagreen;}
 .plan_detail_place { background-color: lightgray;}
 .plan_detail_action_type { background-color: lightblue;}
 .plan_detail_action { background-color: lightyellow;}
@@ -52,6 +55,8 @@
 .plan_detail_date { background-color: lightgreen;}
 .plan_detail_belongings { background-color: gainsboro;}
 .plan_detail_payments { background-color: lightskyblue;}
+.plan_detail_content { background-color: thistle;}
+.plan_detail_right { background-color: blanchedalmond;}
 ////////////////////////////////for_test/////////////////////////////////
 
 .plan_detail_gawa {
@@ -62,4 +67,53 @@
   border: solid 1px gray;
   border-radius: 10px;
   border-bottom: solid 1px gray;
+  .plan_detail_left {
+    width: 65%;
+    padding: 10px;
+    margin: 10px;
+    float: left;
+    .plan_detail {
+      clear: both;
+      margin: 10px;
+      overflow: hidden;
+    }
+    .plan_detail_date {
+      padding: 5px;
+      float: left;
+      width: 20%;
+      h2 {
+        font-size: 0.8em;
+        margin: 5px;
+      }
+      h3 {
+        font-size: 2em;
+        margin: 5px;
+      }
+    }
+    .plan_detail_content {
+      padding: 5px;
+      float: left;
+      vertical-align: top;
+      width: 80%;
+      .plan_detail_time {
+        float: left;
+        vertical-align:middle;
+        padding: 5px;
+        border-radius: 5px;
+      }
+      .plan_detail_place {
+        float: left;
+        margin-left: 20px;
+      }
+      .plan_detail_action_type {
+        clear: both;
+        float: left;
+      }
+    }
+  }
+  .plan_detail_right {
+    float: left;
+    margin: 10px;
+    width: 25%;
+  }
 }
