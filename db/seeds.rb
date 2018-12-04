@@ -27,22 +27,25 @@ User.create!(name: 'Test User',
                activated_at: Time.zone.now)
 end
 
-users = User.order(:created_at).take(6)
-50.times do
+# 10種類のプランを作成
+10.times do
   title = Faker::Lorem.sentence(1)
   content = Faker::Lorem.sentence(10)
-  users.each { |user| user.plans.create!(title: title, content: content) }
-end
+  # 5人のユーザひとりひとりに作成
+  for n in 1..5 do
+    plan = User.find(n).plans.create!(title: title, content: content)
 
-plans = Plan.order(:created_at).take(5)
-plans.each do |plan|
-  10.times do |_n|
-    pid = plan.id
-    plan.plan_details.create!(
-      date: pid.hours.ago,
-      place: Faker::Lorem.sentence(1),
-      action_type: 'car',
-      action_memo: Faker::Lorem.sentence(10)
-    )
+    # 作成したプランに対してアクティビティを10こ作成
+    rand_method = ['walk','car','train','bus','taxi','air','ship','etc','tourism','meal','work','checkin','sleepin','wakeup','checkout','etc']
+    10.times do |n|
+      hour = n * 5
+      plan.plan_details.create!(
+        date: hour.hours.ago,
+        place: Faker::Lorem.sentence(1),
+        action_type: rand_method[rand(16)],
+        action_memo: Faker::Lorem.sentence(10)
+      )
+    end
+
   end
 end

@@ -1,4 +1,11 @@
 <% provide(:title, "プラン編集") %>
 <% provide(:plan_form_button, 'プランを保存する') %>
-<%= render 'plans/plan_form' %>
-<%#= render 'plan_details/plan_detail' %>
+
+<div class="plan_gawa">
+  <div class="panel panel-default">
+    <%= render 'plans/plan', plan: @plan %>
+  </div>
+</div>
+<% if @plan.plan_details %>
+  <%= render 'plan_details/plan_detail' %>
+<% end %>

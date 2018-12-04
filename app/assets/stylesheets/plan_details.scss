@@ -44,25 +44,25 @@
 }
 
 ////////////////////////////////for_test/////////////////////////////////
-.plan_detail { background-color: darkgray;}
-  .plan_detail_left { background-color: violet;}
-    .plan_detail_date { background-color: gray;}
-  .plan_detail_content { background-color: thistle;}
-    .plan_detail_content_top { background-color: red;}
-      .plan_detail_time { background-color: green;}
-      .plan_detail_place { background-color: pink;}
-    .plan_detail_content_bottom { background-color: blue;}
-      .plan_detail_action_type { background-color: yellow;}
-      .plan_detail_action { background-color: lightyellow;}
-      .plan_detail_action_memo { background-color: pink;}
-
-  .plan_detail_right { background-color: blanchedalmond;}
-    .plan_detail_belongings { background-color: gainsboro;}
-    .plan_detail_payments { background-color: lightskyblue;}
+// .plan_detail { background-color: darkgray;}
+//   .plan_detail_left { background-color: violet;}
+//     .plan_detail_date { background-color: gray;}
+//   .plan_detail_content { background-color: thistle;}
+//     .plan_detail_content_top { background-color: red;}
+//       .plan_detail_time { background-color: green;}
+//       .plan_detail_place { background-color: pink;}
+//     .plan_detail_content_bottom { background-color: blue;}
+//       .plan_detail_action_type { background-color: yellow;}
+//       .plan_detail_action { background-color: lightyellow;}
+//       .plan_detail_action_memo { background-color: pink;}
+//
+//   .plan_detail_right { background-color: blanchedalmond;}
+//     .plan_detail_belongings { background-color: gainsboro;}
+//     .plan_detail_payments { background-color: lightskyblue;}
 ////////////////////////////////for_test/////////////////////////////////
 
 @import url('https://fonts.googleapis.com/css?family=K2D'); //日付用のフォント
-$plan_detail_time_method_width: 100px; //時刻とactionマークの横幅を揃える
+$plan_detail_as_same_width: 100px; //時刻とactionマークの横幅を揃える
 $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージンを揃える
 
 // 文字を囲う枠のデザイン
@@ -124,7 +124,7 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
             @extend %div_as_same_height;
             text-align: center;
             font-family: 'K2D', sans-serif;
-            width: $plan_detail_time_method_width;
+            width: $plan_detail_as_same_width;
             min-height: 25px;
             @extend %p_with_border;
           }
@@ -139,7 +139,7 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
           .plan_detail_action_type {
             min-height: 100px;
             @extend %div_as_same_height;
-            width: $plan_detail_time_method_width;
+            width: $plan_detail_as_same_width;
           }
           .plan_detail_action_memo {
             @extend %div_as_same_height;

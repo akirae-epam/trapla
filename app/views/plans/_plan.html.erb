@@ -14,7 +14,7 @@
       </small>
     </div>
     <div class="edit_plan_link">
-    <% if current_user == plan.user %>
+    <% if current_user == plan.user && request.path_info =='/' %>
       <%= link_to 'このプランを編集する', edit_plan_path(plan), class:"btn btn-default" %>
     <% end %>
     </div>
