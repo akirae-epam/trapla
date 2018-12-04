@@ -45,18 +45,20 @@
 
 ////////////////////////////////for_test/////////////////////////////////
 .plan_detail { background-color: darkgray;}
-.plan_detail_left { background-color: violet;}
-.plan_detail_date { background-color: gray;}
-.plan_detail_time { background-color: darkseagreen;}
-.plan_detail_place { background-color: lightgray;}
-.plan_detail_action_type { background-color: lightblue;}
-.plan_detail_action { background-color: lightyellow;}
-.plan_detail_action_memo { background-color: pink;}
-.plan_detail_date { background-color: lightgreen;}
-.plan_detail_belongings { background-color: gainsboro;}
-.plan_detail_payments { background-color: lightskyblue;}
-.plan_detail_content { background-color: thistle;}
-.plan_detail_right { background-color: blanchedalmond;}
+  .plan_detail_left { background-color: violet;}
+    .plan_detail_date { background-color: gray;}
+  .plan_detail_content { background-color: thistle;}
+    .plan_detail_content_top { background-color: red;}
+      .plan_detail_time { background-color: green;}
+      .plan_detail_place { background-color: pink;}
+    .plan_detail_content_bottom { background-color: blue;}
+      .plan_detail_action_type { background-color: yellow;}
+      .plan_detail_action { background-color: lightyellow;}
+      .plan_detail_action_memo { background-color: pink;}
+
+  .plan_detail_right { background-color: blanchedalmond;}
+    .plan_detail_belongings { background-color: gainsboro;}
+    .plan_detail_payments { background-color: lightskyblue;}
 ////////////////////////////////for_test/////////////////////////////////
 @import url('https://fonts.googleapis.com/css?family=K2D');
 .plan_detail_gawa {
@@ -90,7 +92,8 @@
       }
     }
     .plan_detail_content {
-      padding: 5px;
+      padding: 0;
+      margin: 0;
       float: left;
       vertical-align: top;
       width: 700px;
@@ -98,29 +101,44 @@
       $plan_detail_content_margin_left: 10px;
       .plan_detail_content_top {
         width: 100%;
+        overflow: hidden;
         .plan_detail_time {
           float: left;
+          border-radius: 5px;
+          padding: 0;
+          margin: 0;
           text-align: center;
           vertical-align: middle;
-          border-radius: 5px;
           font-family: 'K2D', sans-serif;
           width: $plan_detail_time_method_width;
-          height: 20px;
+          min-height: 25px;
+          p {
+            margin: 0;
+          }
         }
         .plan_detail_place {
           float: left;
           margin-left: $plan_detail_content_margin_left;
+          vertical-align: middle;
+          p {
+            margin: 0;
+          }
         }
       }
       .plan_detail_content_bottom {
         clear: both;
+        overflow: hidden;
         .plan_detail_action_type {
           clear: both;
           float: left;
+          margin: 0;
           width: $plan_detail_time_method_width;
+          min-height: 100px;
         }
         .plan_detail_action_memo {
+          float: left;
           margin-left: $plan_detail_content_margin_left;
+          max-width: 580px;
           p {
             display: block;
             margin-left: 5px;
