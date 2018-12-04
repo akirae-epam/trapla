@@ -33,8 +33,7 @@ class User < ApplicationRecord
   # ———————————————————————————————クラスメソッド———————————————————————————————
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
@@ -50,7 +49,7 @@ class User < ApplicationRecord
 
   # アカウントを有効化する
   def activate
-    update_attributes(activated: true, activated_at: Time.zone.now)
+    update(activated: true, activated_at: Time.zone.now)
   end
 
   # パスワード再設定の属性を設定する
@@ -109,8 +108,6 @@ class User < ApplicationRecord
 
   # アップロードされた画像のサイズをバリデーションする
   def picture_validation
-    if new_user_image && new_user_image.size > 5.megabytes
-      errors.add(:new_user_image, 'should be less than 5MB')
-    end
+    return errors.add(:new_user_image, 'should be less than 5MB') if new_user_image && new_user_image.size > 5.megabytes
   end
 end

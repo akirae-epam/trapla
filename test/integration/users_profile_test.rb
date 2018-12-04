@@ -33,6 +33,6 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get user_path(@other_user)
     assert_template 'users/show'
-    assert_select 'a', text: 'このプランを編集する', count:0
+    assert_select 'a', text: 'このプランを編集する', count: 0
   end
 end

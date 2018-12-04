@@ -30,7 +30,7 @@ class PlansController < ApplicationController
 
   def update
     @plan = current_user.plans.find(params[:id])
-    if @plan.update_attributes(plan_params)
+    if @plan.update(plan_params)
       flash[:success] = 'プランを更新しました。'
       redirect_to current_user
     else

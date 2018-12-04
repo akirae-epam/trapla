@@ -1,0 +1,18 @@
+Rails:
+ Enabled: true
+
+# Use only ascii symbols in comments.
+AsciiComments:
+ Enabled: false
+
+# Missing top-level class documentation comment.
+Style/Documentation:
+ Enabled: false
+
+# Line is too long.
+Metrics/LineLength:
+ Enabled: false
+
+# Block has too many lines.
+Metrics/BlockLength:
+ Enabled: false

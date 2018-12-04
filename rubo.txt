@@ -1,0 +1,124 @@
+Inspecting 90 files
+.........C.CCCCCCCC............C..C...C.W....C.......CC.C.....CC..............C........C..
+
+Offenses:
+
+app/models/user.rb:58:5: C: Rails/SkipsModelValidations: Avoid using update_columns because it skips validations.
+    update_columns(reset_digest: User.digest(reset_token),
+    ^^^^^^^^^^^^^^
+app/models/user.rb:75:5: C: Rails/SkipsModelValidations: Avoid using update_columns because it skips validations.
+    update_columns(remember_digest: User.digest(remember_token))
+    ^^^^^^^^^^^^^^
+app/models/user.rb:88:5: C: Rails/SkipsModelValidations: Avoid using update_attribute because it skips validations.
+    update_attribute(:remember_digest, nil)
+    ^^^^^^^^^^^^^^^^
+app/controllers/application_controller.rb:11:5: C: Style/GuardClause: Use a guard clause instead of wrapping the code inside a conditional expression.
+    unless logged_in?
+    ^^^^^^
+app/controllers/static_pages_controller.rb:7:5: C: Style/GuardClause: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if logged_in?
+    ^^
+app/controllers/plan_details_controller.rb:20:3: C: Metrics/MethodLength: Method has too many lines. [16/10]
+  def set_action_type ...
+  ^^^^^^^^^^^^^^^^^^^
+app/controllers/account_activations_controller.rb:4:3: C: Metrics/AbcSize: Assignment Branch Condition size for edit is too high. [15.59/15]
+  def edit ...
+  ^^^^^^^^
+app/controllers/users_controller.rb:48:3: C: Metrics/AbcSize: Assignment Branch Condition size for destroy is too high. [19.26/15]
+  def destroy ...
+  ^^^^^^^^^^^
+app/controllers/users_controller.rb:48:3: C: Metrics/MethodLength: Method has too many lines. [13/10]
+  def destroy ...
+  ^^^^^^^^^^^
+app/controllers/users_controller.rb:51:7: C: Style/IdenticalConditionalBranches: Move user.destroy out of the conditional.
+      user.destroy
+      ^^^^^^^^^^^^
+app/controllers/users_controller.rb:55:7: C: Style/IdenticalConditionalBranches: Move user.destroy out of the conditional.
+      user.destroy
+      ^^^^^^^^^^^^
+app/controllers/users_controller.rb:72:5: C: Style/GuardClause: Use a guard clause instead of wrapping the code inside a conditional expression.
+    unless current_user.admin?
+    ^^^^^^
+app/controllers/sessions_controller.rb:6:3: C: Metrics/AbcSize: Assignment Branch Condition size for create is too high. [24.92/15]
+  def create ...
+  ^^^^^^^^^^
+app/controllers/sessions_controller.rb:6:3: C: Metrics/MethodLength: Method has too many lines. [16/10]
+  def create ...
+  ^^^^^^^^^^
+app/controllers/plans_controller.rb:50:3: C: Metrics/AbcSize: Assignment Branch Condition size for correct_user is too high. [18.47/15]
+  def correct_user ...
+  ^^^^^^^^^^^^^^^^
+app/controllers/plans_controller.rb:51:5: C: Style/GuardClause: Use a guard clause instead of wrapping the code inside a conditional expression.
+    unless current_user.nil? && current_user.admin?
+    ^^^^^^
+app/controllers/plans_controller.rb:53:10: C: Style/DoubleNegation: Avoid the use of double negation (!!).
+      if !!plan
+         ^
+app/controllers/password_resets_controller.rb:25:3: C: Metrics/MethodLength: Method has too many lines. [11/10]
+  def update ...
+  ^^^^^^^^^^
+app/controllers/password_resets_controller.rb:32:13: C: Rails/SkipsModelValidations: Avoid using update_attribute because it skips validations.
+      @user.update_attribute(:reset_digest, nil)
+            ^^^^^^^^^^^^^^^^
+app/controllers/password_resets_controller.rb:45:7: C: Naming/AccessorMethodName: Do not prefix reader method names with get_.
+  def get_user
+      ^^^^^^^^
+app/controllers/password_resets_controller.rb:59:5: C: Style/GuardClause: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if @user.password_reset_expired?
+    ^^
+test/integration/user_edit_test.rb:5:1: C: Metrics/ClassLength: Class has too many lines. [127/100]
+class UserEditTest < ActionDispatch::IntegrationTest ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/integration/user_signup_test.rb:11:3: C: Metrics/BlockLength: Block has too many lines. [26/25]
+  test 'signup with valid user infomation' do ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/integration/users_index_test.rb:19:7: C: [Corrected] Style/IfUnlessModifier: Favor modifier unless usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+      unless user == @admin
+      ^^^^^^
+test/integration/password_resets_test.rb:11:3: C: Metrics/BlockLength: Block has too many lines. [40/25]
+  test 'password resets' do ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^
+test/integration/password_resets_test.rb:31:10: C: Rails/SkipsModelValidations: Avoid using toggle! because it skips validations.
+    user.toggle!(:activated)
+         ^^^^^^^
+test/integration/password_resets_test.rb:34:10: C: Rails/SkipsModelValidations: Avoid using toggle! because it skips validations.
+    user.toggle!(:activated)
+         ^^^^^^^
+test/integration/password_resets_test.rb:69:11: C: Rails/SkipsModelValidations: Avoid using update_attribute because it skips validations.
+    @user.update_attribute(:reset_sent_at, 3.hours.ago)
+          ^^^^^^^^^^^^^^^^
+test/integration/password_resets_test.rb:77:18: W: Lint/AmbiguousRegexpLiteral: Ambiguous regexp literal. Parenthesize the method arguments if it's surely a regexp literal, or add a whitespace to the right of the / if it should be a division.
+    assert_match /expired/i, response.body
+                 ^
+test/test_helper.rb:10:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class ActiveSupport::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^^
+test/test_helper.rb:18:7: C: Naming/PredicateName: Rename is_logged_in? to logged_in?.
+  def is_logged_in?
+      ^^^^^^^^^^^^^
+test/test_helper.rb:29:7: C: Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class ActionDispatch::IntegrationTest
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/helpers/sessions_helper_test.rb:20:11: C: Rails/SkipsModelValidations: Avoid using update_attribute because it skips validations.
+    @user.update_attribute(:remember_digest, User.digest(User.new_token))
+          ^^^^^^^^^^^^^^^^
+bin/update:6:1: C: Style/MixinUsage: include is used at the top level. Use inside class or module.
+include FileUtils
+^^^^^^^^^^^^^^^^^
+bin/setup:6:1: C: Style/MixinUsage: include is used at the top level. Use inside class or module.
+include FileUtils
+^^^^^^^^^^^^^^^^^
+config/environments/production.rb:3:1: C: Metrics/BlockLength: Block has too many lines. [35/25]
+Rails.application.configure do ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+config/environments/development.rb:18:6: C: Rails/FilePath: Please use Rails.root.join('path', 'to') instead.
+  if Rails.root.join('tmp/caching-dev.txt').exist?
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/schema.rb:15:1: C: Metrics/BlockLength: Block has too many lines. [54/25]
+ActiveRecord::Schema.define(version: 20_181_130_042_913) do ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/migrate/20181129112139_create_active_storage_tables.active_storage.rb:5:3: C: Metrics/MethodLength: Method has too many lines. [17/10]
+  def change ...
+  ^^^^^^^^^^
+
+90 files inspected, 39 offenses detected, 1 offense corrected

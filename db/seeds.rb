@@ -36,7 +36,7 @@ end
 
 plans = Plan.order(:created_at).take(5)
 plans.each do |plan|
-  10.times do |n|
+  10.times do |_n|
     pid = plan.id
     plan.plan_details.create!(
       date: pid.hours.ago,
