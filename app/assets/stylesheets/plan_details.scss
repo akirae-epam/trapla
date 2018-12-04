@@ -60,7 +60,27 @@
     .plan_detail_belongings { background-color: gainsboro;}
     .plan_detail_payments { background-color: lightskyblue;}
 ////////////////////////////////for_test/////////////////////////////////
-@import url('https://fonts.googleapis.com/css?family=K2D');
+
+@import url('https://fonts.googleapis.com/css?family=K2D'); //日付用のフォント
+$plan_detail_time_method_width: 100px; //時刻とactionマークの横幅を揃える
+$plan_detail_content_margin_left: 10px; //コンテンツ列の左マージンを揃える
+
+// 文字を囲う枠のデザイン
+%p_with_border {
+  p {
+    margin: 0;
+    padding: 5px 20px 5px 5px;
+    border-radius: 10px;
+    border: solid 1px gray;
+  }
+}
+
+%div_as_same_height {
+  display:table-cell;
+  vertical-align: middle;
+  margin: 0;
+}
+
 .plan_detail_gawa {
   width: auto;
   margin: auto 100px;
@@ -73,75 +93,61 @@
     width: 900px;
     padding: 10px;
     float: left;
+    border-right: solid 2px gray;
     .plan_detail {
       clear: both;
       overflow: hidden;
-    }
-    .plan_detail_date {
-      font-family: 'K2D', sans-serif;
-      padding: 5px;
-      float: left;
-      width: 150px;
-      h2 {
-        font-size: 1em;
-        margin: 5px;
+      .plan_detail_date {
+        font-family: 'K2D', sans-serif;
+        padding: 5px;
+        float: left;
+        width: 150px;
+        h2 {
+          font-size: 1em;
+          margin: 5px;
+        }
+        h3 {
+          font-size: 3em;
+          margin: 5px;
+        }
       }
-      h3 {
-        font-size: 3em;
-        margin: 5px;
-      }
-    }
-    .plan_detail_content {
-      padding: 0;
-      margin: 0;
-      float: left;
-      vertical-align: top;
-      width: 700px;
-      $plan_detail_time_method_width: 100px;
-      $plan_detail_content_margin_left: 10px;
-      .plan_detail_content_top {
-        width: 100%;
-        overflow: hidden;
-        .plan_detail_time {
-          float: left;
-          border-radius: 5px;
-          padding: 0;
-          margin: 0;
-          text-align: center;
-          vertical-align: middle;
-          font-family: 'K2D', sans-serif;
-          width: $plan_detail_time_method_width;
-          min-height: 25px;
-          p {
-            margin: 0;
+      .plan_detail_content {
+        padding: 0;
+        margin: 0;
+        float: left;
+        vertical-align: top;
+        width: 700px;
+        .plan_detail_content_top {
+          width: 100%;
+          overflow: hidden;
+          .plan_detail_time {
+            @extend %div_as_same_height;
+            text-align: center;
+            font-family: 'K2D', sans-serif;
+            width: $plan_detail_time_method_width;
+            min-height: 25px;
+            @extend %p_with_border;
+          }
+          .plan_detail_place {
+            min-width: 400px;
+            margin-left: $plan_detail_content_margin_left;
+            @extend %div_as_same_height;
+            @extend %p_with_border;
           }
         }
-        .plan_detail_place {
-          float: left;
-          margin-left: $plan_detail_content_margin_left;
-          vertical-align: middle;
-          p {
-            margin: 0;
+        .plan_detail_content_bottom {
+          .plan_detail_action_type {
+            min-height: 100px;
+            @extend %div_as_same_height;
+            width: $plan_detail_time_method_width;
           }
-        }
-      }
-      .plan_detail_content_bottom {
-        clear: both;
-        overflow: hidden;
-        .plan_detail_action_type {
-          clear: both;
-          float: left;
-          margin: 0;
-          width: $plan_detail_time_method_width;
-          min-height: 100px;
-        }
-        .plan_detail_action_memo {
-          float: left;
-          margin-left: $plan_detail_content_margin_left;
-          max-width: 580px;
-          p {
-            display: block;
-            margin-left: 5px;
+          .plan_detail_action_memo {
+            @extend %div_as_same_height;
+            padding: 10px;
+            margin: 10px;
+            max-width: 580px;
+            word-wrap: break-word;
+            margin-left: $plan_detail_content_margin_left;
           }
         }
       }
@@ -151,5 +157,11 @@
     float: left;
     margin: 10px;
     width: 25%;
+    .plan_detail_belongings {
+      @extend %p_with_border;
+    }
+    .plan_detail_payments {
+      @extend %p_with_border;
+    }
   }
 }

@@ -1,14 +1,32 @@
-<% if @plan_details %>
-  <% @plan_details.each do |plan_detail| %>
-    <div class="plan_detail-<%= plan_detail.id %>">
-      <p><%= plan_detail.date %></p>
-      <p><%= plan_detail.place %></p>
-      <p><%= plan_detail.action_type %></p>
-      <p><%= plan_detail.action_memo %></p>
-      <p><%= plan_detail.date %></p>
+<% if @plan.plan_details %>
+  <div class="plan_detail_gawa">
+    <div class="plan_detail_left">
+      <% @plan.plan_details.each do |plan_detail| %>
+      <div class="plan_detail plan_detail_<%=plan_detail.id %>">
+        <div class="plan_detail_date">
+          <h2><%= plan_detail.date.strftime('%Y') %></h2>
+          <h3><%= plan_detail.date.strftime('%m/%d') %></h3>
+        </div>
+        <div class="plan_detail_content">
+          <div class="plan_detail_content_top">
+            <div class="plan_detail_time"><p><%= plan_detail.date.strftime('%H:%M') %></p></div>
+            <div class="plan_detail_place"><p><%= plan_detail.place %></p></div>
+          </div>
+          <div class="plan_detail_content_bottom">
+            <div class="plan_detail_action_type"><p><%= plan_detail.action_type %></p></div>
+            <div class="plan_detail_action_memo"><p><%= plan_detail.action_memo %></p></div>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
-  <% end %>
-  <div class="well add_plan_detail" >
-    <%= render 'plan_details/add_plan_detail' %>
+    <div class="plan_detail_right">
+      <div class="plan_detail_belongings">
+        <p>もっていくもの</p>
+      </div>
+      <div class="plan_detail_payments">
+        <p>支払う費用</p>
+      </div>
+    </div>
   </div>
 <% end %>
