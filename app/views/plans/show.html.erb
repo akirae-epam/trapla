@@ -4,4 +4,6 @@
     <%= render @plan %>
   </div>
 </div>
-<%= render 'plan_details/plan_detail' %>
+<% if @plan.plan_details %>
+  <%= render 'plan_details/plan_detail' %>
+<% end %>

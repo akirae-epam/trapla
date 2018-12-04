@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_account_activation_email
-      flash[:info] = 'Please check your email to activate your account.'
+      flash[:info] = '登録いただいたメールアドレスに登録完了のためのリンクを送付しましたので、ご確認願います。'
       redirect_to root_url
     else
       render 'users/new'
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:infomation] = 'User infomation updated'
+      flash[:infomation] = 'ユーザ情報を更新しました。'
       redirect_to @user
     else
       render 'users/edit'
@@ -49,14 +49,14 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if current_user.admin?
       user.destroy
-      flash[:success] = 'User deleted'
+      flash[:success] = 'ユーザを削除しました。'
       redirect_to users_url
     else
       user.destroy
       session.delete(:user_id)
       cookies.delete(:user_id)
       cookies.delete(:remember_token)
-      flash[:success] = 'User deleted'
+      flash[:success] = 'ユーザを削除しました。'
       redirect_to root_url
     end
   end
