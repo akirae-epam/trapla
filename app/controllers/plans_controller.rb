@@ -13,7 +13,6 @@ class PlansController < ApplicationController
 
   def new
     @plan = current_user.plans.new
-    @new_plan_detail = @plan.plan_details.new
   end
 
   def create
