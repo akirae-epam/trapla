@@ -3,9 +3,12 @@
 
 <div class="plan_gawa">
   <div class="panel panel-default">
-    <%= render 'plans/plan', plan: @plan %>
+    <%= render 'plans/plan', plan: @plan, user: @plan.user %>
   </div>
 </div>
-<% if @plan.plan_details %>
-  <%= render 'plan_details/plan_detail' %>
-<% end %>
+
+<%= render 'plan_details/plan_detail' %>
+
+<script type="text/javascript">
+
+</script>

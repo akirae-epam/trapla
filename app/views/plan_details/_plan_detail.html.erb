@@ -1,11 +1,15 @@
-
+<% if @plan.plan_details %>
 <div class="plan_detail_gawa">
   <div class="plan_detail_left">
-    <% @plan.plan_details.each do |plan_detail| %>
+    <% @plan.plan_details.order(:date).each do |plan_detail| %>
     <div class="plan_detail plan_detail_<%=plan_detail.id %>">
       <div class="plan_detail_date">
-        <h2><%= plan_detail.date.strftime('%Y') %></h2>
-        <h3><%= plan_detail.date.strftime('%m/%d') %></h3>
+        <h2>
+          <%= drow_date(plan_detail, '%Y') %>
+        </h2>
+        <h3>
+          <%= drow_date(plan_detail, '%m/%d') %>
+        </h3>
       </div>
       <div class="plan_detail_content">
         <div class="plan_detail_content_top">
@@ -29,3 +33,4 @@
     </div>
   </div>
 </div>
+<% end %>

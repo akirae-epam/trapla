@@ -1,9 +1,8 @@
 <% provide(:title, @plan.title) %>
 <div class="plan_gawa">
   <div class="panel panel-default">
-    <%= render @plan %>
+    <%= render @plan, user: @plan.user %>
   </div>
 </div>
-<% if @plan.plan_details %>
+
   <%= render 'plan_details/plan_detail' %>
-<% end %>

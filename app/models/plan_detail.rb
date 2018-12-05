@@ -2,6 +2,7 @@
 
 class PlanDetail < ApplicationRecord
   belongs_to :plan
+  default_scope -> { order(date: :desc) }
 
   validates :place, presence: true,
                     length: { maximum: 255 }

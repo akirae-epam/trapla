@@ -4,7 +4,7 @@
     <div class="panel panel-default">
       <%= will_paginate @plans %>
       <ol class="plans">
-        <%= render @plans %>
+        <%= render @plans, user: @user %>
       </ol>
       <%= will_paginate @plans %>
     </div>
