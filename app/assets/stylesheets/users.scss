@@ -1,7 +1,7 @@
 
 // 全体
 .user_gawa {
-  width: 50vw;
+  width: 80%;
   margin: 10vh auto 1vh;
   overflow: hidden;
   border-bottom: solid 1px gray;
@@ -12,7 +12,7 @@
   }
 }
 
-.panel-body .btn{
+.panel-body .btn {
   margin-top: 5px;
 }
 
@@ -20,7 +20,7 @@
 
 .users {
   list-style: none;
-  margin: 0;
+  margin: 10px;
   li {
     overflow: auto;
     padding: 10px 0;

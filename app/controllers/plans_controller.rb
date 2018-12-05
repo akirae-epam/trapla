@@ -4,7 +4,10 @@ class PlansController < ApplicationController
   before_action :logged_in_user, :set_action_type
   before_action :correct_user, only: %i[destroy edit update]
 
-  def index; end
+  def index
+    @plans = Plan.paginate(page: params[:page])
+    @user = current_user
+  end
 
   def show
     @plan = Plan.find(params[:id])
