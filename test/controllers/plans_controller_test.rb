@@ -46,5 +46,4 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
     get plan_path(@plan)
     assert_template 'plans/show'
   end
-
 end

@@ -86,5 +86,4 @@ class PlansController < ApplicationController
                            checkout: 'チェックアウト',
                            etc: 'その他' }
   end
-
 end

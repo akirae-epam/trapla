@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module PlanDetailsHelper
-
   # 一個前のアクティビティと日付が変わっていたら日付を描写
   def drow_date(plan_detail, format)
     plan = plan_detail.plan
@@ -19,5 +18,4 @@ module PlanDetailsHelper
     else return ''
     end
   end
-
 end

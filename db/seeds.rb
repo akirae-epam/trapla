@@ -32,11 +32,11 @@ end
   title = Faker::Lorem.sentence(1)
   content = Faker::Lorem.sentence(10)
   # 5人のユーザひとりひとりに作成
-  for n in 1..5 do
+  (1..5).each do |n|
     plan = User.find(n).plans.create!(title: title, content: content)
 
     # 作成したプランに対してアクティビティを10こ作成
-    rand_method = ['walk','car','train','bus','taxi','air','ship','etc','tourism','meal','work','checkin','sleepin','wakeup','checkout','etc']
+    rand_method = %w[walk car train bus taxi air ship etc tourism meal work checkin sleepin wakeup checkout etc]
     10.times do |n|
       hour = n * 5
       plan.plan_details.create!(
@@ -46,6 +46,5 @@ end
         action_memo: Faker::Lorem.sentence(10)
       )
     end
-
   end
 end

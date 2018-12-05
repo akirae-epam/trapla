@@ -16,5 +16,4 @@ class PlanDetailsController < ApplicationController
   def plan_detail_params
     params.require(:plan_detail).permit(:date, :place, :action_type, :action, :action_memo)
   end
-
 end
