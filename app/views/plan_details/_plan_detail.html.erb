@@ -1,29 +1,38 @@
-<% if @plan.plan_details %>
+
 <div class="plan_detail_gawa">
   <div class="plan_detail_left">
-    <% @plan.plan_details.order(:date).each do |plan_detail| %>
-    <div class="plan_detail plan_detail_<%=plan_detail.id %>">
-      <div class="plan_detail_date">
-        <h2>
-          <%= drow_date(plan_detail, 'year')%>
-        </h2>
-        <h3>
-          <%= drow_date(plan_detail, 'day') %>
-        </h3>
-      </div>
-      <div class="plan_detail_content">
-        <div class="plan_detail_content_top">
-          <div class="plan_detail_time"><p><%= plan_detail.date.strftime('%H:%M') %></p></div>
-          <div class="plan_detail_place"><p><%= plan_detail.place %></p></div>
+    <% @plan_details.order(:date).each do |plan_detail| %>
+      <div class="plan_detail plan_detail_<%= plan_detail.id %>">
+        <div class="plan_detail_date">
+          <h2>
+            <%= drow_date(plan_detail, 'year')%>
+          </h2>
+          <h3>
+            <%= drow_date(plan_detail, 'day') %>
+          </h3>
         </div>
-        <div class="plan_detail_content_bottom">
-          <div class="plan_detail_action_type"><p><%= plan_detail.action_type %></p></div>
-          <div class="plan_detail_action_memo"><p><%= plan_detail.action_memo %></p></div>
+        <div class="plan_detail_content">
+          <div class="plan_detail_content_top">
+            <div class="plan_detail_time"><p><%= plan_detail.date.strftime('%H:%M') %></p></div>
+            <div class="plan_detail_place"><p><%= plan_detail.place %></p></div>
+          </div>
+          <div class="plan_detail_content_bottom">
+            <div class="plan_detail_action_type"><p><%= plan_detail.action_type %></p></div>
+            <div class="plan_detail_action_memo"><p><%= plan_detail.action_memo %></p></div>
+          </div>
         </div>
       </div>
-    </div>
+      <% if request.path_info == edit_plan_path %>
+        <%= render 'plan_details/plan_detail_form', plan_detail_form_button: plan_detail_form_button, plan_detail: plan_detail %>
+      <% end %>
     <% end %>
   </div>
+
+  <%# 新規アクティビティ追加用フォームの描写 %>
+  <% if request.path_info == edit_plan_path %>
+    <%= render 'plan_details/plan_detail_form', plan_detail_form_button: plan_detail_form_button, plan_detail: @new_plan_detail %>
+  <% end %>
+
   <div class="plan_detail_right">
     <div class="plan_detail_belongings">
       <p>もっていくもの</p>
@@ -33,4 +42,3 @@
     </div>
   </div>
 </div>
-<% end %>

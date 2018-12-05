@@ -32,9 +32,9 @@ class PlanEditTest < ActionDispatch::IntegrationTest
     assert_template 'plans/edit'
     patch plan_path(@plan), params: { plan: { title: 'Test title edit',
                                               content: 'Test content edit' } }
-    assert_redirected_to user_path(@user)
+    assert_redirected_to plan_path(@plan)
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'plans/show'
     assert_not flash.empty?
   end
 

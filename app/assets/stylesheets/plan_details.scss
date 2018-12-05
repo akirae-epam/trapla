@@ -1,49 +1,4 @@
-.new_plan_detail_gawa {
-  width: 60vw;
-  margin: 0 auto;
-  .panel {
-    margin: 0.5vh;
-  }
-  .container{
-    width: auto;
-    height: auto;
-  }
-  h5 {
-    clear: both;
-    display: block;
-    margin: 10px;
-    font-size: 1.2em;
-  }
-  .well {
-    background-color: white;
-    border-color: lightgray;
-    padding: 1vw;
-  }
-  h4 {
-    display: block;
-    text-align: center;
-  }
-  .payments_forms {
-    margin: 5px;
-    border-bottom: 1px solid lightgray;
-    text-align: center;
-    overflow: hidden;
-    .payments_form {
-      float: left;
-      display: inline;
-      margin: 10px;
-      label,input {
-        display: block;
-      }
-    }
-  }
-  .payments_content {
-    clear: both;
-    margin: 5px;
-  }
-}
-
-////////////////////////////////for_test/////////////////////////////////
+////////////////////////////////テスト用色付け/////////////////////////////////
 // .plan_detail { background-color: darkgray;}
 //   .plan_detail_left { background-color: violet;}
 //     .plan_detail_date { background-color: gray;}
@@ -59,8 +14,10 @@
 //   .plan_detail_right { background-color: blanchedalmond;}
 //     .plan_detail_belongings { background-color: gainsboro;}
 //     .plan_detail_payments { background-color: lightskyblue;}
-////////////////////////////////for_test/////////////////////////////////
+////////////////////////////////テスト用色付け/////////////////////////////////
 
+// アクティビティ表示用フォーム
+// 変数定義
 @import url('https://fonts.googleapis.com/css?family=K2D'); //日付用のフォント
 $plan_detail_as_same_width: 100px; //時刻とactionマークの横幅を揃える
 $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージンを揃える
@@ -75,15 +32,16 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
   }
 }
 
+// 高さを揃える
 %div_as_same_height {
   display:table-cell;
   vertical-align: middle;
   margin: 0;
 }
-
+// CSS
 .plan_detail_gawa {
-  width: auto;
-  margin: auto 100px;
+  width: 100%;
+  margin: 10px;
   padding: 30px;
   overflow: hidden;
   border: solid 1px gray;
@@ -163,5 +121,52 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
     .plan_detail_payments {
       @extend %p_with_border;
     }
+  }
+}
+
+
+// アクティビティ用フォーム
+.plan_detail_form_gawa {
+  margin: 0 auto;
+  .panel {
+    width: auto;
+    margin: 0.5vh;
+  }
+  .container{
+    width: auto;
+    height: auto;
+  }
+  h5 {
+    clear: both;
+    display: block;
+    margin: 10px;
+    font-size: 1.2em;
+  }
+  .well {
+    background-color: white;
+    border-color: lightgray;
+    padding: 1vw;
+  }
+  h4 {
+    display: block;
+    text-align: center;
+  }
+  .payments_forms {
+    margin: 5px;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    overflow: hidden;
+    .payments_form {
+      float: left;
+      display: inline;
+      margin: 10px;
+      label,input {
+        display: block;
+      }
+    }
+  }
+  .payments_content {
+    clear: both;
+    margin: 5px;
   }
 }
