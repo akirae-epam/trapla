@@ -1,14 +1,24 @@
 <% provide(:title, "プラン編集") %>
 <% provide(:plan_form_button, 'プランを保存する') %>
 
-<div class="plan_gawa">
-  <div class="panel panel-default">
-    <%= render 'plans/plan', plan: @plan, user: @plan.user %>
-  </div>
-</div>
+<%= render 'plans/plan_form' %>
 
 <%= render 'plan_details/plan_detail' %>
-
+<%# <%= render 'plan_details/plan_detail_form' %> %>
 <script type="text/javascript">
+  $(function() {
 
+  //マウスを乗せたら色が変わる
+  $('.plan_detail').hover(function() {
+    $(this).css('background-color', 'rgba(100, 100, 100, 0.5)');
+  }, function() { //マウスを離したら色が戻る
+    $(this).css('background', '');
+  });
+
+  $('.plan_detail').on('click', function() {
+    $(this).css('background-color', 'rgba(100, 0, 100, 0.5)');
+    $(this).next
+  });
+
+  });
 </script>

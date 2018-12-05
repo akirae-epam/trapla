@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
+ruby '2.5.1'
 
+gem 'rails', '5.2.0'
 gem 'activestorage' # active strageを使う
 gem 'bcrypt', '3.1.12' # パスワード(password_digest)をハッシュ化する
 gem 'bootstrap-will_paginate', '1.0.0' # ページネーションでbootstrap
@@ -13,7 +15,6 @@ gem 'mail-iso-2022-jp' # メイラーで送る文章の日本語化
 gem 'mini_magick' # 画像をアップロードする
 gem 'mini_racer'
 gem 'puma', '3.9.1'
-gem 'rails', '5.2.0'
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.6' # ページネーション
