@@ -1,50 +1,60 @@
-<%= form_for(@plan_detail) do |plan_detail_f| %>
+<%= form_for(plan_detail) do |plan_detail_f| %>
 <%= render 'shared/error_messages', object: plan_detail_f.object %>
-<div class="new_plan_detail_gawa">
-  <div class="panel panel-default">
-    <h4>いつ？</h4>
-    <div class="panel-body">
-        <%= plan_detail_f.label :日付, class:"info" %>
-        <%= plan_detail_f.text_field :date, class: 'form-control' %>
+<div class="plan_detail_form_gawa well">
+  <p><%= plan_detail_title %></p>
+  <div class="new_plan_detail_gawa">
+    <div class="panel panel-default">
+      <h4>いつ？</h4>
+      <div class="panel-body">
+          <%= plan_detail_f.label :日付, class:"info" %>
+          <%= plan_detail_f.text_field :date, class: 'form-control' %>
 
-        <%= plan_detail_f.label :場所, class:"info" %>
-        <%= plan_detail_f.text_area :place, class: 'form-control' %>
+          <%= plan_detail_f.label :場所, class:"info" %>
+          <%= plan_detail_f.text_area :place, class: 'form-control' %>
 
+      </div>
     </div>
   </div>
-</div>
 
-<div class="new_plan_detail_gawa">
-  <div class="panel panel-default">
-    <h4>どこで？</h4>
-    <div class="panel-body">
-        <%= plan_detail_f.label :場所, class:"info" %>
-        <%= plan_detail_f.text_field :place, class: 'form-control' %>
+  <div class="new_plan_detail_gawa">
+    <div class="panel panel-default">
+      <h4>どこで？</h4>
+      <div class="panel-body">
+          <%= plan_detail_f.label :場所, class:"info" %>
+          <%= plan_detail_f.text_field :place, class: 'form-control' %>
+      </div>
     </div>
   </div>
-</div>
-
 
   <div class="new_plan_detail_gawa">
     <div class="panel panel-default">
       <h4>何をする？</h4>
       <div class="panel-body">
-          <div class="well">
-            <div class="btn-group" data-toggle="buttons">
-            <h5>移動</h5>
-            <% @action_type_move.each do |key, value| %>
-              <label class="btn btn-outline-dark">
-              <%= plan_detail_f.radio_button :action, key, {checked: true} %> <%= value %> </label>
-            <% end %>
-            <h5>滞在</h5>
-            <% @action_type_visit.each do |key, value| %>
-              <label class="btn btn-outline-dark">
-              <%= plan_detail_f.radio_button :action, key, {checked: true} %> <%= value %> </label>
-            <% end %>
-            </div>
+        <div class="well">
+          <div class="btn-group" data-toggle="buttons">
+            <%= plan_detail.action_type %>
+          <h5>移動</h5>
+          <% @action_type_move.each do |key, value| %>
+            <label class="btn btn-default">
+              <% if key.to_s == plan_detail.action_type %>
+                <%= plan_detail_f.radio_button :action, key , {checked: true} %> <%= value %>
+              <% else %>
+                <%= plan_detail_f.radio_button :action, key, {} %> <%= value %>
+              <% end %> </label>
+          <% end %>
+          <h5>滞在</h5>
+          <% @action_type_visit.each do |key, value| %>
+            <label class="btn btn-default">
+              <% if key.to_s == plan_detail.action_type %>
+                <%= plan_detail_f.radio_button :action, key, {checked: true} %> <%= value %>
+              <% else %>
+                <%= plan_detail_f.radio_button :action, key, {}  %> <%= value %>
+              <% end %></label>
+          <% end %>
           </div>
-          <%= plan_detail_f.label :メモ, class:"info" %>
-          <%= plan_detail_f.text_area :place, class: 'form-control' %>
+        </div>
+        <%= plan_detail_f.label :メモ, class:"info" %>
+        <%= plan_detail_f.text_area :place, class: 'form-control' %>
       </div>
     </div>
   </div>
@@ -59,7 +69,6 @@
       </div>
     </div>
   </div>
-
 
   <div class="new_plan_detail_gawa">
     <div class="panel panel-default">
@@ -80,8 +89,8 @@
         </div>
       </div>
     </div>
+
+    <%= plan_detail_f.submit 'アクティビティを保存する', class: 'btn btn-default' %>
+    <% end %>
   </div>
-
-
-<%= plan_detail_f.submit yield(:plan_detail_form_button), class: 'btn btn-default' %>
-<% end %>
+</div>

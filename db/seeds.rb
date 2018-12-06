@@ -15,9 +15,9 @@ User.create!(name: 'Test User',
              activated: true,
              activated_at: Time.zone.now)
 
-99.times do |n|
+99.times do |user_number|
   name  = Faker::Name.name
-  email = "example-#{n + 1}@railstutorial.org"
+  email = "example-#{user_number + 1}@railstutorial.org"
   password = 'password'
   User.create!(name: name,
                email: email,
@@ -32,13 +32,15 @@ end
   title = Faker::Lorem.sentence(1)
   content = Faker::Lorem.sentence(10)
   # 5人のユーザひとりひとりに作成
-  for n in 1..5 do
-    plan = User.find(n).plans.create!(title: title, content: content)
+  (1..5).each do |plan_user_number|
+    plan = User.find(plan_user_number).plans.create!(title: title,
+                                                     content: content)
 
     # 作成したプランに対してアクティビティを10こ作成
-    rand_method = ['walk','car','train','bus','taxi','air','ship','etc','tourism','meal','work','checkin','sleepin','wakeup','checkout','etc']
-    10.times do |n|
-      hour = n * 5
+    rand_method = %w[walk car train bus taxi air ship etc
+                     tourism meal work checkin sleepin wakeup checkout etc]
+    10.times do |plan_detail_no|
+      hour = plan_detail_no * 5
       plan.plan_details.create!(
         date: hour.hours.ago,
         place: Faker::Lorem.sentence(1),
@@ -46,6 +48,5 @@ end
         action_memo: Faker::Lorem.sentence(10)
       )
     end
-
   end
 end

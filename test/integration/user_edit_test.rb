@@ -133,7 +133,8 @@ class UserEditTest < ActionDispatch::IntegrationTest
   # プロフィール画像のアップロード失敗（ファイルサイズオーバー）
   test 'upload should fail with over 5MB image' do
     log_in_as(@user)
-    bigfile = fixture_file_upload('test/fixtures/image_invalid_filesize.png', 'image/png')
+    bigfile = fixture_file_upload('test/fixtures/image_invalid_filesize.png',
+                                  'image/png')
     assert_not @user.user_image.attached?
     patch user_path(@user), params: { user: { name: @user.name,
                                               email: @user.email,
@@ -146,7 +147,7 @@ class UserEditTest < ActionDispatch::IntegrationTest
   #  ---------   いまんとこバリデーション不可能   ----------
   # test "upload should fail with invalid file name" do
   #   log_in_as(@user)
-  #   bigfile = fixture_file_upload('test/fixtures/image_invalid_filename.invalid', 'image/png')
+  #   bigfile = fixture_file_upload('filename', 'image/png')
   #   assert_not @user.user_image.attached?
   #   patch user_path(@user), params: {user: {name: @user.name,
   #                                           email: @user.email,
@@ -158,7 +159,8 @@ class UserEditTest < ActionDispatch::IntegrationTest
   # プロフィール画像のアップロード成功
   test 'upload should success' do
     log_in_as(@user)
-    validfile = fixture_file_upload('test/fixtures/image_valid.png', 'image/png')
+    validfile = fixture_file_upload('test/fixtures/image_valid.png',
+                                    'image/png')
     assert_not @user.user_image.attached?
     patch user_path(@user), params: { user: { name: @user.name,
                                               email: @user.email,

@@ -1,8 +1,12 @@
 
 .plan_form_gawa {
-  width: 50vw;
+  width: 90vw;
   margin: 10vh auto 1vh;
   border-bottom: solid 1px gray;
+  .panel {
+    width: 60%;
+    margin: 20px auto;
+  }
   .container{
     width: auto;
     height: auto;

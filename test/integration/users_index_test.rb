@@ -16,7 +16,11 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     first_page_of_users = User.where(activated: true).paginate(page: 1)
     first_page_of_users.each do |user|
       assert_select 'a[href=?]', user_path(user), text: user.name
-      assert_select 'a[href=?]', user_path(user), text: 'このアカウントを削除する' unless user == @admin
+      next if user == @admin
+
+      assert_select 'a[href=?]',
+                    user_path(user),
+                    text: 'このアカウントを削除する'
     end
     assert_difference 'User.count', -1 do
       delete user_path(@non_admin)
