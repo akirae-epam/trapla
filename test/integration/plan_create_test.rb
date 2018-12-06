@@ -25,7 +25,7 @@ class PlanCreateTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'plans/edit'
-    assert flash.empty?
+    assert_not flash.empty?
   end
 
   test 'create should fail with invalid infomation' do
