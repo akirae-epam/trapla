@@ -1,0 +1,6 @@
+<label class="btn btn-default">
+  <% if key.to_s == plan_detail.action_type %>
+    <%= plan_detail_f.radio_button :action_type, key, {checked: true} %> <%= value %>
+  <% else %>
+    <%= plan_detail_f.radio_button :action_type, key, {}  %> <%= value %>
+  <% end %></label>

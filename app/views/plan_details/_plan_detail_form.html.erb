@@ -9,10 +9,6 @@
       <div class="panel-body">
           <%= plan_detail_f.label :日付, class:"info" %>
           <%= plan_detail_f.text_field :date, class: 'form-control' %>
-
-          <%= plan_detail_f.label :場所, class:"info" %>
-          <%= plan_detail_f.text_area :place, class: 'form-control' %>
-
       </div>
     </div>
   </div>
@@ -36,26 +32,20 @@
             <%= plan_detail.action_type %>
           <h5>移動</h5>
           <% @action_type_move.each do |key, value| %>
-            <label class="btn btn-default">
-              <% if key.to_s == plan_detail.action_type %>
-                <%= plan_detail_f.radio_button :action, key , {checked: true} %> <%= value %>
-              <% else %>
-                <%= plan_detail_f.radio_button :action, key, {} %> <%= value %>
-              <% end %> </label>
+             <%= render 'plan_details/plan_detail_form_action',
+                        key: key, value: value, plan_detail: plan_detail,
+                        plan_detail_f: plan_detail_f %>
           <% end %>
           <h5>滞在</h5>
           <% @action_type_visit.each do |key, value| %>
-            <label class="btn btn-default">
-              <% if key.to_s == plan_detail.action_type %>
-                <%= plan_detail_f.radio_button :action, key, {checked: true} %> <%= value %>
-              <% else %>
-                <%= plan_detail_f.radio_button :action, key, {}  %> <%= value %>
-              <% end %></label>
+             <%= render 'plan_details/plan_detail_form_action',
+                        key: key, value: value, plan_detail: plan_detail,
+                        plan_detail_f: plan_detail_f %>
           <% end %>
           </div>
         </div>
         <%= plan_detail_f.label :メモ, class:"info" %>
-        <%= plan_detail_f.text_area :place, class: 'form-control' %>
+        <%= plan_detail_f.text_area :action_memo, class: 'form-control' %>
       </div>
     </div>
   </div>
