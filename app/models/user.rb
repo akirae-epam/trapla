@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # ———————————————————————————————事前処理———————————————————————————————
   has_many :plans, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -12,7 +11,7 @@ class User < ApplicationRecord
   # プロフィール画像
   has_one_attached :user_image
   attribute :new_user_image
-  # ———————————————————————————————Validation———————————————————————————————
+
   validates :name, presence: true,
                    length: { maximum: 25 },
                    uniqueness: true
@@ -30,10 +29,10 @@ class User < ApplicationRecord
 
   validate :picture_validation
 
-  # ———————————————————————————————クラスメソッド———————————————————————————————
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
@@ -108,6 +107,8 @@ class User < ApplicationRecord
 
   # アップロードされた画像のサイズをバリデーションする
   def picture_validation
-    return errors.add(:new_user_image, 'should be less than 5MB') if new_user_image && new_user_image.size > 5.megabytes
+    return unless new_user_image && new_user_image.size > 5.megabytes
+
+    return errors.add(:new_user_image, 'should be less than 5MB')
   end
 end

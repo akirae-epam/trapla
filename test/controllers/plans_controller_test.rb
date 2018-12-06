@@ -11,7 +11,8 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
   # ログインしていないとPlan作成できない
   test 'should redirect create when not logged in' do
     assert_no_difference 'Plan.count' do
-      post plans_path, params: { Plan: { title: 'title test', content: 'content test' } }
+      post plans_path, params: { Plan: { title: 'title test',
+                                         content: 'content test' } }
     end
     assert_redirected_to login_url
   end

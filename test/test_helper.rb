@@ -6,9 +6,8 @@ require 'rails/test_help'
 require 'minitest/reporters'
 Minitest::Reporters.use!
 
-# ———————————————————————————————単体テスト用ヘルパーメソッド———————————————————————————————
+# 単体テスト用ヘルパーメソッド
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
   # テスト環境でもヘルパーモジュールのApplicationHelperを使えるようにする
@@ -25,7 +24,7 @@ class ActiveSupport::TestCase
   end
 end
 
-# ———————————————————————————————統合テスト用ヘルパーメソッド———————————————————————————————
+# 統合テスト用ヘルパーメソッド
 class ActionDispatch::IntegrationTest
   # テストユーザーとしてログインする
   def log_in_as(user, password: 'password', remember_me: '1')

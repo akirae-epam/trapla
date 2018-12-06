@@ -54,13 +54,13 @@ class PlansController < ApplicationController
 
   # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
   def correct_user
-    unless current_user.nil? && current_user.admin?
-      plan = current_user.plans.find_by(id: params[:id])
-      if !!plan
-        redirect_to(root_url) unless plan.user == current_user
-      else
-        redirect_to(root_url)
-      end
+    return if current_user.nil? && current_user.admin?
+
+    plan = current_user.plans.find_by(id: params[:id])
+    if !plan.nil?
+      redirect_to(root_url) unless plan.user == current_user
+    else
+      redirect_to(root_url)
     end
   end
 

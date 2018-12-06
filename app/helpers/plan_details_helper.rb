@@ -6,16 +6,19 @@ module PlanDetailsHelper
     plan = plan_detail.plan
 
     # formatに応じて現在の日時、一個前の日時を取得
-    current_date = plan_detail.date.strftime('%Y') if format == 'year'
-    current_date = plan_detail.date.strftime('%m/%d') if format == 'day'
-    prev_date = plan.remember_year if format == 'year' && plan.remember_year
-    prev_date = plan.remember_day if format == 'day' && plan.remember_day
+    case format
+    when 'year'
+      current_date = plan_detail.date.strftime('%Y')
+      prev_date = plan.remember_year if plan.remember_year
+    when 'day'
+      current_date = plan_detail.date.strftime('%m/%d')
+      prev_date = plan.remember_day if plan.remember_day
+    end
 
     # 一個前と違う日時であれば現在の日時を返す
-    if prev_date != current_date
-      plan.remember_date(current_date, format)
-      return current_date
-    else return ''
-    end
+    return '' unless prev_date != current_date
+
+    plan.remember_date(current_date, format)
+    return current_date
   end
 end

@@ -32,7 +32,8 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     get edit_account_activation_path('invalid token', email: user.email)
     assert_not is_logged_in?
     # トークンは正しいがメールアドレスが無効な場合
-    get edit_account_activation_path(user.activation_token, email: 'wrong mail address')
+    get edit_account_activation_path(user.activation_token,
+                                     email: 'wrong mail address')
     assert_not is_logged_in?
 
     # 正しい有効化トークンとメールアドレスで有効化
@@ -49,7 +50,10 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     get signup_path
     assert_template 'users/new'
     assert_no_difference 'User.count' do
-      post signup_path, params: { user: { name: '', email: '', password: '', password_confirmation: '' } }
+      post signup_path, params: { user: { name: '',
+                                          email: '',
+                                          password: '',
+                                          password_confirmation: '' } }
     end
     assert_template 'users/new'
     assert_select 'div#error_explanation'

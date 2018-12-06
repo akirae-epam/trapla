@@ -9,10 +9,72 @@ AsciiComments:
 Style/Documentation:
  Enabled: false
 
-# Line is too long.
-Metrics/LineLength:
- Enabled: false
-
 # Block has too many lines.
 Metrics/BlockLength:
  Enabled: false
+
+# Exclude directories
+AllCops:
+  Exclude:
+    - 'bin/**'
+    - 'db/migrate/**'
+    - 'db/schema.rb'
+
+# ———————————————————————————————
+# PJポリシー確認
+# 条件分岐の途中で改行していることによる警告
+Layout/MultilineOperationIndentation:
+  Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+# １メソッドの行数がおおすぎる(10->20行に増やした)
+Metrics/MethodLength:
+  CountComments: true  # count full line comments?
+  Max: 20
+  Exclude:
+     - 'test/'
+
+# １クラスの行数がおおすぎる(100->200行に増やした)
+Metrics/ClassLength:
+  CountComments: true  # count full line comments?
+  Max: 200
+
+# １行の文字数が多すぎる
+Metrics/LineLength:
+  Exclude:
+    - 'config/**/*'
+
+# ———————————————————————————————
+# この辺は無視していいか確認する
+# xxx.update_columsなどのvalidation無視するメソッドの使用による警告
+SkipsModelValidations:
+  Exclude:
+    - 'app/controllers/password_resets_controller.rb'
+    - 'app/models/user.rb'
+    - 'test/**/*'
+
+# クラスのネスト化の仕方に関する警告
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/test_helper.rb'
+
+# メソッド内の計算量がおおすぎる？
+Metrics/AbcSize:
+  Enabled: false
+
+# メソッドの名前についての警告
+# 'is_xxx?'は'xxx?'にすべき
+Naming/PredicateName:
+  Exclude:
+    - 'test/test_helper.rb'
+
+# Rails.root.joinのPath結合の書式について
+Rails/FilePath:
+  Exclude:
+    - 'config/environments/development.rb'
+
+# 複数のreturnが使われている
+Style/RedundantReturn:
+  Enabled: false

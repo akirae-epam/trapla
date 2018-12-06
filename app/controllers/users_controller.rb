@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  # ———————————————————————————————before_action———————————————————————————————
   before_action :logged_in_user, only: %i[destroy index edit update]
   before_action :correct_user,   only: %i[destroy edit update]
 
-  # ———————————————————————————————actions———————————————————————————————
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
   end
@@ -46,13 +44,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
+    User.find(params[:id]).destroy
     if current_user.admin?
-      user.destroy
       flash[:success] = 'ユーザを削除しました。'
       redirect_to users_url
     else
-      user.destroy
       session.delete(:user_id)
       cookies.delete(:user_id)
       cookies.delete(:remember_token)
@@ -64,14 +60,18 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:new_user_image, :name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:new_user_image,
+                                 :name,
+                                 :email,
+                                 :password,
+                                 :password_confirmation)
   end
 
   # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
   def correct_user
-    unless current_user.admin?
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+    return if current_user.admin?
+
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end

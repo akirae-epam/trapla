@@ -16,7 +16,7 @@ gem 'mini_magick' # 画像をアップロードする
 gem 'mini_racer'
 gem 'puma', '3.9.1'
 gem 'rails', '5.2.0'
-gem 'sass-rails',   '5.0.6' # bootstrap用
+gem 'sass-rails', '5.0.6' # bootstrap用
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.6' # ページネーション
