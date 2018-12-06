@@ -45,15 +45,12 @@ jobs:
           name: run tests
           command: |
             bundle exec rake test
-<<<<<<< HEAD
-=======
 
       # run rubocop
       - run:
           name: run rubocop
           command: |
             bundle exec rubocop
->>>>>>> try_to_create_new_plan_detail
 
       # collect reports
       - store_test_results:
