@@ -23,7 +23,6 @@ class PlansController < ApplicationController
   def create
     @plan = current_user.plans.build(plan_params)
     if @plan.save
-      flash.now[:success] = 'プランを作成しました'
       redirect_to edit_plan_path(@plan)
     else
       render 'new'
