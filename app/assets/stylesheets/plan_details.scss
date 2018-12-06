@@ -127,11 +127,15 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
 
 // アクティビティ用フォーム
 .edit_plan_detail {
+  width: 900px;
+  padding: 10px;
   padding: 0;
   display: none;
 }
 
 .add_plan_detail {
+  width: 900px;
+  padding: 10px;
   margin: 0;
   padding: 0;
 }

@@ -2,35 +2,16 @@
 <div class="plan_detail_gawa">
   <div class="plan_detail_left">
     <% @plan_details.order(:date).each do |plan_detail| %>
-      <div class="plan_detail plan_detail_<%= plan_detail.id %>">
-        <div class="plan_detail_date">
-          <h2><%= drow_date(plan_detail, 'year')%></h2>
-          <h3><%= drow_date(plan_detail, 'day') %></h3>
-        </div>
-        <div class="plan_detail_content">
-          <div class="plan_detail_content_top">
-            <div class="plan_detail_time"><p><%= plan_detail.date.strftime('%H:%M') %></p></div>
-            <div class="plan_detail_place"><p><%= plan_detail.place %></p></div>
-          </div>
-          <div class="plan_detail_content_bottom">
-            <div class="plan_detail_action_type"><p><%= plan_detail.action_type %></p></div>
-            <div class="plan_detail_action_memo"><p><%= plan_detail.action_memo %></p></div>
-          </div>
-        </div>
-      </div>
-      <% if request.path_info == edit_plan_path %>
-        <%# 編集ページではアクティビティ編集用フォームの描写 %>
-        <div class="edit_plan_detail">
-          <%= render 'plan_details/plan_detail_form', plan_detail_form_button: plan_detail_form_button, plan_detail: plan_detail, plan_detail_title: 'アクティビティの編集' %>
-        </div>
-      <% end %>
+      <%= render 'plan_details/each_plan_detail',
+                 plan_detail: plan_detail %>
     <% end %>
   </div>
 
   <%# 新規アクティビティ追加用フォームの描写 %>
   <% if request.path_info == edit_plan_path %>
   <div class="add_plan_detail">
-    <%= render 'plan_details/plan_detail_form', plan_detail_form_button: plan_detail_form_button, plan_detail: @new_plan_detail, plan_detail_title: 'アクティビティの追加'  %>
+    <%= render 'plan_details/plan_detail_form', plan_detail: @new_plan_detail,
+                                                plan_detail_title: 'アクティビティの追加'  %>
   </div>
   <% end %>
 

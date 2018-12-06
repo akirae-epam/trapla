@@ -6,11 +6,15 @@ class PlanDetailsController < ApplicationController
   def show; end
 
   def create
-    plan_detail = PlanDetail.find(params[:plan_detail])
-    @plan = plan_detail.plan
-    respond_to do |format|
-      format.html { redirect_to edit_plan(@plan) }
-      format.js
+    @plan = Plan.find(params[:plan_id])
+    @plan_detail = @plan.plan_details.build(plan_detail_params)
+    if @plan_detail.save
+      respond_to do |format|
+        format.html { redirect_to edit_plan_path(@plan) }
+        format.js
+      end
+    else
+      render 'plans/edit'
     end
   end
 

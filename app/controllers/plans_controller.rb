@@ -12,10 +12,12 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @plan_details = @plan.plan_details
+    @plan_form_button = ''
   end
 
   def new
     @plan = current_user.plans.new
+    @plan_form_button = 'プランを作成する'
   end
 
   def create
@@ -32,6 +34,7 @@ class PlansController < ApplicationController
     @plan = current_user.plans.find_by(id: params[:id])
     @plan_details = @plan.plan_details
     @new_plan_detail = @plan.plan_details.new
+    @plan_form_button = 'プラン概要を変更する'
   end
 
   def update

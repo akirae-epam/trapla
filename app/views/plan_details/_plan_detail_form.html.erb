@@ -1,5 +1,6 @@
 <%= form_for(plan_detail, remote: true) do |plan_detail_f| %>
 <%= render 'shared/error_messages', object: plan_detail_f.object %>
+<%= hidden_field_tag :plan_id, plan_detail.plan.id %>
 <div class="plan_detail_form_gawa well">
   <h4><%= plan_detail_title %></h4>
   <div class="each_plan_detail_gawa">

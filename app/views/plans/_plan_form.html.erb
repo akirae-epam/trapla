@@ -15,7 +15,7 @@
             <%= plan_f.label :プラン概要, class:"info" %>
             <%= plan_f.text_area :content, class: 'form-control' %>
 
-            <%= plan_f.submit plan_detail_form_button, class: 'btn btn-default' %>
+            <%= plan_f.submit @plan_form_button, class: 'btn btn-default' %>
             <% if @plan.id? && current_user == @plan.user %>
               <%= link_to "プランを削除する", plan_path, method: :delete, class: 'delete_plan', data: { confirm: "このページに表示されているプランはすべて削除されます。削除したプランは元に戻せません。本当に削除しますか？"} %>
             <% end %>
@@ -26,7 +26,7 @@
 
     <%# アクティビティがあれば表示 %>
     <% if @plan_details %>
-        <%= render 'plan_details/plan_detail', plan_detail_form_button: plan_detail_form_button %>
+        <%= render 'plan_details/plan_detail' %>
     <% end %>
 
 
