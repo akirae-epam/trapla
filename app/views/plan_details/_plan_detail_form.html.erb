@@ -1,4 +1,4 @@
-<%= form_for(plan_detail) do |plan_detail_f| %>
+<%= form_for(plan_detail, remote: true) do |plan_detail_f| %>
 <%= render 'shared/error_messages', object: plan_detail_f.object %>
 <div class="plan_detail_form_gawa well">
   <h4><%= plan_detail_title %></h4>
