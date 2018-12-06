@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+first:
   date: 2018-11-30 13:29:13
   place: MyString
   action_type: MyString
@@ -8,10 +8,26 @@ one:
   action_memo: MyText
   plan: one
 
-two:
+same_day:
   date: 2018-11-30 13:29:13
   place: MyString
   action_type: MyString
   action: MyString
   action_memo: MyText
-  plan: two
+  plan: one
+
+other_day:
+  date: 2018-11-31 13:29:13
+  place: MyString
+  action_type: MyString
+  action: MyString
+  action_memo: MyText
+  plan: one
+
+other_year:
+  date: 2019-01-01 13:29:13
+  place: MyString
+  action_type: MyString
+  action: MyString
+  action_memo: MyText
+  plan: one
