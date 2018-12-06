@@ -3,13 +3,13 @@
   width: 90vw;
   margin: 10vh auto 1vh;
   border-bottom: solid 1px gray;
-  .panel {
-    width: 60%;
-    margin: 20px auto;
-  }
   .container{
     width: auto;
     height: auto;
+    > .panel {
+      width: 60%;
+      margin: 20px auto;
+    }
   }
   .panel-body {
     a {

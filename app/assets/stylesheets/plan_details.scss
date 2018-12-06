@@ -127,7 +127,6 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
 
 // アクティビティ用フォーム
 .edit_plan_detail {
-  margin: 0;
   padding: 0;
   display: none;
 }
@@ -138,10 +137,11 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
 }
 
 .plan_detail_form_gawa {
-  margin: 0 auto;
-  .panel {
-    width: auto;
-    margin: 0.5vh;
+  width: 80%;
+  margin: 20px auto;
+  clear: both;
+  .each_plan_detail_gawa {
+    width: 100%;
   }
   .container{
     width: auto;
@@ -169,7 +169,6 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
     overflow: hidden;
     .payments_form {
       float: left;
-      // display: inline;
       margin: 10px;
       label,input {
         display: block;
