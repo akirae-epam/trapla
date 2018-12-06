@@ -2,7 +2,7 @@ Rails:
  Enabled: true
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.5.1
   Exclude:
     - 'bin/**'
     - 'db/migrate/**'
