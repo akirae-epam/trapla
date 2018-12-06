@@ -12,7 +12,7 @@ class PlanShowTest < ActionDispatch::IntegrationTest
     get plan_path(@plan)
     assert_template 'plans/show'
     assert_select '.plan_detail_date > h2',
-                  text:@plan_detail.date.strftime('%Y'),
+                  text: @plan_detail.date.strftime('%Y'),
                   count: 1
   end
 
@@ -21,7 +21,7 @@ class PlanShowTest < ActionDispatch::IntegrationTest
     get plan_path(@plan)
     assert_template 'plans/show'
     assert_select '.plan_detail_date > h3',
-                  text:@plan_detail.date.strftime('%m/%d'),
+                  text: @plan_detail.date.strftime('%m/%d'),
                   count: 1
   end
 end
