@@ -1,6 +1,13 @@
 Rails:
  Enabled: true
 
+AllCops:
+  TargetRubyVersion: 2.2
+  Exclude:
+    - 'bin/**'
+    - 'db/migrate/**'
+    - 'db/schema.rb'
+
 # Use only ascii symbols in comments.
 AsciiComments:
  Enabled: false
@@ -12,13 +19,6 @@ Style/Documentation:
 # Block has too many lines.
 Metrics/BlockLength:
  Enabled: false
-
-# Exclude directories
-AllCops:
-  Exclude:
-    - 'bin/**'
-    - 'db/migrate/**'
-    - 'db/schema.rb'
 
 # ———————————————————————————————
 # PJポリシー確認
