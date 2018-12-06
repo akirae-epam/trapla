@@ -19,14 +19,19 @@
         </div>
       </div>
       <% if request.path_info == edit_plan_path %>
-        <%= render 'plan_details/plan_detail_form', plan_detail_form_button: plan_detail_form_button, plan_detail: plan_detail %>
+        <%# 編集ページではアクティビティ編集用フォームの描写 %>
+        <div class="edit_plan_detail">
+          <%= render 'plan_details/plan_detail_form', plan_detail_form_button: plan_detail_form_button, plan_detail: plan_detail, plan_detail_title: 'アクティビティの編集' %>
+        </div>
       <% end %>
     <% end %>
   </div>
 
   <%# 新規アクティビティ追加用フォームの描写 %>
   <% if request.path_info == edit_plan_path %>
-    <%= render 'plan_details/plan_detail_form', plan_detail_form_button: plan_detail_form_button, plan_detail: @new_plan_detail %>
+  <div class="add_plan_detail">
+    <%= render 'plan_details/plan_detail_form', plan_detail_form_button: plan_detail_form_button, plan_detail: @new_plan_detail, plan_detail_title: 'アクティビティの追加'  %>
+  </div>
   <% end %>
 
   <div class="plan_detail_right">

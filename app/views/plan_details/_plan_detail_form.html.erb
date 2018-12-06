@@ -1,15 +1,18 @@
 <%= form_for(plan_detail) do |plan_detail_f| %>
 <%= render 'shared/error_messages', object: plan_detail_f.object %>
-<div class="plan_detail_form_gawa">
-  <div class="panel panel-default">
-    <h4>いつ？</h4>
-    <div class="panel-body">
-        <%= plan_detail_f.label :日付, class:"info" %>
-        <%= plan_detail_f.text_field :date, class: 'form-control' %>
+<div class="plan_detail_form_gawa well">
+  <p><%= plan_detail_title %></p>
+  <div class="new_plan_detail_gawa">
+    <div class="panel panel-default">
+      <h4>いつ？</h4>
+      <div class="panel-body">
+          <%= plan_detail_f.label :日付, class:"info" %>
+          <%= plan_detail_f.text_field :date, class: 'form-control' %>
 
-        <%= plan_detail_f.label :場所, class:"info" %>
-        <%= plan_detail_f.text_area :place, class: 'form-control' %>
+          <%= plan_detail_f.label :場所, class:"info" %>
+          <%= plan_detail_f.text_area :place, class: 'form-control' %>
 
+      </div>
     </div>
   </div>
 
@@ -23,72 +26,69 @@
     </div>
   </div>
 
+  <div class="new_plan_detail_gawa">
+    <div class="panel panel-default">
+      <h4>何をする？</h4>
+      <div class="panel-body">
+        <div class="well">
+          <div class="btn-group" data-toggle="buttons">
+            <%= plan_detail.action_type %>
+          <h5>移動</h5>
+          <% @action_type_move.each do |key, value| %>
+            <label class="btn btn-default">
+              <% if key.to_s == plan_detail.action_type %>
+                <%= plan_detail_f.radio_button :action, key , {checked: true} %> <%= value %>
+              <% else %>
+                <%= plan_detail_f.radio_button :action, key, {} %> <%= value %>
+              <% end %> </label>
+          <% end %>
+          <h5>滞在</h5>
+          <% @action_type_visit.each do |key, value| %>
+            <label class="btn btn-default">
+              <% if key.to_s == plan_detail.action_type %>
+                <%= plan_detail_f.radio_button :action, key, {checked: true} %> <%= value %>
+              <% else %>
+                <%= plan_detail_f.radio_button :action, key, {}  %> <%= value %>
+              <% end %></label>
+          <% end %>
+          </div>
+        </div>
+        <%= plan_detail_f.label :メモ, class:"info" %>
+        <%= plan_detail_f.text_area :place, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
 
-    <div class="new_plan_detail_gawa">
-      <div class="panel panel-default">
-        <h4>何をする？</h4>
-        <div class="panel-body">
-            <div class="well">
-              <div class="btn-group" data-toggle="buttons">
-                <%= plan_detail.action_type %>
-              <h5>移動</h5>
-              <% @action_type_move.each do |key, value| %>
-                <label class="btn btn-default">
-                  <% if key.to_s == plan_detail.action_type %>
-                    <%= plan_detail_f.radio_button :action, key , {checked: true} %> <%= value %>
-                  <% else %>
-                    <%= plan_detail_f.radio_button :action, key, {} %> <%= value %>
-                  <% end %> </label>
-              <% end %>
-              <h5>滞在</h5>
-              <% @action_type_visit.each do |key, value| %>
-                <label class="btn btn-default">
-                  <% if key.to_s == plan_detail.action_type %>
-                    <%= plan_detail_f.radio_button :action, key, {checked: true} %> <%= value %>
-                  <% else %>
-                    <%= plan_detail_f.radio_button :action, key, {}  %> <%= value %>
-                  <% end %></label>
-              <% end %>
-              </div>
-            </div>
-            <%= plan_detail_f.label :メモ, class:"info" %>
-            <%= plan_detail_f.text_area :place, class: 'form-control' %>
+  <div class="new_plan_detail_gawa">
+    <div class="panel panel-default">
+      <h4>必要なものは？</h4>
+      <h5>※「コンマ(,)」で区切って記載する</h5>
+      <div class="panel-body">
+        <%= plan_detail_f.label :必要なもの, class:"info" %>
+        <%= plan_detail_f.text_area :action, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="new_plan_detail_gawa">
+    <div class="panel panel-default">
+      <h4>かかる費用は？</h4>
+      <div class="panel-body">
+        <div class="payments_forms">
+          <div class="payments_form">
+            <%= plan_detail_f.label :何の費用か, class:"info" %>
+            <%= plan_detail_f.text_field :action, class: 'form-control' %>
+          </div>
+          <div class="payments_form">
+            <%= plan_detail_f.label :いくらかかるか, class:"info" %>
+            <%= plan_detail_f.text_field :action, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="payments_content">
+          かかる費用を表示
         </div>
       </div>
     </div>
-
-    <div class="new_plan_detail_gawa">
-      <div class="panel panel-default">
-        <h4>必要なものは？</h4>
-        <h5>※「コンマ(,)」で区切って記載する</h5>
-        <div class="panel-body">
-          <%= plan_detail_f.label :必要なもの, class:"info" %>
-          <%= plan_detail_f.text_area :action, class: 'form-control' %>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="new_plan_detail_gawa">
-      <div class="panel panel-default">
-        <h4>かかる費用は？</h4>
-        <div class="panel-body">
-          <div class="payments_forms">
-            <div class="payments_form">
-              <%= plan_detail_f.label :何の費用か, class:"info" %>
-              <%= plan_detail_f.text_field :action, class: 'form-control' %>
-            </div>
-            <div class="payments_form">
-              <%= plan_detail_f.label :いくらかかるか, class:"info" %>
-              <%= plan_detail_f.text_field :action, class: 'form-control' %>
-            </div>
-          </div>
-          <div class="payments_content">
-            かかる費用を表示
-          </div>
-        </div>
-      </div>
-
 
     <%= plan_detail_f.submit 'アクティビティを保存する', class: 'btn btn-default' %>
     <% end %>
