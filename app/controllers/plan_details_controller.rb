@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class PlanDetailsController < ApplicationController
-  before_action :logged_in_user
 
   def show; end
 
