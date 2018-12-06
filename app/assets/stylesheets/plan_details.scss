@@ -1,21 +1,3 @@
-////////////////////////////////テスト用色付け/////////////////////////////////
-// .plan_detail { background-color: darkgray;}
-//   .plan_detail_left { background-color: violet;}
-//     .plan_detail_date { background-color: gray;}
-//   .plan_detail_content { background-color: thistle;}
-//     .plan_detail_content_top { background-color: red;}
-//       .plan_detail_time { background-color: green;}
-//       .plan_detail_place { background-color: pink;}
-//     .plan_detail_content_bottom { background-color: blue;}
-//       .plan_detail_action_type { background-color: yellow;}
-//       .plan_detail_action { background-color: lightyellow;}
-//       .plan_detail_action_memo { background-color: pink;}
-//
-//   .plan_detail_right { background-color: blanchedalmond;}
-//     .plan_detail_belongings { background-color: gainsboro;}
-//     .plan_detail_payments { background-color: lightskyblue;}
-////////////////////////////////テスト用色付け/////////////////////////////////
-
 // アクティビティ表示用フォーム
 // 変数定義
 @import url('https://fonts.googleapis.com/css?family=K2D'); //日付用のフォント
@@ -40,8 +22,8 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
 }
 // CSS
 .plan_detail_gawa {
-  width: 100%;
-  margin: 10px;
+  width: 80%;
+  margin: 10px auto;
   padding: 30px;
   overflow: hidden;
   border: solid 1px gray;
