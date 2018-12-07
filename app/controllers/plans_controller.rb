@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PlansController < ApplicationController
-  before_action :with_logged_in?, :set_action_type
+  before_action :logged_in_user, :set_action_type
   before_action :correct_user, only: %i[edit update destroy]
 
   def index
@@ -54,14 +54,6 @@ class PlansController < ApplicationController
   end
 
   private
-
-  # ログインしているか
-  def with_logged_in?
-    if current_user.nil?
-      flash[:infomation] = 'ログインしてください。'
-      redirect_to(login_path)
-    end
-  end
 
   # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
   def correct_user
