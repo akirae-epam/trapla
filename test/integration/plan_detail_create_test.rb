@@ -18,7 +18,8 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
                                           date: Time.zone.now,
                                           place: 'valid place',
                                           action_type: 'walk',
-                                          action_memo: 'valid memo' } }
+                                          action_memo: 'valid memo'
+                                          } }
     end
   end
 
@@ -31,7 +32,8 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
                                           date: Time.zone.now,
                                           place: 'valid place',
                                           action_type: 'walk',
-                                          action_memo: 'valid memo' } }
+                                          action_memo: 'valid memo'
+                                          } }
     end
     assert_redirected_to root_url
   end
@@ -47,7 +49,8 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
                                           date: Time.zone.now,
                                           place: 'valid place',
                                           action_type: 'walk',
-                                          action_memo: 'valid memo' } }
+                                          action_memo: 'valid memo'
+                                          } }
     end
     assert_redirected_to edit_plan_path(@plan)
   end
@@ -64,7 +67,9 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
                                              date: Time.zone.now,
                                              place: 'valid place',
                                              action_type: 'walk',
-                                             action_memo: 'valid memo' } }
+                                             action_memo: 'valid memo'
+                                             }
+                                           }
     end
     assert_template 'plan_details/_each_plan_detail'
   end
@@ -78,10 +83,11 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
                                         date: Time.zone.now,
                                         place: 'valid place',
                                         action_type: 'walk',
-                                        action_memo: 'valid memo' } }
+                                        action_memo: 'valid memo'
+                                        } }
     assert_redirected_to edit_plan_path(@plan)
     follow_redirect!
-    assert_select '.plan_detail', count:@plan.plan_details.count
+    assert_select '.plan_detail', count: @plan.plan_details.count
   end
 
   # 自分のPlanDetailしか編集できない
