@@ -4,6 +4,11 @@
 $plan_detail_as_same_width: 100px; //時刻とactionマークの横幅を揃える
 $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージンを揃える
 
+// 隠蔽用クラス
+.hidden {
+  display: none;
+}
+
 // 文字を囲う枠のデザイン
 %p_with_border {
   p {
@@ -37,6 +42,7 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
     .plan_detail {
       clear: both;
       overflow: hidden;
+      border-radius: 10px;
       .plan_detail_date {
         font-family: 'K2D', sans-serif;
         padding: 5px;
@@ -112,7 +118,6 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
   width: 900px;
   padding: 10px;
   padding: 0;
-  display: none;
 }
 
 .add_plan_detail {

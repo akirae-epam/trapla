@@ -6,14 +6,17 @@
 
     //マウスを乗せたら色が変わる
     $('.plan_detail').hover(function() {
-      $(this).css('background-color', 'rgba(100, 100, 100, 0.5)');
-    }, function() { //マウスを離したら色が戻る
+      $(this).css('background-color', 'rgba(100, 100, 100, 0.3)');
+    }, function() {
       $(this).css('background-color', '');
     });
 
-    $('.plan_detail').on('click', function() {
-      $(this).css('display', 'none');
-    });
+    // $(".plan_detail").on("click", function() {
+    //   $('div.edit_plan_detail').each().hide();
+    //   source_id = $(this).attr("id").substr(12);
+    //   target_id = "#edit_plan_detail_" + source_id;
+    //   $(target_id).slideToggle('fast');
+    // });
 
   });
 </script>
