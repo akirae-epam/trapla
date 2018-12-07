@@ -1,9 +1,7 @@
-
 <div class="plan_detail_gawa">
   <div class="plan_detail_left">
     <% @plan_details.order(:date).each do |plan_detail| %>
-      <%= render 'plan_details/each_plan_detail',
-                 plan_detail: plan_detail %>
+      <%= render 'plan_details/each_plan_detail', plan_detail: plan_detail %>
     <% end %>
   </div>
 
