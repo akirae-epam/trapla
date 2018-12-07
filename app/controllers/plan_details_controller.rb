@@ -26,10 +26,10 @@ class PlanDetailsController < ApplicationController
 
   # ログインしているか
   def with_logged_in
-    if current_user.nil?
-      flash[:infomation] = 'ログインしてください。'
-      redirect_to(login_path)
-    end
+    return unless current_user.nil?
+
+    flash[:infomation] = 'ログインしてください。'
+    redirect_to(login_path)
   end
 
   def correct_user
