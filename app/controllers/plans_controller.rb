@@ -2,7 +2,7 @@
 
 class PlansController < ApplicationController
   before_action :logged_in_user, :set_action_type
-  before_action :correct_user, only: %i[destroy edit update]
+  before_action :correct_user, only: %i[edit update destroy]
 
   def index
     @plans = Plan.paginate(page: params[:page])
@@ -57,8 +57,6 @@ class PlansController < ApplicationController
 
   # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
   def correct_user
-    return if current_user.nil? && current_user.admin?
-
     plan = current_user.plans.find_by(id: params[:id])
     if !plan.nil?
       redirect_to(root_url) unless plan.user == current_user
