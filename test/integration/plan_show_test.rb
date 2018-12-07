@@ -6,24 +6,25 @@ class PlanShowTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
     @plan = plans(:one)
-    @plan_detail = plan_details(:first)
+    @other_user = users(:archer)
+    @other_plan = plans(:archer_plan_0)
   end
 
-  test 'year should appear only once' do
+  test 'plan show should failed without login' do
+    get plan_path(@plan)
+    assert_redirected_to login_path
+    follow_redirect!
+    assert_template 'sessions/new'
+    assert_not flash.empty?
+  end
+
+  test 'plan show should success with login' do
     log_in_as(@user)
     get plan_path(@plan)
     assert_template 'plans/show'
-    assert_select '.plan_detail_date > h2',
-                  text: @plan_detail.date.strftime('%Y'),
-                  count: 1
-  end
-
-  test 'day should appear only once' do
-    log_in_as(@user)
-    get plan_path(@plan)
+    assert flash.empty?
+    get plan_path(@other_plan)
     assert_template 'plans/show'
-    assert_select '.plan_detail_date > h3',
-                  text: @plan_detail.date.strftime('%m/%d'),
-                  count: 1
+    assert flash.empty?
   end
 end

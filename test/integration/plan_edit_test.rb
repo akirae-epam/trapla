@@ -26,6 +26,17 @@ class PlanEditTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
+  test 'edit should fail with invalid infomation' do
+    log_in_as(@user)
+    get edit_plan_path(@plan)
+    assert_template 'plans/edit'
+    patch plan_path(@plan), params: { plan: { title: '   ',
+                                              content: '   ' } }
+    assert_template 'plans/edit'
+    assert_select 'div#error_explanation'
+    assert_select 'div.alert-danger'
+  end
+
   test 'edit should success with valid infomation' do
     log_in_as(@user)
     get edit_plan_path(@plan)
@@ -36,16 +47,5 @@ class PlanEditTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'plans/show'
     assert_not flash.empty?
-  end
-
-  test 'edit should fail with invalid infomation' do
-    log_in_as(@user)
-    get edit_plan_path(@plan)
-    assert_template 'plans/edit'
-    patch plan_path(@plan), params: { plan: { title: '   ',
-                                              content: '   ' } }
-    assert_template 'plans/edit'
-    assert_select 'div#error_explanation'
-    assert_select 'div.alert-danger'
   end
 end

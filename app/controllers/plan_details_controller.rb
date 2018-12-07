@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class PlanDetailsController < ApplicationController
+  before_action :with_logged_in, :correct_user
 
   def show; end
 
   def create
-    @plan = Plan.find(params[:plan_id])
     @plan_detail = @plan.plan_details.build(plan_detail_params)
     if @plan_detail.save
       respond_to do |format|
@@ -22,6 +22,19 @@ class PlanDetailsController < ApplicationController
   def destroy; end
 
   private
+
+  # ログインしているか
+  def with_logged_in
+    if current_user.nil?
+      flash[:infomation] = 'ログインしてください。'
+      redirect_to(login_path)
+    end
+  end
+
+  def correct_user
+    @plan = current_user.plans.find_by(id: params[:plan_id])
+    redirect_to root_url if @plan.nil?
+  end
 
   def plan_detail_params
     params.require(:plan_detail).permit(:date,
