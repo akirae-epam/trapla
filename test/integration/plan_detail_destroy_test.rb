@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PlanDetailDestroyTest < ActionDispatch::IntegrationTest
@@ -59,5 +61,4 @@ class PlanDetailDestroyTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_select '.plan_detail', count: @plan.plan_details.reload.count
   end
-
 end
