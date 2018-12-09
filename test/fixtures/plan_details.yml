@@ -3,31 +3,31 @@
 first:
   date: 2018-11-30 13:29:13
   place: MyString
-  action_type: MyString
-  action: MyString
+  action_type: car
+  action: car
   action_memo: MyText
   plan: one
 
 same_day:
   date: 2018-11-30 13:29:13
   place: MyString
-  action_type: MyString
-  action: MyString
+  action_type: walk
+  action: walk
   action_memo: MyText
   plan: one
 
 other_day:
   date: 2018-11-31 13:29:13
   place: MyString
-  action_type: MyString
-  action: MyString
+  action_type: checkin
+  action: checkin
   action_memo: MyText
   plan: one
 
 other_year:
   date: 2019-01-01 13:29:13
   place: MyString
-  action_type: MyString
-  action: MyString
+  action_type: checkout
+  action: checkout
   action_memo: MyText
   plan: one
