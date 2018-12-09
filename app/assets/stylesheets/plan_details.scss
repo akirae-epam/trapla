@@ -90,14 +90,25 @@
   background-color: #F5FFFA;
   margin-top: 10px;
 }
+.plan_detail_edit {
+  display: table-cell;
+  vertical-align: top;
+  min-width: 100px;
+  display:none;
+  > a > img {
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+  > a > img:hover {
+    transform: scale(1.5);
+    margin: 10px;
+  }
+}
 .plan_details_right {
   display:table-cell;
   width: 10%;
 }
-
-
-
-
 
 // アクティビティ用フォーム
 .edit_plan_detail {

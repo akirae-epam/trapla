@@ -31,3 +31,19 @@ other_year:
   action: checkout
   action_memo: MyText
   plan: one
+
+other_plan_detail:
+  date: 2018-11-30 13:29:13
+  place: MyString
+  action_type: car
+  action: car
+  action_memo: MyText
+  plan: archer_plan
+
+other_plan_detail_diff_day:
+  date: 2018-11-31 13:29:13
+  place: MyString
+  action_type: car
+  action: car
+  action_memo: MyText
+  plan: archer_plan

@@ -121,7 +121,7 @@ class UserEditTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
-  test 'only admin user allowed to delete another' do
+  test 'admin user allowed to delete another' do
     log_in_as(@user)
     assert_difference 'User.count', -1 do
       delete user_path(@other_user)
