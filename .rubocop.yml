@@ -44,6 +44,7 @@ Metrics/ClassLength:
 
 # １行の文字数が多すぎる
 Metrics/LineLength:
+  Max: 100:
   Exclude:
     - 'config/**/*'
 

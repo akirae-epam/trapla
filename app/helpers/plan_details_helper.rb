@@ -23,7 +23,7 @@ module PlanDetailsHelper
   end
 
   def drow_action(key)
-    return @action_type_move[key.to_sym] if !@action_type_move[key.to_sym].nil?
-    return @action_type_visit [key.to_sym] if !@action_type_visit [key.to_sym].nil?
+    return @action_type_move[key.to_sym] unless @action_type_move[key.to_sym].nil?
+    return @action_type_visit [key.to_sym] unless @action_type_visit [key.to_sym].nil?
   end
 end
