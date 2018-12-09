@@ -21,4 +21,9 @@ module PlanDetailsHelper
     plan.remember_date(current_date, format)
     return current_date
   end
+
+  def drow_action(key)
+    return @action_type_move[key.to_sym] if !@action_type_move[key.to_sym].nil?
+    return @action_type_visit [key.to_sym] if !@action_type_visit [key.to_sym].nil?
+  end
 end

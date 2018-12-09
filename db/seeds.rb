@@ -37,8 +37,8 @@ end
                                                      content: content)
 
     # 作成したプランに対してアクティビティを10こ作成
-    rand_method = %w[walk car train bus taxi air ship etc
-                     tourism meal work checkin sleepin wakeup checkout etc]
+    rand_method = %w[walk car train bus taxi airplain ship move_etc
+                     tourism meal work checkin sleepin wakeup checkout visit_etc]
     10.times do |plan_detail_no|
       hour = plan_detail_no * 5
       plan.plan_details.create!(

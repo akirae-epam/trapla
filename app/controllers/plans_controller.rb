@@ -75,9 +75,9 @@ class PlansController < ApplicationController
                           train: '電車',
                           bus: 'バス',
                           taxi: 'タクシー',
-                          air: '飛行機',
+                          airplane: '飛行機',
                           ship: '船',
-                          etc: 'その他' }
+                          move_etc: 'その他' }
     @action_type_visit = { tourism: '観光',
                            meal: '食事',
                            work: '仕事',
@@ -85,6 +85,6 @@ class PlansController < ApplicationController
                            sleepin: '就寝',
                            wakeup: '起床',
                            checkout: 'チェックアウト',
-                           etc: 'その他' }
+                           visit_etc: 'その他' }
   end
 end
