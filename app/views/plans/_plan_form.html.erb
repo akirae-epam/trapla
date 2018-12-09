@@ -1,7 +1,5 @@
 <div class="plan_form_gawa">
-
   <%= form_for(@plan) do |plan_f|%>
-
     <%# プラン概要フォーム %>
     <div class="container">
       <div class="panel panel-default">
@@ -23,11 +21,4 @@
       </div>
     </div>
   <% end %>
-
-    <%# アクティビティがあれば表示 %>
-    <% if @plan_details %>
-        <%= render 'plan_details/plan_detail' %>
-    <% end %>
-
-
 </div>

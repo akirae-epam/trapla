@@ -1,116 +1,90 @@
-// アクティビティ表示用フォーム
-// 変数定義
-@import url('https://fonts.googleapis.com/css?family=K2D'); //日付用のフォント
-$plan_detail_as_same_width: 100px; //時刻とactionマークの横幅を揃える
-$plan_detail_content_margin_left: 10px; //コンテンツ列の左マージンを揃える
-
-// 隠蔽用クラス
-.hidden {
-  display: none;
-}
-
-// 文字を囲う枠のデザイン
-%p_with_border {
-  p {
-    margin: 0;
-    padding: 5px 20px 5px 5px;
-    border-radius: 10px;
-    border: solid 1px gray;
+// for test
+.plan_detail {background-color: blue;}
+  .plan_details_left {background-color: #555;}
+    .plan_detail_left{background-color: lightblue;}
+      .plan_detail_time {background-color: pink;}
+      .plan_detail_action_type {background-color: gray;}
+    .plan_detail_center {background-color: lightgreen;}
+      .plan_detai_place {background-color: yellow;}
+      .plan_detail_action_memo {background-color: #999;}
+    .plan_detail_right {background-color: red;}
+  .plan_details_right {background-color: #aaa;}
+//
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.plan_details {
+  > table {
+    margin: 20px auto;
+    width: 70%;
   }
 }
-
-// 高さを揃える
-%div_as_same_height {
+.plan_detail {
+  width: 100%;
+  display: table;
+  }
+.plan_details_left {
   display:table-cell;
-  vertical-align: middle;
-  margin: 0;
+  width: 60%;
 }
-// CSS
-.plan_detail_gawa {
-  width: 80%;
-  margin: 10px auto;
-  padding: 30px;
-  overflow: hidden;
-  border: solid 1px gray;
-  border-radius: 10px;
-  border-bottom: solid 1px gray;
-  .plan_detail_left {
-    width: 900px;
-    padding: 10px;
-    float: left;
-    border-right: solid 2px gray;
-    .plan_detail {
-      clear: both;
-      overflow: hidden;
-      border-radius: 10px;
-      .plan_detail_date {
-        font-family: 'K2D', sans-serif;
-        padding: 5px;
-        float: left;
-        width: 150px;
-        h2 {
-          font-size: 1em;
-          margin: 5px;
-        }
-        h3 {
-          font-size: 3em;
-          margin: 5px;
-        }
-      }
-      .plan_detail_content {
-        padding: 0;
-        margin: 0;
-        float: left;
-        vertical-align: top;
-        width: 700px;
-        .plan_detail_content_top {
-          width: 100%;
-          overflow: hidden;
-          .plan_detail_time {
-            @extend %div_as_same_height;
-            text-align: center;
-            font-family: 'K2D', sans-serif;
-            width: $plan_detail_as_same_width;
-            min-height: 25px;
-            @extend %p_with_border;
-          }
-          .plan_detail_place {
-            min-width: 400px;
-            margin-left: $plan_detail_content_margin_left;
-            @extend %div_as_same_height;
-            @extend %p_with_border;
-          }
-        }
-        .plan_detail_content_bottom {
-          .plan_detail_action_type {
-            min-height: 100px;
-            @extend %div_as_same_height;
-            width: $plan_detail_as_same_width;
-          }
-          .plan_detail_action_memo {
-            @extend %div_as_same_height;
-            padding: 10px;
-            margin: 10px;
-            max-width: 580px;
-            word-wrap: break-word;
-            margin-left: $plan_detail_content_margin_left;
-          }
-        }
-      }
-    }
+.plan_detail_left {
+  width: 200px;
+  display:table-cell;
+  vertical-align: top;
+  font-family: 'Montserrat', sans-serif;
+  > h2 {
+    font-size: 1.3em;
+    margin: 5px;
+    padding: 5px;
   }
-  .plan_detail_right {
-    float: left;
-    margin: 10px;
-    width: 25%;
-    .plan_detail_belongings {
-      @extend %p_with_border;
-    }
-    .plan_detail_payments {
-      @extend %p_with_border;
-    }
+  > h3 {
+    font-size: 4em;
+    margin: 5px;
+    padding: 5px;
   }
 }
+.plan_detail_center {
+  width: 100px;
+  display:table-cell;
+  }
+.plan_detail_time {
+  border: 1px solid #C71585;
+  border-radius: 5px;
+  background-color: #F5FFFA;
+  font-size: 1.3em;
+  padding: 2px;
+  > p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+}
+.plan_detail_action_type {
+  min-height: 100px;
+}
+.plan_detail_right {
+  display:table-cell;
+  vertical-align: top;
+}
+.plan_detail_place {
+  @extend .plan_detail_time;
+  background-color: #FFFFF0;
+  margin-left: 10px;
+  > p {
+    text-align: left;
+  }
+}
+.plan_detail_action_memo {
+  @extend .plan_detail_place;
+  border: 0;
+  background-color: #F5FFFA;
+  margin-top: 10px;
+}
+.plan_details_right {
+  display:table-cell;
+  width: 10%;
+}
+
+
+
 
 
 // アクティビティ用フォーム
@@ -130,7 +104,6 @@ $plan_detail_content_margin_left: 10px; //コンテンツ列の左マージン�
 .plan_detail_form_gawa {
   width: 80%;
   margin: 20px auto;
-  clear: both;
   .each_plan_detail_gawa {
     width: 100%;
   }

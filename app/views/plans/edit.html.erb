@@ -1,22 +1,6 @@
 <% provide(:title, "プランの編集") %>
 <%= render 'plans/plan_form' %>
-
-<script type="text/javascript">
-  $(function() {
-
-    //マウスを乗せたら色が変わる
-    $('.plan_detail').hover(function() {
-      $(this).css('background-color', 'rgba(100, 100, 100, 0.3)');
-    }, function() {
-      $(this).css('background-color', '');
-    });
-
-    // $(".plan_detail").on("click", function() {
-    //   $('div.edit_plan_detail').each().hide();
-    //   source_id = $(this).attr("id").substr(12);
-    //   target_id = "#edit_plan_detail_" + source_id;
-    //   $(target_id).slideToggle('fast');
-    // });
-
-  });
-</script>
+<%# アクティビティがあれば表示 %>
+<% if @plan_details %>
+    <%= render 'plan_details/plan_detail' %>
+<% end %>
