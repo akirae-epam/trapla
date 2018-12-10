@@ -10,13 +10,30 @@ header {
 
 body {
   font-family: 'M PLUS 1p','Kodchasan', sans-serif;
-  padding-top: 50px;
+  padding-top: 51px;
 }
 
 header, main, footer {
   border-bottom: 1px solid gray;
+  clear: both;
 }
 
+.well {
+  margin: 10%;
+  padding: 10px;
+  > .panel {
+    width: 90%;
+    > h4 {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+.panel {
+  > .well {
+    margin: 10px 20px;
+  }
+}
 .alert_message {
   margin: 0px auto;
   .alert {
@@ -24,6 +41,18 @@ header, main, footer {
   }
 }
 
+.pagination {
+  margin: 10px 20px;
+}
+
+.panel-body .btn {
+  margin-top: 5px;
+}
+
+.panel {
+  width: 80%;
+  margin: 5% auto;
+}
 //ヘッダー
 #logo {
   float: left;
@@ -39,6 +68,7 @@ header, main, footer {
   color: #666;
   text-decoration: none;
 }
+
 
 // メインフレーム
 .top_image {

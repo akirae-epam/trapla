@@ -1,24 +1,20 @@
-<div class="plan_form_gawa">
-  <%= form_for(@plan) do |plan_f|%>
-    <%# プラン概要フォーム %>
-    <div class="container">
-      <div class="panel panel-default">
-        <div class="panel-heading">プラン概要</div>
-        <div class="panel-body">
-            <%= render 'shared/error_messages', object: plan_f.object %>
+<%= form_for(@plan) do |plan_f|%>
+  <%# プラン概要フォーム %>
+  <div class="panel panel-default">
+    <div class="panel-heading">プラン概要</div>
+    <div class="panel-body">
+        <%= render 'shared/error_messages', object: plan_f.object %>
 
-            <%= plan_f.label :プランタイトル, class:"info" %>
-            <%= plan_f.text_field :title, class: 'form-control' %>
+        <%= plan_f.label :プランタイトル, class:"info" %>
+        <%= plan_f.text_field :title, class: 'form-control' %>
 
-            <%= plan_f.label :プラン概要, class:"info" %>
-            <%= plan_f.text_area :content, class: 'form-control' %>
+        <%= plan_f.label :プラン概要, class:"info" %>
+        <%= plan_f.text_area :content, class: 'form-control' %>
 
-            <%= plan_f.submit @plan_form_button, class: 'btn btn-default' %>
-            <% if @plan.id? && current_user == @plan.user %>
-              <%= link_to "プランを削除する", plan_path, method: :delete, class: 'delete_plan', data: { confirm: "このページに表示されているプランはすべて削除されます。削除したプランは元に戻せません。本当に削除しますか？"} %>
-            <% end %>
-        </div>
-      </div>
+        <%= plan_f.submit @plan_form_button, class: 'btn btn-default' %>
+        <% if @plan.id? && current_user == @plan.user %>
+          <%= link_to "プランを削除する", plan_path, method: :delete, class: 'delete_plan', data: { confirm: "このページに表示されているプランはすべて削除されます。削除したプランは元に戻せません。本当に削除しますか？"} %>
+        <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

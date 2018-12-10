@@ -14,17 +14,19 @@
   </head>
 
   <body>
-  <%= render 'layouts/topmenu' %>
-  <main>
-    <div class="alert_message">
-      <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class:"alert alert-#{message_type}") %>
-      <% end %>
-    </div>
-    <%= yield %>
-  </main>
-  <%= render 'layouts/footer' %>
-  <%= debug(params) if Rails.env.development? %>
+    <%= render 'layouts/topmenu' %>
+    <main>
+      <div class="main_contents">
+        <div class="alert_message">
+          <% flash.each do |message_type, message| %>
+          <%= content_tag(:div, message, class:"alert alert-#{message_type}") %>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+    </main>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 
 </html>

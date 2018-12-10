@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
 
   # PlansController
-  resources :plans
+  resources :plans, except: %i[index]
 
   # PlanDetailsController
   resources :plan_details, only: %i[create edit update destroy]

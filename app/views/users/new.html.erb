@@ -1,26 +1,22 @@
 <% provide(:title, "アカウント新規登録") %>
-<div class="user_gawa">
-  <div class="container">
-    <div class="panel panel-default">
-      <div class="panel-heading">アカウント新規登録</div>
-        <div class="panel-body">
-            <%= form_for(@user) do |f| %>
-              <%= render 'shared/error_messages', object: f.object %>
-              <%= f.label :アカウント名, class:"info" %>
-              <%= f.text_field :name, class: 'form-control' %>
+<div class="panel panel-default">
+  <div class="panel-heading">アカウント新規登録</div>
+    <div class="panel-body">
+        <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <%= f.label :アカウント名, class:"info" %>
+          <%= f.text_field :name, class: 'form-control' %>
 
-              <%= f.label :メールアドレス, class:"info" %>
-              <%= f.email_field :email, class: 'form-control' %>
+          <%= f.label :メールアドレス, class:"info" %>
+          <%= f.email_field :email, class: 'form-control' %>
 
-              <%= f.label :パスワード, class:"info" %>
-              <%= f.password_field :password, class: 'form-control' %>
+          <%= f.label :パスワード, class:"info" %>
+          <%= f.password_field :password, class: 'form-control' %>
 
-              <%= f.label :パスワード（確認用）, class:"info" %>
-              <%= f.password_field :password_confirmation, class: 'form-control' %>
-              <%= f.submit "アカウントを作成する", class: "btn btn-default" %>
-            <% end %>
-        </div>
-      </div>
+          <%= f.label :パスワード（確認用）, class:"info" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+          <%= f.submit "アカウントを作成する", class: "btn btn-default" %>
+        <% end %>
     </div>
   </div>
 </div>

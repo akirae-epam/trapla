@@ -1,15 +1,3 @@
-// for test
-// .plan_detail {background-color: blue;}
-//   .plan_details_left {background-color: #555;}
-//     .plan_detail_left{background-color: lightblue;}
-//       .plan_detail_time {background-color: pink;}
-//       .plan_detail_action_type {background-color: gray;}
-//     .plan_detail_center {background-color: lightgreen;}
-//       .plan_detai_place {background-color: yellow;}
-//       .plan_detail_action_memo {background-color: #999;}
-//     .plan_detail_right {background-color: red;}
-//   .plan_details_right {background-color: #aaa;}
-//
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 .plan_details {
   > table {
@@ -22,8 +10,8 @@
   display: table;
   }
 .plan_details_left {
-  display:table-cell;
-  width: 60%;
+  margin: 0 auto;
+  width: 90%;
 }
 .plan_detail_left {
   width: 200px;
@@ -47,6 +35,7 @@
   vertical-align: top;
   margin: 0;
   }
+
 .plan_detail_time {
   border: 1px solid #C71585;
   border-radius: 5px;
@@ -107,10 +96,6 @@
     margin: 10px;
   }
 }
-.plan_details_right {
-  display:table-cell;
-  width: 10%;
-}
 
 // アクティビティ用フォーム
 .edit_plan_detail {
@@ -120,52 +105,30 @@
 }
 
 .add_plan_detail {
-  width: 900px;
-  padding: 10px;
   margin: 0;
   padding: 0;
 }
 
-.plan_detail_form_gawa {
-  width: 80%;
-  margin: 20px auto;
-  .each_plan_detail_gawa {
-    width: 100%;
-  }
-  .container{
-    width: auto;
-    height: auto;
-  }
-  h5 {
-    clear: both;
-    display: block;
+h5 {
+  clear: both;
+  display: block;
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+.payments_forms {
+  margin: 5px;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+  overflow: hidden;
+  .payments_form {
+    float: left;
     margin: 10px;
-    font-size: 1.2em;
-  }
-  .well {
-    background-color: white;
-    border-color: lightgray;
-    padding: 1vw;
-  }
-  h4 {
-    display: block;
-    text-align: center;
-  }
-  .payments_forms {
-    margin: 5px;
-    border-bottom: 1px solid lightgray;
-    text-align: center;
-    overflow: hidden;
-    .payments_form {
-      float: left;
-      margin: 10px;
-      label,input {
-        display: block;
-      }
+    label,input {
+      display: block;
     }
   }
-  .payments_content {
-    clear: both;
-    margin: 5px;
-  }
+}
+.payments_content {
+  margin: 5px;
 }
