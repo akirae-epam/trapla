@@ -38,7 +38,9 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
   test 'plan show should success with login' do
     log_in_as(@user)
     get plan_path(@plan)
-    assert_template 'plans/index'
+    assert_template 'plans/show'
+    get user_path(@user)
+    assert_template 'users/show'
     assert_select 'a[href=?]', plan_path(@plan)
   end
 
