@@ -1,87 +1,85 @@
 <%= form_for(plan_detail) do |plan_detail_f| %>
-<%= render 'shared/error_messages', object: plan_detail_f.object %>
-<%= hidden_field_tag :plan_id, plan_detail.plan.id %>
-<div class="plan_detail_form_gawa well">
-  <h4><%= plan_detail_title %></h4>
-  <div class="each_plan_detail_gawa">
-    <div class="panel panel-default">
-      <h4>いつ？</h4>
-      <div class="panel-body">
-          <%= plan_detail_f.label :日付, class:"info" %>
-          <%= plan_detail_f.text_field :date, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="each_plan_detail_gawa">
-    <div class="panel panel-default">
-      <h4>どこで？</h4>
-      <div class="panel-body">
-          <%= plan_detail_f.label :場所, class:"info" %>
-          <%= plan_detail_f.text_field :place, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="each_plan_detail_gawa">
-    <div class="panel panel-default">
-      <h4>何をする？</h4>
-      <div class="panel-body">
-        <div class="well">
-          <div class="btn-group" data-toggle="buttons">
-            <%= plan_detail.action_type %>
-          <h5>移動</h5>
-          <% @action_type_move.each do |key, value| %>
-             <%= render 'plan_details/plan_detail_form_action',
-                        key: key, value: value, plan_detail: plan_detail,
-                        plan_detail_f: plan_detail_f %>
-          <% end %>
-          <h5>滞在</h5>
-          <% @action_type_visit.each do |key, value| %>
-             <%= render 'plan_details/plan_detail_form_action',
-                        key: key, value: value, plan_detail: plan_detail,
-                        plan_detail_f: plan_detail_f %>
-          <% end %>
+  <div class="plan_detail_form_gawa well">
+      <%= render 'shared/error_messages', object: plan_detail_f.object %>
+      <%= hidden_field_tag :plan_id, plan_detail.plan.id %>
+      <h4><%= plan_detail_title %></h4>
+      <div class="each_plan_detail_gawa">
+        <div class="panel panel-default">
+          <h4>いつ？</h4>
+          <div class="panel-body">
+              <%= plan_detail_f.label :日付, class:"info" %>
+              <%= plan_detail_f.text_field :date, class: 'form-control' %>
           </div>
         </div>
-        <%= plan_detail_f.label :メモ, class:"info" %>
-        <%= plan_detail_f.text_area :action_memo, class: 'form-control' %>
       </div>
-    </div>
-  </div>
 
-  <div class="each_plan_detail_gawa">
-    <div class="panel panel-default">
-      <h4>必要なものは？</h4>
-      <h5>※「コンマ(,)」で区切って記載する</h5>
-      <div class="panel-body">
-        <%= plan_detail_f.label :必要なもの, class:"info" %>
-        <%= plan_detail_f.text_area :action, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="each_plan_detail_gawa">
-    <div class="panel panel-default">
-      <h4>かかる費用は？</h4>
-      <div class="panel-body">
-        <div class="payments_forms">
-          <div class="payments_form">
-            <%= plan_detail_f.label :何の費用か, class:"info" %>
-            <%= plan_detail_f.text_field :action, class: 'form-control' %>
-          </div>
-          <div class="payments_form">
-            <%= plan_detail_f.label :いくらかかるか, class:"info" %>
-            <%= plan_detail_f.text_field :action, class: 'form-control' %>
+      <div class="each_plan_detail_gawa">
+        <div class="panel panel-default">
+          <h4>どこで？</h4>
+          <div class="panel-body">
+              <%= plan_detail_f.label :場所, class:"info" %>
+              <%= plan_detail_f.text_field :place, class: 'form-control' %>
           </div>
         </div>
-        <div class="payments_content">
-          かかる費用を表示
+      </div>
+
+      <div class="each_plan_detail_gawa">
+        <div class="panel panel-default">
+          <h4>何をする？</h4>
+          <div class="panel-body">
+            <div class="well">
+              <div class="btn-group" data-toggle="buttons">
+              <h5>移動</h5>
+              <% @action_type_move.each do |key, value| %>
+                 <%= render 'plan_details/plan_detail_form_action',
+                            key: key, value: value, plan_detail: plan_detail,
+                            plan_detail_f: plan_detail_f %>
+              <% end %>
+              <h5>滞在</h5>
+              <% @action_type_visit.each do |key, value| %>
+                 <%= render 'plan_details/plan_detail_form_action',
+                            key: key, value: value, plan_detail: plan_detail,
+                            plan_detail_f: plan_detail_f %>
+              <% end %>
+              </div>
+            </div>
+            <%= plan_detail_f.label :メモ, class:"info" %>
+            <%= plan_detail_f.text_area :action_memo, class: 'form-control' %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <%= plan_detail_f.submit 'アクティビティを保存する', class: 'btn btn-default' %>
-    <% end %>
+      <div class="each_plan_detail_gawa">
+        <div class="panel panel-default">
+          <h4>必要なものは？</h4>
+          <h5>※「コンマ(,)」で区切って記載する</h5>
+          <div class="panel-body">
+            <%= plan_detail_f.label :必要なもの, class:"info" %>
+            <%= plan_detail_f.text_area :action, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="each_plan_detail_gawa">
+        <div class="panel panel-default">
+          <h4>かかる費用は？</h4>
+          <div class="panel-body">
+            <div class="payments_forms">
+              <div class="payments_form">
+                <%= plan_detail_f.label :何の費用か, class:"info" %>
+                <%= plan_detail_f.text_field :action, class: 'form-control' %>
+              </div>
+              <div class="payments_form">
+                <%= plan_detail_f.label :いくらかかるか, class:"info" %>
+                <%= plan_detail_f.text_field :action, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="payments_content">
+              かかる費用を表示
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= plan_detail_f.submit 'アクティビティを保存する', class: 'btn btn-default' %>
   </div>
-</div>
+<% end %>

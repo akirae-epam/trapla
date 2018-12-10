@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[destroy index edit update]
-  before_action :correct_user,   only: %i[destroy edit update]
+  before_action :correct_user, only: %i[destroy edit update]
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])

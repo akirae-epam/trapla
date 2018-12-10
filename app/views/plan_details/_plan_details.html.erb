@@ -1,0 +1,36 @@
+<div class="plan_details">
+  <table>
+    <tr>
+      <td>
+        <div class="plan_details_left">
+          <table>
+              <% @plan_details.order(:date).each do |plan_detail| %>
+                <%= render 'plan_details/plan_detail',
+                           plan_detail: plan_detail %>
+              <% end %>
+          </table>
+          <%# 新規アクティビティ追加用フォームの描写 %>
+          <% if request.path_info == edit_plan_path %>
+            <div class="add_plan_detail">
+              <%= render 'plan_details/plan_detail_form', plan_detail: @new_plan_detail,
+                                                          plan_detail_title: 'アクティビティの追加'  %>
+            </div>
+          <% end %>
+        </div>
+      </td>
+      <td class="plan_details_right">
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="plan_detail_belongings">
+          <p>もっていくもの</p>
+        </div>
+        <div class="plan_detail_payments">
+          <p>支払う費用</p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

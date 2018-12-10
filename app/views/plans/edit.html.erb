@@ -2,6 +2,20 @@
 <%= render 'plans/plan_form' %>
 <%# アクティビティがあれば表示 %>
 <% if @plan_details %>
-<%= render 'plan_details/plan_detail' %>
+<%= render 'plan_details/plan_details' %>
 <% end %>
-<%= javascript_include_tag "plan_edit" %>
+<script type="text/javascript">
+  $(function() {
+    //１アクティビティにマウスを載せたら編集メニューを表示
+    $('.plan_detail').mouseover(function(){
+      $(this).css('background-color', '#E0FFFF');
+      $(this).children('.plan_detail_edit').show();
+
+    })
+    $('.plan_detail').mouseout(function(){
+      $(this).css('background-color', '');
+      $(this).children('.plan_detail_edit').hide();
+    })
+
+  })
+</script>
