@@ -1,1 +1,5 @@
+if (lastFormId) {$(lastFormId).empty();}
+
 $('#edit_plan_detail_<%= @plan_detail.id %>').html("<%= j(render 'plan_details/plan_detail_form', plan_detail: @plan_detail, plan_detail_title: 'アクティビティの編集') %>")
+
+var lastFormId = '#edit_plan_detail_<%= @plan_detail.id %>'

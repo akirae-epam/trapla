@@ -1,10 +1,10 @@
-<tr class="plan_detail", id="plan_detail_<%= plan_detail.id %>">
-  <td class="plan_detail_left">
+<div class="plan_detail", id="plan_detail_<%= plan_detail.id %>">
+  <div class="plan_detail_left">
     <!-- 年月表示 -->
     <h2><%= drow_date(plan_detail, 'year')%></h2>
     <h3><%= drow_date(plan_detail, 'day') %></h3>
-  </td>
-  <td class="plan_detail_center">
+  </div>
+  <div class="plan_detail_center">
     <!-- 時間と行動内容アイコンの列 -->
     <div class="plan_detail_time">
       <p><%= plan_detail.date.strftime('%H:%M') %></p>
@@ -13,8 +13,8 @@
       <%= image_tag('action_icon/' + plan_detail.action_type + '.svg') %>
       <p><%= drow_action(plan_detail.action_type) %></p>
     </div>
-  </td>
-  <td class="plan_detail_right">
+  </div>
+  <div class="plan_detail_right">
     <!-- 場所と行動内容概要の列 -->
     <div class="plan_detail_place">
       <p><%= plan_detail.place %></p>
@@ -22,9 +22,9 @@
     <div class="plan_detail_action_memo">
       <p><%= plan_detail.action_memo %></p>
     </div>
-  </td>
+  </div>
   <% if request.path_info == edit_plan_path(plan_detail.plan) %>
-    <td class="plan_detail_edit" id="plan_edit_<%= plan_detail.id %>">
+    <div class="plan_detail_edit" id="plan_edit_<%= plan_detail.id %>">
       <%= link_to image_tag('controll_plan_detail/edit_plan_detail.svg'),
                   edit_plan_detail_path(plan_detail, plan_id: plan_detail.plan),
                   remote: true %>
@@ -32,11 +32,11 @@
                   plan_detail_path(plan_detail, plan_id: plan_detail.plan),
                   method: :delete,
                   data: { confirm: "本当に削除しますか？" }  %>
-    </td>
+    </div>
   <% end %>
-</tr>
-<tr>
+</div>
+<div>
   <div class="edit_plan_detail" id="edit_plan_detail_<%= plan_detail.id %>">
     <%# 編集ページではアクティビティ編集用フォームの描写 %>
   </div>
-</tr>
+</div>

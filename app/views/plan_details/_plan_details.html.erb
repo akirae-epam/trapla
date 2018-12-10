@@ -1,11 +1,9 @@
 <div class="plan_details">
   <div class="plan_details_left">
-    <table>
-        <% @plan_details.order(:date).each do |plan_detail| %>
-          <%= render 'plan_details/plan_detail',
-                     plan_detail: plan_detail %>
-        <% end %>
-    </table>
+    <% @plan_details.order(:date).each do |plan_detail| %>
+      <%= render 'plan_details/plan_detail',
+                 plan_detail: plan_detail %>
+    <% end %>
     <%# 新規アクティビティ追加用フォームの描写 %>
     <% if request.path_info == edit_plan_path %>
       <div class="add_plan_detail">
