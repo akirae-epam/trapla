@@ -27,7 +27,7 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
 
   # ログインしていないとPlanみれない
   test 'plan show should failed without login' do
-    get plans_path
+    get plan_path(@plan)
     assert_redirected_to login_path
     follow_redirect!
     assert_template 'sessions/new'
@@ -37,7 +37,7 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
   # ログインしたらPlanみれる
   test 'plan show should success with login' do
     log_in_as(@user)
-    get plans_path
+    get plan_path(@plan)
     assert_template 'plans/index'
     assert_select 'a[href=?]', plan_path(@plan)
   end
