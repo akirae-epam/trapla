@@ -55,23 +55,6 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
     assert_redirected_to edit_plan_path(@plan)
   end
 
-  # ログインしたら自分のPlanDetailが作成できる(ajax)
-  test 'Plan_detail create should success with login (ajax)' do
-    log_in_as(@user)
-    get edit_plan_path(@plan)
-    assert_template 'plans/edit'
-    assert_difference 'PlanDetail.count', 1 do
-      post plan_details_path, xhr: true, params: { plan_id: @plan.id,
-                                                   plan_detail: {
-                                                     date: Time.zone.now,
-                                                     place: 'valid place',
-                                                     action_type: 'walk',
-                                                     action_memo: 'valid memo'
-                                                   } }
-    end
-    assert_template 'plan_details/_each_plan_detail'
-  end
-
   # PlanDetail作成したら画面に追加される
   test 'Plan_detail should count up after create' do
     log_in_as(@user)

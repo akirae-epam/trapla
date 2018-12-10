@@ -44,6 +44,8 @@
 .plan_detail_center {
   width: 100px;
   display:table-cell;
+  vertical-align: top;
+  margin: 0;
   }
 .plan_detail_time {
   border: 1px solid #C71585;
@@ -60,12 +62,12 @@
 }
 .plan_detail_action_type {
   height: 100%;
-  margin: 0;
+  display: table-cell;
   > img {
     width: 40%;
     display: block;
     padding: 0;
-    margin: 20% auto;
+    margin: 0 auto;
   }
   > p {
     text-align: center;
@@ -73,7 +75,7 @@
 }
 .plan_detail_right {
   display:table-cell;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .plan_detail_place {
   @extend .plan_detail_time;

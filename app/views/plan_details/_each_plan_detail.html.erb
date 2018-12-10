@@ -24,10 +24,10 @@
     </div>
   </td>
   <% if request.path_info == edit_plan_path(plan_detail.plan) %>
-  <td class="plan_detail_edit" id="plan_edit_<%= plan_detail.id %>">
-    <%= link_to image_tag('controll_plan_detail/edit_plan_detail'),remote: true, class:('add_plan_detail') %>
-    <%= link_to image_tag('controll_plan_detail/delete_plan_detail'), plan_detail_path(plan_detail, plan_id: plan_detail.plan), method: :delete, remote: true, class:('add_plan_detail'), data: { confirm: "本当に削除しますか？" }  %>
-  </td>
+    <td class="plan_detail_edit" id="plan_edit_<%= plan_detail.id %>">
+      <%= link_to image_tag('controll_plan_detail/edit_plan_detail'),remote: true, class:('add_plan_detail') %>
+      <%= link_to image_tag('controll_plan_detail/delete_plan_detail'), plan_detail_path(plan_detail, plan_id: plan_detail.plan), method: :delete, class:('add_plan_detail'), data: { confirm: "本当に削除しますか？" }  %>
+    </td>
   <% end %>
 </tr>
 <tr class="edit_plan_detail" id="edit_plan_detail_<%= plan_detail.id %>">

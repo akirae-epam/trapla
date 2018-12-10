@@ -40,16 +40,6 @@ class PlanDetailDestroyTest < ActionDispatch::IntegrationTest
     assert_redirected_to edit_plan_path(@plan)
   end
 
-  # ログインしたら自分のPlanDetailが作成できる(ajax)
-  test 'Plan_detail delete should success with login (ajax)' do
-    log_in_as(@user)
-    get edit_plan_path(@plan)
-    assert_template 'plans/edit'
-    assert_difference 'PlanDetail.count', -1 do
-      delete plan_detail_path(@plan_detail, plan_id: @plan_detail.plan.id)
-    end
-  end
-
   # PlanDetail削除したら画面から消える
   test 'Plan_detail should count down after delete' do
     log_in_as(@user)

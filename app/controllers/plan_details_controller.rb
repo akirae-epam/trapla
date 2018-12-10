@@ -9,10 +9,7 @@ class PlanDetailsController < ApplicationController
     @plan_detail = @plan.plan_details.build(plan_detail_params)
     if @plan_detail.save
       @plan_details = @plan.plan_details.reload
-      respond_to do |format|
-        format.html { redirect_to edit_plan_path(@plan) }
-        format.js
-      end
+      redirect_to edit_plan_path(@plan)
     else
       render 'plans/edit'
     end
@@ -26,10 +23,7 @@ class PlanDetailsController < ApplicationController
 
     @plan_detail.destroy
     @plan_details = @plan_detail.plan.plan_details.reload
-    respond_to do |format|
-      format.html { redirect_to edit_plan_path(@plan) }
-      format.js
-    end
+    redirect_to edit_plan_path(@plan)
   end
 
   private

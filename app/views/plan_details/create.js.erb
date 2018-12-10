@@ -1,2 +1,0 @@
-$('.plan_details_left > table').html("<% @plan_details.order(:date).each do |plan_detail| %><%= j(render 'plan_details/each_plan_detail', plan_detail: plan_detail) %><% end %>");
-$('html, body').animate({scrollTop: $("#plan_detail_<%= @plan_detail.id %>").offset().top}, 500);
