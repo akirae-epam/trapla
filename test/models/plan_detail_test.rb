@@ -11,18 +11,18 @@ class PlanDetailTest < ActiveSupport::TestCase
     @user = users(:michael)
     @plan = @user.plans.create(title: 'Title test', content: 'content test')
     @plan_detail = PlanDetail.new(date: @valid_date,
-                                 place: @valid_place,
-                                 action_type: @valid_action_type,
-                                 action_memo: @valid_action_memo,
-                                 plan: @plan)
+                                  place: @valid_place,
+                                  action_type: @valid_action_type,
+                                  action_memo: @valid_action_memo,
+                                  plan: @plan)
   end
 
-  test "date should be valid with correct format" do
+  test 'date should be valid with correct format' do
     assert @plan_detail.valid?
     assert @plan_detail.errors.messages.empty?
   end
 
-  test "date should not be blank" do
+  test 'date should not be blank' do
     @plan_detail.date = ''
     assert_not @plan_detail.valid?
     assert_not @plan_detail.errors.messages[:date].empty?
@@ -47,5 +47,4 @@ class PlanDetailTest < ActiveSupport::TestCase
       @plan.destroy
     end
   end
-
 end

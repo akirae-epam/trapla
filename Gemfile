@@ -5,9 +5,9 @@ ruby '2.5.1'
 
 gem 'activestorage' # active strageを使う
 gem 'bcrypt', '3.1.12' # パスワード(password_digest)をハッシュ化する
-gem 'bootstrap3-datetimepicker-rails' # 入力フォームにdatepickerを使用
 gem 'bootstrap-sass', '3.3.7' # bootstrap用
 gem 'bootstrap-will_paginate', '1.0.0' # ページネーションでbootstrap
+gem 'bootstrap3-datetimepicker-rails' # 入力フォームにdatepickerを使用
 gem 'coffee-rails', '4.2.2'
 gem 'faker', '1.7.3' # サンプルデータを作成する
 gem 'jbuilder', '2.7.0'
@@ -15,7 +15,7 @@ gem 'jquery-rails', '4.3.1' # jqueryを使用する
 gem 'mail-iso-2022-jp' # メイラーで送る文章の日本語化
 gem 'mini_magick' # 画像をアップロードする
 gem 'mini_racer'
-gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails' # 入力フォームにdatepickerを使用（時間）
+gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails' # 入力フォームにdatepickerを使用（時間）
 gem 'puma', '3.9.1'
 gem 'rails', '5.2.0'
 gem 'sass-rails', '5.0.6' # bootstrap用
