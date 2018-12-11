@@ -83,12 +83,14 @@
   }
   > p {
     text-align: center;
+    word-wrap: break-word;
   }
 }
 
 .plan_detail_right {
   display:table-cell;
   vertical-align: top;
+  max-width: 550px;
 }
 
 .plan_detail_place {
@@ -106,6 +108,10 @@
   border: solid 1px #88888a;
   background-color: #F5FFFA;
   margin-top: 10px;
+  margin-bottom: 10px;
+  > p {
+    word-wrap: break-word;
+  }
 }
 
 .plan_detail_edit {
