@@ -18,10 +18,11 @@
     })
 
     // アクティビティ追加フォーム表示用
-     $('.add_plan_detail_button').children('img').on('click', function(){
-       if (lastFormId) {$(lastFormId).empty();}
-       $('.add_plan_detail').slideToggle('fast');
-     })
+    lastFormId = ''
+    $('.add_plan_detail_button').children('img').on('click', function(){
+      if (lastFormId) {$(lastFormId).slideToggle('fast').empty();}
+      $('.add_plan_detail').slideToggle('fast');
+    })
 
     // カレンダー表示用
     var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
