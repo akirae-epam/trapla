@@ -3,19 +3,24 @@ $('.add_plan_detail').hide();
 
 // 編集画面を表示
 if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
-  $('#edit_plan_detail_<%= @plan_detail.id %>').slideToggle('fast').empty();
   // 表示したフォームを削除
+  $('#edit_plan_detail_<%= @plan_detail.id %>').slideToggle('fast').empty();
+
+  //表示したフォームの記憶を削除
   var lastFormId = ''
 } else {
+  // すでに表示している編集フォームは閉じて削除
   if (lastFormId) {$(lastFormId).slideToggle('fast').empty();}
+
+  // 編集フォームを描写
   $('#edit_plan_detail_<%= @plan_detail.id %>').html("<%= j(render 'plan_details/plan_detail_form', plan_detail: @plan_detail, plan_detail_title: 'アクティビティの編集') %>")
   $('#edit_plan_detail_<%= @plan_detail.id %>').slideToggle('fast');
 
-  // 表示したフォームを記憶
+  // 表示したフォームのIDを記憶
   var lastFormId = '#edit_plan_detail_<%= @plan_detail.id %>'
 }
 
-// カレンダー表示用
+// datepickerカレンダー表示用
 var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
 $(function(){
   $('.datepicker').attr(data);
