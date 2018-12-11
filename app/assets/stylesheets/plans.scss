@@ -1,8 +1,3 @@
-.each_plan_detail_gawa{
-  > .panel {
-    width: 90%;
-  }
-}
 .plan_list {
   clear: both;
   margin: 20px;
@@ -19,14 +14,15 @@
     float: left;
     margin-right: 2vw;
   }
-  .plan-overview {
-    vertical-align: top;
-  }
   .edit_plan_link {
     text-align: right;
   }
 }
-
+.panel-body{
+  > .delete_plan {
+    text-align: right;
+  }
+}
 .plans {
   margin: 5%;
 }

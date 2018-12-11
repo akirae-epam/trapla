@@ -18,42 +18,31 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'name or email should not be blank' do
-    user = User.new(name: '',
-                    email: '',
-                    password: @valid_password,
-                    password_confirmation: @valid_password)
-    assert_not user.valid?
-    assert_not user.errors.messages[:name].empty?
-    assert_not user.errors.messages[:email].empty?
+    @user.name = ''
+    @user.email = ''
+    assert_not @user.valid?
+    assert_not @user.errors.messages[:name].empty?
+    assert_not @user.errors.messages[:email].empty?
   end
 
   test 'name.length should be less than 26 charactors)' do
     name = 'a' * 26
-    user = User.new(name: name,
-                    email: @valid_email,
-                    password: @valid_password,
-                    password_confirmation: @valid_password)
-    assert_not user.valid?
-    assert_not user.errors.messages[:name].empty?
+    @user.name = name
+    assert_not @user.valid?
+    assert_not @user.errors.messages[:name].empty?
   end
 
   test 'email.length should be less than 255 charactors)' do
     mail = ('a' * 246) + '@email.com'
-    user = User.new(name: @valid_name,
-                    email: mail,
-                    password: @valid_password,
-                    password_confirmation: @valid_password)
-    assert_not user.valid?
-    assert_not user.errors.messages[:email].empty?
+    @user.email = mail
+    assert_not @user.valid?
+    assert_not @user.errors.messages[:email].empty?
   end
 
   test 'email should be valid format' do
-    user = User.new(name: @valid_name,
-                    email: 'invalid',
-                    password: @valid_password,
-                    password_confirmation: @valid_password)
-    assert_not user.valid?
-    assert_not user.errors.messages[:email].empty?
+    @user.email = 'invalid'
+    assert_not @user.valid?
+    assert_not @user.errors.messages[:email].empty?
   end
 
   test 'name and email should be uniqueness' do

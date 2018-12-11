@@ -12,8 +12,8 @@ class PlanTest < ActiveSupport::TestCase
     assert @plan.valid?
   end
 
-  test 'user id should be present' do
-    @plan.user_id = nil
+  test 'user_id should be present' do
+    @plan.user = nil
     assert_not @plan.valid?
   end
 
@@ -29,5 +29,13 @@ class PlanTest < ActiveSupport::TestCase
 
   test 'order should be most recent first' do
     assert_equal plans(:most_recent), Plan.first
+  end
+
+  test 'plan deleted when parent user deleted' do
+    @plan.save
+    plan_count = 0 - @user.plans.count
+    assert_difference 'Plan.count', plan_count do
+      @user.destroy
+    end
   end
 end

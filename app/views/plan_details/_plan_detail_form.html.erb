@@ -9,7 +9,9 @@
         <div class="panel-body date_input">
             <%= plan_detail_f.label :日付と時間, class:"info" %>
             <div class='input-group date datepicker'>
-              <%= plan_detail_f.text_field :date, class: 'form-control', autocomplete: 'off', data: { date_format: 'YYYY/MM/DD HH:mm' } %>
+              <%= plan_detail_f.text_field :date, class: 'form-control',
+                                                  autocomplete: 'off',
+                                                  data: { date_format: 'YYYY/MM/DD HH:mm' } %>
               <span class="input-group-addon">
             </div>
         </div>

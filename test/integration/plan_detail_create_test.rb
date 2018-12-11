@@ -8,6 +8,7 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
     @plan = plans(:one)
     @other_user = users(:archer)
     @other_plan = plans(:archer_plan)
+    @valid_date = Time.zone.now
   end
 
   # ログインしていないとPlanDetail作成できない
@@ -15,7 +16,7 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
     assert_no_difference 'PlanDetail.count' do
       post plan_details_path, params: { plan_id: @plan.id,
                                         plan_detail: {
-                                          date: Time.zone.now,
+                                          date: @valid_date,
                                           place: 'valid place',
                                           action_type: 'walk',
                                           action_memo: 'valid memo'
@@ -29,7 +30,7 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
     assert_no_difference 'PlanDetail.count' do
       post plan_details_path, params: { plan_id: @other_plan.id,
                                         plan_detail: {
-                                          date: Time.zone.now,
+                                          date: @valid_date,
                                           place: 'valid place',
                                           action_type: 'walk',
                                           action_memo: 'valid memo'
@@ -46,7 +47,7 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
     assert_difference 'PlanDetail.count', 1 do
       post plan_details_path, params: { plan_id: @plan.id,
                                         plan_detail: {
-                                          date: Time.zone.now,
+                                          date: @valid_date,
                                           place: 'valid place',
                                           action_type: 'walk',
                                           action_memo: 'valid memo'
@@ -62,7 +63,7 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
     assert_select '.plan_detail', count: @plan.plan_details.count
     post plan_details_path, params: { plan_id: @plan.id,
                                       plan_detail: {
-                                        date: Time.zone.now,
+                                        date: @valid_date,
                                         place: 'valid place',
                                         action_type: 'walk',
                                         action_memo: 'valid memo'
