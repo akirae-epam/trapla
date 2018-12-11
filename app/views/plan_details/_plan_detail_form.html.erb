@@ -1,4 +1,4 @@
-<%= form_for(plan_detail) do |plan_detail_f| %>
+<%= form_for(plan_detail, remote:true) do |plan_detail_f| %>
   <div class="well">
       <%= render 'shared/error_messages', object: plan_detail_f.object %>
       <%= hidden_field_tag :plan_id, plan_detail.plan.id %>

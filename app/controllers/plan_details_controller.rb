@@ -28,7 +28,10 @@ class PlanDetailsController < ApplicationController
       flash[:success] = 'アクティビティを更新しました。'
       redirect_to edit_plan_path(@plan)
     else
-      render 'plans/edit'
+      respond_to do |format|
+        format.html { redirect_to edit_plan_path(@plan) }
+        format.js
+      end
     end
   end
 
