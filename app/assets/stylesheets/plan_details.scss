@@ -123,6 +123,25 @@ h5 {
   font-size: 1.2em;
 }
 
+.panel-body {
+  > .well {
+    margin: 0px;
+    width: 100%;
+  }
+}
+// 日付入力欄用
+.date_input {
+  > input {
+    margin: 0;
+    width: 60%;
+  }
+  > .datepicker {
+    width: 200px;
+    > .input-group-addon {
+      width: 30px;
+    }
+  }
+}
 .payments_forms {
   margin: 5px;
   border-bottom: 1px solid lightgray;

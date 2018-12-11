@@ -17,5 +17,11 @@
       $(this).children('.plan_detail_edit').hide();
     })
 
+    // カレンダー表示用
+    var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
+    $(function(){
+      $('.datepicker').attr(data);
+      $('.datepicker').datetimepicker();
+    });
   })
 </script>

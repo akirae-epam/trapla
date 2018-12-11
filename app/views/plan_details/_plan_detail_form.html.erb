@@ -6,9 +6,12 @@
 
       <div class="panel panel-default">
         <h4>いつ？</h4>
-        <div class="panel-body">
-            <%= plan_detail_f.label :日付, class:"info" %>
-            <%= plan_detail_f.text_field :date, class: 'form-control' %>
+        <div class="panel-body date_input">
+            <%= plan_detail_f.label :日付と時間, class:"info" %>
+            <div class='input-group date datepicker'>
+              <%= plan_detail_f.text_field :date, class: 'form-control', autocomplete: 'off', data: { date_format: 'YYYY/MM/DD HH:mm' } %>
+              <span class="input-group-addon">
+            </div>
         </div>
       </div>
 
@@ -16,7 +19,7 @@
         <h4>どこで？</h4>
         <div class="panel-body">
             <%= plan_detail_f.label :場所, class:"info" %>
-            <%= plan_detail_f.text_field :place, class: 'form-control' %>
+            <%= plan_detail_f.text_field :place, autocomplete: 'off', class: 'form-control' %>
         </div>
       </div>
 
