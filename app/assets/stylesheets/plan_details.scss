@@ -5,14 +5,35 @@
     width: 70%;
   }
 }
+
+@mixin add_plan_detail {
+  margin: 10px auto;
+  display: block;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+}
+.add_plan_detail_button {
+  > img {
+    @include add_plan_detail;
+  }
+  > img:hover {
+    @include add_plan_detail;
+    margin: 30px auto;
+    transform: scale(1.5);
+  }
+}
+
 .plan_detail {
   width: 100%;
   display: table;
   }
+
 .plan_details_left {
   margin: 0 auto;
   width: 70%;
 }
+
 .plan_detail_left {
   width: 200px;
   display:table-cell;
@@ -29,6 +50,7 @@
     padding: 5px;
   }
 }
+
 .plan_detail_center {
   width: 100px;
   display:table-cell;
@@ -49,6 +71,7 @@
     text-align: center;
   }
 }
+
 .plan_detail_action_type {
   height: 100%;
   display: table-cell;
@@ -62,10 +85,12 @@
     text-align: center;
   }
 }
+
 .plan_detail_right {
   display:table-cell;
   vertical-align: top;
 }
+
 .plan_detail_place {
   @extend .plan_detail_time;
   background-color: #FFFFF0;
@@ -75,12 +100,14 @@
     text-align: left;
   }
 }
+
 .plan_detail_action_memo {
   @extend .plan_detail_place;
   border: solid 1px #88888a;
   background-color: #F5FFFA;
   margin-top: 10px;
 }
+
 .plan_detail_edit {
   display: table-cell;
   vertical-align: top;
@@ -142,6 +169,7 @@ h5 {
     }
   }
 }
+
 .payments_forms {
   margin: 5px;
   border-bottom: 1px solid lightgray;
@@ -155,6 +183,7 @@ h5 {
     }
   }
 }
+
 .payments_content {
   margin: 5px;
 }
