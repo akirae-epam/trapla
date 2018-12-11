@@ -40,6 +40,11 @@ class PlanDetailTest < ActiveSupport::TestCase
     assert_not @plan_detail.errors.messages[:place].empty?
   end
 
+  test 'place should be at most 50 characters' do
+    @plan_detail.place = 'a' * 51
+    assert_not @plan_detail.valid?
+  end
+
   test 'plan_detail deleted when parent plan deleted' do
     @plan_detail.save
     plan_detail_count = 0 - @plan.plan_details.count
