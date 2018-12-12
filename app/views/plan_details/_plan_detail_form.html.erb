@@ -51,10 +51,15 @@
 
       <div class="panel panel-default">
         <h4>必要なものは？</h4>
-        <h5>※「コンマ(,)」で区切って記載する</h5>
+        <h5>※「カンマ(,)」で区切って記載する</h5>
         <div class="panel-body">
           <%= plan_detail_f.label :必要なもの, class:"info" %>
-          <%= plan_detail_f.text_area :action, class: 'form-control' %>
+          <%= plan_detail_f.text_area :action, class: 'form-control', id:'belonging' %>
+        </div>
+        <div>
+          <ul id="belongings">
+
+          </ul>
         </div>
       </div>
 

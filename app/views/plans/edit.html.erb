@@ -17,6 +17,7 @@
       $(this).children('.plan_detail_edit').hide();
     })
 
+    // フォーム関連
     // アクティビティ追加フォーム表示用
     lastFormId = ''
     $('.add_plan_detail_button').children('img').on('click', function(){
@@ -30,5 +31,16 @@
       $('.datepicker').attr(data);
       $('.datepicker').datetimepicker();
     });
+
+    // 持ち物描写用
+    $('#belonging').on('input', function() {
+      var belongings = $(this).val().split(/\r\n|\r|\n/);
+      var output = new Array();
+      $.each(belongings, function(index, value) {
+          output += '<li>'+value+'</li>';
+      });
+      $('#belongings').html(output);
+    });
+
   })
 </script>
