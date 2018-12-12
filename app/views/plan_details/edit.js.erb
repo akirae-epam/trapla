@@ -19,7 +19,6 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
   // hiddenの値を取得
   var draw_item = $('#plan_detail_payments_item').val().split(',');
   var draw_money = $('#plan_detail_payments_money').val().split(',');
-
   // hiddenの値を描写
   $.each(draw_item, function(index, value) {
     $('#payments_output_item').append('<li>'+value+'</li>');

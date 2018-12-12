@@ -42,8 +42,27 @@
       $('#output_belongings').html(output);
     });
 
-    // 費用表示用
+    // 費用を入力したら表示
+    $('#payment_button').on('click', function() {
+      // hiddenの値を取得
+      var draw_item = $('#plan_detail_payments_item').val().split(',');
+      var draw_money = $('#plan_detail_payments_money').val().split(',');
 
+      // テキストボックスの値を取得
+      var input_item = $('#plan_detail_payment_item').val();
+      var input_money = $('#plan_detail_payment_money').val();
 
+      // 入力値を配列に追加
+      draw_item.push(input_item);
+      draw_money.push(input_money);
+
+      // 入力値を描写
+      $('#payments_output_item').append('<li>'+input_item+'</li>');
+      $('#payments_output_money').append('<li>'+input_money+'</li>');
+
+      // hiddenの値を書き換え
+      $('#plan_detail_payments_item').val(draw_item);
+      $('#plan_detail_payments_money').val(draw_money);
+    });
   })
 </script>
