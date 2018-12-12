@@ -32,15 +32,18 @@
       $('.datepicker').datetimepicker();
     });
 
-    // 持ち物描写用
+    // 持ち物表示用
     $('#input_belongings').on('input', function() {
       var belongings = $(this).val().split(/\r\n|\r|\n/);
       var output = new Array();
       $.each(belongings, function(index, value) {
-          output += '<li>'+value+'</li>';
+        output += '<li>'+value+'</li>';
       });
       $('#output_belongings').html(output);
     });
+
+    // 費用表示用
+
 
   })
 </script>

@@ -28,6 +28,8 @@ module PlanDetailsHelper
   end
 
   def draw_belongings(belongings)
+    return if belongings.nil?
+    
     value = belongings.split(/\r\n|\r|\n/)
     output = ''
     value.each do |n|

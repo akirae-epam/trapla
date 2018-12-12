@@ -2,7 +2,7 @@
 .plan_details {
   > table {
     margin: 20px auto;
-    width: 70%;
+    width: 80%;
   }
 }
 
@@ -34,6 +34,7 @@
   width: 70%;
 }
 
+// 年月表示の項目
 .plan_detail_left {
   width: 200px;
   display:table-cell;
@@ -51,6 +52,7 @@
   }
 }
 
+// 時間とアクションアイコンの項目
 .plan_detail_center {
   width: 100px;
   display:table-cell;
@@ -87,6 +89,7 @@
   }
 }
 
+// 場所とメモの項目
 .plan_detail_right {
   display:table-cell;
   vertical-align: top;
@@ -105,7 +108,7 @@
 
 .plan_detail_action_memo {
   @extend .plan_detail_place;
-  border: solid 1px #88888a;
+  border: 0;
   background-color: #F5FFFA;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -114,6 +117,21 @@
   }
 }
 
+// 持ち物と費用の項目
+.plan_detail_belongings {
+  display:table-cell;
+  vertical-align: top;
+  min-width: 100px;
+  > ul {
+    margin-left: 10px;
+    padding: 0;
+    > li {
+      list-style: none;
+      }
+    }
+}
+
+// 各アクティビティの編集メニューアイコン表示
 .plan_detail_edit {
   display: table-cell;
   vertical-align: top;
@@ -175,21 +193,35 @@ h5 {
     }
   }
 }
-
-.payments_forms {
-  margin: 5px;
-  border-bottom: 1px solid lightgray;
-  text-align: center;
-  overflow: hidden;
-  .payments_form {
-    float: left;
-    margin: 10px;
-    label,input {
-      display: block;
-    }
+.plan_detail_belonging_input {
+  display: inline-block;
+  vertical-align: top;
+  > textarea {
+    width: 100%;
+    height: 150px;
   }
 }
-
+.plan_detail_belonging_output {
+  display: inline-block;
+}
+.payments_form {
+  margin: 5px;
+  border-bottom: 1px solid lightgray;
+  > div {
+    display: inline-block;
+  }
+  > .payment_item > input {
+    width: 200px;
+  }
+  > .payment_money > input {
+    width: 100px;
+  }
+}
 .payments_content {
   margin: 5px;
+  > div {
+    max-width: 40%;
+    display: inline-block;
+    text-align: right;
+  }
 }

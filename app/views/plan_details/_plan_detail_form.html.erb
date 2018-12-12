@@ -52,11 +52,11 @@
       <div class="panel panel-default">
         <h4>必要なものは？</h4>
         <h5>※改行で区切って記載する</h5>
-        <div class="panel-body">
-          <%= plan_detail_f.label :必要なもの, class:"info" %>
+        <div class="panel-body plan_detail_belonging_input">
           <%= plan_detail_f.text_area :belongings, class: 'form-control', id:'input_belongings' %>
         </div>
-        <div>
+        <div class="plan_detail_belonging_output">
+          <p>必要なもの</p>
           <ul id="output_belongings"></ul>
         </div>
       </div>
@@ -64,18 +64,23 @@
       <div class="panel panel-default">
         <h4>かかる費用は？</h4>
         <div class="panel-body">
-          <div class="payments_forms">
-            <div class="payments_form">
+          <div class="payments_form">
+            <p class="alert alert-warning"></p>
+            <div class="payment_item">
               <%= plan_detail_f.label :何の費用か, class:"info" %>
-              <%= plan_detail_f.text_field :action, class: 'form-control' %>
+              <%= text_field :plan_detail_payment, :item, class: 'form-control' %>
             </div>
-            <div class="payments_form">
+            <div class="payment_money">
               <%= plan_detail_f.label :いくらかかるか, class:"info" %>
-              <%= plan_detail_f.text_field :action, class: 'form-control' %>
+              <%= text_field :plan_detail_payment, :money, class: 'form-control' %>
+            </div>
+            <div id="payment_button">
+              <p class="btn btn-default">費用を追加</p>
             </div>
           </div>
           <div class="payments_content">
-            かかる費用を表示
+            <div><ul id="payments_output_item"></ul></div>
+            <div><ul id="payments_output_money"></ul></div>
           </div>
         </div>
       </div>

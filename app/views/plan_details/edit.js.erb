@@ -3,7 +3,7 @@ $('.add_plan_detail').hide();
 
 // 編集画面を表示
 if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
-  // 表示したフォームを削除
+  // 同じアクティビティに対する編集ボタンであれば表示したフォームを削除
   $('#edit_plan_detail_<%= @plan_detail.id %>').slideToggle('fast').empty();
 
   //表示したフォームの記憶を削除
@@ -12,32 +12,32 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
   // すでに表示している編集フォームは閉じて削除
   if (lastFormId) {$(lastFormId).slideToggle('fast').empty();}
 
-  // 編集フォームを描写
+  // 編集フォームを表示
   $('#edit_plan_detail_<%= @plan_detail.id %>').html("<%= j(render 'plan_details/plan_detail_form', plan_detail: @plan_detail, plan_detail_title: 'アクティビティの編集') %>")
 
-  //持ち物を描写
+  //持ち物を表示
   var belongings = $('#input_belongings').val().split(/\r\n|\r|\n/);
   var output = new Array();
   $.each(belongings, function(index, value) {
-      output += '<li>'+value+'</li>';
+    output += '<li>'+value+'</li>';
   });
   $('#output_belongings').html(output);
 
-  // 編集画面を出力
+  // 編集画面を描写
   $('#edit_plan_detail_<%= @plan_detail.id %>').slideToggle('fast');
 
   // 表示したフォームのIDを記憶
   var lastFormId = '#edit_plan_detail_<%= @plan_detail.id %>'
 }
 
-// datepickerカレンダー表示用
+// datepickerカレンダー表示
 var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
 $(function(){
   $('.datepicker').attr(data);
   $('.datepicker').datetimepicker();
 });
 
-// 持ち物描写用
+// 持ち物表示
 $('#input_belongings').on('input', function() {
   var belongings = $(this).val().split(/\r\n|\r|\n/);
   var output = new Array();
@@ -45,4 +45,21 @@ $('#input_belongings').on('input', function() {
       output += '<li>'+value+'</li>';
   });
   $('#output_belongings').html(output);
+});
+
+// 費用表示
+$('#payment_button').on('click', function() {
+  // 最初に配列を初期化し配列に格納
+  var item_outputs = new Array();
+  var item_moneys = new Array();
+  var item_outputs = $('#payments_output_item li');
+  var item_moneys = $('#payments_output_money li');
+
+  // テキストボックスの値を取得
+  var input_item = $('#plan_detail_payment_item').val();
+  var input_money = $('#plan_detail_payment_money').val();
+
+  $('#payments_output_item').append('<li>'+input_item+'</li>');
+  $('#payments_output_money').append('<li>'+input_money+'</li>');
+
 });
