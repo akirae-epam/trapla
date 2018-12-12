@@ -58,6 +58,7 @@ class PlanDetailsController < ApplicationController
                                         :place,
                                         :action_type,
                                         :action,
-                                        :action_memo)
+                                        :action_memo,
+                                        :belongings)
   end
 end

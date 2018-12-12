@@ -33,13 +33,13 @@
     });
 
     // 持ち物描写用
-    $('#belonging').on('input', function() {
+    $('#input_belongings').on('input', function() {
       var belongings = $(this).val().split(/\r\n|\r|\n/);
       var output = new Array();
       $.each(belongings, function(index, value) {
           output += '<li>'+value+'</li>';
       });
-      $('#belongings').html(output);
+      $('#output_belongings').html(output);
     });
 
   })

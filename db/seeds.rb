@@ -45,7 +45,8 @@ end
         date: hour.hours.ago,
         place: "Place #{plan_detail_no}",
         action_type: rand_method[rand(16)],
-        action_memo: Faker::Lorem.sentence(10)
+        action_memo: Faker::Lorem.sentence(10),
+        belongings: "もちもの１\nもちもの２\nもちもの３\nもちもの４"
       )
     end
   end
