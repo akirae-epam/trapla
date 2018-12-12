@@ -29,7 +29,7 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
 
   //持ち物を表示
   var belongings = $('#input_belongings').val().split(/\r\n|\r|\n/);
-  var output = new Array();
+  var output = '';
   $.each(belongings, function(index, value) {
     output += '<li>'+value+'</li>';
   });

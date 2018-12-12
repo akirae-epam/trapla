@@ -25,17 +25,17 @@
       $('.add_plan_detail').slideToggle('fast');
     })
 
-    // カレンダー表示用
+    // datepickerカレンダー表示
     var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
     $(function(){
       $('.datepicker').attr(data);
       $('.datepicker').datetimepicker();
     });
 
-    // 持ち物表示用
+    // 持ち物を入力したらリアルタイムで表示
     $('#input_belongings').on('input', function() {
       var belongings = $(this).val().split(/\r\n|\r|\n/);
-      var output = new Array();
+      var output = '';
       $.each(belongings, function(index, value) {
         output += '<li>'+value+'</li>';
       });
