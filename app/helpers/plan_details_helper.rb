@@ -29,12 +29,12 @@ module PlanDetailsHelper
 
   def draw_belongings(belongings)
     return if belongings.nil?
-    
+
     value = belongings.split(/\r\n|\r|\n/)
-    output = ''
+    output = []
     value.each do |n|
-      output += "<li>#{n}</li>"
+      output << content_tag(:li, n)
     end
-    return output.html_safe
+    return safe_join(output)
   end
 end
