@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_013250) do
+ActiveRecord::Schema.define(version: 2018_12_12_091255) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2018_12_12_013250) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "belongings"
+    t.text "payments_money"
+    t.text "payments_item"
     t.index ["plan_id", "created_at", "date"], name: "index_plan_details_on_plan_id_and_created_at_and_date"
     t.index ["plan_id", "created_at"], name: "index_plan_details_on_plan_id_and_created_at"
     t.index ["plan_id"], name: "index_plan_details_on_plan_id"

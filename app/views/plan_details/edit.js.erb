@@ -15,6 +15,19 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
   // 編集フォームを表示
   $('#edit_plan_detail_<%= @plan_detail.id %>').html("<%= j(render 'plan_details/plan_detail_form', plan_detail: @plan_detail, plan_detail_title: 'アクティビティの編集') %>")
 
+  //費用を表示
+  // hiddenの値を取得
+  var draw_item = $('#plan_detail_payments_item').val().split(',');
+  var draw_money = $('#plan_detail_payments_money').val().split(',');
+
+  // hiddenの値を描写
+  $.each(draw_item, function(index, value) {
+    $('#payments_output_item').append('<li>'+value+'</li>');
+  });
+  $.each(draw_money, function(index, value) {
+    $('#payments_output_money').append('<li>'+value+'</li>');
+  });
+
   //持ち物を表示
   var belongings = $('#input_belongings').val().split(/\r\n|\r|\n/);
   var output = new Array();
@@ -37,29 +50,35 @@ $(function(){
   $('.datepicker').datetimepicker();
 });
 
-// 持ち物表示
+// 持ち物を入力したらリアルタイムで表示
 $('#input_belongings').on('input', function() {
   var belongings = $(this).val().split(/\r\n|\r|\n/);
-  var output = new Array();
+  var output = '';
   $.each(belongings, function(index, value) {
       output += '<li>'+value+'</li>';
   });
   $('#output_belongings').html(output);
 });
 
-// 費用表示
+// 費用を入力したら表示
 $('#payment_button').on('click', function() {
-  // 最初に配列を初期化し配列に格納
-  var item_outputs = new Array();
-  var item_moneys = new Array();
-  var item_outputs = $('#payments_output_item li');
-  var item_moneys = $('#payments_output_money li');
+  // hiddenの値を取得
+  var draw_item = $('#plan_detail_payments_item').val().split(',');
+  var draw_money = $('#plan_detail_payments_money').val().split(',');
 
   // テキストボックスの値を取得
   var input_item = $('#plan_detail_payment_item').val();
   var input_money = $('#plan_detail_payment_money').val();
 
+  // 入力値を配列に追加
+  draw_item.push(input_item);
+  draw_money.push(input_money);
+
+  // 入力値を描写
   $('#payments_output_item').append('<li>'+input_item+'</li>');
   $('#payments_output_money').append('<li>'+input_money+'</li>');
 
+  // hiddenの値を書き換え
+  $('#plan_detail_payments_item').val(draw_item);
+  $('#plan_detail_payments_money').val(draw_money);
 });

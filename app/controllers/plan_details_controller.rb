@@ -59,6 +59,8 @@ class PlanDetailsController < ApplicationController
                                         :action_type,
                                         :action,
                                         :action_memo,
-                                        :belongings)
+                                        :belongings,
+                                        :payments_item,
+                                        :payments_money)
   end
 end

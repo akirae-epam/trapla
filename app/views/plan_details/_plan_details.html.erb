@@ -7,7 +7,7 @@
     <%# 新規アクティビティ追加用フォームの描写 %>
     <% if request.path_info == edit_plan_path %>
       <div class="add_plan_detail_button">
-        <%= image_tag('controll_plan_detail/new_plan_detail.svg') %>
+        <%= image_tag('controll_plan_detail/new_plan_detail.svg', class:'btn') %>
       </div>
       <div class="add_plan_detail" style="display: none;">
         <%= render 'plan_details/plan_detail_form', plan_detail: @new_plan_detail,

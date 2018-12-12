@@ -11,12 +11,11 @@
   display: block;
   width: 60px;
   height: 60px;
+  border-radius: 30px;
   padding: 0;
 }
 .add_plan_detail_button {
-  > img {
-    @include add_plan_detail;
-  }
+  > img { @include add_plan_detail; }
   > img:hover {
     @include add_plan_detail;
     margin: 30px auto;
@@ -27,6 +26,7 @@
 .plan_detail {
   width: 100%;
   display: table;
+  border-radius: 10px;
   }
 
 .plan_details_left {
@@ -101,9 +101,7 @@
   background-color: #FFFFF0;
   margin: 0 10px;
   padding-left: 10px;
-  > p {
-    text-align: left;
-  }
+  > p { text-align: left; }
 }
 
 .plan_detail_action_memo {
@@ -112,9 +110,7 @@
   background-color: #F5FFFA;
   margin-top: 10px;
   margin-bottom: 10px;
-  > p {
-    word-wrap: break-word;
-  }
+  > p { word-wrap: break-word; }
 }
 
 // 持ち物と費用の項目
@@ -125,9 +121,7 @@
   > ul {
     margin-left: 10px;
     padding: 0;
-    > li {
-      list-style: none;
-      }
+    > li { list-style: none; }
     }
 }
 
@@ -136,6 +130,7 @@
   display: table-cell;
   vertical-align: top;
   min-width: 100px;
+  position: absolute;
   display:none;
   > a > img {
     display: block;
@@ -154,11 +149,13 @@
   padding: 10px;
   padding: 0;
   margin: 10px auto;
-  > form {
-    width: 100%;
-  }
+  > form { width: 100%; }
   > .well {
     margin: 10px auto;
+    > .panel >h4 {
+      text-align: left;
+      margin-left: 20px;
+    }
   }
 }
 
@@ -201,27 +198,26 @@ h5 {
     height: 150px;
   }
 }
-.plan_detail_belonging_output {
-  display: inline-block;
-}
+.plan_detail_belonging_output { display: inline-block; }
 .payments_form {
-  margin: 5px;
   border-bottom: 1px solid lightgray;
   > div {
     display: inline-block;
+    margin-bottom: 5px;
   }
-  > .payment_item > input {
-    width: 200px;
-  }
-  > .payment_money > input {
-    width: 100px;
-  }
+  > .payment_item > input { width: 200px; }
+  > .payment_money > input { width: 100px; }
+  > #payment_button > p { margin: 0; }
 }
 .payments_content {
   margin: 5px;
   > div {
-    max-width: 40%;
+    width: 30%;
     display: inline-block;
     text-align: right;
+    > ul {
+      list-style: none;
+      display: inline;
+    }
   }
 }

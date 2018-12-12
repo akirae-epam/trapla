@@ -28,9 +28,6 @@
     <%= draw_belongings(plan_detail.belongings) %>
     </ul>
   </div>
-  <!-- <div class="plan_detail_payment">
-    <p><%#= plan_detail.payments %></p>
-  </div> -->
   <% if request.path_info == edit_plan_path(plan_detail.plan) %>
     <div class="plan_detail_edit" id="plan_edit_<%= plan_detail.id %>">
       <%= link_to image_tag('controll_plan_detail/edit_plan_detail.svg'),
