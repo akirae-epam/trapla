@@ -8,6 +8,8 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
     @plan_details = @plan.plan_details
     @plan_form_button = ''
+    @plan_belongings = ['test1', 'test2', 'test3']
+    @plan_payments = {test1: 100000, test2: 20000, test3: 300000}
   end
 
   def new
@@ -50,6 +52,10 @@ class PlansController < ApplicationController
 
   private
 
+  def plan_params
+    params.require(:plan).permit(:title, :content)
+  end
+
   # 正しいユーザ（手を加える対象ユーザ自身もしくは管理者）であることを確認
   def correct_user
     @user = current_user
@@ -61,7 +67,5 @@ class PlansController < ApplicationController
     end
   end
 
-  def plan_params
-    params.require(:plan).permit(:title, :content)
-  end
+
 end

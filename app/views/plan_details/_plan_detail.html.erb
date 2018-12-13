@@ -25,8 +25,20 @@
   </div>
   <div class="plan_detail_belongings">
     <ul>
-    <%= draw_belongings(plan_detail.belongings) %>
+      <%= draw_belongings(plan_detail.belongings) %>
     </ul>
+  </div>
+  <div class="plan_detail_payments">
+    <div>
+      <% plan_detail.payments_items.split(',').each do |item| %>
+        <p><%= item %>：</p>
+      <% end %>
+    </div>
+    <div>
+      <% plan_detail.payments_moneys.split(',').each do |money| %>
+        <p><%= number_to_currency(money, unit:'¥', precision: 0) %></p>
+      <% end %>
+    </div>
   </div>
   <% if request.path_info == edit_plan_path(plan_detail.plan) %>
     <div class="plan_detail_edit" id="plan_edit_<%= plan_detail.id %>">

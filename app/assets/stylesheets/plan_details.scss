@@ -118,11 +118,28 @@
   display:table-cell;
   vertical-align: top;
   min-width: 100px;
+  border-radius: 10px;
   > ul {
     margin-left: 10px;
     padding: 0;
     > li { list-style: none; }
     }
+}
+
+.plan_detail_payments {
+  @extend .plan_detail_belongings;
+  min-width: 200px;
+  overflow: hidden;
+  > div {
+    float: left;
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    > p {
+      margin: 5px;
+    }
+  }
 }
 
 // 各アクティビティの編集メニューアイコン表示

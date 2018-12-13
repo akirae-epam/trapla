@@ -15,10 +15,16 @@
       </div>
     <% end %>
   </div>
-  <div class="plan_detail_belongings">
-    <p>もっていくもの</p>
+  <div class="plan_belongings">
+  <p>もっていくもの</p>
+    <% @plan_belongings.each do |belonging| %>
+      <p><%= belonging %></p>
+    <% end %>
   </div>
-  <div class="plan_detail_payments">
+  <div class="plan_payments">
     <p>支払う費用</p>
+      <% @plan_payments.each do |key, value| %>
+        <p><%= key %>：¥<%= number_to_currency(value, unit:'¥', precision: 0) %></p>
+      <% end %>
   </div>
 </div>
