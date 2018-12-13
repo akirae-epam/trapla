@@ -19,8 +19,8 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
   var lastFormId = '#edit_plan_detail_<%= @plan_detail.id %>';   // 表示したフォームのIDを記憶
 
   // 既存の費用を表示
-  var draw_item = $('#plan_detail_payments_item').val().split(',');
-  var draw_money = $('#plan_detail_payments_money').val().split(',');
+  var draw_item = $('#plan_detail_payments_items').val().split(',');
+  var draw_money = $('#plan_detail_payments_moneys').val().split(',');
   $.each(draw_item, function(index, value) {
     $('#payments_output_item').append('<li>'+value+'</li>');
   });

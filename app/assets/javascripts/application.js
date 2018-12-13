@@ -68,7 +68,7 @@ jQuery.extend({
     //費用は数値しか入力できない
     $('#plan_detail_payment_money').on('input', function() {
       let value = $(this).val();
-      $(this).val(value.replace(/[^0-9]/, ''));
+      $(this).val(value.replace(/[^0-9]+/g, ''));
     });
 
     // 費用を追加ボタンを押したら表示する費用を追加

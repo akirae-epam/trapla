@@ -32,6 +32,8 @@ class PlansController < ApplicationController
     @plan_details = @plan.plan_details
     @new_plan_detail = @plan.plan_details.new
     @plan_form_button = 'プラン概要を変更する'
+    @plan_belongings = ['test1', 'test2', 'test3']
+    @plan_payments = {test1: 100000, test2: 20000, test3: 300000}
   end
 
   def update
