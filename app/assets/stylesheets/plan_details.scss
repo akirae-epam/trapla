@@ -192,13 +192,17 @@ h5 {
 }
 .plan_detail_belonging_input {
   display: inline-block;
+  width: 45%;
   vertical-align: top;
   > textarea {
     width: 100%;
     height: 150px;
   }
 }
-.plan_detail_belonging_output { display: inline-block; }
+.plan_detail_belonging_output {
+  display: inline-block;
+  width: 45%;
+}
 .payments_form {
   border-bottom: 1px solid lightgray;
   > div {
@@ -219,5 +223,10 @@ h5 {
       list-style: none;
       display: inline;
     }
+  }
+  > .output_item, .output_money { float: left; }
+  > .output_total {
+    width: 100%;
+    text-align: right;
   }
 }

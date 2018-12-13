@@ -71,19 +71,20 @@
             </div>
             <div class="payment_item">
               <%= plan_detail_f.label :何の費用か, class:"info" %>
-              <%= text_field :plan_detail_payment, :item, class: 'form-control' %>
+              <%= text_field :plan_detail_payment, :item, autocomplete:'off', class: 'form-control' %>
             </div>
             <div class="payment_money">
               <%= plan_detail_f.label :いくらかかるか, class:"info" %>
-              <%= text_field :plan_detail_payment, :money, class: 'form-control' %>
+              <%= text_field :plan_detail_payment, :money, type:'tel', autocomplete:'off', class: 'form-control' %>
             </div>
             <div id="payment_button">
               <p class="btn btn-default">費用を追加</p>
             </div>
           </div>
           <div class="payments_content">
-            <div><ul id="payments_output_item"></ul></div>
-            <div><ul id="payments_output_money"></ul></div>
+            <div class="output_item"><ul id="payments_output_item"></ul></div>
+            <div class="output_money"><ul id="payments_output_money"></ul></div>
+            <div class="output_total"><p id="payments_output_total"></p></div>
           </div>
         </div>
       </div>

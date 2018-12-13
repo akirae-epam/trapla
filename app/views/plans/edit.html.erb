@@ -5,64 +5,25 @@
 <%= render 'plan_details/plan_details' %>
 <% end %>
 <script type="text/javascript">
+// 共有するJavaScriptは/app/assets/javascripts/application.jsに記載
   $(function() {
     //１アクティビティにマウスを載せたら編集メニューを表示
     $('.plan_detail').mouseover(function(){
       $(this).css('background-color', '#E0FFFF');
       $(this).children('.plan_detail_edit').show();
-
     })
     $('.plan_detail').mouseout(function(){
       $(this).css('background-color', '');
       $(this).children('.plan_detail_edit').hide();
     })
 
-    // フォーム関連
-    // アクティビティ追加フォーム表示用
+    // フォーム表示
     lastFormId = ''
     $('.add_plan_detail_button').children('img').on('click', function(){
       if (lastFormId) {$(lastFormId).slideToggle('fast').empty();}
       $('.add_plan_detail').slideToggle('fast');
     })
-
-    // datepickerカレンダー表示
-    var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
-    $(function(){
-      $('.datepicker').attr(data);
-      $('.datepicker').datetimepicker();
-    });
-
-    // 持ち物を入力したらリアルタイムで表示
-    $('#input_belongings').on('input', function() {
-      var belongings = $(this).val().split(/\r\n|\r|\n/);
-      var output = '';
-      $.each(belongings, function(index, value) {
-        output += '<li>'+value+'</li>';
-      });
-      $('#output_belongings').html(output);
-    });
-
-    // 費用を入力したら表示
-    $('#payment_button').on('click', function() {
-      // hiddenの値を取得
-      var draw_item = $('#plan_detail_payments_item').val().split(',');
-      var draw_money = $('#plan_detail_payments_money').val().split(',');
-
-      // テキストボックスの値を取得
-      var input_item = $('#plan_detail_payment_item').val();
-      var input_money = $('#plan_detail_payment_money').val();
-
-      // 入力値を配列に追加
-      draw_item.push(input_item);
-      draw_money.push(input_money);
-
-      // 入力値を描写
-      $('#payments_output_item').append('<li>'+input_item+'</li>');
-      $('#payments_output_money').append('<li>'+input_money+'</li>');
-
-      // hiddenの値を書き換え
-      $('#plan_detail_payments_item').val(draw_item);
-      $('#plan_detail_payments_money').val(draw_money);
-    });
   })
+
+  jQuery.default(); // フォームの共通設定を読み込み
 </script>

@@ -17,3 +17,78 @@
 //= require bootstrap-datetimepicker
 //= require turbolinks
 //= require_tree .
+
+
+// 関数を定義
+// 数字を円表記に変換
+jQuery.extend({
+  jpyen: function(money) {
+    moneys = String(Number(money)).split('');
+    let moneyLen = moneys.length;
+    moneys.forEach( function(val,index,array) {
+      if ((index+1) % 3 === 0  && index+1 !== moneyLen) {
+        moneys.splice(moneyLen-(index+1), 0, ',');
+      }
+    });
+    moneys.unshift('\¥');
+    moneys = moneys.join('');
+    return moneys;
+  },
+  sum: function(array) {
+    return array.reduce(function(p, c) { return Number(p) + Number(c); } );
+  },
+  default: function() {
+    // 表示したアクティビティフォーム関連
+    // datepickerカレンダー表示
+    var data = {'data-date-format': 'YYYY/MM/DD HH:mm' };
+    $(function(){
+      $('.datepicker').attr(data);
+      $('.datepicker').datetimepicker();
+    });
+
+    // 持ち物を入力したらリアルタイムで表示
+    $('#input_belongings').on('input', function() {
+      var belongings = $(this).val().split(/\r\n|\r|\n/);
+      var output = '';
+      $.each(belongings, function(index, value) {
+          output += '<li>'+value+'</li>';
+      });
+      $('#output_belongings').html(output);
+    });
+
+    //費用項目にカンマは入力できない
+    $('#plan_detail_payment_item').on('input', function() {
+      let value = $(this).val();
+      $(this).val(value.replace(/\,/, ''));
+    });
+
+    //費用は数値しか入力できない
+    $('#plan_detail_payment_money').on('input', function() {
+      let value = $(this).val();
+      $(this).val(value.replace(/[^0-9]/, ''));
+    });
+
+    // 費用を追加ボタンを押したら表示する費用を追加
+    $('#payment_button').on('click', function() {
+      // hiddenの値を取得
+      var draw_item = $('#plan_detail_payments_item').val().split(',');
+      var draw_money = $('#plan_detail_payments_money').val().split(',');
+      // テキストボックスの値を取得
+      var input_item = $('#plan_detail_payment_item').val();
+      var input_money = $('#plan_detail_payment_money').val();
+      // 入力値を配列に追加
+      draw_item.push(input_item);
+      draw_money.push(input_money);
+      // 入力値を描写
+      $('#payments_output_item').append('<li>'+input_item+'</li>');
+      $('#payments_output_money').append('<li>'+jQuery.jpyen(input_money)+'</li>');
+      // hiddenの値を書き換え
+      $('#plan_detail_payments_item').val(draw_item);
+      $('#plan_detail_payments_money').val(draw_money);
+
+      //合計値を描写
+      var total_money = jQuery.sum(draw_money);
+      $('#payments_output_total').text(jQuery.jpyen(total_money));
+    });
+  }
+});
