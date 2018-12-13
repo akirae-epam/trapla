@@ -51,6 +51,7 @@ jobs:
           name: run rubocop
           command: |
             bundle exec rubocop
+            bundle exec rails-erb-lint check -p ./app/views/
 
       # collect reports
       - store_test_results:
