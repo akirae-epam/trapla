@@ -25,8 +25,8 @@ gem 'will_paginate', '3.1.6' # ページネーション
 
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
-  gem 'rails-erb-lint', require: false
   gem 'pry-rails'
+  gem 'rails-erb-lint', require: false
   gem 'rubocop', require: false
   gem 'sqlite3', '1.3.13'
 end
