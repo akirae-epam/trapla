@@ -24,14 +24,12 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
   $.each(draw_item, function(index, value) {
     $('#payments_output_item').append('<li>'+value+'</li>');
   });
-  total_money = 0;
   $.each(draw_money, function(index, value) {
     $('#payments_output_money').append('<li>'+jQuery.jpyen(value)+'</li>');
-    total_money += Number(value);
   });
 
   // 費用の合計を表示
-  $('#payments_output_total').text(jQuery.jpyen(total_money));
+  jQuery.moneySum(draw_money);
 
   // 既存の持ち物を表示
   var belongings = $('#input_belongings').val().split(/\r\n|\r|\n/);

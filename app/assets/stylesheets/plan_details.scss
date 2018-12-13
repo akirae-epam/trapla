@@ -226,7 +226,8 @@ h5 {
   }
   > .output_item, .output_money { float: left; }
   > .output_total {
-    width: 100%;
+    clear: both;
+    width: 60%;
     text-align: right;
   }
 }

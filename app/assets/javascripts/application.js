@@ -20,9 +20,15 @@
 
 
 // 関数を定義
-// 数字を円表記に変換
 jQuery.extend({
-  jpyen: function(money) {
+  sum: function(array) { //配列の合計値を算出
+    return array.reduce(function(p, c) { return Number(p) + Number(c); } );
+  },
+  moneySum: function(moneyArray) {
+    var total_money = jQuery.sum(moneyArray);
+    $('#payments_output_total').text('合計：' + jQuery.jpyen(total_money));
+  },
+  jpyen: function(money) {  // 数字を円表記に変換
     moneys = String(Number(money)).split('');
     let moneyLen = moneys.length;
     moneys.forEach( function(val,index,array) {
@@ -33,9 +39,6 @@ jQuery.extend({
     moneys.unshift('\¥');
     moneys = moneys.join('');
     return moneys;
-  },
-  sum: function(array) {
-    return array.reduce(function(p, c) { return Number(p) + Number(c); } );
   },
   default: function() {
     // 表示したアクティビティフォーム関連
@@ -70,7 +73,7 @@ jQuery.extend({
 
     // 費用を追加ボタンを押したら表示する費用を追加
     $('#payment_button').on('click', function() {
-      // hiddenの値を取得
+      // hidden(DBから取得した値)の値を取得
       var draw_item = $('#plan_detail_payments_item').val().split(',');
       var draw_money = $('#plan_detail_payments_money').val().split(',');
       // テキストボックスの値を取得
@@ -82,13 +85,12 @@ jQuery.extend({
       // 入力値を描写
       $('#payments_output_item').append('<li>'+input_item+'</li>');
       $('#payments_output_money').append('<li>'+jQuery.jpyen(input_money)+'</li>');
-      // hiddenの値を書き換え
+      // hiddenの値(DBへ送信する値)を書き換え
       $('#plan_detail_payments_item').val(draw_item);
       $('#plan_detail_payments_money').val(draw_money);
 
       //合計値を描写
-      var total_money = jQuery.sum(draw_money);
-      $('#payments_output_total').text(jQuery.jpyen(total_money));
+      jQuery.moneySum(draw_money);
     });
   }
 });
