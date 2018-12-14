@@ -1,21 +1,21 @@
-<div class="plan_details">
-  <div class="plan_details_left">
+<div class="plan-details">
+  <div class="plan-details-left">
     <% @plan_details.order(:date).each do |plan_detail| %>
       <%= render 'plan_details/plan_detail',
                  plan_detail: plan_detail %>
     <% end %>
     <%# 新規アクティビティ追加用フォームの描写 %>
     <% if request.path_info == edit_plan_path %>
-      <div class="add_plan_detail_button">
+      <div class="add-plan-detail-button">
         <%= image_tag('controll_plan_detail/new_plan_detail.svg', class:'btn') %>
       </div>
-      <div class="add_plan_detail" style="display: none;">
+      <div class="add-plan-detail" style="display: none;">
         <%= render 'plan_details/plan_detail_form', plan_detail: @new_plan_detail,
                                                     plan_detail_title: 'アクティビティの追加'  %>
       </div>
     <% end %>
   </div>
-  <div class="plan_belongings">
+  <div class="plan-belongings">
   <% if !@plan_belongings.nil? %>
     <p>もっていくもの</p>
     <ul>
@@ -25,7 +25,7 @@
     </ul>
   <% end %>
   </div>
-  <div class="plan_payments">
+  <div class="plan-payments">
     <p>支払う費用</p>
     <ul><%= number_to_currency(@plan_payments, unit: '¥',precision: 0) %>
     </ul>

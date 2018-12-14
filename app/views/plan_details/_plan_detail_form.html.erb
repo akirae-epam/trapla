@@ -6,7 +6,7 @@
 
       <div class="panel panel-default">
         <h4>いつ？</h4>
-        <div class="panel-body date_input">
+        <div class="panel-body date-input">
             <%= plan_detail_f.label :日付と時間, class:"info" %>
             <div class='input-group date datepicker'>
               <%= plan_detail_f.text_field :date, class: 'form-control',
@@ -52,10 +52,10 @@
       <div class="panel panel-default">
         <h4>必要なものは？</h4>
         <h5>※改行で区切って記載する</h5>
-        <div class="panel-body plan_detail_belonging_input">
+        <div class="panel-body plan-detail-belonging-input">
           <%= plan_detail_f.text_area :belongings, class: 'form-control', id:'input_belongings' %>
         </div>
-        <div class="plan_detail_belonging_output">
+        <div class="plan-detail-belonging-output">
           <p>必要なもの</p>
           <ul id="output_belongings"></ul>
         </div>
@@ -64,27 +64,27 @@
       <div class="panel panel-default">
         <h4>かかる費用は？</h4>
         <div class="panel-body">
-          <div class="payments_form">
-            <div class="payment_hidden">
+          <div class="payments-form">
+            <div class="payment-hidden">
               <%= plan_detail_f.hidden_field :payments_items %>
               <%= plan_detail_f.hidden_field :payments_moneys %>
             </div>
-            <div class="payment_item">
+            <div class="payment-item">
               <%= plan_detail_f.label :何の費用か, class:"info" %>
               <%= text_field :plan_detail_payment, :item, autocomplete:'off', class: 'form-control' %>
             </div>
-            <div class="payment_money">
+            <div class="payment-money">
               <%= plan_detail_f.label :いくらかかるか, class:"info" %>
               <%= text_field :plan_detail_payment, :money, type:'tel', autocomplete:'off', class: 'form-control' %>
             </div>
-            <div id="payment_button">
+            <div class="payment-button">
               <p class="btn btn-default">費用を追加</p>
             </div>
           </div>
-          <div class="payments_content">
-            <div class="output_item"><ul id="payments_output_item"></ul></div>
-            <div class="output_money"><ul id="payments_output_money"></ul></div>
-            <div class="output_total"><p id="payments_output_total"></p></div>
+          <div class="payments-content">
+            <div class="output-item"><ul id="payments_output_item"></ul></div>
+            <div class="output-money"><ul id="payments_output_money"></ul></div>
+            <div class="output-total"><p id="payments_output_total"></p></div>
           </div>
         </div>
       </div>

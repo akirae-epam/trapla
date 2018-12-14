@@ -72,12 +72,12 @@ jQuery.extend({
     });
 
     // 費用を追加ボタンを押したら表示する費用を追加
-    $('#payment_button').on('click', function() {
+    $('.payment-button').on('click', function() {
       // hidden(DBから取得した値)の値を取得
       dbItem = $('#plan_detail_payments_items').val();
       dbMoney = $('#plan_detail_payments_moneys').val();
-      var draw_item = dbItem ? dbItem.split(',') : new Array();
-      var draw_money = dbMoney ? dbMoney.split(',') : new Array();
+      var draw_item = dbItem ? dbItem.split(',') : [];
+      var draw_money = dbMoney ? dbMoney.split(',') : [];
       // テキストボックスの値を取得
       var input_item = $('#plan_detail_payment_item').val();
       var input_money = $('#plan_detail_payment_money').val();

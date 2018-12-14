@@ -13,7 +13,7 @@
 
         <%= plan_f.submit plan_form_button, class: 'btn btn-default' %>
         <% if @plan.id? && current_user == @plan.user %>
-          <div class='delete_plan'><%= link_to "プランを削除する", plan_path, method: :delete, data: { confirm: "このページに表示されているプランはすべて削除されます。削除したプランは元に戻せません。本当に削除しますか？"} %></div>
+          <div class='delete-plan'><%= link_to "プランを削除する", plan_path, method: :delete, data: { confirm: "このページに表示されているプランはすべて削除されます。削除したプランは元に戻せません。本当に削除しますか？"} %></div>
         <% end %>
     </div>
   </div>
