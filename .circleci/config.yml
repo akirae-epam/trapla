@@ -51,7 +51,17 @@ jobs:
           name: run rubocop
           command: |
             bundle exec rubocop
+
+      # run scss-linter
+      - run:
+          name: run scss-linter
+          command: |
             bundle exec scss-lint
+
+      # run rails-erb-lint
+      - run:
+          name: run rails-erb-lint
+          command: |
             bundle exec rails-erb-lint check -p ./app/views/
 
       # collect reports
