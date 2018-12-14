@@ -1,5 +1,5 @@
 <% provide(:title, "プラン新規作成") %>
-<%= render 'plans/plan_form' %>
+<%= render 'plans/plan_form', plan_form_button: 'プランを作成する' %>
 <%# アクティビティがあれば表示 %>
 <% if @plan_details %>
     <%= render 'plan_details/plan_details' %>

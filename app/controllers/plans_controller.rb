@@ -1,20 +1,19 @@
 # frozen_string_literal: true
 
 class PlansController < ApplicationController
+  include PlansHelper
   before_action :logged_in_user, :set_action_type
   before_action :correct_user, only: %i[edit update destroy]
+  before_action :load_belongings_payments, only: %i[show edit]
 
   def show
     @plan = Plan.find(params[:id])
     @plan_details = @plan.plan_details
     @plan_form_button = ''
-    @plan_belongings = ['test1', 'test2', 'test3']
-    @plan_payments = {test1: 100000, test2: 20000, test3: 300000}
   end
 
   def new
     @plan = current_user.plans.new
-    @plan_form_button = 'プランを作成する'
   end
 
   def create
@@ -31,9 +30,6 @@ class PlansController < ApplicationController
     @plan = current_user.plans.find_by(id: params[:id])
     @plan_details = @plan.plan_details
     @new_plan_detail = @plan.plan_details.new
-    @plan_form_button = 'プラン概要を変更する'
-    @plan_belongings = ['test1', 'test2', 'test3']
-    @plan_payments = {test1: 100000, test2: 20000, test3: 300000}
   end
 
   def update
@@ -69,5 +65,8 @@ class PlansController < ApplicationController
     end
   end
 
-
+  def load_belongings_payments
+    @plan_belongings = ['test1', 'test2', 'test3']
+    @plan_payments = {test1: 100000, test2: 20000, test3: 300000}
+  end
 end

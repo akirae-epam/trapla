@@ -2,4 +2,5 @@
 
 module PlansHelper
   include PlanDetailsHelper
+
 end
