@@ -30,13 +30,17 @@
   </div>
   <div class="plan_detail_payments">
     <div>
-      <% plan_detail.payments_items.split(',').each do |item| %>
-        <p><%= item %>：</p>
+      <% if !plan_detail.payments_items.nil? %>
+        <% plan_detail.payments_items.split(',').each do |item| %>
+          <p><%= item %>：</p>
+        <% end %>
       <% end %>
     </div>
     <div>
-      <% plan_detail.payments_moneys.split(',').each do |money| %>
-        <p><%= number_to_currency(money, unit:'¥', precision: 0) %></p>
+      <% if !plan_detail.payments_moneys.nil? %>
+        <% plan_detail.payments_moneys.split(',').each do |money| %>
+          <p><%= number_to_currency(money, unit:'¥', precision: 0) %></p>
+        <% end %>
       <% end %>
     </div>
   </div>
