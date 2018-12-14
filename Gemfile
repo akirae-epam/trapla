@@ -31,8 +31,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '3.1.5'
   gem 'erb_lint', require: false
+  gem 'listen', '3.1.5'
   gem 'scss_lint', require: false
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
