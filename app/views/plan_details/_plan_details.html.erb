@@ -16,15 +16,23 @@
     <% end %>
   </div>
   <div class="plan_belongings">
-  <p>もっていくもの</p>
-    <% @plan_belongings.each do |belonging| %>
-      <p><%= belonging %></p>
-    <% end %>
+  <% if !@plan_belongings.nil? %>
+    <p>もっていくもの</p>
+    <ul>
+      <% @plan_belongings.each do |belonging| %>
+        <li><%= belonging %></li>
+      <% end %>
+    </ul>
+  <% end %>
   </div>
   <div class="plan_payments">
     <p>支払う費用</p>
-      <% @plan_payments.each do |key, value| %>
-        <p><%= key %>：¥<%= number_to_currency(value, unit:'¥', precision: 0) %></p>
+    <ul>
+      <% @plan_payments.each do |value| %>
+        <%= value[:id] %>：<%= value[:item] %>:
+        <%= number_to_currency(value[:money], unit: '¥',precision: 0) %>
+        <br/>
       <% end %>
+    </ul>
   </div>
 </div>

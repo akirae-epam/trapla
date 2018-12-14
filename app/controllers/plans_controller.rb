@@ -4,12 +4,12 @@ class PlansController < ApplicationController
   include PlansHelper
   before_action :logged_in_user, :set_action_type
   before_action :correct_user, only: %i[edit update destroy]
-  before_action :load_belongings_payments, only: %i[show edit]
 
   def show
     @plan = Plan.find(params[:id])
     @plan_details = @plan.plan_details
-    @plan_form_button = ''
+    merge_belongings(@plan)
+    merge_payments(@plan)
   end
 
   def new
@@ -30,6 +30,8 @@ class PlansController < ApplicationController
     @plan = current_user.plans.find_by(id: params[:id])
     @plan_details = @plan.plan_details
     @new_plan_detail = @plan.plan_details.new
+    merge_belongings(@plan)
+    merge_payments(@plan)
   end
 
   def update
@@ -63,10 +65,5 @@ class PlansController < ApplicationController
     else
       redirect_to(root_url)
     end
-  end
-
-  def load_belongings_payments
-    @plan_belongings = ['test1', 'test2', 'test3']
-    @plan_payments = {test1: 100000, test2: 20000, test3: 300000}
   end
 end
