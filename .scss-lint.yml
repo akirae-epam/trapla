@@ -10,6 +10,9 @@ plugin_gems: []
 # Default severity of all linters.
 severity: warning
 
+files:
+  include: 'app/assets/stylesheets/**/*.scss'
+
 linters:
   BangFormat:
     enabled: true
