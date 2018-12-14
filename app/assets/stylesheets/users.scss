@@ -1,14 +1,10 @@
-.sidebar {
+.user-information {
+  clear: both;
+  text-align: left;
+  margin: 10px;
 
-  .user-information {
-    clear: both;
-    text-align: left;
-    margin: 10px;
-
-    > a {
-      font-size: .8em;
-    }
-    
+  > a {
+    font-size: .8em;
   }
 
 }
