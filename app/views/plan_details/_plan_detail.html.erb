@@ -1,34 +1,34 @@
-<div class="plan_detail", id="plan_detail_<%= plan_detail.id %>">
-  <div class="plan_detail_left">
+<div class="plan-detail", id="plan_detail_<%= plan_detail.id %>">
+  <div class="plan-detail-left">
     <!-- 年月表示 -->
     <h2><%= draw_date(plan_detail, 'year')%></h2>
     <h3><%= draw_date(plan_detail, 'day') %></h3>
   </div>
-  <div class="plan_detail_center">
+  <div class="plan-detail-center">
     <!-- 時間と行動内容アイコンの列 -->
-    <div class="plan_detail_time">
+    <div class="plan-detail-time">
       <p><%= plan_detail.date.strftime('%H:%M') %></p>
     </div>
-    <div class="plan_detail_action_type">
+    <div class="plan-detail-action-type">
       <%= image_tag('action_icon/' + plan_detail.action_type + '.svg') %>
       <p><%= draw_action(plan_detail.action_type) %></p>
     </div>
   </div>
-  <div class="plan_detail_right">
+  <div class="plan-detail-right">
     <!-- 場所と行動内容概要の列 -->
-    <div class="plan_detail_place">
+    <div class="plan-detail-place">
       <p><%= plan_detail.place %></p>
     </div>
-    <div class="plan_detail_action_memo">
+    <div class="plan-detail-action-memo">
       <p><%= plan_detail.action_memo %></p>
     </div>
   </div>
-  <div class="plan_detail_belongings">
+  <div class="plan-detail-belongings">
     <ul>
       <%= draw_belongings(plan_detail.belongings) %>
     </ul>
   </div>
-  <div class="plan_detail_payments">
+  <div class="plan-detail-payments">
     <div>
       <% if !plan_detail.payments_items.nil? %>
         <% plan_detail.payments_items.split(',').each do |item| %>
@@ -45,7 +45,7 @@
     </div>
   </div>
   <% if request.path_info == edit_plan_path(plan_detail.plan) %>
-    <div class="plan_detail_edit" id="plan_edit_<%= plan_detail.id %>">
+    <div class="plan-detail-edit" id="plan_edit_<%= plan_detail.id %>" style="display: none;">
       <%= link_to image_tag('controll_plan_detail/edit_plan_detail.svg'),
                   edit_plan_detail_path(plan_detail, plan_id: plan_detail.plan),
                   remote: true %>
@@ -57,7 +57,7 @@
   <% end %>
 </div>
 <div>
-  <div class="edit_plan_detail" id="edit_plan_detail_<%= plan_detail.id %>" style="display: none;">
+  <div class="edit-plan-detail" id="edit_plan_detail_<%= plan_detail.id %>" style="display: none;">
     <%# 編集ページではアクティビティ編集用フォームの描写 %>
   </div>
 </div>

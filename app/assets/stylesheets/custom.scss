@@ -3,42 +3,55 @@
 
 @import url('https://fonts.googleapis.com/css?family=Kodchasan|M+PLUS+1p');
 
-//全体
 header {
-  background-color: white;
+  background-color: #fff;
 }
 
+//全体
 body {
   font-family: 'M PLUS 1p','Kodchasan', sans-serif;
   padding-top: 51px;
 }
 
-header, main, footer {
-  border-bottom: 1px solid gray;
+header,
+main,
+footer {
+  border-bottom: 1px solid #808080;
   clear: both;
 }
 
 .well {
   margin: 10%;
   padding: 10px;
+
   > .panel {
     width: 90%;
+
     > h4 {
       display: block;
       text-align: center;
     }
+
   }
 }
+
 .panel {
+  margin: 5% auto;
+  width: 80%;
+
   > .well {
     margin: 10px 20px;
   }
+
 }
-.alert_message {
-  margin: 0px auto;
+
+.alert-message {
+  margin: 0 auto;
+
   .alert {
     margin-bottom: 0;
   }
+
 }
 
 .pagination {
@@ -49,96 +62,109 @@ header, main, footer {
   margin-top: 5px;
 }
 
-.panel {
-  width: 80%;
-  margin: 5% auto;
-}
 //ヘッダー
-#logo {
-  float: left;
+.logo {
   color: #333;
-  margin-right: 10px;
+  float: left;
   font-size: 1.7em;
-  letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
+  letter-spacing: -1px;
+  margin-right: 10px;
+  padding-top: 9px;
 }
 
-#logo:hover {
+.logo:hover {
   color: #666;
   text-decoration: none;
 }
 
 
 // メインフレーム
-.top_image {
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
+.top-image {
   background-image: image-url('topimage.jpg');
   background-size: cover;
+  height: 100vh;
   overflow: hidden;
+  text-align: center;
+  width: 100vw;
+
   h1 {
-    font-family: 'Syncopate',sans-serif;
-    margin: 20vh auto;
-    font-size: 20vh;
-    text-align: center;
     color: #fff;
+    font-family: 'Syncopate',sans-serif;
+    font-size: 20vh;
+    margin: 20vh auto;
+    text-align: center;
   }
+
   .btn-group {
-    margin: 1vh auto;
     display: block;
+    margin: 1vh auto;
   }
+
   a {
     width: 300px;
   }
+
 }
 
 // サービス説明部分
-.service_explain {
+.service-explain {
+  display: block;
   margin: 0 auto;
   padding: 0 auto;
   text-align: center;
-  display: block;
 }
 
 @media screen and (max-width: 640px) {
-  .service_image {
+
+  .service-image {
     display: block;
   }
-}
-@media screen and (min-width: 640px) {
-  .service_image {
-    display: inline-block;
-  }
+
 }
 
-.service_image {
-  width: 300px;
+@media screen and (min-width: 640px) {
+
+  .service-image {
+    display: inline-block;
+  }
+
+}
+
+.service-image {
   margin: 50px;
-  vertical-align:top;
-  span, img, p {
+  vertical-align: top;
+  width: 300px;
+
+  span,
+  img,
+  p {
+    font-size: 24px;
     margin: 1vh auto;
     padding: 0;
   }
+
   img {
-    width: 80%;
     height: auto;
+    width: 80%;
   }
-  p {
-    font-size: 24px;
-  }
+
 }
 
 // フッター
 footer {
   text-align: center;
+
   ul {
     float: right;
     list-style: none;
+
+    > li {
+      float: left;
+      margin-left: 15px;
+    }
+
   }
-  ul li {
-    float: left;
-    margin-left: 15px;
-  }
+
+
 }

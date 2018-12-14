@@ -8,20 +8,20 @@
 // 共有するJavaScriptは/app/assets/javascripts/application.jsに記載
   $(function() {
     //１アクティビティにマウスを載せたら編集メニューを表示
-    $('.plan_detail').mouseover(function(){
+    $('.plan-detail').mouseover(function(){
       $(this).css('background-color', '#E0FFFF');
-      $(this).children('.plan_detail_edit').show();
+      $(this).children('.plan-detail-edit').show();
     })
-    $('.plan_detail').mouseout(function(){
+    $('.plan-detail').mouseout(function(){
       $(this).css('background-color', '');
-      $(this).children('.plan_detail_edit').hide();
+      $(this).children('.plan-detail-edit').hide();
     })
 
     // フォーム表示
     lastFormId = ''
-    $('.add_plan_detail_button').children('img').on('click', function(){
+    $('.add-plan-detail-button').children('img').on('click', function(){
       if (lastFormId) {$(lastFormId).slideToggle('fast').empty();}
-      $('.add_plan_detail').slideToggle('fast');
+      $('.add-plan-detail').slideToggle('fast');
     })
   })
 
