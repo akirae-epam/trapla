@@ -31,7 +31,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen',                '3.1.5'
+  gem 'listen', '3.1.5'
   gem 'rails-erb-lint', require: false
   gem 'scss_lint', require: false
   gem 'spring',                '2.0.2'
