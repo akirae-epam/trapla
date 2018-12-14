@@ -8,8 +8,7 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     @plan_details = @plan.plan_details
-    merge_belongings(@plan)
-    merge_payments(@plan)
+    plan_belongings_payments(@plan)
   end
 
   def new
@@ -30,8 +29,7 @@ class PlansController < ApplicationController
     @plan = current_user.plans.find_by(id: params[:id])
     @plan_details = @plan.plan_details
     @new_plan_detail = @plan.plan_details.new
-    merge_belongings(@plan)
-    merge_payments(@plan)
+    plan_belongings_payments(@plan)
   end
 
   def update

@@ -27,12 +27,7 @@
   </div>
   <div class="plan_payments">
     <p>支払う費用</p>
-    <ul>
-      <% @plan_payments.each do |value| %>
-        <%= value[:id] %>：<%= value[:item] %>:
-        <%= number_to_currency(value[:money], unit: '¥',precision: 0) %>
-        <br/>
-      <% end %>
+    <ul><%= number_to_currency(@plan_payments, unit: '¥',precision: 0) %>
     </ul>
   </div>
 </div>
