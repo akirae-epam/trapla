@@ -58,12 +58,6 @@ jobs:
           command: |
             bundle exec scss-lint
 
-      # run rails-erb-lint
-      - run:
-          name: run rails-erb-lint
-          command: |
-            bundle exec rails-erb-lint check -p ./app/views/
-
       # collect reports
       - store_test_results:
           path: /tmp/test-results

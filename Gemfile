@@ -32,7 +32,7 @@ end
 
 group :development do
   gem 'listen', '3.1.5'
-  gem 'rails-erb-lint', require: false
+  gem 'erb_lint', require: false
   gem 'scss_lint', require: false
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
