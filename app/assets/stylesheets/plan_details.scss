@@ -30,10 +30,15 @@
 
 }
 
-.plan-detail {
+@mixin plan-detail {
   border-radius: 10px;
   display: table;
   width: 100%;
+}
+
+.plan-detail,
+.plan-detail-last {
+  @include plan-detail;
 }
 
 .plan-details-left {

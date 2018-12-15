@@ -47,7 +47,7 @@ end
         action_type: rand_method[rand(16)],
         action_memo: Faker::Lorem.sentence(10),
         belongings: "もちもの１\nもちもの２\nもちもの３\nもちもの４",
-        payments_items: "費用1#{plan_detail_no},費用2#{plan_detail_no},費用3#{plan_detail_no},費用4#{plan_detail_no}",
+        payments_items: '費用1,費用2,費用3,費用4',
         payments_moneys: '100,2000,30000,400000'
       )
     end
