@@ -14,20 +14,10 @@
                                                     plan_detail_title: 'アクティビティの追加'  %>
       </div>
     <% end %>
-  </div>
-  <div class="plan-belongings">
-  <% if !@plan_belongings.nil? %>
-    <p>もっていくもの</p>
-    <ul>
-      <% @plan_belongings.each do |belonging| %>
-        <li><%= belonging %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  </div>
-  <div class="plan-payments">
-    <p>支払う費用</p>
-    <ul><%= number_to_currency(@plan_payments, unit: '¥',precision: 0) %>
-    </ul>
+    <div class="plan-payments">
+      <p>支払う費用</p>
+      <ul><%= number_to_currency(@plan_payments, unit: '¥',precision: 0) %>
+      </ul>
+    </div>
   </div>
 </div>

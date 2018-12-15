@@ -1,0 +1,11 @@
+<div class="plan-belongings">
+<h3>持っていくもの</h3>
+<% if !@plan_belongings.nil? %>
+<ul>
+  <% @plan_belongings.each do |belonging| %>
+    <li>□<%= belonging %></li>
+  <% end %>
+</ul>
+<% end %>
+
+</div>
