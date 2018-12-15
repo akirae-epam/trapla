@@ -80,7 +80,7 @@
 
 @mixin plan-detail-str-space($bg: #f5fffa, $lpd: 10px) {
   background-color: $bg;
-  border: 1px solid #dd55aa;
+  border: 1px solid #d5a;
   border-radius: 5px;
   font-size: 1.3em;
   margin: 3px;
@@ -100,11 +100,11 @@
 }
 
 .plan-detail-end {
-  @extend .plan-detail-time;
+  @include plan-detail-str-space(#f5fffa, 0);
   border-radius: 15px;
+  height: 30px;
   margin: 0 auto;
   width: 30px;
-  height: 30px;
 }
 
 .plan-detail-action-type {
@@ -122,7 +122,7 @@
 
   > p {
     background-color: #fff;
-    font-size: 0.8em;
+    font-size: .8em;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -135,6 +135,7 @@
 .plan-detail-right {
   display: table-cell;
   max-width: 550px;
+  min-width: 400px;
   vertical-align: top;
 }
 
@@ -158,10 +159,10 @@
 }
 
 .plan-detail-belongings {
-  @include plan-detail-str-space(#ffffff);
-  font-size: 1.0em;
+  @include plan-detail-str-space(#fff);
   border: solid 1px #aaa;
   border-radius: 5px;
+  font-size: 1em;
   word-wrap: break-word;
 
   > p {
@@ -192,8 +193,8 @@
   background-color: #f5fffa;
   border: solid 1px #ccc;
   border-radius: 5px;
-  width: 200px;
   margin: 3px;
+  width: 200px;
 
   > hr {
     margin: 5px auto;
@@ -210,9 +211,9 @@
   }
 
   > p {
-    text-align: center;
     margin: 0;
     margin-top: 5px;
+    text-align: center;
   }
 
 }
