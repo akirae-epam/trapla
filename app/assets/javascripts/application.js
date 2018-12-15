@@ -62,7 +62,7 @@ jQuery.extend({
     //費用項目にカンマは入力できない
     $('#plan_detail_payment_item').on('input', function() {
       let value = $(this).val();
-      $(this).val(value.replace(/\,/, ''));
+      $(this).val(value.replace(/\,+/g, ''));
     });
 
     //費用は数値しか入力できない
