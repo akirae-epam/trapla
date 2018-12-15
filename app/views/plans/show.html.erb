@@ -1,6 +1,14 @@
 <% provide(:title, @plan.title) %>
-<div class="panel panel-default">
-  <%= render @plan, user: @plan.user %>
+
+<div class="plan-overview">
+  <h1><%= @plan.title %></h1>
+  <div class="plan-content">
+    <%= @plan.content %>
+    <% if current_user == @plan.user %>
+      <%= link_to 'このプランを編集する', edit_plan_path(@plan), class:"btn btn-default" %>
+    <% end %>
+  </div>
 </div>
+
 <%= render 'plans/belongings' %>
 <%= render 'plan_details/plan_details' %>

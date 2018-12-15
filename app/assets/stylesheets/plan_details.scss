@@ -19,12 +19,15 @@
 }
 
 .add-plan-detail-button {
+
   > img { @include add-plan-detail; }
+
   > img:hover {
     @include add-plan-detail;
     margin: 30px auto;
     transform: scale(1.5);
   }
+
 }
 
 .plan-detail {
@@ -60,6 +63,9 @@
 
 // 時間とアクションアイコンの項目
 .plan-detail-center {
+  background-image: image-url('plan_detail_center.png');
+  background-position: center center;
+  background-repeat: repeat-y;
   display: table-cell;
   margin: 0;
   vertical-align: top;
@@ -72,19 +78,19 @@
 
 }
 
-@mixin plan-detail-str-space($bg: #f5fffa, $border: #c71585, $lpd: 10px) {
+@mixin plan-detail-str-space($bg: #f5fffa, $lpd: 10px) {
   background-color: $bg;
-  border: 1px solid $border;
+  border: 1px solid #dd55aa;
   border-radius: 5px;
-  box-shadow: 0 0 1px;
   font-size: 1.3em;
-  margin-left: 10px;
-  padding: 2px;
+  margin: 3px;
+  margin-top: 0;
   padding-left: $lpd;
 }
 
 .plan-detail-time {
-  @include plan-detail-str-space(#f5fffa, #c71585, 0);
+  @include plan-detail-str-space(#f5fffa, 0);
+  margin: 0;
 
   > p {
     margin: 0;
@@ -93,18 +99,30 @@
   }
 }
 
+.plan-detail-end {
+  @extend .plan-detail-time;
+  border-radius: 15px;
+  margin: 0 auto;
+  width: 30px;
+  height: 30px;
+}
+
 .plan-detail-action-type {
   display: table-cell;
   height: 100%;
   text-align: center;
 
   > img {
-    margin: 0;
+    background-color: #fff;
+    display: block;
+    margin: 5px auto;
     padding: 0;
     width: 40%;
   }
 
   > p {
+    background-color: #fff;
+    font-size: 0.8em;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -121,7 +139,7 @@
 }
 
 .plan-detail-place {
-  @include plan-detail-str-space(#fffff0, #c71585);
+  @include plan-detail-str-space(#fffff0);
 
   > p {
     margin: 0;
@@ -139,39 +157,62 @@
   > p { word-wrap: break-word; }
 }
 
-// 持ち物と費用の項目
 .plan-detail-belongings {
-  border-radius: 10px;
-  display: table-cell;
-  min-width: 100px;
-  vertical-align: top;
+  @include plan-detail-str-space(#ffffff);
+  font-size: 1.0em;
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  word-wrap: break-word;
+
+  > p {
+    font-size: .5;
+    text-align: center;
+  }
 
   > ul {
     margin-left: 10px;
     padding: 0;
 
-    > li { list-style: none; }
-
+    > li {
+      display: inline-block;
+      list-style: none;
+      margin-right: 10px;
     }
+
+    > li:before {
+      content: '□';
+    }
+
+  }
 
 }
 
+// 費用の項目
 .plan-detail-payments {
-  display: table-cell;
-  min-width: 200px;
-  overflow: hidden;
+  background-color: #f5fffa;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  width: 200px;
+  margin: 3px;
+
+  > hr {
+    margin: 5px auto;
+  }
 
   > div {
-    display: inline-block;
-    float: left;
+    display: table-cell;
     margin-bottom: 5px;
     text-align: right;
     width: 50%;
 
-    > p {
-      margin: 5px;
-    }
+    > p { margin: 5px; }
 
+  }
+
+  > p {
+    text-align: center;
+    margin: 0;
+    margin-top: 5px;
   }
 
 }
@@ -180,7 +221,6 @@
 .plan-detail-edit {
   display: table-cell;
   min-width: 100px;
-  position: absolute;
   vertical-align: top;
 
   > a > img {

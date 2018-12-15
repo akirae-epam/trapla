@@ -2,6 +2,7 @@
 <%= render 'plans/plan_form', plan_form_button: 'プラン概要を変更する' %>
 <%# アクティビティがあれば表示 %>
 <% if @plan_details %>
+  <%= render 'plans/belongings' %>
   <%= render 'plan_details/plan_details' %>
 <% end %>
 <script type="text/javascript">

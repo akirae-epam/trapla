@@ -1,15 +1,7 @@
-<div class="panel panel-default">
-  <div class="panel-heading">プロフィール</div>
-    <div class="panel-body">
-        <div class="user-img">
-          <%= render 'shared/user_image', user: @user %>
-        </div>
-        <div class="user-information">
-          <div class="user-name">アカウント名 : <%= @user.name %></div>
-          <% if current_user == @user %>
-            <%= link_to 'プロフィール設定', edit_user_path(@user) %>
-          <% end %>
-        </div>
-    </div>
-  </div>
+<div class="user-profile">
+<%= render 'shared/user_image', user: @user %>
+<h1><%= link_to @user.name, user_path(@user) %></h1>
+<% if current_user == @user %>
+  <%= link_to 'プロフィール設定', edit_user_path(@user) %>
+<% end %>
 </div>

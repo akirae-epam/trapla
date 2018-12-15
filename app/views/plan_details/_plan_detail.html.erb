@@ -22,25 +22,28 @@
     <div class="plan-detail-action-memo">
       <p><%= plan_detail.action_memo %></p>
     </div>
-  </div>
-  <div class="plan-detail-belongings">
-    <ul>
-      <%= draw_belongings(plan_detail.belongings) %>
-    </ul>
+    <div class="plan-detail-belongings">
+      <p>もちもの</p>
+      <ul>
+        <%= draw_belongings(plan_detail.belongings) %>
+      </ul>
+    </div>
   </div>
   <div class="plan-detail-payments">
+    <p>費用</p>
+    <hr>
     <div>
       <% if !plan_detail.payments_items.nil? %>
-        <% plan_detail.payments_items.split(',').each do |item| %>
-          <p><%= item %>：</p>
-        <% end %>
+      <% plan_detail.payments_items.split(',').each do |item| %>
+      <p><%= item %>：</p>
+      <% end %>
       <% end %>
     </div>
     <div>
       <% if !plan_detail.payments_moneys.nil? %>
-        <% plan_detail.payments_moneys.split(',').each do |money| %>
-          <p><%= number_to_currency(money, unit:'¥', precision: 0) %></p>
-        <% end %>
+      <% plan_detail.payments_moneys.split(',').each do |money| %>
+      <p><%= number_to_currency(money, unit:'¥', precision: 0) %></p>
+      <% end %>
       <% end %>
     </div>
   </div>
