@@ -4,6 +4,21 @@
       <%= render 'plan_details/plan_detail',
                  plan_detail: plan_detail %>
     <% end %>
+
+    <!-- 終了行 -->
+    <div class="plan-detail-last">
+      <div class="plan-detail-left">
+      </div>
+      <div class="plan-detail-center">
+        <div class="plan-detail-end">
+          <p></p>
+        </div>
+      </div>
+      <div></div>
+      <div></div>
+    </div>
+    <!--  -->
+
     <%# 新規アクティビティ追加用フォームの描写 %>
     <% if request.path_info == edit_plan_path %>
       <div class="add-plan-detail-button">
@@ -15,9 +30,7 @@
       </div>
     <% end %>
     <div class="plan-payments">
-      <p>支払う費用</p>
-      <ul><%= number_to_currency(@plan_payments, unit: '¥',precision: 0) %>
-      </ul>
+      <h3>合計費用：<%= number_to_currency(@plan_payments, unit: '¥',precision: 0) %></h3>
     </div>
   </div>
 </div>

@@ -1,11 +1,11 @@
 .plan-list {
-  background-color: #f0ffff;
+  background-color: #f5fffa;
   border: solid 1px #d3d3d3;
   border-radius: 5px;
   box-shadow: 0 0 1px;
   clear: both;
   list-style: none;
-  margin: 20px;
+  margin: 3px 20px 20px;
   overflow: hidden;
   padding: 10px;
 
@@ -31,7 +31,7 @@
 }
 
 .plans {
-  margin: 5%;
+  margin: 10px 5%;
 }
 
 .edit-plan {
@@ -39,11 +39,45 @@
   width: 60%;
 }
 
+.plan-overview {
+  background-color: #f5fffa;
+  border-bottom: solid 1px #aaa;
+  border-top: solid 1px #aaa;
+  color: #555;
+  min-height: 400px;
+  position: relative;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  > .plan-content {
+    font-size: 1.5em;
+    margin: 10px auto;
+    width: 70%;
+
+    > a {
+      bottom: 0;
+      margin-bottom: 20px;
+      position: absolute;
+      text-align: right;
+    }
+
+  }
+
+}
+
 .plan-belongings {
-  margin: 30px 0;
-  min-height: 300px;
-  border-top: solid 1px #777;
-  border-bottom: solid 1px #777;
+  border-bottom: solid 1px #aaa;
+  margin: 30px 10%;
+
+  > h3 {
+    font-size: 2em;
+    margin: 20px;
+    text-align: center;
+  }
 
   > ul {
     list-style: none;
@@ -52,6 +86,16 @@
       display: inline;
     }
 
+  }
+
+}
+
+.plan-payments {
+  padding: 20px;
+  text-align: right;
+
+  > h3 {
+    text-decoration: underline;
   }
 
 }

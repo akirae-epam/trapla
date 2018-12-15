@@ -1,9 +1,7 @@
 <% provide(:title, @user.name) %>
 <%= render 'users/user_info' %>
-<div class="panel panel-default">
-  <%= will_paginate @plans %>
-  <ol class="plans">
-    <%= render @plans, user: @user %>
-  </ol>
-  <%= will_paginate @plans %>
-</div>
+<%= will_paginate @plans %>
+<ol class="plans">
+  <%= render @plans, user: @user %>
+</ol>
+<%= will_paginate @plans %>

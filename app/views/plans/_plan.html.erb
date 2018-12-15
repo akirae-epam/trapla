@@ -5,7 +5,6 @@
     </div>
     <p class="user"><%= link_to plan.user.name, plan.user %></p>
   </div>
-  <div class="plan-overview">
     <h2 class="plan-title">
       <% if request.path_info == edit_plan_path(plan) || request.path_info == plan_path(plan) %>
         <%= plan.title %>
@@ -17,7 +16,6 @@
     <small class="timestamp">
       Created <%= time_ago_in_words(plan.created_at) %> ago.
     </small>
-  </div>
   <div class="edit-plan-link">
   <% if current_user == plan.user && (request.path_info == root_path || request.path_info == user_path(user) || request.path_info == plans_path ) %>
     <%= link_to 'このプランを編集する', edit_plan_path(plan), class:"btn btn-default" %>
