@@ -1,7 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-@import url('https://fonts.googleapis.com/css?family=Kodchasan|M+PLUS+1p');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Montserrat');
 
 header {
   background-color: #fff;
@@ -9,7 +9,7 @@ header {
 
 //全体
 body {
-  font-family: 'M PLUS 1p','Kodchasan', sans-serif;
+  font-family: 'Montserrat', 'M PLUS Rounded 1c', sans-serif;
   padding-top: 51px;
 
   a {
@@ -21,6 +21,8 @@ body {
     color: #559cd9;
     text-decoration: none;
   }
+
+  .btn { margin: 10px; }
 
 }
 

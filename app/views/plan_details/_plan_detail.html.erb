@@ -1,8 +1,14 @@
 <div class="plan-detail", id="plan_detail_<%= plan_detail.id %>">
   <div class="plan-detail-left">
     <!-- 年月表示 -->
-    <h2><%= draw_date(plan_detail, 'year')%></h2>
-    <h3><%= draw_date(plan_detail, 'day') %></h3>
+    <% currennt_year = draw_date(plan_detail, 'year') %>
+    <% currennt_day = draw_date(plan_detail, 'day') %>
+    <% unless currennt_year.blank? && currennt_day.blank? %>
+      <div class="draw-date">
+        <% unless currennt_year.blank? %><span class="draw-year"><%= currennt_year %></span><% end %>
+        <% unless currennt_day.blank? %><span class="draw-day"><%= currennt_day %></span><% end %>
+      </div>
+    <% end %>
   </div>
   <div class="plan-detail-center">
     <!-- 時間と行動内容アイコンの列 -->
@@ -15,38 +21,36 @@
     </div>
   </div>
   <div class="plan-detail-right">
-    <!-- 場所と行動内容概要の列 -->
+    <!-- 場所の項目 -->
     <div class="plan-detail-place">
       <p><%= plan_detail.place %></p>
     </div>
+
+    <!-- 行動内容メモの項目 -->
     <div class="plan-detail-action-memo">
       <p><%= plan_detail.action_memo %></p>
     </div>
+
+    <!-- 持ち物の項目 -->
     <div class="plan-detail-belongings">
       <p>もちもの</p>
       <ul>
         <%= draw_belongings(plan_detail.belongings) %>
       </ul>
     </div>
-  </div>
-  <div class="plan-detail-payments">
-    <p>費用</p>
-    <hr>
-    <div>
-      <% if !plan_detail.payments_items.nil? %>
-      <% plan_detail.payments_items.split(',').each do |item| %>
-      <p><%= item %>：</p>
-      <% end %>
-      <% end %>
+
+    <!-- 小さい画面用の費用の項目 -->
+    <div class="plan-detail-payments-mobile">
+      <%= render 'plan_details/plan_detail_payments', plan_detail: plan_detail %>
     </div>
-    <div>
-      <% if !plan_detail.payments_moneys.nil? %>
-      <% plan_detail.payments_moneys.split(',').each do |money| %>
-      <p><%= number_to_currency(money, unit:'¥', precision: 0) %></p>
-      <% end %>
-      <% end %>
-    </div>
-  </div>
+
+</div>
+
+<!-- 費用の項目 -->
+<div class="plan-detail-payments">
+  <%= render 'plan_details/plan_detail_payments', plan_detail: plan_detail %>
+</div>
+
   <% if request.path_info == edit_plan_path(plan_detail.plan) %>
     <div class="plan-detail-edit" id="plan_edit_<%= plan_detail.id %>" style="display: none;">
       <%= link_to image_tag('controll_plan_detail/edit_plan_detail.svg'),

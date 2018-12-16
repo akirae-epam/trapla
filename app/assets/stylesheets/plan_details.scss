@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+@mixin plan-detail-str-space($bg: #f5fffa, $lpd: 10px) {
+  background-color: $bg;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.3em;
+  margin: 3px;
+  margin-top: 0;
+  padding-left: $lpd;
+}
+
 .plan-details {
 
   > table {
@@ -47,23 +57,49 @@
 }
 
 // 年月表示の項目
+@media screen and (max-width: 640px) {
+
+  .plan-detail-left {
+    display: table-caption;
+
+    > .draw-date {
+      @include plan-detail-str-space(#fff);
+      border: 1px solid #ddd;
+      display: block;
+      font-size: 1.5em;
+      padding: 0px 5px;
+      margin: 0px auto;
+    }
+
+  }
+
+}
+
+@media screen and (min-width: 640px) {
+
+  .plan-detail-left {
+    display: table-cell;
+    width: 200px;
+
+    .draw-year {
+      font-size: 1.3em;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .draw-day {
+      font-size: 4em;
+      margin: 5px;
+      padding: 5px;
+  }
+
+}
+
 .plan-detail-left {
-  display: table-cell;
   font-family: 'Montserrat', sans-serif;
   vertical-align: top;
-  width: 200px;
-
-  > h2 {
-    font-size: 1.3em;
-    margin: 5px;
-    padding: 5px;
   }
 
-  > h3 {
-    font-size: 4em;
-    margin: 5px;
-    padding: 5px;
-  }
 }
 
 // 時間とアクションアイコンの項目
@@ -81,16 +117,6 @@
     padding: 0;
   }
 
-}
-
-@mixin plan-detail-str-space($bg: #f5fffa, $lpd: 10px) {
-  background-color: $bg;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1.3em;
-  margin: 3px;
-  margin-top: 0;
-  padding-left: $lpd;
 }
 
 .plan-detail-time {
@@ -140,7 +166,6 @@
 .plan-detail-right {
   display: table-cell;
   max-width: 550px;
-  min-width: 400px;
   vertical-align: top;
 }
 
@@ -194,7 +219,10 @@
 }
 
 // 費用の項目
-.plan-detail-payments {
+
+.plan-detail-payments,
+.plan-detail-payments-mobile
+ {
   display: table-cell;
   margin: 3px;
   width: 200px;
@@ -219,6 +247,18 @@
     text-align: center;
   }
 
+}
+
+@media screen and (max-width: 640px) {
+  .plan-detail-payments {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .plan-detail-payments-mobile {
+    display: none;
+  }
 }
 
 // 各アクティビティの編集メニューアイコン表示
