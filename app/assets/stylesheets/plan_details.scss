@@ -85,7 +85,7 @@
 
 @mixin plan-detail-str-space($bg: #f5fffa, $lpd: 10px) {
   background-color: $bg;
-  border: 1px solid #d5a;
+  border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1.3em;
   margin: 3px;
@@ -195,9 +195,7 @@
 
 // 費用の項目
 .plan-detail-payments {
-  background-color: #f5fffa;
-  border: solid 1px #ccc;
-  border-radius: 5px;
+  display: table-cell;
   margin: 3px;
   width: 200px;
 
@@ -228,6 +226,7 @@
   display: table-cell;
   min-width: 100px;
   vertical-align: top;
+  position: absolute;
 
   > a > img {
     display: block;
