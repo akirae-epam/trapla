@@ -6,17 +6,20 @@
     <% end %>
 
     <!-- 終了行 -->
-    <div class="plan-detail-last">
-      <div class="plan-detail-left">
-      </div>
-      <div class="plan-detail-center">
-        <div class="plan-detail-end">
-          <p></p>
+    <%= @plan_details.first.date %>
+    <% unless @plan_details.first.date.blank? %>
+      <div class="plan-detail-last">
+        <div class="plan-detail-left">
         </div>
+        <div class="plan-detail-center">
+          <div class="plan-detail-end">
+            <p></p>
+          </div>
+        </div>
+        <div></div>
+        <div></div>
       </div>
-      <div></div>
-      <div></div>
-    </div>
+    <% end %>
     <!--  -->
 
     <%# 新規アクティビティ追加用フォームの描写 %>
