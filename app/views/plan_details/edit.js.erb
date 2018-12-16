@@ -14,7 +14,7 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
     case '.add-plan-detail':
       $(lastFormId).hide('fast'); // 表示しているフォームが新規作成だったら隠すだけ
       break;
-    case true:
+    default:
       $(lastFormId).hide('fast').empty(); // 新規作成以外のフォームを表示していたら非表示にして削除
       break;
   }
