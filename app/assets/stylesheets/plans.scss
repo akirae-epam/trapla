@@ -1,3 +1,5 @@
+
+
 .plan-list {
   background-color: #f5fffa;
   border: solid 1px #d3d3d3;
@@ -5,21 +7,43 @@
   box-shadow: 0 0 1px;
   clear: both;
   list-style: none;
-  margin: 3px 20px 20px;
+  margin: 20px auto;
   overflow: hidden;
   padding: 10px;
 
-  .plan-user {
-    float: left;
-    margin-right: 2vw;
-    text-align: center;
-    vertical-align: top;
+  @media screen and (max-width: 730px) {
+    .plan-title {
+      clear: both;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
   }
 
   .edit-plan-link {
     text-align: right;
   }
 
+}
+
+@media screen and (min-width: 730px) {
+  .pagination {
+    margin-left: 5%;
+  }
+
+  .plan-list {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .pagination {
+    margin-left: 10%;
+  }
+
+  .plan-list {
+    width: 90%;
+  }
 }
 
 .panel-body {

@@ -12,19 +12,43 @@
 }
 
 // show
+@media screen and (min-width: 730px) {
+
+  .plan-user {
+    float: left;
+  }
+
+  .user-img {
+    float: left;
+    margin: 10px;
+    width: 110px;
+  }
+
+}
+
+@media screen and (max-width: 730px) {
+
+  .user-img {
+    margin: 10px auto;
+  }
+
+}
+
+.plan-user {
+  margin-right: 2vw;
+  text-align: center;
+  vertical-align: top;
+}
+
 .user-img {
-  border-radius: 10px;
-  float: left;
-  height: 10vw;
-  margin: 10px;
+  height: 110px;
   padding: 0;
-  width: 10vw;
 
   img {
-    border-radius: 10px;
-    height: 10vw;
+    border-radius: 50px;
+    height: 100px;
     margin: 0 auto;
-    width: 10vw;
+    width: 100px;
   }
 
 }

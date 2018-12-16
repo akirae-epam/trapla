@@ -5,12 +5,21 @@
 
 header {
   background-color: #fff;
+  padding: 3px 10%;
+}
+
+.navbar {
+  margin: 0;
+}
+
+.nav > li {
+  display: inline-block;
 }
 
 //全体
 body {
   font-family: 'Montserrat', 'M PLUS Rounded 1c', sans-serif;
-  padding-top: 51px;
+  // padding-top: 51px;
 
   a {
     color: #337ab7;
@@ -148,7 +157,7 @@ footer {
   text-align: center;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 730px) {
 
   .service-image {
     display: block;
@@ -156,7 +165,7 @@ footer {
 
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 730px) {
 
   .service-image {
     display: inline-block;
