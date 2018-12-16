@@ -42,6 +42,7 @@ jQuery.extend({
   },
   default: function() {
     // 表示したアクティビティフォーム関連
+
     // datepickerカレンダー表示
     var data = {'data-date-format': 'YYYY/MM/DD HH:mm' };
     $(function(){
@@ -96,3 +97,5 @@ jQuery.extend({
     });
   }
 });
+
+lastFormId = '' // 最初はどのフォームも表示しない

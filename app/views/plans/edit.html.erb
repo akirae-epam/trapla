@@ -13,17 +13,24 @@
       $(this).css('background-color', '#E0FFFF');
       $(this).children('.plan-detail-edit').show();
     })
+
     $('.plan-detail').mouseout(function(){
       $(this).css('background-color', '');
       $(this).children('.plan-detail-edit').hide();
     })
 
     // フォーム表示
-    lastFormId = ''
     $('.add-plan-detail-button').children('img').on('click', function(){
-      if (lastFormId) {$(lastFormId).slideToggle('fast').empty();}
-      $('.add-plan-detail').slideToggle('fast');
+      if (lastFormId ==='.add-plan-detail') {
+        $(lastFormId).hide('fast'); //同じフォームのボタンならフォームを隠すだけ
+        lastFormId = '';   // 表示するフォームのクラスを削除
+      } else {
+        $(lastFormId).hide('fast').empty(); //他のフォームを開いていたら削除
+        lastFormId = '.add-plan-detail';   // 表示するフォームのクラスを記憶
+        $(lastFormId).show('fast'); // 編集画面を描写
+      }
     })
+
   })
 
   jQuery.default(); // フォームの共通設定を読み込み
