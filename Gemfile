@@ -26,13 +26,14 @@ gem 'will_paginate', '3.1.6' # ページネーション
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
   gem 'pry-rails'
-  gem 'rails-erb-lint', require: false
   gem 'rubocop', require: false
   gem 'sqlite3', '1.3.13'
 end
 
 group :development do
-  gem 'listen',                '3.1.5'
+  gem 'erb_lint', require: false
+  gem 'listen', '3.1.5'
+  gem 'scss_lint', require: false
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console',           '3.5.1'

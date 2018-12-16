@@ -60,7 +60,7 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
   test 'Plan_detail should count up after create' do
     log_in_as(@user)
     get edit_plan_path(@plan)
-    assert_select '.plan_detail', count: @plan.plan_details.count
+    assert_select '.plan-detail', count: @plan.plan_details.count
     post plan_details_path, params: { plan_id: @plan.id,
                                       plan_detail: {
                                         date: @valid_date,
@@ -70,7 +70,7 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
                                       } }
     assert_redirected_to edit_plan_path(@plan)
     follow_redirect!
-    assert_select '.plan_detail', count: @plan.plan_details.count
+    assert_select '.plan-detail', count: @plan.plan_details.count
   end
 
   # 自分のPlanDetailしか編集できない

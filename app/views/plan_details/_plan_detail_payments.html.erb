@@ -1,0 +1,16 @@
+<p>費用</p>
+<hr>
+<div>
+  <% if !plan_detail.payments_items.nil? %>
+  <% plan_detail.payments_items.split(',').each do |item| %>
+  <p><%= item %>：</p>
+  <% end %>
+  <% end %>
+</div>
+<div>
+  <% if !plan_detail.payments_moneys.nil? %>
+  <% plan_detail.payments_moneys.split(',').each do |money| %>
+  <p><%= number_to_currency(money, unit:'¥', precision: 0) %></p>
+  <% end %>
+  <% end %>
+</div>

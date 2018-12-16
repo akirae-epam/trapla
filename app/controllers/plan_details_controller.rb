@@ -60,7 +60,7 @@ class PlanDetailsController < ApplicationController
                                         :action,
                                         :action_memo,
                                         :belongings,
-                                        :payments_item,
-                                        :payments_money)
+                                        :payments_items,
+                                        :payments_moneys)
   end
 end

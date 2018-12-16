@@ -1,22 +1,29 @@
 // 共有するJavaScriptは/app/assets/javascripts/application.jsに記載
 
 // すでに出しているフォームは非表示にする
-$('.add_plan_detail').hide();
+$('.add-plan-detail').hide();
 
 // フォーム表示
 if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
   // すで表示しているフォームの表示ボタンを押した時
-  $('#edit_plan_detail_<%= @plan_detail.id %>').slideToggle('fast').empty();
-  var lastFormId = '' //表示したフォームの記憶を削除
+  $('#edit_plan_detail_<%= @plan_detail.id %>').hide('fast').empty();
+  lastFormId = '' //表示したフォームの記憶を削除
 } else {
   // すでに表示している編集フォームは閉じて削除
-  if (lastFormId) {$(lastFormId).slideToggle('fast').empty();}
+  switch (lastFormId){
+    case '.add-plan-detail':
+      $(lastFormId).hide('fast'); // 表示しているフォームが新規作成だったら隠すだけ
+      break;
+    default:
+      $(lastFormId).hide('fast').empty(); // 新規作成以外のフォームを表示していたら非表示にして削除
+      break;
+  }
 
   // 編集フォームを表示
   $('#edit_plan_detail_<%= @plan_detail.id %>').html("<%= j(render 'plan_details/plan_detail_form', plan_detail: @plan_detail, plan_detail_title: 'アクティビティの編集') %>")
 
-  $('#edit_plan_detail_<%= @plan_detail.id %>').slideToggle('fast'); // 編集画面を描写
-  var lastFormId = '#edit_plan_detail_<%= @plan_detail.id %>';   // 表示したフォームのIDを記憶
+  $('#edit_plan_detail_<%= @plan_detail.id %>').show('fast'); // 編集画面を描写
+  lastFormId = '#edit_plan_detail_<%= @plan_detail.id %>';   // 表示したフォームのIDを記憶
 
   // 既存の費用を表示
   var draw_item = $('#plan_detail_payments_items').val().split(',');

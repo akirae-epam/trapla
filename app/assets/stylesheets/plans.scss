@@ -1,33 +1,125 @@
-.plan_list {
-  clear: both;
-  margin: 20px;
-  padding: 10px;
-  overflow: hidden;
-  background-color: #F0FFFF;
-  list-style: none;
-  border: solid 1px lightgray;
+
+
+.plan-list {
+  background-color: #f5fffa;
+  border: solid 1px #d3d3d3;
   border-radius: 5px;
-  box-shadow:0px 0px 1px;
-  .plan_user {
-    text-align: center;
-    vertical-align: top;
-    float: left;
-    margin-right: 2vw;
+  box-shadow: 0 0 1px;
+  clear: both;
+  list-style: none;
+  margin: 20px auto;
+  overflow: hidden;
+  padding: 10px;
+
+  @media screen and (max-width: 730px) {
+    .plan-title {
+      clear: both;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
   }
-  .edit_plan_link {
+
+  .edit-plan-link {
     text-align: right;
   }
-}
-.panel-body{
-  > .delete_plan {
-    text-align: right;
-  }
-}
-.plans {
-  margin: 5%;
+
 }
 
-.edit_plan {
+@media screen and (min-width: 730px) {
+  .pagination {
+    margin-left: 5%;
+  }
+
+  .plan-list {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .pagination {
+    margin-left: 10%;
+  }
+
+  .plan-list {
+    width: 90%;
+  }
+}
+
+.panel-body {
+
+  > .delete-plan {
+    text-align: right;
+  }
+
+}
+
+.plans {
+  margin: 10px 5%;
+}
+
+.edit-plan {
+  margin: 0 auto;
   width: 60%;
-  margin:0 auto;
+}
+
+.plan-overview {
+  background-color: #f5fffa;
+  border-bottom: solid 1px #aaa;
+  border-top: solid 1px #aaa;
+  color: #555;
+  min-height: 400px;
+  position: relative;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  > .plan-content {
+    font-size: 1.5em;
+    margin: 10px auto;
+    width: 70%;
+
+    > a {
+      bottom: 0;
+      margin-bottom: 20px;
+      position: absolute;
+      text-align: right;
+    }
+
+  }
+
+}
+
+.plan-belongings {
+  border-bottom: solid 1px #aaa;
+  margin: 30px 10%;
+
+  > h3 {
+    font-size: 2em;
+    margin: 20px;
+    text-align: center;
+  }
+
+  > ul {
+    list-style: none;
+
+    > li {
+      display: inline;
+    }
+
+  }
+
+}
+
+.plan-payments {
+  padding: 20px;
+  text-align: right;
+
+  > h3 {
+    text-decoration: underline;
+  }
+
 }

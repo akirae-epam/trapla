@@ -45,10 +45,10 @@ class PlanDetailDestroyTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get edit_plan_path(@plan)
     assert_template 'plans/edit'
-    assert_select '.plan_detail', count: @plan.plan_details.count
+    assert_select '.plan-detail', count: @plan.plan_details.count
     delete plan_detail_path(@plan_detail, plan_id: @plan_detail.plan.id)
     assert_redirected_to edit_plan_path(@plan)
     follow_redirect!
-    assert_select '.plan_detail', count: @plan.plan_details.reload.count
+    assert_select '.plan-detail', count: @plan.plan_details.reload.count
   end
 end

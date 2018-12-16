@@ -42,6 +42,7 @@ jQuery.extend({
   },
   default: function() {
     // 表示したアクティビティフォーム関連
+
     // datepickerカレンダー表示
     var data = {'data-date-format': 'YYYY/MM/DD HH:mm' };
     $(function(){
@@ -62,7 +63,7 @@ jQuery.extend({
     //費用項目にカンマは入力できない
     $('#plan_detail_payment_item').on('input', function() {
       let value = $(this).val();
-      $(this).val(value.replace(/\,/, ''));
+      $(this).val(value.replace(/\,+/g, ''));
     });
 
     //費用は数値しか入力できない
@@ -72,10 +73,12 @@ jQuery.extend({
     });
 
     // 費用を追加ボタンを押したら表示する費用を追加
-    $('#payment_button').on('click', function() {
+    $('.payment-button').on('click', function() {
       // hidden(DBから取得した値)の値を取得
-      var draw_item = $('#plan_detail_payments_items').val().split(',');
-      var draw_money = $('#plan_detail_payments_moneys').val().split(',');
+      dbItem = $('#plan_detail_payments_items').val();
+      dbMoney = $('#plan_detail_payments_moneys').val();
+      var draw_item = dbItem ? dbItem.split(',') : [];
+      var draw_money = dbMoney ? dbMoney.split(',') : [];
       // テキストボックスの値を取得
       var input_item = $('#plan_detail_payment_item').val();
       var input_money = $('#plan_detail_payment_money').val();
@@ -94,3 +97,5 @@ jQuery.extend({
     });
   }
 });
+
+lastFormId = '' // 最初はどのフォームも表示しない

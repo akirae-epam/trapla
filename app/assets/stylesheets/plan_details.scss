@@ -1,12 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-.plan_details {
+
+@mixin plan-detail-str-space($bg: #f5fffa, $lpd: 10px) {
+  background-color: $bg;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.3em;
+  margin: 3px;
+  margin-top: 0;
+  padding-left: $lpd;
+}
+
+.plan-details {
+
   > table {
     margin: 20px auto;
     width: 80%;
   }
+
 }
 
-@mixin add_plan_detail {
+@mixin add-plan-detail {
   margin: 10px auto;
   display: block;
   width: 60px;
@@ -14,59 +27,102 @@
   border-radius: 30px;
   padding: 0;
 }
-.add_plan_detail_button {
-  > img { @include add_plan_detail; }
+
+.add-plan-detail-button {
+
+  > img { @include add-plan-detail; }
+
   > img:hover {
-    @include add_plan_detail;
+    @include add-plan-detail;
     margin: 30px auto;
     transform: scale(1.5);
   }
+
 }
 
-.plan_detail {
-  width: 100%;
-  display: table;
+@mixin plan-detail {
   border-radius: 10px;
-  }
+  display: table;
+  width: 100%;
+}
 
-.plan_details_left {
+.plan-detail,
+.plan-detail-last {
+  @include plan-detail;
+}
+
+.plan-details-left {
   margin: 0 auto;
   width: 70%;
 }
 
 // 年月表示の項目
-.plan_detail_left {
-  width: 200px;
-  display:table-cell;
-  vertical-align: top;
-  font-family: 'Montserrat', sans-serif;
-  > h2 {
-    font-size: 1.3em;
-    margin: 5px;
-    padding: 5px;
+@media screen and (max-width: 730px) {
+
+  .plan-detail-left {
+    display: table-caption;
+
+    > .draw-date {
+      @include plan-detail-str-space(#fff);
+      border: 1px solid #ddd;
+      display: block;
+      font-size: 1.5em;
+      margin: 0 auto;
+      padding: 0 5px;
+    }
+
   }
-  > h3 {
-    font-size: 4em;
-    margin: 5px;
-    padding: 5px;
+
+}
+
+@media screen and (min-width: 730px) {
+
+  .plan-detail-left {
+    display: table-cell;
+    width: 200px;
+
+    .draw-year {
+      font-size: 1.3em;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .draw-day {
+      font-size: 4em;
+      margin: 5px;
+      padding: 5px;
   }
+
+}
+
+  .plan-detail-left {
+    font-family: 'Montserrat', sans-serif;
+    vertical-align: top;
+  }
+
 }
 
 // 時間とアクションアイコンの項目
-.plan_detail_center {
-  width: 100px;
-  display:table-cell;
-  vertical-align: top;
+.plan-detail-center {
+  background-image: image-url('plan_detail_center.png');
+  background-position: center center;
+  background-repeat: repeat-y;
+  display: table-cell;
   margin: 0;
+  vertical-align: top;
+  width: 80px;
+
+  > p {
+    margin: 0;
+    padding: 0;
   }
 
-.plan_detail_time {
-  border: 1px solid #C71585;
-  border-radius: 5px;
-  background-color: #F5FFFA;
-  box-shadow:0px 0px 1px;
-  font-size: 1.3em;
-  padding: 2px;
+}
+
+.plan-detail-time {
+  @include plan-detail-str-space(#f5fffa, 0);
+  margin: 0;
+
   > p {
     margin: 0;
     padding: 0;
@@ -74,109 +130,178 @@
   }
 }
 
-.plan_detail_action_type {
-  height: 100%;
+.plan-detail-end {
+  @include plan-detail-str-space(#f5fffa, 0);
+  border-radius: 15px;
+  height: 30px;
+  margin: 0 auto;
+  width: 30px;
+}
+
+.plan-detail-action-type {
   display: table-cell;
+  height: 100%;
+  text-align: center;
+
   > img {
-    width: 40%;
+    background-color: #fff;
     display: block;
+    margin: 5px auto;
     padding: 0;
-    margin: 0 auto;
+    width: 40%;
   }
+
   > p {
+    background-color: #fff;
+    font-size: .8em;
+    margin: 0;
+    padding: 0;
     text-align: center;
     word-wrap: break-word;
   }
+
 }
 
 // 場所とメモの項目
-.plan_detail_right {
-  display:table-cell;
-  vertical-align: top;
+.plan-detail-right {
+  display: table-cell;
   max-width: 550px;
+  vertical-align: top;
 }
 
-.plan_detail_place {
-  @extend .plan_detail_time;
-  background-color: #FFFFF0;
-  margin: 0 10px;
-  padding-left: 10px;
-  > p { text-align: left; }
+.plan-detail-place {
+  @include plan-detail-str-space(#fffff0);
+
+  > p {
+    margin: 0;
+    text-align: left;
+  }
+
 }
 
-.plan_detail_action_memo {
-  @extend .plan_detail_place;
+.plan-detail-action-memo {
+  @include plan-detail-str-space(#f5fffa, #c71585);
   border: 0;
-  background-color: #F5FFFA;
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
+
   > p { word-wrap: break-word; }
 }
 
-// 持ち物と費用の項目
-.plan_detail_belongings {
-  display:table-cell;
-  vertical-align: top;
-  min-width: 100px;
-  border-radius: 10px;
+.plan-detail-belongings {
+  @include plan-detail-str-space(#fff);
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  font-size: 1em;
+  word-wrap: break-word;
+
+  > p {
+    font-size: .5;
+    text-align: center;
+  }
+
   > ul {
     margin-left: 10px;
     padding: 0;
-    > li { list-style: none; }
+
+    > li {
+      display: inline-block;
+      list-style: none;
+      margin-right: 10px;
     }
+
+    > li:before {
+      content: '□';
+    }
+
+  }
+
 }
 
-.plan_detail_payments {
-  @extend .plan_detail_belongings;
-  min-width: 200px;
-  overflow: hidden;
+// 費用の項目
+
+.plan-detail-payments,
+.plan-detail-payments-mobile
+ {
+  display: table-cell;
+  margin: 3px;
+  width: 200px;
+
+  > hr {
+    margin: 5px auto;
+  }
+
   > div {
-    float: left;
+    display: table-cell;
     margin-bottom: 5px;
-    display: inline-block;
-    width: 50%;
     text-align: right;
-    > p {
-      margin: 5px;
-    }
+    width: 50%;
+
+    > p { margin: 5px; }
+
+  }
+
+  > p {
+    margin: 0;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 730px) {
+  .plan-detail-payments {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 730px) {
+  .plan-detail-payments-mobile {
+    display: none;
   }
 }
 
 // 各アクティビティの編集メニューアイコン表示
-.plan_detail_edit {
+.plan-detail-edit {
   display: table-cell;
-  vertical-align: top;
   min-width: 100px;
   position: absolute;
-  display:none;
+  vertical-align: top;
+
   > a > img {
     display: block;
-    width: 50px;
     height: 50px;
+    width: 50px;
   }
+
   > a > img:hover {
-    transform: scale(1.5);
     margin: 10px;
+    transform: scale(1.5);
   }
+
 }
 
 // アクティビティ用フォーム
-.edit_plan_detail {
-  width: 80%;
-  padding: 10px;
-  padding: 0;
+.edit-plan-detail {
   margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+
   > form { width: 100%; }
+
   > .well {
     margin: 10px auto;
-    > .panel >h4 {
-      text-align: left;
+
+    h4 {
       margin-left: 20px;
+      text-align: left;
     }
+
   }
+
 }
 
-.add_plan_detail {
+.add-plan-detail {
   margin: 0;
   padding: 0;
 }
@@ -184,67 +309,93 @@
 h5 {
   clear: both;
   display: block;
-  margin: 10px;
   font-size: 1.2em;
+  margin: 10px;
 }
 
 .panel-body {
+
   > .well {
-    margin: 0px;
+    margin: 0;
     width: 100%;
+
   }
 }
+
 // 日付入力欄用
-.date_input {
+.date-input {
+
   > input {
     margin: 0;
     width: 60%;
   }
+
   > .datepicker {
     width: 200px;
+
     > .input-group-addon {
       width: 30px;
     }
+
   }
+
 }
-.plan_detail_belonging_input {
+
+.plan-detail-belonging-input {
   display: inline-block;
-  width: 45%;
   vertical-align: top;
+  width: 45%;
+
   > textarea {
-    width: 100%;
     height: 150px;
+    width: 100%;
   }
+
 }
-.plan_detail_belonging_output {
+
+.plan-detail-belonging-output {
   display: inline-block;
   width: 45%;
 }
-.payments_form {
-  border-bottom: 1px solid lightgray;
+
+.payments-form {
+  border-bottom: 1px solid #d3d3d3;
+
   > div {
     display: inline-block;
     margin-bottom: 5px;
   }
-  > .payment_item > input { width: 200px; }
-  > .payment_money > input { width: 100px; }
-  > #payment_button > p { margin: 0; }
+
+  > .payment-item > input { width: 200px; }
+
+  > .payment-money > input { width: 100px; }
+
+  > .payment-button > p { margin: 0; }
+
 }
-.payments_content {
+
+.payments-content {
   margin: 5px;
+
   > div {
-    width: 30%;
     display: inline-block;
     text-align: right;
+    width: 30%;
+
     > ul {
-      list-style: none;
       display: inline;
+      list-style: none;
     }
+
   }
-  > .output_item, .output_money { float: left; }
-  > .output_total {
+
+  > .output-item,
+    .output-money { float: left; }
+
+  > .output-total {
     clear: both;
-    width: 60%;
     text-align: right;
+    width: 60%;
   }
+
 }

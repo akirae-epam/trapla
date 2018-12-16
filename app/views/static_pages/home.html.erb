@@ -2,23 +2,23 @@
 <% if logged_in? %>
 <%= render 'plans/index' %>
 <% else %>
-  <div class="top_image">
+  <div class="top-image">
     <h1>Trapla</h1>
     <p><%= link_to 'ログイン', login_path, class: "btn btn-lg btn-default"  %></p>
     <p><%= link_to '新規登録', signup_path, class: "btn btn-lg btn-default"  %></p>
   </div>
-  <div class="service_explain">
-    <div class="service_image">
+  <div class="service-explain">
+    <div class="service-image">
       <p>スケジュール作成</p>
       <%= image_tag 'make.svg' %>
       <p>持ち物やかかる費用を漏らさずに旅行を計画できます。</p>
     </div>
-    <div class="service_image">
+    <div class="service-image">
       <p>一般公開</p>
       <%= image_tag 'networking.svg' %>
       <p>他の人とスケジュールを共有することができます。</p>
     </div>
-    <div class="service_image">
+    <div class="service-image">
       <p>複製利用</p>
       <%= image_tag 'duplicate.svg' %>
       <p>すべてのスケジュールは複製利用できます。</p>

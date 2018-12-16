@@ -1,30 +1,37 @@
-<div class="plan_details">
-  <div class="plan_details_left">
+<div class="plan-details">
+  <div class="plan-details-left">
     <% @plan_details.order(:date).each do |plan_detail| %>
       <%= render 'plan_details/plan_detail',
                  plan_detail: plan_detail %>
     <% end %>
+
+    <!-- 終了行 -->
+    <% unless @plan_details.count == 0 %>
+      <div class="plan-detail-last">
+        <div class="plan-detail-left">
+        </div>
+        <div class="plan-detail-center">
+          <div class="plan-detail-end">
+            <p></p>
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+    <% end %>
+    <!--  -->
+
     <%# 新規アクティビティ追加用フォームの描写 %>
     <% if request.path_info == edit_plan_path %>
-      <div class="add_plan_detail_button">
+      <div class="add-plan-detail-button">
         <%= image_tag('controll_plan_detail/new_plan_detail.svg', class:'btn') %>
       </div>
-      <div class="add_plan_detail" style="display: none;">
-        <%= render 'plan_details/plan_detail_form', plan_detail: @new_plan_detail,
-                                                    plan_detail_title: 'アクティビティの追加'  %>
+      <div class="add-plan-detail" style="display: none;">
+        <%= render 'plan_details/plan_detail_form', plan_detail: @new_plan_detail, plan_detail_title: 'アクティビティの追加' %>
       </div>
     <% end %>
-  </div>
-  <div class="plan_belongings">
-  <p>もっていくもの</p>
-    <% @plan_belongings.each do |belonging| %>
-      <p><%= belonging %></p>
-    <% end %>
-  </div>
-  <div class="plan_payments">
-    <p>支払う費用</p>
-      <% @plan_payments.each do |key, value| %>
-        <p><%= key %>：¥<%= number_to_currency(value, unit:'¥', precision: 0) %></p>
-      <% end %>
+    <div class="plan-payments">
+      <h3>合計費用：<%= number_to_currency(@plan_payments, unit: '¥',precision: 0) %></h3>
+    </div>
   </div>
 </div>
