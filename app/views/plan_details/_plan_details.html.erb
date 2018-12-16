@@ -6,8 +6,7 @@
     <% end %>
 
     <!-- 終了行 -->
-    <%= @plan_details.first.date %>
-    <% unless @plan_details.first.date.blank? %>
+    <% unless @plan_details.count == 0 %>
       <div class="plan-detail-last">
         <div class="plan-detail-left">
         </div>

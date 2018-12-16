@@ -1,6 +1,6 @@
 <div class="plan-belongings">
+<% if !@plan_belongings.blank? %>
 <h3>持っていくもの</h3>
-<% if !@plan_belongings.nil? %>
 <ul>
   <% @plan_belongings.each do |belonging| %>
     <li>□<%= belonging %></li>
