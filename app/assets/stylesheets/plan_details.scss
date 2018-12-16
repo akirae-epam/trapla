@@ -67,8 +67,8 @@
       border: 1px solid #ddd;
       display: block;
       font-size: 1.5em;
-      padding: 0px 5px;
-      margin: 0px auto;
+      margin: 0 auto;
+      padding: 0 5px;
     }
 
   }
@@ -95,9 +95,9 @@
 
 }
 
-.plan-detail-left {
-  font-family: 'Montserrat', sans-serif;
-  vertical-align: top;
+  .plan-detail-left {
+    font-family: 'Montserrat', sans-serif;
+    vertical-align: top;
   }
 
 }
@@ -265,8 +265,8 @@
 .plan-detail-edit {
   display: table-cell;
   min-width: 100px;
-  vertical-align: top;
   position: absolute;
+  vertical-align: top;
 
   > a > img {
     display: block;
