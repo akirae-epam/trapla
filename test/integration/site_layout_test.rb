@@ -20,7 +20,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get plan_path(@plan)
     assert_template 'plans/show'
-    assert_select '.plan-detail-left > h2',
+    assert_select '.draw-year',
                   text: @plan_detail.date.strftime('%Y'),
                   count: 1
   end
@@ -29,7 +29,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get plan_path(@plan)
     assert_template 'plans/show'
-    assert_select '.plan-detail-left > h3',
+    assert_select '.draw-day',
                   text: @plan_detail.date.strftime('%m/%d'),
                   count: 1
   end
