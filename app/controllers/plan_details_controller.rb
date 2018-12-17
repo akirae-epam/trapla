@@ -4,11 +4,18 @@ class PlanDetailsController < ApplicationController
   before_action :logged_in_user, :correct_user, :set_action_type
   before_action :load_plan_detail, only: %i[destroy edit update]
 
-  def show; end
+  def new
+    @plan_detail = @plan.plan_details.new
+    respond_to do |format|
+      format.html { redirect_to edit_plan_path(@plan) }
+      format.js
+    end
+  end
 
   def create
     @plan_detail = @plan.plan_details.build(plan_detail_params)
     if @plan_detail.save
+      flash[:success] = 'アクティビティを作成しました。'
       @plan_details = @plan.plan_details.reload
       redirect_to edit_plan_path(@plan)
     else

@@ -23,7 +23,7 @@ class PlanTest < ActiveSupport::TestCase
   end
 
   test 'content should be at most 140 characters' do
-    @plan.content = 'a' * 141
+    @plan.content = 'a' * 256
     assert_not @plan.valid?
   end
 

@@ -1,4 +1,14 @@
-
+@mixin plan-detail-button {
+  border: solid 1px #aaa;
+  border-radius: 10px;
+  color: #555;
+  display: block;
+  font-size: 1em;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
 
 .plan-list {
   background-color: #f5fffa;
@@ -46,6 +56,20 @@
   }
 }
 
+.panel-heading {
+  padding: 5px;
+
+  > a,
+    p {
+    @include plan-detail-button;
+    border: 0;
+    font-size: 23px;
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
 .panel-body {
 
   > .delete-plan {
@@ -68,8 +92,7 @@
   border-bottom: solid 1px #aaa;
   border-top: solid 1px #aaa;
   color: #555;
-  min-height: 400px;
-  position: relative;
+  padding-bottom: 20px;
 
   h1 {
     font-size: 3em;
@@ -78,15 +101,21 @@
   }
 
   > .plan-content {
-    font-size: 1.5em;
     margin: 10px auto;
     width: 70%;
 
+    p {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
     > a {
-      bottom: 0;
-      margin-bottom: 20px;
-      position: absolute;
-      text-align: right;
+      @include plan-detail-button;
+    }
+
+    > a:hover {
+      @include plan-detail-button;
+      background-color: #efe;
     }
 
   }
