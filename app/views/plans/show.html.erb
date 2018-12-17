@@ -3,9 +3,9 @@
 <div class="plan-overview">
   <h1><%= @plan.title %></h1>
   <div class="plan-content">
-    <%= @plan.content %>
+    <p><%= @plan.content %></p>
     <% if current_user == @plan.user %>
-      <%= link_to 'このプランを編集する', edit_plan_path(@plan), class:"btn btn-default" %>
+      <%= link_to 'このプランを編集する', edit_plan_path(@plan) %>
     <% end %>
   </div>
 </div>

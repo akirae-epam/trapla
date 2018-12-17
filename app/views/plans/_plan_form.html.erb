@@ -1,7 +1,13 @@
 <%= form_for(@plan) do |plan_f|%>
   <%# プラン概要フォーム %>
   <div class="panel panel-default">
-    <div class="panel-heading">プラン概要</div>
+    <div class="panel-heading">
+      <% if ( request.path_info == new_plan_path ) %>
+        <p>作成するプラン概要</p>
+      <% else %>
+        <%= link_to @plan.title, plan_path(@plan) %>
+      <% end %>
+    </div>
     <div class="panel-body">
         <%= render 'shared/error_messages', object: plan_f.object %>
 
