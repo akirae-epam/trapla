@@ -24,5 +24,5 @@ Rails.application.routes.draw do
   resources :plans, except: %i[index]
 
   # PlanDetailsController
-  resources :plan_details, only: %i[create edit update destroy]
+  resources :plan_details, only: %i[new create edit update destroy]
 end

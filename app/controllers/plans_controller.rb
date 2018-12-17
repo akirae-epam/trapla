@@ -28,7 +28,6 @@ class PlansController < ApplicationController
   def edit
     @plan = current_user.plans.find_by(id: params[:id])
     @plan_details = @plan.plan_details
-    @new_plan_detail = @plan.plan_details.new
     plan_belongings_payments(@plan)
   end
 

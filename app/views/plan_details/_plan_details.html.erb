@@ -24,7 +24,10 @@
     <%# 新規アクティビティ追加用フォームの描写 %>
     <% if request.path_info == edit_plan_path %>
       <div class="add-plan-detail-button" id="add-plan-detail-button">
-        <%= image_tag('controll_plan_detail/new_plan_detail.svg', class:'btn') %>
+        <%#= image_tag('controll_plan_detail/new_plan_detail.svg', class:'btn') %>
+        <%= link_to image_tag('controll_plan_detail/new_plan_detail.svg'),
+                    new_plan_detail_path(plan_id: @plan),
+                    remote: true %>
       </div>
       <div class="add-plan-detail" id="add-plan-detail" style="display: none;">
       </div>
