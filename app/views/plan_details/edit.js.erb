@@ -25,18 +25,19 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
   $('#edit_plan_detail_<%= @plan_detail.id %>').show('fast'); // 編集画面を描写
   lastFormId = '#edit_plan_detail_<%= @plan_detail.id %>';   // 表示したフォームのIDを記憶
 
-  // 既存の費用を表示
-  var draw_item = $('#plan_detail_payments_items').val().split(',');
-  var draw_money = $('#plan_detail_payments_moneys').val().split(',');
-  $.each(draw_item, function(index, value) {
-    $('#payments_output_item').append('<li>'+value+'</li>');
+  // // 既存の費用を表示
+
+  var drawItem = $('#plan_detail_payments_items').val().split(',');
+  var drawMoney = $('#plan_detail_payments_moneys').val().split(',');
+  $.each(drawItem, function(index, value) {
+    jQuery.drawItem(index, value);
   });
-  $.each(draw_money, function(index, value) {
-    $('#payments_output_money').append('<li>'+jQuery.jpyen(value)+'</li>');
+  $.each(drawMoney, function(index, value) {
+    jQuery.drawMoney(index, value);
   });
 
   // 費用の合計を表示
-  jQuery.moneySum(draw_money);
+  jQuery.moneySum(drawMoney);
 
   // 既存の持ち物を表示
   var belongings = $('#input_belongings').val().split(/\r\n|\r|\n/);
@@ -45,6 +46,6 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
     output += '<li>'+value+'</li>';
   });
   $('#output_belongings').html(output);
-}
 
-jQuery.default(); // フォームの共通設定を読み込み
+  jQuery.setDatepicker(); //Datepicker設定
+}

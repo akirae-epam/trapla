@@ -19,19 +19,18 @@
       $(this).children('.plan-detail-edit').hide();
     })
 
-    // フォーム表示
-    $('.add-plan-detail-button').children('img').on('click', function(){
-      if (lastFormId ==='.add-plan-detail') {
-        $(lastFormId).hide('fast'); //同じフォームのボタンならフォームを隠すだけ
+    // 新規アクティビティ追加フォーム表示
+    $('#add-plan-detail-button').children('img').on('click', function(){
+      $(lastFormId).hide('fast').empty(); //同じフォームのボタンならフォームを隠すだけ
+      if (lastFormId ==='#add-plan-detail') {
         lastFormId = '';   // 表示するフォームのクラスを削除
       } else {
-        $(lastFormId).hide('fast').empty(); //他のフォームを開いていたら削除
-        lastFormId = '.add-plan-detail';   // 表示するフォームのクラスを記憶
-        $(lastFormId).show('fast'); // 編集画面を描写
+        lastFormId = '#add-plan-detail';   // 表示するフォームのクラスを記憶
+        $(lastFormId).html("<%= j(render 'plan_details/plan_detail_form', plan_detail: @new_plan_detail, plan_detail_title: 'アクティビティの追加') %>");
+        $(lastFormId).show('fast'); // 編集画面を描く
+        jQuery.setDatepicker(); //Datepicker設定
+
       }
     })
-
   })
-
-  jQuery.default(); // フォームの共通設定を読み込み
 </script>
