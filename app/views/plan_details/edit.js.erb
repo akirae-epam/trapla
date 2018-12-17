@@ -29,12 +29,15 @@ if (lastFormId === '#edit_plan_detail_<%= @plan_detail.id %>') {
 
   var drawItem = $('#plan_detail_payments_items').val().split(',');
   var drawMoney = $('#plan_detail_payments_moneys').val().split(',');
-  $.each(drawItem, function(index, value) {
-    jQuery.drawItem(index, value);
-  });
-  $.each(drawMoney, function(index, value) {
-    jQuery.drawMoney(index, value);
-  });
+
+  if (drawMoney[0] !== '') {
+    $.each(drawItem, function(index, value) {
+      jQuery.drawItem(index, value);
+    });
+    $.each(drawMoney, function(index, value) {
+      jQuery.drawMoney(index, value);
+    });
+  }
 
   // 費用の合計を表示
   jQuery.moneySum(drawMoney);
