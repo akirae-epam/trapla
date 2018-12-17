@@ -28,6 +28,7 @@ jQuery.extend({
     $('.datepicker').datetimepicker();
   },
   sum: function(array) { //配列の合計値を算出
+    if ( array.length === 0 ) { return 0; }
     return array.reduce(function(p, c) { return Number(p) + Number(c); } );
   },
   moneySum: function(moneyArray) {
@@ -107,21 +108,16 @@ $(function(){
     // 入力値をリストに追加描写
     jQuery.drawItem(index, inputItem);
     jQuery.drawMoney(index, inputMoney);
-    var inputItem = null;
-    var inputMoney = null;
-    var index = null;
 
     // hiddenの値(DBへ送信する値)を書き換え
     $('#plan_detail_payments_items').val(dbItem);
     $('#plan_detail_payments_moneys').val(dbMoney);
     jQuery.moneySum(dbMoney); //合計値を描写
-    var dbItem = null;
-    var dbMoney = null;
   });
 
   // 費用を削除ボタンを押したら費用を削除する
   $(document).on('click', '.delete-money', function() {
-    var delIndex = $(this).parent().attr('id').slice(27);
+    var delIndex = $(this).parent().index();
 
     // hiddenの値(DBへ送信する値)を読み込み
     var dbItem = jQuery.loadItems();
@@ -130,12 +126,13 @@ $(function(){
     // 配列と描写したHTMLから対象データを削除
     dbItem.splice(delIndex, 1);
     dbMoney.splice(delIndex, 1);
-    $('#plan_detail_payments_item_' + delIndex).remove();
-    $('#plan_detail_payments_money_' + delIndex).remove();
+    $('#payments_output_item > li:eq(' + delIndex + ')').remove();
+    $('#payments_output_money > li:eq(' + delIndex + ')').remove();
 
     // hiddenの値(DBへ送信する値)を書き換え
     $('#plan_detail_payments_items').val(dbItem);
     $('#plan_detail_payments_moneys').val(dbMoney);
+    jQuery.moneySum(dbMoney); //合計値を描写
   });
 });
 
