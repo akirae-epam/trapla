@@ -30,9 +30,9 @@
 
 .add-plan-detail-button {
 
-  > img { @include add-plan-detail; }
+  > a > img { @include add-plan-detail; }
 
-  > img:hover {
+  > a > img:hover {
     @include add-plan-detail;
     margin: 30px auto;
     transform: scale(1.5);
