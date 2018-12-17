@@ -58,6 +58,7 @@
 
 .panel-heading {
   padding: 5px;
+
   > a,
     p {
     @include plan-detail-button;
@@ -114,7 +115,7 @@
 
     > a:hover {
       @include plan-detail-button;
-      background-color: #eeffee;
+      background-color: #efe;
     }
 
   }
