@@ -20,6 +20,12 @@ body {
 
   .btn { margin-top: 10px; }
 
+  .background {
+    background-color: #f7f9f9;
+    margin: 0;
+    padding: 20px;
+  }
+
 }
 
 main,
@@ -27,12 +33,7 @@ footer {
   border-bottom: 1px solid #808080;
   clear: both;
 
-  .background {
-    background-color: #aaa;
-    margin: 0;
-    padding: 20px;
-  }
-
+  > form { margin-top: 100px; }
 }
 
 //ヘッダー
@@ -109,7 +110,10 @@ header {
 }
 
 .alert-message {
-  margin: 0 auto;
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  right: 10%;
 
   .alert {
     margin-bottom: 0;

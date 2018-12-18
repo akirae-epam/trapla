@@ -287,17 +287,20 @@
   padding: 10px;
   width: 80%;
 
-  > form { width: 100%; }
+  > form { width: 100%;
 
-  > .well {
-    margin: 10px auto;
+    > .well {
+      width: 100%;
+      margin: 10px auto;
 
-    h4 {
-      margin-left: 20px;
-      text-align: left;
+      h4 {
+        margin-left: 20px;
+        text-align: left;
+      }
+
     }
-
   }
+
 
 }
 
