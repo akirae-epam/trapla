@@ -27,6 +27,14 @@ User.create!(name: 'Test User',
                activated_at: Time.zone.now)
 end
 
+# followingリレーションシップ
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
 # 10種類のプランを作成
 10.times do
   title = Faker::Lorem.sentence(1)

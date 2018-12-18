@@ -2,6 +2,14 @@
 
 class User < ApplicationRecord
   has_many :plans, dependent: :destroy
+  has_many :following_relationships, class_name:  "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+  has_many :follower_relationships, class_name:  "Relationship",
+                                    foreign_key: "followed_id",
+                                    dependent:   :destroy
+  has_many :following, through: :following_relationships, source: :followed
+  has_many :followers, through: :follower_relationships, source: :follower
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
@@ -85,6 +93,21 @@ class User < ApplicationRecord
   # ユーザーのログイン情報を破棄する
   def cookie_forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # ユーザーをフォローする
+  def follow(other_user)
+    following << other_user
+  end
+
+  # ユーザーをフォロー解除する
+  def unfollow(other_user)
+    following_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # 現在のユーザーがフォローしてたらtrueを返す
+  def following?(other_user)
+    following.include?(other_user)
   end
 
   private
