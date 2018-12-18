@@ -1,15 +1,13 @@
 <header>
-  <!-- <div class="container"> -->
-    <%= link_to "Trapla", root_path, class:"logo" %>
-    <nav>
-      <ul>
-        <% if logged_in? %>
-          <li><%= link_to content_tag(:i, '', class: 'fas fa-plus'), new_plan_path %></li>
-          <li><%= link_to content_tag(:i, '', class: 'fas fa-user'), @current_user %></li>
-          <li><%= link_to content_tag(:i, '', class: 'fas fa-cog'), edit_user_path(@current_user) %></li>
-          <li><%= link_to content_tag(:i, '', class: 'fas fa-sign-out-alt'), logout_path, method: :delete %></li>
-        <% end %>
-      </ul>
-    </nav>
-  <!-- </div> -->
+  <%= link_to "Trapla", root_path, class:"logo" %>
+  <nav>
+    <ul>
+      <% if logged_in? %>
+        <li><%= link_to content_tag(:i, '', class: 'fas fa-plus'), new_plan_path %></li>
+        <li><%= link_to content_tag(:i, '', class: 'fas fa-user'), @current_user %></li>
+        <li><%= link_to content_tag(:i, '', class: 'fas fa-cog'), edit_user_path(@current_user) %></li>
+        <li><%= link_to content_tag(:i, '', class: 'fas fa-sign-out-alt'), logout_path, method: :delete %></li>
+      <% end %>
+    </ul>
+  </nav>
 </header>
