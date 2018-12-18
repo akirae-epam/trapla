@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   # PlansController
   resources :plans, except: %i[index]
+  get '/plans/:id/copy', to: 'plans#copy', as: 'copy_plan'
 
   # PlanDetailsController
   resources :plan_details, only: %i[new create edit update destroy]

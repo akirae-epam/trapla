@@ -1,3 +1,5 @@
+@import url('https://use.fontawesome.com/releases/v5.6.1/css/fontawesome.css');
+
 @mixin plan-detail-button {
   border: solid 1px #aaa;
   border-radius: 10px;
@@ -32,7 +34,14 @@
 
   .edit-plan-link {
     text-align: right;
-  }
+
+    i {
+      font-size: 25px;
+      margin: 10px 5px;
+      padding: 0;
+    }
+
+   }
 
 }
 
