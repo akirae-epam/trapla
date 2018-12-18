@@ -15,7 +15,9 @@
   </head>
 
   <body>
-    <%= render 'layouts/topmenu' %>
+    <% if logged_in? %>
+      <%= render 'layouts/topmenu' %>
+    <% end %>
     <main>
       <div class="alert_message">
         <% flash.each do |message_type, message| %>

@@ -7,6 +7,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
+    @plan = @user.plans.first
     @other_user = users(:archer)
   end
 
@@ -26,7 +27,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get user_path(@user)
     assert_template 'users/show'
-    assert_select 'a', text: 'このプランを編集する'
+    assert_select 'a[href=?]', edit_plan_path(@plan)
   end
 
   test 'profile should not display another plan edit links' do

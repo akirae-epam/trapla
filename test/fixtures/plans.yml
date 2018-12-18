@@ -23,10 +23,16 @@ most_recent:
   user: michael
 
 archer_plan:
-  title: <%= Faker::Lorem.sentence(1) %>
-  content: <%= Faker::Lorem.sentence(5) %>
+  title: 'other user plan'
+  content: 'other user plan content'
   created_at: <%= 42.days.ago %>
   user: archer
+
+blank_plan:
+  title: 'blank plan'
+  content: 'blank plan content'
+  created_at: <%= 42.days.ago %>
+  user: michael
 
 <% 30.times do |n| %>
 michael_plan_<%= n %>:
