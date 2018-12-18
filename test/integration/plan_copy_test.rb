@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PlanCopyTest < ActionDispatch::IntegrationTest
   def setup
-      @plan_detail = plan_details(:first)
-      @plan = @plan_detail.plan
-      @user = @plan.user
-      @blank_plan = plans(:blank_plan)
+    @plan_detail = plan_details(:first)
+    @plan = @plan_detail.plan
+    @user = @plan.user
+    @blank_plan = plans(:blank_plan)
   end
 
   test 'plan should not be copied without login' do
@@ -53,5 +55,4 @@ class PlanCopyTest < ActionDispatch::IntegrationTest
     assert_equal before_plan.plan_details.first.date, @plan.plan_details.first.date
     assert_equal before_plan.plan_details.last.date, @plan.plan_details.last.date
   end
-
 end

@@ -50,31 +50,22 @@ class PlansController < ApplicationController
   def copy
     store_location
     @base_plan = Plan.find_by(id: params[:id])
-    return if @base_plan.nil?
+    redirect_back_or(root_url) if @base_plan.nil?
 
     @plan = @base_plan.dup
     @plan.user_id = current_user.id
+    redirect_back_or(root_url) unless @plan.save
 
-    if @plan.save
-      @base_plan_details = @base_plan.plan_details
-      if @base_plan_details.count == 0
-        redirect_to(edit_plan_path(@plan))
-        return
-      end
+    @base_plan_details = @base_plan.plan_details
+    @base_plan_details.each do |base_plan_detail|
+      plan_detail = base_plan_detail.dup
+      plan_detail.plan_id = @plan.id
+      next if plan_detail.save
 
-      @base_plan_details.each do |base_plan_detail|
-        plan_detail = base_plan_detail.dup
-        plan_detail.update_attribute(:plan_id, @plan.id)
-        next if plan_detail.save
-
-        @plan.destroy
-        redirect_back_or(root_url)
-      end
-
-      redirect_to(edit_plan_path(@plan))
-    else
+      @plan.destroy
       redirect_back_or(root_url)
     end
+    redirect_to(edit_plan_path(@plan))
   end
 
   private
