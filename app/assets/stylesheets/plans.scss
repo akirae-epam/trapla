@@ -49,6 +49,13 @@
 
   .plan-list {
     width: 70%;
+
+    .plan-content,
+    small {
+      text-align: left;
+    }
+
+
   }
 }
 
@@ -69,6 +76,10 @@
     font-size: 23px;
     margin: 0;
     padding: 0;
+  }
+
+  h5 {
+    margin: 5px auto;
   }
 
 }

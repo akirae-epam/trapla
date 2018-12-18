@@ -3,8 +3,8 @@
 class User < ApplicationRecord
   has_many :plans, dependent: :destroy
   has_many :following_relationships, class_name:  "Relationship",
-                                  foreign_key: "follower_id",
-                                  dependent:   :destroy
+                                     foreign_key: "follower_id",
+                                     dependent:   :destroy
   has_many :follower_relationships, class_name:  "Relationship",
                                     foreign_key: "followed_id",
                                     dependent:   :destroy

@@ -1,0 +1,3 @@
+$('#show_follower').hide();
+$('#show_following').html("<%= j(render 'users/show_follow', users: @users, title: @title) %>");
+$('#show_following').toggle('fast');

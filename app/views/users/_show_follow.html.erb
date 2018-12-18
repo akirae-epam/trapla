@@ -1,0 +1,12 @@
+<% if users.any? %>
+  <div class="show-follow">
+    <h4><%= title %></h4>
+    <% users.each do |user| %>
+      <div class="user-img">
+        <a href="<%= user_path(user) %>">
+          <%= render 'shared/user_image', user: user %>
+        </a>
+      </div>
+    <% end %>
+  </div>
+<% end %>

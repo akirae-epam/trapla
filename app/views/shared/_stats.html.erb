@@ -1,15 +1,11 @@
-<% @user ||= current_user %>
+<% user ||= current_user %>
 <div class="stats">
-  <a href="<%= following_user_path(@user) %>">
-    <strong id="following" class="stat">
-      <%= @user.following.count %>
-    </strong>
-    following
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    followers
-  </a>
+  <%= link_to content_tag(:strong, "#{user.following.count} following"),
+      following_user_path(user),
+      id: 'following',
+      remote: true %>
+  <%= link_to content_tag(:strong, "#{user.followers.count} followers"),
+      followers_user_path(user),
+      id: 'followers',
+      remote: true %>
 </div>

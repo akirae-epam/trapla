@@ -58,17 +58,25 @@ class UsersController < ApplicationController
   end
 
   def following
+    store_location
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
-    render 'users/show_follow'
+    @users = @user.following
+    respond_to do |format|
+      format.html { redirect_back_or(@user) }
+      format.js
+    end
   end
 
   def followers
+    store_location
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'users/show_follow'
+    @users = @user.followers
+    respond_to do |format|
+      format.html { redirect_back_or(@user) }
+      format.js
+    end
   end
 
   private
