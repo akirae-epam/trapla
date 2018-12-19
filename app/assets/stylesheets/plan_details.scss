@@ -10,15 +10,6 @@
   padding-left: $lpd;
 }
 
-.plan-details {
-
-  > table {
-    margin: 20px auto;
-    width: 80%;
-  }
-
-}
-
 @mixin add-plan-detail {
   margin: 10px auto;
   display: block;
@@ -287,23 +278,35 @@
   padding: 10px;
   width: 80%;
 
-  > form { width: 100%; }
+  > form { width: 100%;
 
-  > .well {
-    margin: 10px auto;
+    > .well {
+      margin: 10px auto;
+      width: 100%;
+    }
 
     h4 {
       margin-left: 20px;
       text-align: left;
     }
 
+    .panel {
+      margin-top: 10px;
+    }
+
   }
+
 
 }
 
 .add-plan-detail {
   margin: 0;
   padding: 0;
+
+  .panel {
+    margin-top: 10px;
+  }
+
 }
 
 h5 {
@@ -318,8 +321,8 @@ h5 {
   > .well {
     margin: 0;
     width: 100%;
-
   }
+
 }
 
 // 日付入力欄用

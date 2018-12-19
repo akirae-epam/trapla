@@ -3,23 +3,11 @@
 
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Montserrat');
 
-header {
-  background-color: #fff;
-  padding: 3px 10%;
-}
-
-.navbar {
-  margin: 0;
-}
-
-.nav > li {
-  display: inline-block;
-}
 
 //全体
 body {
+  color: #666;
   font-family: 'Montserrat', 'M PLUS Rounded 1c', sans-serif;
-  // padding-top: 51px;
 
   a {
     color: #337ab7;
@@ -33,13 +21,68 @@ body {
 
   .btn { margin-top: 10px; }
 
+  .background {
+    background-color: #f7f9f9;
+    margin: 0;
+    padding: 20px;
+  }
+
 }
 
-header,
 main,
 footer {
   border-bottom: 1px solid #808080;
   clear: both;
+
+  > form { margin-top: 110px; }
+}
+
+//ヘッダー
+header {
+  background-color: #000;
+  border-radius: 0 0 25px 25px;
+  left: 0;
+  margin: 0 auto;
+  padding: 0 5%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 70%;
+
+  .logo {
+    float: left;
+    font-size: 1.7em;
+    margin-top: 5px;
+  }
+
+  a { color: #eee; }
+
+  a:hover {
+    color: #aaa;
+    text-decoration: none;
+  }
+
+  i {
+    font-size: 25px;
+  }
+
+  nav {
+
+    ul {
+      list-style: none;
+      margin: 0;
+      text-align: right;
+
+    }
+
+    li {
+
+      display: inline-block;
+      margin: 10px;
+    }
+
+  }
+
 }
 
 .well {
@@ -68,7 +111,10 @@ footer {
 }
 
 .alert-message {
-  margin: 0 auto;
+  left: 20%;
+  position: absolute;
+  right: 20%;
+  top: 50px;
 
   .alert {
     margin-bottom: 0;
@@ -77,48 +123,24 @@ footer {
 }
 
 .pagination {
-  margin-left: 5%;
-  width: 100%;
+  display: block;
+  margin: 10px auto;
+  overflow: hidden;
+  width: 70%;
 
-  > .active {
-
-    > a {
-      background-color: #ffe4e1;
-      color: #555;
-    }
-
+  li > a,
+  .active > a,
+  .disabled > a {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    border-radius: 5px;
+    color: #555;
   }
 
-  > li {
-
-    > a {
-      border: 0;
-      border-radius: 5px;
-      color: #555;
-    }
-
-    > a:hover {
-      background-color: #ffe5ee;
-    }
-
+  > a:hover {
+    background-color: #ffe5ee;
   }
 
-}
-
-//ヘッダー
-.logo {
-  color: #333;
-  float: left;
-  font-size: 1.7em;
-  font-weight: bold;
-  letter-spacing: -1px;
-  margin-right: 10px;
-  padding-top: 9px;
-}
-
-.logo:hover {
-  color: #666;
-  text-decoration: none;
 }
 
 // メインフレーム

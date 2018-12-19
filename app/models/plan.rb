@@ -3,8 +3,8 @@
 class Plan < ApplicationRecord
   attr_accessor :remember_year, :remember_day
 
-  has_many :plan_details, dependent: :destroy
-  belongs_to :user
+  has_many :plan_details, dependent: :destroy, inverse_of: :plan
+  belongs_to :user, inverse_of: :plans
   default_scope -> { order(created_at: :desc) }
 
   validates :user_id, presence: true

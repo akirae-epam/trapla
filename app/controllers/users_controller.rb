@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[destroy index edit update]
+  before_action :logged_in_user, only: %i[destroy index edit update following followers]
   before_action :correct_user, only: %i[destroy edit update]
 
   def index
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_account_activation_email
-      flash[:info] = '登録いただいたメールアドレスに登録完了のためのリンクを送付しましたので、ご確認願います。'
+      flash[:info] = '登録いただいたメールアドレスに登録完了のためのリンクを送付しました。'
       redirect_to root_url
     else
       render 'users/new'
@@ -54,6 +54,26 @@ class UsersController < ApplicationController
       cookies.delete(:remember_token)
       flash[:success] = 'ユーザを削除しました。'
       redirect_to root_url
+    end
+  end
+
+  def following
+    @title = 'Following'
+    @user  = User.find(params[:id])
+    @users = @user.following
+    respond_to do |format|
+      format.html { redirect_to(@user) }
+      format.js
+    end
+  end
+
+  def followers
+    @title = 'Followers'
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    respond_to do |format|
+      format.html { redirect_to(@user) }
+      format.js
     end
   end
 

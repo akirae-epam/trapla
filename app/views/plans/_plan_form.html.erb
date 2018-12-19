@@ -3,9 +3,9 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <% if ( request.path_info == new_plan_path || @plan.title.blank? ) %>
-        <p>作成するプラン概要</p>
+        <h5>新しいプランの作成</h5>
       <% else %>
-        <%= link_to @plan.title, plan_path(@plan) %>
+        <%= link_to content_tag(:h5, @plan.title), plan_path(@plan) %>
       <% end %>
     </div>
     <div class="panel-body">

@@ -1,3 +1,5 @@
+@import url('https://use.fontawesome.com/releases/v5.6.1/css/fontawesome.css');
+
 @mixin plan-detail-button {
   border: solid 1px #aaa;
   border-radius: 10px;
@@ -32,24 +34,32 @@
 
   .edit-plan-link {
     text-align: right;
-  }
+
+    i {
+      font-size: 25px;
+      margin: 10px 5px;
+      padding: 0;
+    }
+
+   }
 
 }
 
 @media screen and (min-width: 730px) {
-  .pagination {
-    margin-left: 5%;
-  }
 
   .plan-list {
     width: 70%;
+
+    .plan-content,
+    small {
+      text-align: left;
+    }
+
+
   }
 }
 
 @media screen and (max-width: 730px) {
-  .pagination {
-    margin-left: 10%;
-  }
 
   .plan-list {
     width: 90%;
@@ -68,6 +78,10 @@
     padding: 0;
   }
 
+  h5 {
+    margin: 5px auto;
+  }
+
 }
 
 .panel-body {
@@ -82,17 +96,12 @@
   margin: 10px 5%;
 }
 
-.edit-plan {
-  margin: 0 auto;
-  width: 60%;
-}
-
 .plan-overview {
   background-color: #f5fffa;
   border-bottom: solid 1px #aaa;
-  border-top: solid 1px #aaa;
   color: #555;
   padding-bottom: 20px;
+  padding-top: 70px;
 
   h1 {
     font-size: 3em;

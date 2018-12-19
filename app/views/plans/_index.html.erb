@@ -1,8 +1,10 @@
 <%= render 'users/user_info' %>
-<% if @plans.any? %>
-<%= will_paginate @plans %>
-<ol class="plans">
-  <%= render @plans %>
-</ol>
-<%= will_paginate @plans %>
-<% end %>
+<div class="background">
+  <% if @plans.any? %>
+  <%= will_paginate @plans %>
+  <ol class="plans">
+    <%= render @plans %>
+  </ol>
+  <%= will_paginate @plans %>
+  <% end %>
+</div>

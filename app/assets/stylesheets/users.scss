@@ -54,6 +54,10 @@
 }
 
 .user-profile {
+  background-color: #fff;
+  border-bottom: solid 1px #aaa;
+  padding-bottom: 50px;
+  padding-top: 100px;
   text-align: center;
 
   > img {
@@ -64,7 +68,41 @@
 
 }
 
+.follow {
+  display: block;
+  margin: 0;
+  overflow: scroll;
 
+  .show-follow {
+    background-color: #eee;
+    border: solid 1px #aaa;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 60%;
+
+
+    .user-img {
+      height: auto;
+      width: auto;
+    }
+
+    img {
+      height: 50px;
+      margin: 3px;
+      width: 50px;
+    }
+
+  }
+
+}
+
+.follow-form {
+  margin-bottom: 10px;
+}
+
+//edit
 .edit-user-img {
   border-radius: 10px;
   display: block;
@@ -81,6 +119,11 @@
     width: 10vw;
   }
 
+}
+
+//form
+.panel {
+  margin-top: 100px;
 }
 
 // edit

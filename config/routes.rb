@@ -5,9 +5,17 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   # UsersController
-  resources :users
+  resources :users, only: %i[show new create edit update destroy]
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  # RelationshipsController
+  resources :relationships, only: %i[create destroy]
 
   # SessionsController
   get 'login', to: 'sessions#new'
@@ -22,6 +30,7 @@ Rails.application.routes.draw do
 
   # PlansController
   resources :plans, except: %i[index]
+  get '/plans/:id/copy', to: 'plans#copy', as: 'copy_plan'
 
   # PlanDetailsController
   resources :plan_details, only: %i[new create edit update destroy]
