@@ -58,23 +58,21 @@ class UsersController < ApplicationController
   end
 
   def following
-    store_location
     @title = "Following"
     @user  = User.find(params[:id])
     @users = @user.following
     respond_to do |format|
-      format.html { redirect_back_or(@user) }
+      format.html { redirect_to(@user) }
       format.js
     end
   end
 
   def followers
-    store_location
     @title = "Followers"
     @user  = User.find(params[:id])
     @users = @user.followers
     respond_to do |format|
-      format.html { redirect_back_or(@user) }
+      format.html { redirect_to(@user) }
       format.js
     end
   end
