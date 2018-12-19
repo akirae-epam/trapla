@@ -27,7 +27,8 @@ group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
   gem 'pry-rails'
   gem 'rubocop', require: false
-  gem 'sqlite3', '1.3.13'
+  # gem 'sqlite3', '1.3.13'
+  gem 'mysql2'
 end
 
 group :development do
@@ -48,5 +49,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+  # gem 'pg', '0.20.0'
+  gem 'mysql2'
+  gem 'unicorn'
 end
