@@ -5,9 +5,17 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   # UsersController
-  resources :users
+  resources :users, only: %i[show new create edit update destroy]
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  # RelationshipsController
+  resources :relationships, only: %i[create destroy]
 
   # SessionsController
   get 'login', to: 'sessions#new'

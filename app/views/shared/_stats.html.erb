@@ -1,0 +1,11 @@
+<% user ||= current_user %>
+<div class="stats">
+  <%= link_to content_tag(:strong, "#{user.following.count} following"),
+      following_user_path(user),
+      id: 'following',
+      remote: true %>
+  <%= link_to content_tag(:strong, "#{user.followers.count} followers"),
+      followers_user_path(user),
+      id: 'followers',
+      remote: true %>
+</div>

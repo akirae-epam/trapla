@@ -1,5 +1,5 @@
 <% if user.user_image.attached? %>
-  <%= image_tag user.user_image %>
+  <%= image_tag user.user_image, alt: user.name  %>
 <% else %>
   <%= gravatar_for user %>
 <% end %>

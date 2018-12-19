@@ -7,7 +7,7 @@
 //全体
 body {
   font-family: 'Montserrat', 'M PLUS Rounded 1c', sans-serif;
-  // padding-top: 51px;
+  color: #666;
 
   a {
     color: #337ab7;
@@ -21,20 +21,33 @@ body {
 
   .btn { margin-top: 10px; }
 
+  .background {
+    background-color: #f7f9f9;
+    margin: 0;
+    padding: 20px;
+  }
+
 }
 
 main,
 footer {
   border-bottom: 1px solid #808080;
   clear: both;
+
+  > form { margin-top: 110px; }
 }
 
 //ヘッダー
 header {
   background-color: #000;
-  margin: 0;
-  padding: 0 20%;
-  width: 100vw;
+  border-radius: 0 0 25px 25px;
+  left: 0;
+  margin: 0 auto;
+  padding: 0 5%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 70%;
 
   .logo {
     float: left;
@@ -98,7 +111,10 @@ header {
 }
 
 .alert-message {
-  margin: 0 auto;
+  position: absolute;
+  top: 50px;
+  left: 20%;
+  right: 20%;
 
   .alert {
     margin-bottom: 0;
@@ -107,30 +123,22 @@ header {
 }
 
 .pagination {
-  margin-left: 5%;
-  width: 100%;
+  display: block;
+  margin: 10px auto;
+  overflow: hidden;
+  width: 70%;
 
-  > .active {
-
-    > a {
-      background-color: #ffe4e1;
-      color: #555;
-    }
-
+  li > a,
+  .active > a,
+  .disabled > a {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    border-radius: 5px;
+    color: #555;
   }
 
-  > li {
-
-    > a {
-      border: 0;
-      border-radius: 5px;
-      color: #555;
-    }
-
-    > a:hover {
-      background-color: #ffe5ee;
-    }
-
+  > a:hover {
+    background-color: #ffe5ee;
   }
 
 }

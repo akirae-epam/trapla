@@ -1,11 +1,7 @@
-# Ruby on Rails チュートリアルのサンプルアプリケーション
-
-これは、次の教材を参考に作られたアプリケーションです。   
-[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
-[Michael Hartl](http://www.michaelhartl.com/) 著
+# Trapla
+旅行計画を作成するWebアプリケーションです。
 
 ## 使い方
-
 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
 その後、次のコマンドで必要になる RubyGems をインストールします。
 
