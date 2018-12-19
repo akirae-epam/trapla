@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_action_type
-    @action_type_move = { walk: '徒歩',
+    @action_type_move = { set: '集合',
+                          walk: '徒歩',
                           car: '車',
                           train: '電車',
                           bus: 'バス',

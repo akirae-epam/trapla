@@ -33,7 +33,7 @@ footer {
   border-bottom: 1px solid #808080;
   clear: both;
 
-  > form { margin-top: 100px; }
+  > form { margin-top: 110px; }
 }
 
 //ヘッダー
@@ -112,8 +112,8 @@ header {
 .alert-message {
   position: absolute;
   top: 50px;
-  left: 10%;
-  right: 10%;
+  left: 20%;
+  right: 20%;
 
   .alert {
     margin-bottom: 0;
