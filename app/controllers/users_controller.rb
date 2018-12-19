@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Following"
+    @title = 'Following'
     @user  = User.find(params[:id])
     @users = @user.following
     respond_to do |format|
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @title = "Followers"
+    @title = 'Followers'
     @user  = User.find(params[:id])
     @users = @user.followers
     respond_to do |format|

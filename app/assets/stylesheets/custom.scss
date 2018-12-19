@@ -6,8 +6,8 @@
 
 //全体
 body {
-  font-family: 'Montserrat', 'M PLUS Rounded 1c', sans-serif;
   color: #666;
+  font-family: 'Montserrat', 'M PLUS Rounded 1c', sans-serif;
 
   a {
     color: #337ab7;
@@ -111,10 +111,10 @@ header {
 }
 
 .alert-message {
-  position: absolute;
-  top: 50px;
   left: 20%;
+  position: absolute;
   right: 20%;
+  top: 50px;
 
   .alert {
     margin-bottom: 0;
