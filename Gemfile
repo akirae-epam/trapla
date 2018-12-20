@@ -19,6 +19,7 @@ gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails' # 入力フ�
 gem 'mysql2'
 gem 'puma', '3.9.1'
 gem 'rails', '5.2.0'
+gem 'rb-readline'
 gem 'sass-rails', '5.0.6' # bootstrap用
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
@@ -31,7 +32,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'erb_lint', require: false
   gem 'listen', '3.1.5'
   gem 'scss_lint', require: false
   gem 'spring',                '2.0.2'
