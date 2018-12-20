@@ -16,6 +16,7 @@ gem 'mail-iso-2022-jp' # メイラーで送る文章の日本語化
 gem 'mini_magick' # 画像をアップロードする
 gem 'mini_racer'
 gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails' # 入力フォームにdatepickerを使用（時間）
+gem 'mysql2'
 gem 'puma', '3.9.1'
 gem 'rails', '5.2.0'
 gem 'sass-rails', '5.0.6' # bootstrap用
@@ -27,7 +28,6 @@ group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
   gem 'pry-rails'
   gem 'rubocop', require: false
-  gem 'sqlite3', '1.3.13'
 end
 
 group :development do
@@ -48,6 +48,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
   gem 'unicorn'
 end
