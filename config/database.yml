@@ -22,6 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/database_production
+  database: db/database_production.sqlite3
   username: user_production
   password: <%= ENV['TRAPLA_DATABASE_PASSWORD'] %>
