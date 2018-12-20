@@ -43,6 +43,11 @@ jobs:
       - run:
          name: 'wait for db'
          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+         
+      - run: mysql -u user_test -p
+      - run: PassTest0-
+      - run: quit;
+
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
