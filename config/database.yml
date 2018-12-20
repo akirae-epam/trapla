@@ -1,18 +1,24 @@
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  host: <%= ENV['DB_HOST'] || 'localhost' %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: trapla_development
+  username: user_develop
+  password: PassDevelop0-
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: trapla_test
+  username: <%= ENV['DB_USERNAME'] || 'user_test' %>
+  password: <%= ENV['DB_PASSWORD'] || 'PassTest0-' %>
 
 production:
   <<: *default
-  database: db/database_production.sqlite3
+  database: trapla_production
   username: user_production
-  password: <%= ENV['TRAPLA_DATABASE_PASSWORD'] %>
+  password: PassProduction0-
