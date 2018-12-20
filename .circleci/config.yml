@@ -15,8 +15,7 @@ jobs:
            DB_PASSWORD: 'PassTest0-'
        - image: circleci/mysql:5.6.42-ram
          environment:
-           - MYSQL_ALLOW_EMPTY_PASSWORD=true
-           - MYSQL_ROOT_HOST=%
+           MYSQL_ALLOW_EMPTY_PASSWORD: yes
 
     working_directory: ~/repo
 
@@ -41,6 +40,9 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
+      - run:
+         name: 'wait for db'
+         command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
