@@ -17,7 +17,8 @@ gem 'mini_magick' # 画像をアップロードする
 gem 'mini_racer'
 gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails' # 入力フォームにdatepickerを使用（時間）
 gem 'mysql2'
-gem 'puma', '3.9.1'
+# gem 'puma', '3.9.1'
+gem 'unicorn'
 gem 'rails', '5.2.0'
 gem 'rb-readline'
 gem 'sass-rails', '5.0.6' # bootstrap用
@@ -48,5 +49,4 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
 end
