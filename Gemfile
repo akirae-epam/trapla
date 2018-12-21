@@ -48,5 +48,5 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
+  gem 'pg'
 end
