@@ -399,10 +399,10 @@ h5 {
   > .output-item,
     .output-money { float: left; }
 
-  > .output-total {
-    clear: both;
-    text-align: right;
-    width: 60%;
-  }
+    > .output-total {
+      clear: both;
+      text-align: right;
+      width: 60%;
+    }
 
 }
