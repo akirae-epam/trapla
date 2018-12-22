@@ -16,8 +16,8 @@ gem 'mail-iso-2022-jp' # メイラーで送る文章の日本語化
 gem 'mini_magick' # 画像をアップロードする
 gem 'mini_racer'
 gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails' # 入力フォームにdatepickerを使用（時間）
-gem 'mysql2'
-gem 'unicorn'
+gem 'mysql2' # データベース
+gem 'unicorn' # アプリケーションサーバ
 gem 'rails', '5.2.0'
 gem 'rb-readline'
 gem 'sass-rails', '5.0.6' # bootstrap用
