@@ -21,6 +21,7 @@ gem 'unicorn'
 gem 'rails', '5.2.0'
 gem 'rb-readline'
 gem 'sass-rails', '5.0.6' # bootstrap用
+gem 'spring', '2.0.2' # アプリケーションプリローダ
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.6' # ページネーション

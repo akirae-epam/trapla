@@ -37,7 +37,7 @@ jQuery.extend({
   },
   jpyen: function(money) {  // 数字を円表記に変換
     var moneys = String(Number(money)).split('');
-    let moneyLen = moneys.length;
+    var moneyLen = moneys.length;
     moneys.forEach( function(val,index,array) {
       if ((index+1) % 3 === 0  && index+1 !== moneyLen) {
         moneys.splice(moneyLen-(index+1), 0, ',');
@@ -79,13 +79,13 @@ $(function(){
 
   //費用項目にカンマは入力できない
   $(document).on('input', '#plan_detail_payment_item', function() {
-    let value = $(this).val();
+    var value = $(this).val();
     $(this).val(value.replace(/\,+/g, ''));
   });
 
   //費用は数値しか入力できない
   $(document).on('input', '#plan_detail_payment_money', function() {
-    let value = $(this).val();
+    var value = $(this).val();
     $(this).val(value.replace(/[^0-9]+/g, ''));
   });
 
@@ -122,7 +122,7 @@ $(function(){
     // hiddenの値(DBへ送信する値)を書き換え
     $('#plan_detail_payments_items').val(dbItem);
     $('#plan_detail_payments_moneys').val(dbMoney);
-    
+
     jQuery.moneySum(dbMoney); //合計値を描写
   });
 
