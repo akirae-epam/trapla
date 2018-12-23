@@ -37,12 +37,12 @@ group :development do
   gem 'rspec-rails'
   gem 'scss_lint', require: false
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'web-console',           '3.5.1'
+  gem 'web-console', '3.5.1'
 end
 
 group :test do
   gem 'capybara'
-  gem "chromedriver-helper"
+  gem 'chromedriver-helper'
   gem 'guard', '2.13.0'
   gem 'guard-minitest', '2.4.4'
   gem 'minitest', '5.10.3'

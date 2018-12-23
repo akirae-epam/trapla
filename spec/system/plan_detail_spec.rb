@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
@@ -18,24 +20,9 @@ RSpec.describe 'Users', type: :system do
     click_button 'ログイン'
     uri = URI.parse(current_url)
     expect(uri.path).to eq user_path(@user)
-
   end
 
-  it 'create new plan and plan_detail' do
-    # 新規プラン作成ページでプラン作成
-    visit new_plan_path
-
-    fill_in 'plan[title]', with: 'Plan Title Test'
-    fill_in 'plan[content]', with: 'Plan Content Test'
-
-    click_button 'プランを作成する'
-
-    # 新規アクティビティ作成
-    expect(page).to have_content 'プランを作成しました。'
-
-  end
-
-  it 'add plan_detail' do
+  it 'create new plan_detail' do
     visit edit_plan_path(@plan)
     expect(page).to have_field 'plan[title]', with: @plan.title
     expect(page).to have_field 'plan[content]', with: @plan.content
@@ -43,15 +30,28 @@ RSpec.describe 'Users', type: :system do
     find('#add-plan-detail-button').click
     expect(page).to have_content 'アクティビティの追加'
 
+    # 日付入力
     page.execute_script("$('#plan_detail_date').val('2018/01/01 12:00')")
     fill_in 'plan_detail[place]', with: 'Plan Detail Place Test'
 
-    choose 'plan_detail_action_type_set' # 選ぶのは何でもいい
+    # アクション選択
+    choose '集合'
+
+    # アクションメモ入力
     fill_in 'plan_detail[action_memo]', with: 'Plan Detail Action Memo Test'
 
     # 持ち物入力
     fill_in 'plan_detail[belongings]',
             with: "Plan Detail Belonging Test1\nPlan Detail Belonging Test2"
 
+    # 費用入力
+    5.times do |n|
+      fill_in 'plan_detail_payment[item]', with: "payment#{n}"
+      fill_in 'plan_detail_payment[money]', with: '1000'
+      find('.payment-button > p ').click
+      expect(page).to have_content "payment#{n}"
+    end
+    # 合計値が表示されている
+    expect(page).to have_content '¥5,000'
   end
 end
