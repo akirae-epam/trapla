@@ -1,5 +1,9 @@
 # Trapla
 旅行計画を作成するWebアプリケーションです。
+サンプルは以下URLで確認できます。
+https://trapla.herokuapp.com/
+アカウント：test@railstutorial.org
+パスワード：foobar
 
 ## 使い方
 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
