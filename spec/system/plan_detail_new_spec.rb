@@ -31,7 +31,8 @@ RSpec.describe 'Users', type: :system do
     fill_in 'plan_detail[place]', with: 'Plan Detail Place Test2'
 
     # アクション選択
-    choose '徒歩'
+    choose('徒歩')
+    find_by_id('plan_detail_action_type_walk').click
 
     # アクションメモ入力
     fill_in 'plan_detail[action_memo]', with: 'Plan Detail Action Memo Test2'
@@ -56,7 +57,7 @@ RSpec.describe 'Users', type: :system do
     expect(page).to have_content 'Plan Detail Place Test2'
     expect(page).to have_content 'Plan Detail Action Memo Test2'
     expect(page).to have_content('2018', count: 1)
-    expect(page).to have_content '01/01'
+    expect(page).to have_content('01/01', count: 1)
     expect(page).to have_content '13:00'
     expect(page).to have_content '徒歩'
   end
