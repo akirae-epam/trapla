@@ -35,7 +35,7 @@ RSpec.describe 'Users', type: :system do
   end
 
   # 削除ボタンを押したら削除できる
-  it 'edit plan detail view visible after click button' do
+  it 'edit plan detail delete should success' do
     visit edit_plan_path(@plan)
 
     expect(page).to have_content 'place test1'

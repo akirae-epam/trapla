@@ -328,6 +328,13 @@ h5 {
 // 日付入力欄用
 .date-input {
 
+  .input-group-addon {
+    background-image: image-url('controll_plan_detail/calendar_plan_detail.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+  }
+
   > input {
     margin: 0;
     width: 60%;
