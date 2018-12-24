@@ -29,12 +29,12 @@ group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
   gem 'pry-rails'
   gem 'puma', '3.9.1'
+  gem 'rspec-rails'
   gem 'rubocop', require: false
 end
 
 group :development do
   gem 'listen', '3.1.5'
-  gem 'rspec-rails'
   gem 'scss_lint', require: false
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console', '3.5.1'
@@ -43,6 +43,8 @@ end
 group :test do
   gem 'capybara'
   gem 'chromedriver-helper'
+  gem 'database_cleaner' # テストのたびにDBを初期化する
+  gem 'factory_bot_rails'
   gem 'guard', '2.13.0'
   gem 'guard-minitest', '2.4.4'
   gem 'minitest', '5.10.3'

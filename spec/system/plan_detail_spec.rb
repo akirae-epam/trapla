@@ -4,26 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   before do
-    @user = User.create(name: 'testuser',
-                        email: 'test@email.com',
-                        password: 'foobar',
-                        password_confirmation: 'foobar',
-                        activated: true)
-    @plan = Plan.create(title: 'test plan title',
-                        content: 'test plan content',
-                        user: @user)
-    @plan_detail = PlanDetail.create(date: '2018/01/01 12:00',
-                                     place: 'place test1',
-                                     action_type: 'walk',
-                                     action_memo: 'action memo test1',
-                                     belongings: "Plan Detail Belonging Test1\nPlan Detail Belonging Test2",
-                                     payments_items: 'payment1,payment2,payment3',
-                                     payments_moneys: '1000,2000,3000',
-                                     plan: @plan)
+    @plan_detail = FactoryBot.create(:main_plan_detail)
+    @plan = @plan_detail.plan
+    @user = @plan.user
 
     # ログインする
     visit login_path
-    fill_in 'session[email]', with: 'test@email.com'
+    fill_in 'session[email]', with: 'spec_test@email.com'
     fill_in 'session[password]', with: 'foobar'
     click_button 'ログイン'
     uri = URI.parse(current_url)
