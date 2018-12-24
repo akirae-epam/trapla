@@ -35,7 +35,7 @@ end
 RSpec.configure do |config|
   # テストコード中でのFactoryBotの名前空間指定を省略
   config.include FactoryBot::Syntax::Methods
-  
+
   # テストごとに生成されたテストデータを自動で削除
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
