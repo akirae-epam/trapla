@@ -2,7 +2,8 @@
 
 class PlansController < ApplicationController
   include PlansHelper
-  before_action :logged_in_user, :set_action_type
+  before_action :logged_in_user, except: :show
+  before_action :set_action_type
   before_action :correct_user, only: %i[edit update destroy]
 
   def show

@@ -10,12 +10,13 @@ class PlanShowTest < ActionDispatch::IntegrationTest
     @other_plan = plans(:archer_plan_0)
   end
 
-  test 'plan show should failed without login' do
+  test 'plan show should success even if without login' do
     get plan_path(@plan)
-    assert_redirected_to login_path
-    follow_redirect!
-    assert_template 'sessions/new'
-    assert_not flash.empty?
+    assert_template 'plans/show'
+    assert flash.empty?
+    get plan_path(@other_plan)
+    assert_template 'plans/show'
+    assert flash.empty?
   end
 
   test 'plan show should success with login' do
