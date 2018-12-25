@@ -29,16 +29,9 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run:
-          name: install for capybarawebkit
-          command: sudo apt-get update && \
-                   sudo apt-get install -y g++ \
-                     qt5-default \
-                     libqt5webkit5-dev \
-                     gstreamer1.0-plugins-base \
-                     gstreamer1.0-tools \
-                     gstreamer1.0-x && \
-                   sudo apt-get install -f
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y g++ qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+      - run: sudo apt-get install -f
 
       - run:
           name: install dependencies
