@@ -16,8 +16,8 @@ development:
 test:
   <<: *default
   database: trapla_test
-  username: user_test
-  password: PassTest0-
+  username: <%= ENV['DB_USERNAME'] || 'user_test' %>
+  password: <%= ENV['DB_PASSWORD'] || 'PassTest0-' %>
 
 production:
   <<: *default
