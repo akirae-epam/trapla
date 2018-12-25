@@ -38,7 +38,7 @@ jobs:
                      gstreamer1.0-plugins-base \
                      gstreamer1.0-tools \
                      gstreamer1.0-x && \
-                     apt-get install -f
+                   sudo apt-get install -f
 
       - run:
           name: install dependencies
