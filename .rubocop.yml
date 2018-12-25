@@ -12,7 +12,7 @@ AllCops:
 # Use find_by instead of dynamic find_by_id.
 Rails/DynamicFindBy:
   Exclude:
-    - 'spec/**'
+    - 'spec/**/*'
 
 # Use only ascii symbols in comments.
 AsciiComments:
