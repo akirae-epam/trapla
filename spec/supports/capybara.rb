@@ -1,4 +1,4 @@
-# spec/support/capybara.rb
+# frozen_string_literal: true
 
 # set Javascript driver to webkit:
 Capybara.javascript_driver = :webkit
