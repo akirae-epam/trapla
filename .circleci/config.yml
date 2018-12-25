@@ -46,11 +46,17 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run tests!
+      # run mini tests!
       - run:
           name: run tests
           command: |
             bundle exec rake test
+
+      # run spec tests!
+      - run:
+          name: run spec
+          command: |
+            xvfb-run -a bundle exec rspec
 
       # run rubocop
       - run:

@@ -67,6 +67,15 @@ jQuery.extend({
 
 // 表示したアクティビティフォーム関連
 $(function(){
+
+  // アクション選択ラジオボタンの動作
+  $(document).on('click', '.action-btn', function() {
+    $(this).parent().find('label').removeClass('active');
+    $(this).parent().children('label').children('input[type=radio]').prop('checked', false);
+    $(this).addClass('active');
+    $(this).children('input[type=radio]').prop('checked', true);
+  });
+
   // 持ち物を入力したらリアルタイムで表示
   $(document).on('input', '#input_belongings', function() {
     var belongings = $(this).val().split(/\r\n|\r|\n/);
