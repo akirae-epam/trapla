@@ -1,14 +1,13 @@
 # spec/support/capybara.rb
 
-puts '-----------------'
-puts 'debug'
-puts '-----------------'
+# set Javascript driver to webkit:
+Capybara.javascript_driver = :webkit
+
 # Setup chrome headless driver
 Capybara.server = :puma, { Silent: true }
 
 Capybara.register_driver :chrome_headless do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
-
   options.add_argument('--headless')
   options.add_argument('--no-sandbox')
   options.add_argument('--disable-dev-shm-usage')

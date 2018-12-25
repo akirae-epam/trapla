@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :system do
+RSpec.describe 'Users', type: :feature, js: true do
   before do
     @plan_detail = create(:main_plan_detail)
     @plan = @plan_detail.plan

@@ -42,9 +42,11 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'chromedriver-helper'
   gem 'database_cleaner' # テストのたびにDBを初期化する
   gem 'factory_bot_rails'
+  gem 'geckodriver-helper'
   gem 'guard', '2.13.0'
   gem 'guard-minitest', '2.4.4'
   gem 'minitest', '5.10.3'

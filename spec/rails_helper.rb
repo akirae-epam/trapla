@@ -33,6 +33,10 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  # Capybara-webkit用の設定
+  config.include Capybara::DSL
+  require 'supports/capybara'
+
   # テストコード中でのFactoryBotの名前空間指定を省略
   config.include FactoryBot::Syntax::Methods
 

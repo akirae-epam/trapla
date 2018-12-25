@@ -19,6 +19,12 @@ RUN apt-get update && \
                        libxtst6 \
                        lsb-release \
                        xdg-utils \
+                       g++ \
+                       qt5-default \
+                       libqt5webkit5-dev \
+                       gstreamer1.0-plugins-base \
+                       gstreamer1.0-tools \
+                       gstreamer1.0-x \
                        --no-install-recommends && \
     apt-get install -f && \
     rm -rf /var/lib/apt/lists/*
