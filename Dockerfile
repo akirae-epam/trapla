@@ -9,8 +9,22 @@ RUN apt-get update && \
                        mysql-client \
                        postgresql-client \
                        sqlite3 \
+                       libappindicator1 \
+                       fonts-liberation \
+                       libappindicator3-1 \
+                       libasound2 \
+                       libnspr4 \
+                       libnss3 \
+                       libxss1 \
+                       libxtst6 \
+                       lsb-release \
+                       xdg-utils \
                        --no-install-recommends && \
+    apt-get install -f && \
     rm -rf /var/lib/apt/lists/*
+
+RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb
 
 COPY Gemfile $APP_ROOT
 COPY Gemfile.lock $APP_ROOT
