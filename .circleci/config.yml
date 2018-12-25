@@ -30,6 +30,17 @@ jobs:
           - v1-dependencies-
 
       - run:
+          name: install for capybarawebkit
+          command: apt-get update && \
+                   apt-get install -y g++ \
+                     qt5-default \
+                     libqt5webkit5-dev \
+                     gstreamer1.0-plugins-base \
+                     gstreamer1.0-tools \
+                     gstreamer1.0-x \
+                     apt-get install -f
+
+      - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
