@@ -33,7 +33,7 @@ services:
       - app
     volumes:
       - $PWD:/var/www
-      - ./docker/nginx/nginx_trapla.conf:/etc/nignx/conf.d/trapla.conf
+      - $PWD/docker/nginx/nginx_trapla.conf:/etc/nignx/conf.d/trapla.conf
 
 volumes:
   mysql-data:
