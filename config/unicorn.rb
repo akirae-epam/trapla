@@ -4,8 +4,8 @@ worker_processes Integer(ENV['WEB_CONCURRENCY'] || 3)
 timeout 15
 preload_app true
 
-listen '/tmp/sockets/unicorn.sock'
-pid    '/tmp/sockets/unicorn.pid'
+listen '/usr/src/appdir/tmp/sockets/unicorn.sock'
+pid    '/usr/src/appdir/tmp/sockets/unicorn.pid'
 
 before_fork do |_server, _worker|
   Signal.trap 'TERM' do
@@ -25,5 +25,5 @@ after_fork do |_server, _worker|
   defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
 end
 
-stderr_path File.expand_path('/vagrant/trapla/log/unicorn.log', ENV['RAILS_ROOT'])
-stdout_path File.expand_path('/vagrant/trapla/log/unicorn.log', ENV['RAILS_ROOT'])
+stderr_path File.expand_path('/usr/src/appdir/log/unicorn.log', ENV['RAILS_ROOT'])
+stdout_path File.expand_path('/usr/src/appdir/log/unicorn.log', ENV['RAILS_ROOT'])

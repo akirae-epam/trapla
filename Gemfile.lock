@@ -77,6 +77,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    capybara-screenshot (1.0.22)
+      capybara (>= 1.0, < 4)
+      launchy
     capybara-webkit (1.15.1)
       capybara (>= 2.3, < 4.0)
       json
@@ -85,6 +88,7 @@ GEM
     chromedriver-helper (2.1.0)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    cliver (0.3.2)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -138,6 +142,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.1.0)
     kgio (2.11.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     libv8 (6.7.288.46.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -178,6 +184,10 @@ GEM
     parallel (1.12.1)
     parser (2.5.3.0)
       ast (~> 2.4.0)
+    poltergeist (1.18.1)
+      capybara (>= 2.1, < 4)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -320,6 +330,7 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails
   byebug (= 9.0.6)
   capybara
+  capybara-screenshot
   capybara-webkit
   chromedriver-helper
   coffee-rails (= 4.2.2)
@@ -331,6 +342,7 @@ DEPENDENCIES
   guard-minitest (= 2.4.4)
   jbuilder (= 2.7.0)
   jquery-rails (= 4.3.1)
+  launchy
   listen (= 3.1.5)
   mail-iso-2022-jp
   mini_magick
@@ -339,6 +351,7 @@ DEPENDENCIES
   minitest-reporters (= 1.1.14)
   momentjs-rails (~> 2.9)!
   mysql2
+  poltergeist
   pry-rails
   puma (= 3.9.1)
   rails (= 5.2.0)

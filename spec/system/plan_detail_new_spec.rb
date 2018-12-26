@@ -31,8 +31,8 @@ RSpec.describe 'Users', type: :feature, js: true do
     fill_in 'plan_detail[place]', with: 'Plan Detail Place Test2'
 
     # アクション選択
-    choose('徒歩')
-    find_by_id('plan_detail_action_type_walk').click
+    execute_script('window.scrollBy(0,10000)') # スクロールさせる
+    find_by_id('label_walk').click
 
     # アクションメモ入力
     fill_in 'plan_detail[action_memo]', with: 'Plan Detail Action Memo Test2'

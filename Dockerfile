@@ -4,6 +4,8 @@ ENV APP_ROOT /usr/src/appdir
 
 WORKDIR $APP_ROOT
 
+RUN dpkg -l > $APP_ROOT/test
+
 RUN apt-get update && \
     apt-get install -y nodejs \
                        mysql-client \
@@ -25,10 +27,22 @@ RUN apt-get update && \
                        gstreamer1.0-plugins-base \
                        gstreamer1.0-tools \
                        gstreamer1.0-x \
-                       --no-install-recommends && \
-    apt-get install -f && \
-    rm -rf /var/lib/apt/lists/*
+                       --no-install-recommends
 
+RUN apt-get -y install build-essential flex bison gperf ruby perl \
+   libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev \
+   libpng-dev libjpeg-dev python libx11-dev libxext-dev fonts-migmix
+
+RUN rm -f /etc/fonts/local.conf
+COPY docker/phantomjs_font.conf /etc/fonts/local.conf
+
+RUN git clone git://github.com/ariya/phantomjs.git && \
+    cd phantomjs && \
+    git checkout 2.1.1 && \
+    git submodule init && \
+    git submodule update
+
+# chromedriverのインストール
 RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb
 

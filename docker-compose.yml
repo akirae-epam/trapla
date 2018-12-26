@@ -24,6 +24,17 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
+  nginx:
+    image: nginx:1.15.7
+    build: ./docker/nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    volumes:
+      - $PWD:/var/www
+      - ./docker/nginx/nginx_trapla.conf:/etc/nignx/conf.d/trapla.conf
+
 volumes:
   mysql-data:
     driver: local

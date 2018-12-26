@@ -2,6 +2,14 @@
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+
+# スクリーンショット取得
+require 'capybara-screenshot/rspec'
+
+def take_screenshot
+  page.save_screenshot("screenshot-#{Time.zone.now}.png", full: true)
+end
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
