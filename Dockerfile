@@ -42,12 +42,14 @@ RUN git clone git://github.com/ariya/phantomjs.git && \
     git submodule init && \
     git submodule update
 
+WORKDIR $APP_ROOT
+
 # chromedriverのインストール
 RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb
 
-COPY Gemfile $APP_ROOT
-COPY Gemfile.lock $APP_ROOT
+COPY ./Gemfile $APP_ROOT
+COPY ./Gemfile.lock $APP_ROOT
 
 RUN \
   echo 'gem: --no-document' >> ~/.gemrc && \
@@ -58,8 +60,9 @@ RUN \
   bundle install && \
   rm -rf ~/.gem
 
-COPY . $APP_ROOT
-
-WORKDIR $APP_ROOT
+COPY ./ $APP_ROOT
+RUN rm $APP_ROOT/tmp/pids/server.pid
 
 EXPOSE 3000
+
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
