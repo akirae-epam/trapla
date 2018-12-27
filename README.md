@@ -6,27 +6,33 @@ https://trapla.herokuapp.com/
 パスワード：foobar
 
 ## 使い方
+Dockerがインストールされている必要があります。
 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
-その後、次のコマンドで必要になる RubyGems をインストールします。
+
+１．dockerイメージのビルド
 
 ```
-$ bundle install --without production
+$ docker-compose build
 ```
 
-その後、データベースへのマイグレーションを実行します。
+２．dockerイメージの起動
 
 ```
-$ rails db:migrate
+$ docker-compose up -d
 ```
 
-最後に、テストを実行してうまく動いているかどうか確認してください。
+３．データベースの作成とマイグレーション
 
 ```
-$ rails test
+$ docker-compose run --rm app rails db:create
+$ docker-compose run --rm app rails db:migrate
 ```
 
-テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
+４．テスト実行
 
 ```
-$ rails server
+$ docker-compose run --rm app rails test
+$ docker-compose run --rm app rails spec
 ```
+
+以上で、http://0.0.0.0:3000 にアクセスできるはずです。

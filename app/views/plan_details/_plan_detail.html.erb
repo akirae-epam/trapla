@@ -56,11 +56,13 @@
       <%= link_to image_tag('controll_plan_detail/edit_plan_detail.svg'),
                   edit_plan_detail_path(plan_detail, plan_id: plan_detail.plan),
                   class: 'to-plan-detail-edit',
+                  alt: 'プランを編集',
                   remote: true %>
       <%= link_to image_tag('controll_plan_detail/delete_plan_detail.svg'),
                   plan_detail_path(plan_detail, plan_id: plan_detail.plan),
                   method: :delete,
                   class: 'to-plan-detail-delete',
+                  alt: 'プランを削除',
                   data: { confirm: "本当に削除しますか？" }  %>
     </div>
   <% end %>

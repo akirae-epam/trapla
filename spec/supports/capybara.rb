@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
-# set Javascript driver to webkit:
-Capybara.javascript_driver = :webkit
+require 'capybara'
+require 'capybara/rspec'
+require 'capybara/poltergeist' # PhantomJSを使う
+
+Capybara.javascript_driver = :chrome_headless
 
 # Setup chrome headless driver
 Capybara.server = :puma, { Silent: true }
@@ -15,8 +18,6 @@ Capybara.register_driver :chrome_headless do |app|
 
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
-
-Capybara.javascript_driver = :chrome_headless
 
 # Setup rspec
 RSpec.configure do |config|

@@ -61,7 +61,6 @@ RUN \
   rm -rf ~/.gem
 
 COPY ./ $APP_ROOT
-RUN rm $APP_ROOT/tmp/pids/server.pid
 
 EXPOSE 3000
 
