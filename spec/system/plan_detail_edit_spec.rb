@@ -97,11 +97,11 @@ RSpec.describe 'Users', type: :feature, js: true do
 
     execute_script('window.scrollBy(0,10000)') # スクロールさせる
     3.times do |n|
-      expect(find('#output_belongings')).to have_content "belongings_test#{n+1}", count: 0
+      expect(find('#output_belongings')).to have_content "belongings_test#{n + 1}", count: 0
     end
     fill_in 'plan_detail[belongings]', with: "belongings_test1\nbelongings_test2\nbelongings_test3"
     3.times do |n|
-      expect(find('#output_belongings')).to have_content "belongings_test#{n+1}", count: 1
+      expect(find('#output_belongings')).to have_content "belongings_test#{n + 1}", count: 1
     end
   end
 
@@ -138,7 +138,7 @@ RSpec.describe 'Users', type: :feature, js: true do
     execute_script('window.scrollBy(0,10000)') # スクロールさせる
 
     # plan_detailの金額の合計を算出
-    moneys = @plan_detail.payments_moneys.split(',').map{|x| x.to_i}.sum
+    moneys = @plan_detail.payments_moneys.split(',').map(&:to_i).sum
     money_yen = num_to_jpyen(moneys)
     expect(find('#payments_output_total')).to have_content "合計：#{money_yen}", count: 1
 
@@ -156,10 +156,9 @@ RSpec.describe 'Users', type: :feature, js: true do
     expect(find('#payments_output_money')).to have_content '¥12,345,678'
 
     # 合計値にも反映される
-    moneys += 12345678 # 合計値を算出
+    moneys += 12_345_678 # 合計値を算出
     money_yen = num_to_jpyen(moneys)
     expect(find('#payments_output_total')).to have_content "合計：#{money_yen}", count: 1
-
   end
 
   # 編集フォーム：費用削除ボタンで金額が削除され、合計金額に反映される
@@ -171,30 +170,29 @@ RSpec.describe 'Users', type: :feature, js: true do
     execute_script('window.scrollBy(0,30000)') # スクロールさせる
 
     # plan_detailの金額の合計を算出
-    moneys = @plan_detail.payments_moneys.split(',').map{|x| x.to_i}.sum
+    moneys = @plan_detail.payments_moneys.split(',').map(&:to_i).sum
     money_yen = num_to_jpyen(moneys)
     expect(find('#payments_output_total')).to have_content "合計：#{money_yen}", count: 1
 
     # 金額削除ボタンをクリックしたら入力金額が削除される
     items = @plan_detail.payments_items.split(',')
-    moneys = @plan_detail.payments_moneys.split(',').map{|x| x.to_i}
+    moneys = @plan_detail.payments_moneys.split(',').map(&:to_i)
     money_sum = moneys.sum
 
     items.length.times do |n|
       money_yen = num_to_jpyen(moneys[n])
-      expect(find("#plan_detail_payments_item_#{n}")).to have_content "#{items[n]}", count: 1
+      expect(find("#plan_detail_payments_item_#{n}")).to have_content items[n], count: 1
       expect(find("#plan_detail_payments_money_#{n}")).to have_content money_yen, count: 1
 
       # 削除ボタンを押下
       find("#plan_detail_payments_money_#{n} > .delete-money").click
       expect(page).to have_no_css("#plan_detail_payments_item_#{n}")
       expect(page).to have_no_css("#plan_detail_payments_money_#{n}")
+
+      # 合計値にも反映される
       money_sum -= moneys[n]
       money_yen = num_to_jpyen(money_sum)
       expect(find('#payments_output_total')).to have_content "合計：#{money_yen}", count: 1
     end
-
-    # 合計値にも反映される
-    expect(find('#payments_output_total')).to have_content "合計：¥0", count: 1
   end
 end

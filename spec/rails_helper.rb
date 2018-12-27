@@ -7,7 +7,7 @@ require 'spec_helper'
 require 'capybara-screenshot/rspec'
 
 def take_screenshot
-  called_by = caller[0].to_s.gsub(/\/.*\/|\:in.*|\:/,'_')
+  called_by = caller(1..1).first.to_s.gsub(%r{\/.*\/|\:in.*|\:}, '_')
   time_now = Time.zone.now.strftime('%m%d%H%M%S').to_s
   page.save_screenshot("#{time_now}#{called_by}.png")
   puts "screenshot saved as #{time_now}#{called_by}.png"
