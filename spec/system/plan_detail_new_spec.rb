@@ -13,8 +13,7 @@ RSpec.describe 'Users', type: :feature, js: true do
     fill_in 'session[email]', with: 'spec_test@email.com'
     fill_in 'session[password]', with: 'foobar'
     click_button 'ログイン'
-    uri = URI.parse(current_url)
-    expect(uri.path).to eq user_path(@user)
+    expect(current_path).to eq user_path(@user)
   end
 
   # 新規アクティビティの追加

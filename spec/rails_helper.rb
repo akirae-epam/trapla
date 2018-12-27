@@ -13,6 +13,11 @@ def take_screenshot
   puts "screenshot saved as #{time_now}#{called_by}.png"
 end
 
+# 数字を円表記に変換
+def num_to_jpyen(money)
+  return ActionController::Base.helpers.number_to_currency(money, unit: '¥', precision: 0)
+end
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production

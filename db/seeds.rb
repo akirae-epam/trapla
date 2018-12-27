@@ -15,7 +15,7 @@ User.create!(name: 'Test User',
              activated: true,
              activated_at: Time.zone.now)
 
-Faker::Config.locale = :ja
+# Faker::Config.locale = :ja
 99.times do |user_number|
   name  = Faker::Name.unique.name
   email = "example-#{user_number + 1}@railstutorial.org"
