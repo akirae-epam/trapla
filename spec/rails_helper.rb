@@ -7,7 +7,15 @@ require 'spec_helper'
 require 'capybara-screenshot/rspec'
 
 def take_screenshot
-  page.save_screenshot("screenshot-#{Time.zone.now}.png", full: true)
+  called_by = caller[0].to_s.gsub(/\/.*\/|\:in.*|\:/,'_')
+  time_now = Time.zone.now.strftime('%m%d%H%M%S').to_s
+  page.save_screenshot("#{time_now}#{called_by}.png")
+  puts "screenshot saved as #{time_now}#{called_by}.png"
+end
+
+# 数字を円表記に変換
+def num_to_jpyen(money)
+  return ActionController::Base.helpers.number_to_currency(money, unit: '¥', precision: 0)
 end
 
 ENV['RAILS_ENV'] ||= 'test'
