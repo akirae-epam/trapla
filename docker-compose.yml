@@ -36,6 +36,7 @@ services:
       - app
     volumes:
       - $PWD:/etc/nginx/sites-enabled/
+      - $PWD/docker/nginx/nginx.conf:/etc/nignx/nginx.conf
       - $PWD/docker/nginx/nginx_trapla.conf:/etc/nignx/conf.d/trapla.conf
     links:
       - app
