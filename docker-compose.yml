@@ -27,10 +27,6 @@ services:
   nginx:
     image: nginx:1.15.7
     build: ./docker/nginx
-    environment:
-      MYSQL_ROOT_PASSWORD: 'pass'
-      MYSQL_USER: 'user_production'
-      MYSQL_PASSWORD: 'user_password'
     ports:
       - "80:80"
     depends_on:
