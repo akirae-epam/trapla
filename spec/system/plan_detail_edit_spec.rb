@@ -70,11 +70,23 @@ RSpec.describe 'Users', type: :feature, js: true do
     find('.to-plan-detail-edit').click
     expect(find('#plan_detail_date').value).to eq @plan_detail.date.strftime('%Y/%m/%d %H:%M')
     find('.input-group-addon').click
-    expect(page).to have_css '.bootstrap-datetimepicker-widget'
+    expect(page).to have_content('Su', count: 1)
+    expect(page).to have_content('Mo', count: 1)
+    expect(page).to have_content('Tu', count: 1)
+    expect(page).to have_content('We', count: 1)
+    expect(page).to have_content('Th', count: 1)
+    expect(page).to have_content('Fr', count: 1)
+    expect(page).to have_content('Sa', count: 1)
 
     # もう一度クリックすると消える
     find('.input-group-addon').click
-    expect(page).to have_no_css('.bootstrap-datetimepicker-widget')
+    expect(page).to have_content('Su', count: 0)
+    expect(page).to have_content('Mo', count: 0)
+    expect(page).to have_content('Tu', count: 0)
+    expect(page).to have_content('We', count: 0)
+    expect(page).to have_content('Th', count: 0)
+    expect(page).to have_content('Fr', count: 0)
+    expect(page).to have_content('Sa', count: 0)
   end
 
   # 編集フォーム：アクションボタンを押したらチェック状態になりほかはチェック外される
