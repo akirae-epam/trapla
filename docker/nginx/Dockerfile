@@ -1,13 +1,11 @@
 FROM nginx:1.15.7
 
-RUN rm -f /etc/nginx/conf.d/*
+RUN mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bk
+COPY ./nginx_trapla.conf /etc/nginx/conf.d/default.conf
 
-RUN mkdir -p /var/www
-RUN chown -R $USER:$USER /var/www
-
-RUN mkdir -p /var/www/tmp/sockets/
-RUN touch /var/www/tmp/sockets/unicorn.sock
+RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bk
+COPY ./nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
-CMD /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
