@@ -1,6 +1,7 @@
 version: '2'
 services:
   app:
+    container_name: app
     build: .
     environment:
       RAILS_ENV: development
@@ -16,6 +17,7 @@ services:
       - mysql
 
   mysql:
+    container_name: mysql
     image: mysql:5.7.10
     environment:
       MYSQL_ROOT_PASSWORD: 'pass'
@@ -25,6 +27,7 @@ services:
       - mysql-data:/var/lib/mysql
 
   nginx:
+    container_name: nginx
     image: nginx:1.15.7
     build: ./docker/nginx
     environment:
@@ -38,6 +41,9 @@ services:
     volumes:
       - $PWD:/var/www
       - $PWD/docker/nginx/nginx_trapla.conf:/etc/nignx/conf.d/trapla.conf
+      - $PWD/docker/nginx/nginx.conf:/etc/nignx/nginx.conf
+    links:
+      - app
 
 volumes:
   mysql-data:

@@ -8,6 +8,9 @@ RUN chown -R $USER:$USER /var/www
 RUN mkdir -p /var/www/tmp/sockets/
 RUN touch /var/www/tmp/sockets/unicorn.sock
 
+COPY nginx_trapla.conf /etc/nignx/conf.d/trapla.conf
+COPY nginx.conf /etc/nignx/nginx.conf
+
 EXPOSE 80
 
-CMD /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
+CMD ["nginx", "-g", "daemon off;"]
