@@ -7,6 +7,6 @@ class StaticPagesController < ApplicationController
     return unless logged_in?
 
     @user = current_user
-    @plans = Plan.all.paginate(page: params[:page])
+    @plans = @user.feed.paginate(page: params[:page])
   end
 end

@@ -6,6 +6,8 @@ class PlanDetailsController < ApplicationController
 
   def new
     @plan_detail = @plan.plan_details.new
+    @plan_detail.date = @plan.plan_details.last.date
+    @plan_detail.action_type = 'set'
     respond_to do |format|
       format.html { redirect_to edit_plan_path(@plan) }
       format.js

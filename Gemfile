@@ -16,11 +16,11 @@ gem 'mail-iso-2022-jp' # メイラーで送る文章の日本語化
 gem 'mini_magick' # 画像をアップロードする
 gem 'mini_racer'
 gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails' # 入力フォームにdatepickerを使用（時間）
-gem 'mysql2'
-gem 'puma', '3.9.1'
+gem 'mysql2' # データベース
 gem 'rails', '5.2.0'
 gem 'rb-readline'
 gem 'sass-rails', '5.0.6' # bootstrap用
+gem 'spring', '2.0.2' # アプリケーションプリローダ
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.6' # ページネーション
@@ -28,25 +28,36 @@ gem 'will_paginate', '3.1.6' # ページネーション
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
   gem 'pry-rails'
+  gem 'puma', '3.9.1'
+  gem 'rspec-rails'
   gem 'rubocop', require: false
 end
 
 group :development do
   gem 'listen', '3.1.5'
   gem 'scss_lint', require: false
-  gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'web-console',           '3.5.1'
+  gem 'web-console', '3.5.1'
 end
 
 group :test do
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
-  gem 'minitest',                 '5.10.3'
-  gem 'minitest-reporters',       '1.1.14'
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'capybara-webkit'
+  gem 'chromedriver-helper'
+  gem 'database_cleaner' # テストのたびにDBを初期化する
+  gem 'factory_bot_rails'
+  gem 'geckodriver-helper'
+  gem 'guard', '2.13.0'
+  gem 'guard-minitest', '2.4.4'
+  gem 'launchy' # save and openする
+  gem 'minitest', '5.10.3'
+  gem 'minitest-reporters', '1.1.14'
+  gem 'poltergeist' # phantomjs使うための
   gem 'rails-controller-testing', '1.0.2'
+  gem 'selenium-webdriver'
 end
 
 group :production do
-  gem 'pg'
+  gem 'unicorn' # アプリケーションサーバ
 end

@@ -15,8 +15,9 @@ User.create!(name: 'Test User',
              activated: true,
              activated_at: Time.zone.now)
 
+# Faker::Config.locale = :ja
 99.times do |user_number|
-  name  = Faker::Name.name
+  name  = Faker::Name.unique.name
   email = "example-#{user_number + 1}@railstutorial.org"
   password = 'password'
   User.create!(name: name,
@@ -37,7 +38,7 @@ followers.each { |follower| follower.follow(user) }
 
 # 10種類のプランを作成
 10.times do
-  title = Faker::Lorem.sentence(1)
+  title = Faker::Address.state
   content = Faker::Lorem.sentence(10)
   # 5人のユーザひとりひとりに作成
   (1..5).each do |plan_user_number|

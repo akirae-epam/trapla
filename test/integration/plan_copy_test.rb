@@ -43,7 +43,6 @@ class PlanCopyTest < ActionDispatch::IntegrationTest
     @copied_plan = assigns(:plan)
     assert_equal @plan.plan_details.count, @copied_plan.plan_details.count
     assert_equal @plan.plan_details.first.date, @copied_plan.plan_details.first.date
-    assert_equal @plan.plan_details.last.date, @copied_plan.plan_details.last.date
   end
 
   test 'base plan should not be changed after copied' do
@@ -53,6 +52,5 @@ class PlanCopyTest < ActionDispatch::IntegrationTest
     assert_equal before_plan.title, @plan.reload.title
     assert_equal before_plan.content, @plan.reload.content
     assert_equal before_plan.plan_details.first.date, @plan.plan_details.first.date
-    assert_equal before_plan.plan_details.last.date, @plan.plan_details.last.date
   end
 end
