@@ -1,12 +1,12 @@
 # Trapla
 旅行計画を作成するWebアプリケーションです。
 サンプルは以下URLで確認できます。
-https://trapla.herokuapp.com/
-アカウント：test@railstutorial.org
+http://13.228.52.57
+テストユーザアカウント：test-user
 パスワード：foobar
 
 ## 使い方
-Dockerがインストールされている必要があります。
+Docker, Docker-composeがインストールされている必要があります。
 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
 
 １．dockerイメージのビルド
