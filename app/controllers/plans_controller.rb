@@ -8,7 +8,7 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
-    @plan_details = @plan.plan_details
+    @plan_details = @plan.plan_details.order(:date)
     plan_belongings_payments(@plan)
   end
 
@@ -28,7 +28,7 @@ class PlansController < ApplicationController
 
   def edit
     @plan = current_user.plans.find_by(id: params[:id])
-    @plan_details = @plan.plan_details
+    @plan_details = @plan.plan_details.order(:date)
     plan_belongings_payments(@plan)
   end
 

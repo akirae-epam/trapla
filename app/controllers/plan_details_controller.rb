@@ -5,7 +5,10 @@ class PlanDetailsController < ApplicationController
   before_action :load_plan_detail, only: %i[destroy edit update]
 
   def new
-    @plan_detail = @plan.plan_details.new
+    date = @plan.plan_details.order(:date).last.nil? ? Time.zone.now : @plan.plan_details.order(:date).last.date
+    @plan_detail = @plan.plan_details.new(date:  date,
+                                          place: '駅名や集合場所など',
+                                          action_type: 'set')
     @plan_detail.date = @plan.plan_details.last.date
     @plan_detail.action_type = 'set'
     respond_to do |format|
@@ -21,7 +24,10 @@ class PlanDetailsController < ApplicationController
       @plan_details = @plan.plan_details.reload
       redirect_to edit_plan_path(@plan)
     else
-      render 'plans/edit'
+      respond_to do |format|
+        format.html { redirect_to edit_plan_path(@plan) }
+        format.js
+      end
     end
   end
 

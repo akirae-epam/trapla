@@ -11,51 +11,6 @@ class PlanDetailCreateTest < ActionDispatch::IntegrationTest
     @valid_date = Time.zone.now
   end
 
-  # ログインしていないとPlanDetail作成できない
-  test 'Plan_detail create should failed without login' do
-    assert_no_difference 'PlanDetail.count' do
-      post plan_details_path, params: { plan_id: @plan.id,
-                                        plan_detail: {
-                                          date: @valid_date,
-                                          place: 'valid place',
-                                          action_type: 'walk',
-                                          action_memo: 'valid memo'
-                                        } }
-    end
-  end
-
-  # ログインしても他人のPlanDetailは作成できない
-  test 'Plan_detail owned by another create should fail' do
-    log_in_as(@user)
-    assert_no_difference 'PlanDetail.count' do
-      post plan_details_path, params: { plan_id: @other_plan.id,
-                                        plan_detail: {
-                                          date: @valid_date,
-                                          place: 'valid place',
-                                          action_type: 'walk',
-                                          action_memo: 'valid memo'
-                                        } }
-    end
-    assert_redirected_to root_url
-  end
-
-  # ログインしたら自分のPlanDetailが作成できる
-  test 'Plan_detail create should success with login' do
-    log_in_as(@user)
-    get edit_plan_path(@plan)
-    assert_template 'plans/edit'
-    assert_difference 'PlanDetail.count', 1 do
-      post plan_details_path, params: { plan_id: @plan.id,
-                                        plan_detail: {
-                                          date: @valid_date,
-                                          place: 'valid place',
-                                          action_type: 'walk',
-                                          action_memo: 'valid memo'
-                                        } }
-    end
-    assert_redirected_to edit_plan_path(@plan)
-  end
-
   # PlanDetail作成したら画面に追加される
   test 'Plan_detail should count up after create' do
     log_in_as(@user)

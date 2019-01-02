@@ -1,6 +1,6 @@
 <div class="plan-details">
   <div class="plan-details-left">
-    <% @plan_details.order(:date).each do |plan_detail| %>
+    <% @plan_details.each do |plan_detail| %>
       <%= render 'plan_details/plan_detail',
                  plan_detail: plan_detail %>
     <% end %>

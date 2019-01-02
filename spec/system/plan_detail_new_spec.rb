@@ -60,4 +60,20 @@ RSpec.describe 'Users', type: :feature, js: true do
     expect(page).to have_content '13:00'
     expect(page).to have_content '徒歩'
   end
+
+  # 不正な値では作成できない
+  it 'create new plan_detail' do
+    visit edit_plan_path(@plan)
+    find('#add-plan-detail-button').click
+    expect(page).to have_content 'アクティビティの追加'
+
+    page.execute_script("$('#plan_detail_date').val('')")
+    fill_in 'plan_detail[place]', with: ''
+
+    click_button 'アクティビティを保存する'
+    expect(page).to have_content 'アクティビティの追加'
+
+    execute_script('window.scrollBy(0,-5000)') # スクロールさせる
+    expect(page).to have_content 'The form contains 2 errors.'
+  end
 end
