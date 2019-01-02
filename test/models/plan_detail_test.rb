@@ -28,16 +28,16 @@ class PlanDetailTest < ActiveSupport::TestCase
     assert_not @plan_detail.errors.messages[:date].empty?
   end
 
+  test 'place should not be blank' do
+    @plan_detail.place = ''
+    assert_not @plan_detail.valid?
+    assert_not @plan_detail.errors.messages[:place].empty?
+  end
+
   test 'plan id should be present' do
     @plan_detail.plan = nil
     assert_not @plan_detail.valid?
     assert_not @plan_detail.errors.messages[:plan].empty?
-  end
-
-  test 'place should be present' do
-    @plan_detail.place = ''
-    assert_not @plan_detail.valid?
-    assert_not @plan_detail.errors.messages[:place].empty?
   end
 
   test 'place should be at most 50 characters' do

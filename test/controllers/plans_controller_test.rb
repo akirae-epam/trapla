@@ -9,7 +9,7 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
   end
 
   # ログインしていないとPlan作成できない
-  test 'should redirect create when not logged in' do
+  test 'create should redirect login when not logged in' do
     assert_no_difference 'Plan.count' do
       post plans_path, params: { Plan: { title: 'title test',
                                          content: 'content test' } }
@@ -18,7 +18,7 @@ class PlansControllerTest < ActionDispatch::IntegrationTest
   end
 
   # ログインしていないとPlan削除できない
-  test 'should redirect destroy when not logged in' do
+  test 'destroy hould redirect login when not logged in' do
     assert_no_difference 'Plan.count' do
       delete plan_path(@plan)
     end
