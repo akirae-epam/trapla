@@ -133,6 +133,9 @@ $(function(){
     $('#plan_detail_payments_moneys').val(dbMoney);
 
     jQuery.moneySum(dbMoney); //合計値を描写
+
+    $('#plan_detail_payment_item').val('');
+    $('#plan_detail_payment_money').val('');
   });
 
   // 費用を削除ボタンを押したら費用を削除する
