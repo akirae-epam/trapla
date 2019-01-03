@@ -1,10 +1,10 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  host: <%= ENV['DB_HOST'] || 'localhost' %>
+  host: <%= ENV['DB_HOST'] || 'db' %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   port: 3306
-  url: <%= ENV['DATABASE_URL'] %>
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default

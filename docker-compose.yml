@@ -1,46 +1,53 @@
 version: '2'
 services:
-  app:
-    container_name: app
-    build: .
+  datastore:
+    image: busybox
+    volumes:
+      - /share
+      - ./docker/mysql/volumes:/var/lib/mysql
+
+  server:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - '80:80'
+    volumes_from:
+      - datastore
+    depends_on:
+      - datastore
+
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/rails/Dockerfile
+    command: bundle exec unicorn -p 3000 -c /app/config/unicorn.rb
     environment:
       RAILS_ENV: development
-      DATABASE_URL: mysql2://root:pass@mysql:3306
       DATABASE_CLEANER_ALLOW_PRODUCTION: 'true'
       DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: 'true'
-      MYSQL_ROOT_PASSWORD: 'pass'
     ports:
       - '3000:3000'
     volumes:
-      - $PWD:/usr/src/appdir
+      - .:/app
+    volumes_from:
+      - datastore
+    depends_on:
+      - db
     links:
-      - mysql
+      - db
+      - db:database
+      - db:mysql
 
-  mysql:
-    container_name: mysql
-    image: mysql:5.7.10
-    environment:
-      MYSQL_ROOT_PASSWORD: 'pass'
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
     ports:
       - '3306:3306'
-    volumes:
-      - mysql-data:/var/lib/mysql
-
-  nginx:
-    container_name: nginx
-    image: nginx:1.15.7
-    build: ./docker/nginx
-    ports:
-      - "80:80"
+    volumes_from:
+      - datastore
     depends_on:
-      - app
-    volumes:
-      - $PWD:/etc/nginx/sites-enabled/
-      - $PWD/docker/nginx/nginx.conf:/etc/nignx/nginx.conf
-      - $PWD/docker/nginx/nginx_trapla.conf:/etc/nignx/conf.d/trapla.conf
-    links:
-      - app
-
-volumes:
-  mysql-data:
-    driver: local
+      - datastore
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'

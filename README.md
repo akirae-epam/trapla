@@ -1,38 +1,24 @@
-# Trapla
-旅行計画を作成するWebアプリケーションです。
-サンプルは以下URLで確認できます。
-http://13.228.52.57
-テストユーザアカウント：test-user
-パスワード：foobar
+# README
 
-## 使い方
-Docker, Docker-composeがインストールされている必要があります。
-このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-１．dockerイメージのビルド
+Things you may want to cover:
 
-```
-$ docker-compose build
-```
+* Ruby version
 
-２．dockerイメージの起動
+* System dependencies
 
-```
-$ docker-compose up -d
-```
+* Configuration
 
-３．データベースの作成とマイグレーション
+* Database creation
 
-```
-$ docker-compose run --rm app rails db:create
-$ docker-compose run --rm app rails db:migrate
-```
+* Database initialization
 
-４．テスト実行
+* How to run the test suite
 
-```
-$ docker-compose run --rm app rails test
-$ docker-compose run --rm app rails spec
-```
+* Services (job queues, cache servers, search engines, etc.)
 
-以上で、http://0.0.0.0:3000 にアクセスできるはずです。
+* Deployment instructions
+
+* ...
