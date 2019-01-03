@@ -51,7 +51,7 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run mini tests!
+      # run mini tests
       - run:
           name: run tests
           command: |

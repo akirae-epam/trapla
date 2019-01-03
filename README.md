@@ -5,31 +5,23 @@ http://13.228.52.57
 テスト用ログインメールアドレス：testuser@test.mail
 パスワード：foobar
 
-## 使い方
-Docker, Docker-composeがインストールされている必要があります。
-このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
+# 使い方
+Docker, Docker-composeがインストールされている必要があります。 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
 
-１．dockerイメージのビルド
+## １．dockerイメージのビルド
+`$ docker-compose build`
+※PhamtomJSのインストールに長時間かかります。
 
+## ２．dockerイメージの起動
+`$ docker-compose up -d`
+
+## ３．データベースの作成とマイグレーション
 ```
-$ docker-compose build
-```
-
-２．dockerイメージの起動
-
-```
-$ docker-compose up -d
-```
-
-３．データベースの作成とマイグレーション
-
-```
-$ docker-compose run --rm app rails db:create
-$ docker-compose run --rm app rails db:migrate
+$ docker-compose run --rm web rails db:create
+$ docker-compose run --rm web rails db:migrate
 ```
 
-４．テスト実行
-
+## ４．テスト実行
 ```
 $ docker-compose run --rm app rails test
 $ docker-compose run --rm app rails spec
