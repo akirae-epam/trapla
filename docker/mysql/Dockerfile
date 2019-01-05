@@ -10,3 +10,4 @@ ENV LC_ALL ja_JP.UTF-8
 ADD ./docker/mysql/charset.cnf /etc/mysql/conf.d/charset.cnf
 
 COPY ./docker/mysql/makeuser.sql /docker-entrypoint-initdb.d/makeuser.sql
+COPY ./docker/mysql/my.cnf /etc/my.cnf 
