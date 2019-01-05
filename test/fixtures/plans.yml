@@ -1,6 +1,6 @@
 one:
   title: "one title"
-  content: "I just ate an orange!"
+  content: "I just ate an orange!. search test"
   created_at: <%= 10.minutes.ago %>
   user: michael
 
@@ -11,7 +11,7 @@ two:
   user: michael
 
 three:
-  title: "three title"
+  title: "three title. search test"
   content: "Just I wanna be fun"
   created_at: <%= 2.hours.ago %>
   user: michael

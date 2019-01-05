@@ -1,13 +1,23 @@
 <header>
-  <%= link_to "Trapla", root_path, class:"logo" %>
-  <nav>
-    <ul>
-      <% if logged_in? %>
-        <li><%= link_to content_tag(:i, '', class: 'fas fa-plus'), new_plan_path %></li>
-        <li><%= link_to content_tag(:i, '', class: 'fas fa-user'), @current_user %></li>
-        <li><%= link_to content_tag(:i, '', class: 'fas fa-cog'), edit_user_path(@current_user) %></li>
-        <li><%= link_to content_tag(:i, '', class: 'fas fa-sign-out-alt'), logout_path, method: :delete %></li>
+  <div class='topmenu-logo'>
+    <%= link_to "Trapla", root_path, class:"logo" %>
+  </div>
+  <% if logged_in? %>
+    <div class='topmenu-search'>
+      <%= form_tag search_plans_path, url: {controller: :plans, action: :search } do %>
+        <%= text_field_tag :keyword, params[:keyword], class: 'search-input' %>
+        <%= submit_tag '', class: 'search-btn' %>
       <% end %>
-    </ul>
-  </nav>
+    </div>
+    <div class='topmenu-nav'>
+      <nav>
+        <ul>
+            <li><%= link_to content_tag(:i, '', class: 'fas fa-plus'), new_plan_path %></li>
+            <li><%= link_to content_tag(:i, '', class: 'fas fa-user'), @current_user %></li>
+            <li><%= link_to content_tag(:i, '', class: 'fas fa-cog'), edit_user_path(@current_user) %></li>
+            <li><%= link_to content_tag(:i, '', class: 'fas fa-sign-out-alt'), logout_path, method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
+  <% end %>
 </header>

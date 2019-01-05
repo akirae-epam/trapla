@@ -49,10 +49,34 @@ header {
   top: 0;
   width: 70%;
 
+  @media screen and (min-width: 730px) {
+    > div {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .topmenu-logo {
+      width: 10%;
+    }
+
+    .topmenu-nav {
+      width: 20%;
+    }
+
+  }
+
+  @media screen and (max-width: 730px) {
+    > div {
+      display: block;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+
   .logo {
     float: left;
     font-size: 1.7em;
-    margin-top: 5px;
   }
 
   a { color: #eee; }
@@ -66,9 +90,39 @@ header {
     font-size: 25px;
   }
 
+  form {
+    display: inline;
+  }
+
+  .search-input {
+    border: 0;
+    border-radius: 15px;
+    font-size: 1em;
+    height: 30px;
+    margin-right: 0;
+    padding-left: 10px;
+    vertical-align: middle;
+    width: 70%;
+  }
+
+  .search-btn {
+    background-color: #000;
+    background-image: image-url('search.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 23px;
+    border: solid 1px #fff;
+    border-radius: 20px;
+    height: 30px;
+    margin-left: 5px;
+    vertical-align: middle;
+    width: 50px;
+  }
+
   nav {
 
     ul {
+      display: inline;
       list-style: none;
       margin: 0;
       text-align: right;
