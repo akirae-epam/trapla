@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
 
   # PlansController
-  resources :plans, except: %i[index]
+  resources :plans, except: %i[index] do
+    post 'search', on: :collection
+  end
   get '/plans/:id/copy', to: 'plans#copy', as: 'copy_plan'
 
   # PlanDetailsController

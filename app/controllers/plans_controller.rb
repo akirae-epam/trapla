@@ -69,6 +69,19 @@ class PlansController < ApplicationController
     redirect_to(edit_plan_path(@plan))
   end
 
+  def search
+    @user = current_user
+    keyword = params[:keyword]
+    @plans = if keyword == ''
+               Plan.all.paginate(page: params[:page])
+             else
+               Plan.where('title LIKE ? OR content LIKE ?',
+                          "%#{keyword}%",
+                          "%#{keyword}%").paginate(page: params[:page])
+             end
+    render 'static_pages/home'
+  end
+
   private
 
   def plan_params

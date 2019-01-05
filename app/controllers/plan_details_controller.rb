@@ -5,8 +5,9 @@ class PlanDetailsController < ApplicationController
   before_action :load_plan_detail, only: %i[destroy edit update]
 
   def new
-    date = @plan.plan_details.order(:date).last.nil? ? Time.zone.now : @plan.plan_details.order(:date).last.date
-    @plan_detail = @plan.plan_details.new(date:  date,
+    date = @plan.plan_details.order(:date).last.nil? ? Time.zone.now :
+                                                       @plan.plan_details.order(:date).last.date
+    @plan_detail = @plan.plan_details.new(date: date,
                                           place: '駅名や集合場所など',
                                           action_type: 'set')
     @plan_detail.date = @plan.plan_details.last.date
