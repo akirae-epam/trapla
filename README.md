@@ -1,5 +1,7 @@
 # Trapla
 旅行計画を作成するWebアプリケーションです。
+[詳細情報をQiitaにアップロードしています。](https://qiita.com/kitsunecat/items/c2568a6a9980a5931d22)
+
 サンプルは以下URLで確認できます。
 
 http://13.228.52.57
